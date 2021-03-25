@@ -7,7 +7,7 @@ class Migrate extends CI_Controller
         function new($file){
                 $this->load->helper('file');
                 $data = "<?php defined('BASEPATH') OR exit('No direct script access allowed');
-                                class Migration_Add_organisation extends CI_Migration {
+                                class Migration_".$file." extends CI_Migration {
 
                                 public function up(){
                                         \$this->dbforge->add_field(array(
