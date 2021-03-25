@@ -1,13 +1,7 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * 
- */
-	class Migration_Add_organisation extends CI_Migration {
-
-        public function up()
-        {
+class Migration_add_organization extends CI_Migration {
+        public function up(){
                 $this->dbforge->add_field(array(
                         'id' => array(
                                 'type' => 'INT',
@@ -15,8 +9,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         ),
                         'orgid' => array(
                                 'type' => 'INT',
-                                'constraint'=>'10'
-                                'unique'=>TRUE
+                                'constraint'=>'10',
+                                'unique'=>TRUE,
                         ),
                         'contactpersonname' => array(
                                 'type' => 'VARCHAR',
@@ -64,18 +58,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         'createddate' => array(
                                 'type' => 'DATETIME',
                                 'default'=>date('Y-m-d H:i:s'),
-                                
                         ),
                         
                 ));     
                 $this->dbforge->add_key('id', TRUE);
-                $this->dbforge->create_table('department');
+                $this->dbforge->create_table('organization');
         }
 
-        public function down()
-        {
-                $this->dbforge->drop_table('department');
-        }       
-}
-
-?>
+        public function down(){
+                $this->dbforge->drop_table('organization');
+        }
+}?>

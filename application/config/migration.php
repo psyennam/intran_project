@@ -29,7 +29,7 @@ $config['migration_enabled'] = TRUE;
 |       defaults to 'sequential' for backward compatibility with CI2.
 |
 */
-$config['migration_type'] = 'sequential';
+$config['migration_type'] = 'timestamp';
 
 /*
 |--------------------------------------------------------------------------
@@ -69,11 +69,15 @@ $config['migration_auto_latest'] = TRUE;
 | be upgraded / downgraded to.
 |
 */
-<<<<<<< HEAD
-$config['migration_version'] = 4;
-=======
-$config['migration_version'] = 3;
->>>>>>> e4b6f2b9a5edf11abd4b60d1c13f303285e56150
+// $config['migration_version'] = 4;
+
+// $config['migration_version'] = 3;
+
+
+
+$config['migration_version'] = 20210325191747;
+
+
 
 /*
 |--------------------------------------------------------------------------

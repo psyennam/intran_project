@@ -3,7 +3,6 @@
 
 class Migrate extends CI_Controller
 {
-
         function new($file){
                 $this->load->helper('file');
                 $data = "<?php defined('BASEPATH') OR exit('No direct script access allowed');
@@ -47,7 +46,7 @@ class Migrate extends CI_Controller
                                 }
                         }?>";
                 
-                if ( ! write_file(APPPATH.'/migrations/'.time().'_'.$file.'.php', $data))
+                if ( ! write_file(APPPATH.'/migrations/'.date('YmdHis').'_'.$file.'.php', $data))
                 {
                         echo 'Unable to write the file';
                 }
