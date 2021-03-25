@@ -41,9 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         'createddate' => array(
                                 'type' => 'DATETIME',
                                 'default'=>date('Y-m-d H:i:s'),
-                        ),
-                        
-                        
+                        ),                 
                 ));     
                 $this->dbforge->add_key('id', TRUE);
                 $this->dbforge->create_table('department');
