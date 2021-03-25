@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * 
  */
-	class Migration_Add_department extends CI_Migration {
+	class Migration_Add_organisation extends CI_Migration {
 
         public function up()
         {
@@ -13,37 +13,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 'type' => 'INT',
                                 'auto_increment' => TRUE
                         ),
-                        'departmentname' => array(
+                        'orgid' => array(
+                                'type' => 'INT',
+                                'constraint'=>'10'
+                                'unique'=>TRUE
+                        ),
+                        'contactpersonname' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'departmentcode' => array(
+                        'contactpersonemailid' => array(
                                 'type' => 'VARCHAR',
-                                'constraint' => '10',
-                                 'unique'=>TRUE
+                                'constraint' => '50',
                         ),
-                        'clientid' => array(
-                                'type' => 'VARCHAR',
+                        'contactpersonmobileno' => array(
+                                'type' => 'bigint',
                                 'constraint' => '10',
                         ),
-                        'branchid' => array(
-                                'type' => 'VARCHAR',
+                        'contactpersonemergencycontactno' => array(
+                                'type' => 'bigint',
                                 'constraint' => '10',
+                        ),
+                        'noofbranches' => array(
+                                'type' => 'int',
+                        ),
+                        'status' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '15',
+                                'default'=>"Active"
                         ),
                         'ipaddress' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '20',
                         ),
-                        'status' => array(
+                        'regdate' => array(
+                                'type' => 'date',
+                                'default' => date('Y-m-d'),
+                        ),
+                        'validity' => array(
+                                'type' => 'date',
+                        ),
+                        'logo' => array(
                                 'type' => 'VARCHAR',
-                                'constraint' => '10',
+                                'constraint'=>'300',
+                        ),
+                        'url' => array(
+                                'type' => 'VARCHAR',
+                                'constraint'=>'300',
                         ),
                         'createddate' => array(
                                 'type' => 'DATETIME',
                                 'default'=>date('Y-m-d H:i:s'),
                                 
                         ),
-                        
                         
                 ));     
                 $this->dbforge->add_key('id', TRUE);
