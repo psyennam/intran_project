@@ -43,7 +43,7 @@ class Userpanel extends CI_controller
 			else
 			{
 				//return false;
-				echo "failed";
+				echo "failedjhhjvh";
 			}
 		}
 	}
