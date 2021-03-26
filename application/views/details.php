@@ -66,8 +66,8 @@
 		<td><?php echo $key->url; ?></td>	
 		<td><?php echo $key->created_at; ?></td>
 		<td><?php echo $key->ip_address; ?></td>	
-		<td><a href="updatedata?id=<?php echo $key->org_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
-		<td><a href="deletedata?id=<?php echo $key->id;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
+		<td><a href="updatedata?org_code=<?php echo $key->org_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
+		<td><a href="deletedata?org_code=<?php echo $key->org_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
 	</tr>	
 	<?php
 	}

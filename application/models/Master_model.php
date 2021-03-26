@@ -120,18 +120,18 @@ class Master_model extends CI_Model
 	{
 		$ip=$this->input->ip_address();
 		 $data=[
-			'clientname'=>$this->input->post('ClientName'),
+			'org_name'=>$this->input->post('ClientName'),
 			'address'=>$this->input->post('Address'),
-		    'contactpersonname'=>$this->input->post('ContactPersonName'),
-			'contactpersonemailid'=>$this->input->post('ContactPersonEmailId'),
-			'contactpersonmobileno'=>$this->input->post('ContactPersonMobileNo'),
-			'contactpersonemergencycontactno'=>$this->input->post('ContactPersonEmergencyNo'),
-			'noofbranches'=>$this->input->post('NoofBranches'),
+		    'client_name'=>$this->input->post('ContactPersonName'),
+			'client_email'=>$this->input->post('ContactPersonEmailId'),
+			'client_mobileno'=>$this->input->post('ContactPersonMobileNo'),
+			'emergency_contact'=>$this->input->post('ContactPersonEmergencyNo'),
+			'no_branch'=>$this->input->post('NoofBranches'),
 			'status'=>$this->input->post('statuscombo'),
 			'regdate'=>$this->input->post('RegistrationDate'),
 			'validity'=>$this->input->post('ValidityDate'),
 			'url'=>$this->input->post('Url'),
-			'ipaddress'=>$ip
+			'ip_address'=>$ip
 		];
 		
 		$this->db->trans_start();

@@ -14,7 +14,7 @@
             <div class="row">
               <div class="col-sm-12 col-md-4 col-lg-4">
                 <label>Client Name</label>
-                <input type="text" class="form-control" placeholder="Enter Client Name" name="ClientName" value="<?php echo $key->clientname;?>">
+                <input type="text" class="form-control" placeholder="Enter Client Name" name="ClientName" value="<?php echo $key->org_name;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>Address</label>
@@ -22,23 +22,23 @@
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>ContactPersonName</label>
-                <input type="text" class="form-control" placeholder="Enter Contact PersonName" name="ContactPersonName" value="<?php echo $key->contactpersonname;?>">
+                <input type="text" class="form-control" placeholder="Enter Contact PersonName" name="ContactPersonName" value="<?php echo $key->client_name;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>ContactPersonEmailId</label>
-                <input type="text" class="form-control" placeholder="Enter ContactPersonEmailId" name="ContactPersonEmailId" value="<?php echo $key->contactpersonemailid;?>">
+                <input type="text" class="form-control" placeholder="Enter ContactPersonEmailId" name="ContactPersonEmailId" value="<?php echo $key->client_email;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>ContactPersonMobileNo</label>
-                <input type="text" class="form-control" placeholder="Enter ContactPersonMobileNo" name="ContactPersonMobileNo" value="<?php echo $key->contactpersonmobileno;?>">
+                <input type="text" class="form-control" placeholder="Enter ContactPersonMobileNo" name="ContactPersonMobileNo" value="<?php echo $key->client_mobileno;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>ContactPersonEmergencyNo</label>
-                <input type="text" class="form-control" placeholder="Enter ContactPersonEmergencyNo" name="ContactPersonEmergencyNo" value="<?php echo $key->contactpersonemergencycontactno;?>">
+                <input type="text" class="form-control" placeholder="Enter ContactPersonEmergencyNo" name="ContactPersonEmergencyNo" value="<?php echo $key->emergency_contact;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>NoofBranches</label>
-                <input type="text" class="form-control" placeholder="Enter NoofBranches" name="NoofBranches" value="<?php echo $key->noofbranches;?>">
+                <input type="text" class="form-control" placeholder="Enter NoofBranches" name="NoofBranches" value="<?php echo $key->no_branch;?>">
               </div>
 
               <div class="col-sm-12 col-md-12 col-lg-4">
@@ -57,9 +57,8 @@
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>Status</label>
                 <select class="form-control" name="statuscombo">
-                  <option value="active" <?php if($key->status == "active") {echo "selected";} ?>>Active</option>
-                  <option value="hold" <?php if($key->status == "hold") {echo "selected";} ?>>Hold</option>
-                  <option value="terminate" <?php if($key->status == "terminate") {echo "selected";} ?>>Terminate</option>
+                  <option value="0" <?php if($key->status == "0") {echo "selected";} ?>>Active</option>
+                  <option value="1" <?php if($key->status == "1") {echo "selected";} ?>>Inactive</option>
                 </select>
               </div>
              

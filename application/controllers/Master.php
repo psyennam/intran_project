@@ -76,7 +76,7 @@ class Master extends CI_controller
 	**/
 	function updatedata()
 	{
-		$id=$this->input->get('id');
+		$id=$this->input->get('org_code');
 		$data['row']=$this->Master_model->databyid($id);
 		$data['header']='components/header';
 		$data['nav']='components/nav';

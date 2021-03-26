@@ -20,7 +20,7 @@
           <div class="box">
             <div class="box-header">
               <!-- Form Start  -->
-        <form action="/MasterDasboard/Userpanel/roleinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+        <form action="/intran_project/Userpanel/roleinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
           		<!-- Modal Start  -->
               	<div class="modal fade" id="mymodel">
@@ -80,15 +80,15 @@
 	?>
 	<tr>
 		<td><?php echo $key->id;?></td>
-		<td><?php echo $key->rolename; ?></td>	
-		<td><?php echo $key->rolecode; ?></td>	
-		<td><?php echo $key->clientid;?></td>	
-		<td><?php echo $key->branchid; ?></td>	
-		<td><?php echo $key->createddate; ?></td>	
+		<td><?php echo $key->role; ?></td>	
+		<td><?php echo $key->role_code; ?></td>	
+		<td><?php echo $key->org_code;?></td>	
+		<td><?php echo $key->created_at; ?></td>	
+		<td><?php echo $key->ip_address; ?></td>	
 		<td><?php echo $key->status; ?></td>	
-		<td><?php echo $key->ipaddress; ?></td>	
-		<td><a href="updaterole?id=<?php echo $key->rolecode;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel">UPDATE</button></a></td>
-		<td><a href="deleterole?id=<?php echo $key->rolecode;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
+		<td><?php echo $key->branch_code; ?></td>	
+		<td><a href="updaterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel">UPDATE</button></a></td>
+		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
 	</tr>	
 	<?php
 	}

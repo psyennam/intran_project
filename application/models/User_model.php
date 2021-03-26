@@ -15,17 +15,17 @@ class User_model extends CI_model
 	**/
 	function login()
 	{
-		$user=$this->db->select('*')->where(['clientid'=>$this->input->post('ClientID'),'password'=>$this->input->post('password'),'status'=>'active'])->get('user');
+		$user=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID'),'password'=>$this->input->post('password')])->get('user');
 		if($user->num_rows()>0)
 		{
-			$org=$this->db->select('*')->where(['orgid'=>$this->input->post('ClientID')])->get('organsation');
+			$org=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID')])->get('organization');
 			$org_tbl=$org->row();
 			$usertb_data=$user->row();
 			$arr=[
 				'id'=>$usertb_data->id,
-				'clientid'=>$usertb_data->clientid,
+				'clientid'=>$usertb_data->org_code,
 				'role'=>$usertb_data->role,
-				'clientname'=>$org_tbl->clientname
+				'clientname'=>$org_tbl->client_name
 			];
 			$this->session->set_userdata($arr);
 			return true;
@@ -45,7 +45,7 @@ class User_model extends CI_model
 	function check()
 	{
 
-		$flag=$this->db->where(['clientid'=>$this->session->userdata('clientid'),'passwordflag'=>0])->get('user');
+		$flag=$this->db->where(['org_code'=>$this->session->userdata('clientid'),'status'=>0])->get('user');
 		if($flag->num_rows()>0)
 		{	
 			return true;
@@ -63,9 +63,9 @@ class User_model extends CI_model
 	{
 		$data=[
 			'password'=>$this->input->post('password'),
-			'passwordflag'=>1
+			'status'=>1
 		];
-		$this->db->where('clientid',$this->session->userdata('clientid'));
+		$this->db->where('org_code',$this->session->userdata('clientid'));
 		$res=$this->db->update('user',$data);
 		return $res;
 	}
@@ -82,12 +82,12 @@ class User_model extends CI_model
 		$randomid=random_string('alnum',10);
 		$ip=$this->input->ip_address();
 		$data=[
-				'id'=>$this->input->post('NULL'),
-				'rolename'=>$this->input->post('RoleName'),
-				'rolecode'=>$randomid,
-				'clientid'=>$this->session->userdata('clientid'),
-				'status'=>'active',
-				'ipaddress'=>$ip
+				'role'=>$this->input->post('RoleName'),
+				'role_code'=>$randomid,
+				'org_code'=>$this->session->userdata('clientid'),
+				'created_at'=>date('y-m-d H:i:s'),
+				'ip_address'=>$ip,
+				'status'=>1
 			];
 		$this->db->trans_start();
 		if($this->db->insert('role',$data)) 
