@@ -8,7 +8,7 @@ class Migration_add_organization extends CI_Migration {
                                 'auto_increment' => TRUE
                         ),
                         'org_code' => array(
-                                'type' => 'INT',
+                                'type' => 'VARCHAR',
                                 'constraint'=>'10',
                                 'unique'=>TRUE,
                         ),
