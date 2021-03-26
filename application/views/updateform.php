@@ -57,8 +57,9 @@
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>Status</label>
                 <select class="form-control" name="statuscombo">
-                  <option value="0" <?php if($key->status == "0") {echo "selected";} ?>>Active</option>
-                  <option value="1" <?php if($key->status == "1") {echo "selected";} ?>>Inactive</option>
+                  <option value="Active" <?php if($key->status == "Active") {echo "selected";} ?>>Active</option>
+                  <option value="Hold" <?php if($key->status == "Hold") {echo "selected";} ?>>Hold</option>
+                  <option value="Terminated" <?php if($key->status == "Terminated") {echo "selected";} ?>>Terminated</option>
                 </select>
               </div>
              

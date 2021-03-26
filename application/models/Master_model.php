@@ -59,7 +59,7 @@ class Master_model extends CI_Model
 				'org_code'=>$randomid,
 				'username'=>$randomid,
 				'password'=>$randomid,
-				'status'=>'active',
+				'status'=>'Active',
 				'ip_address'=>$ip
 			];
 			if($this->db->insert('user',$user_data))
@@ -92,11 +92,11 @@ class Master_model extends CI_Model
 	function deletedata($id)
 	{
 		
-			$data=$this->db->select('org_code')->where('id',$id)->get('organization');
+			$data=$this->db->select('org_code')->where('org_code',$id)->get('organization');
 			if($data->num_rows()>0)
 			{
 				$user=[
-						'status'=>'terminate'
+						'status'=>'Terminated'
 						];
 				$id=$data->row();
 				$this->db->where('org_code',$id->org_code);	
@@ -104,7 +104,7 @@ class Master_model extends CI_Model
 				if($res>0)
 				{
 					$user=[
-						'status'=>'terminate'
+						'status'=>'1'
 						];
 					$this->db->where('org_code',$id->org_code);	
 					$user=$this->db->update('user',$user);
