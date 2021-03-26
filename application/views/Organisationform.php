@@ -10,7 +10,7 @@
           <form id="formone" class="form-group" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-sm-12 col-md-4 col-lg-4">
-                <label>Client Name</label>
+                <label>Organization Name</label>
                 <input type="text" class="form-control" placeholder="Enter Client Name" name="ClientName">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
@@ -18,24 +18,24 @@
                 <input type="text" class="form-control" placeholder="Enter your Address" name="Address">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
-                <label>ContactPersonName</label>
+                <label>Client Name</label>
                 <input type="text" class="form-control" placeholder="Enter Contact PersonName" name="ContactPersonName">
               </div>
             
               <div class="col-sm-12 col-md-12 col-lg-4">
-                <label>ContactPersonEmailId</label>
+                <label>Client Email</label>
                 <input type="text" class="form-control" placeholder="Enter ContactPersonEmailId" name="ContactPersonEmailId">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
-                <label>ContactPersonMobileNo</label>
+                <label>Client MobileNo</label>
                 <input type="text" class="form-control" placeholder="Enter ContactPersonMobileNo" name="ContactPersonMobileNo">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
-                <label>ContactPersonEmergencyNo</label>
+                <label>Emergency Contact No</label>
                 <input type="text" class="form-control" placeholder="Enter ContactPersonEmergencyNo" name="ContactPersonEmergencyNo">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
-                <label>NoofBranches</label>
+                <label>Branch</label>
                 <input type="text" class="form-control" placeholder="Enter NoofBranches" name="NoofBranches">
               </div>
 

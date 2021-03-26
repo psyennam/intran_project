@@ -45,7 +45,7 @@ class Master_model extends CI_Model
 			'client_mobileno'=>$this->input->post('ContactPersonMobileNo'),
 			'emergency_contact'=>$this->input->post('ContactPersonEmergencyNo'),
 			'no_branch'=>$this->input->post('NoofBranches'),
-			'status'=>'active',
+			'status'=>'Active',
 			'ip_address'=>$ip,
 			'regdate'=>$this->input->post('RegistrationDate'),
 			'validity'=>$this->input->post('ValidityDate'),
@@ -103,7 +103,7 @@ class Master_model extends CI_Model
 				$res=$this->db->update('organization',$user);
 				if($res>0)
 				{
-					$user=[
+					$user=[	
 						'status'=>'1'
 						];
 					$this->db->where('org_code',$id->org_code);	

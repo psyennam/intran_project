@@ -215,8 +215,25 @@ class Userpanel extends CI_controller
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
 		$data['content']='employee';
+		$data['employeedetails']=$this->User_model->viewemployee();
 		$this->load->view('dashboard',$data);
 	}
+	function employeeinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->User_model->employeeinsert();
+			if($insert>0)
+			{
+				redirect('Userpanel/employee');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+
 	/**
 		 Admin Designation
 	**/

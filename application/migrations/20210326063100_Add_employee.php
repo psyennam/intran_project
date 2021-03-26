@@ -7,6 +7,10 @@
                                                         'type' => 'INT',
                                                         'auto_increment' => TRUE
                                                 ),
+                                                'employee' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '20',
+                                                ),
                                                 'employee_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',

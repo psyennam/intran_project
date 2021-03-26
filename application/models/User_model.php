@@ -23,7 +23,7 @@ class User_model extends CI_model
 			$usertb_data=$user->row();
 			$arr=[
 				'id'=>$usertb_data->id,
-				'clientid'=>$usertb_data->org_code,
+				'org_code'=>$usertb_data->org_code,
 				'role'=>$usertb_data->role,
 				'clientname'=>$org_tbl->client_name
 			];
@@ -158,6 +158,36 @@ class User_model extends CI_model
 			{
 				return false;
 			}
+	}
+	
+	function viewemployee()
+	{
+		return $this->db->select('*')->from('employee')->get()->result();
+	}
+
+	function employeeinsert()
+	{
+		$randomid=random_string('alnum',10);
+		$ip=$this->input->ip_address();
+		$data=[
+				'employee'=>$this->input->post('employeeName'),
+				'employee_code'=>$randomid,
+				'org_code'=>$this->session->userdata('org_code'),
+				'created_at'=>date('y-m-d H:i:s'),
+				'ip_address'=>$ip,
+				'status'=>1
+			];
+		$this->db->trans_start();
+		if($this->db->insert('employee',$data)) 
+		{
+			$this->db->trans_complete();
+			return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
 	}
 	/**
 		In this Viewdata function it will give all the data from the oraganisation table 
