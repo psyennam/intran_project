@@ -1,15 +1,8 @@
-
-<?php
-
-class Migrate extends CI_Controller
-{
-        function new($file){
-                $this->load->helper('file');
-                $data = "<?php defined('BASEPATH') OR exit('No direct script access allowed');
-                                class Migration_".$file." extends CI_Migration {
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+                                class Migration_Add_employee extends CI_Migration {
 
                                 public function up(){
-                                        \$this->dbforge->add_field(array(
+                                        $this->dbforge->add_field(array(
                                                 'id' => array(
                                                         'type' => 'INT',
                                                         'auto_increment' => TRUE
@@ -54,38 +47,11 @@ class Migrate extends CI_Controller
                                                 ),
                                                 
                                         ));     
-                                        \$this->dbforge->add_key('id', TRUE);
-                                        \$this->dbforge->create_table('".str_replace('Add_', '', $file)."');
+                                        $this->dbforge->add_key('id', TRUE);
+                                        $this->dbforge->create_table('employee');
                                 }
 
                                 public function down(){
-                                        \$this->dbforge->drop_table('".str_replace('Add_', '', $file)."');
+                                        $this->dbforge->drop_table('employee');
                                 }
-                        }?>";
-                
-                if ( ! write_file(APPPATH.'/migrations/'.date('YmdHis').'_'.$file.'.php', $data))
-                {
-                        echo 'Unable to write the file';
-                }
-                else
-                {
-                        echo 'File written!';
-                }
-        }
-
-        public function abc()
-        {
-                $this->load->library('migration');
-
-                if ($this->migration->current() === FALSE)
-                {
-                        show_error($this->migration->error_string());
-                }
-                else
-                {
-                	echo "Migration run successfully";
-                }
-        }
-
-}
-?>
+                        }?>
