@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Role Data
+        Designation Data
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
@@ -37,11 +37,11 @@
   							              </div>
   							              <div class="col-sm-12 col-md-4 col-lg-4">
   							              	<label>Department Name</label>
-  							                <select name="designationtcombo">
+  							                <select class="form-control" name="designationtcombo">
 													<?php foreach($depts as $row)
 															{
 													?>
-													<option value="<?php echo $row->department_code;?>"><?php echo $row->department_name;?></option>
+													<option value="<?php echo $row->department_code;?>"><?php echo $row->department;?></option>
 													<?php
 														}
 													?>
@@ -50,7 +50,7 @@
   							              
   							              <div class="col-sm-12 col-md-12 col-lg-4">
   							                <label>ClientId</label>
-  							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('clientid');?>" disabled>
+  							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
   							              </div>
   							            </div>
 							       
@@ -78,7 +78,7 @@
 					<th>Designation Name</th>
 					<th>Designation Code</th>
 					<th>Department Id</th>
-					<th>Client ID</th>
+					<th>organization_code</th>
 					<th>Branch Code</th>
 					<th>CreateDate</th>
 					<th>Status</th>
@@ -115,7 +115,7 @@
 					<th>Designation Name</th>
 					<th>Designation Code</th>
 					<th>Department Id</th>
-					<th>Client ID</th>
+					<th>organization_code</th>
 					<th>Branch Code</th>
 					<th>CreateDate</th>
 					<th>Status</th>

@@ -40,12 +40,14 @@
                                                         'type' => 'BOOLEAN',
                                                         'default'=>'0',
                                                 ),
-                                                
+                                                'password_flag'=> array(
+                                                        'type'=>'BOOLEAN',
+                                                        'default'=>'0',
+                                                ),
                                         ));     
                                         $this->dbforge->add_key('id', TRUE);
                                         $this->dbforge->create_table('user');
                                 }
-
                                 public function down(){
                                         $this->dbforge->drop_table('user');
                                 }

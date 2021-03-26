@@ -37,8 +37,8 @@
   							                <input type="text" class="form-control" placeholder="Enter Role Name" name="RoleName">
   							              </div>
   							              <div class="col-sm-12 col-md-12 col-lg-4">
-  							                <label>ClientId</label>
-  							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('clientid');?>" disabled>
+  							                <label>Organization Id</label>
+  							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
   							              </div>
   							            </div>
 							       
@@ -65,7 +65,7 @@
                     <th>ID</th>
 					<th>Role Name</th>
 					<th>Role Code</th>
-					<th>Client ID</th>
+					<th>organization Code</th>
 					<th>CreateDate</th>
 					<th>Status</th>
 					<th>IpAddress</th>
@@ -100,7 +100,7 @@
           <th>ID</th>
 					<th>Role Name</th>
 					<th>Role Code</th>
-					<th>Client ID</th>
+					<th>organization ID</th>
 					<th>Branch Code</th>
 					<th>CreateDate</th>
 					<th>Status</th>

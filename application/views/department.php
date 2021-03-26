@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Role Data
+        Department Data
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
@@ -36,8 +36,8 @@
   							                <input type="text" class="form-control" placeholder="Enter Department Name" name="DepartmentName">
   							              </div>
   							              <div class="col-sm-12 col-md-12 col-lg-4">
-  							                <label>ClientId</label>
-  							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('clientid');?>" disabled>
+  							                <label>Organization Id</label>
+  							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
   							              </div>
   							            </div>
 							       
@@ -64,7 +64,7 @@
                     <th>ID</th>
 					<th>Department Name</th>
 					<th>Department Code</th>
-					<th>Client ID</th>
+					<th>Organization Code</th>
 					<th>Branch Code</th>
 					<th>IpAddress</th>
 					<th>Status</th>
@@ -79,7 +79,7 @@
 	?>
 	<tr>
 		<td><?php echo $key->id;?></td>
-		<td><?php echo $key->department_name; ?></td>	
+		<td><?php echo $key->department; ?></td>	
 		<td><?php echo $key->department_code; ?></td>	
 		<td><?php echo $key->org_code;?></td>	
 		<td><?php echo $key->branch_code; ?></td>	

@@ -10,13 +10,9 @@
           <form id="formone" class="form-group" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-sm-12 col-md-4 col-lg-4">
-<<<<<<< HEAD
+
                 <label>Organisation Name</label>
                 <input type="text" class="form-control" placeholder="Enter Oraganization  Name" name="OraganizationName">
-=======
-                <label>Organization Name</label>
-                <input type="text" class="form-control" placeholder="Enter Client Name" name="ClientName">
->>>>>>> 843f1312cebe8ec4ef60b7f3c02e400df1351d26
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label>Address</label>

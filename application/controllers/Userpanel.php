@@ -43,7 +43,7 @@ class Userpanel extends CI_controller
 			else
 			{
 				//return false;
-				echo "failedjhhjvh";
+				echo "user not valid";
 			}
 		}
 	}
@@ -259,6 +259,43 @@ class Userpanel extends CI_controller
 		}
 	}
 
+
+	function deleteemployee()
+	{
+		$id=$this->input->get('employee_code');
+		$res=$this->User_model->deleteemployee($id);
+		if($res>0)
+		{
+			redirect('Userpanel/employee');	
+		}
+		else
+		{
+			echo "Data is not updated";
+		}
+	}
+
+	function updateemployee()
+	{
+		$id=$this->input->get('employee_code');
+		$data['row']=$this->User_model->employeebyid($id);
+		$data['header']='admincomponents/header';
+		$data['nav']='admincomponents/nav';
+		$data['footer']='admincomponents/footer';
+		$data['content']='update_employee';
+		$this->load->view('dashboard',$data);
+		if($_POST)
+		{
+			$res=$this->User_model->employeeedit($id);
+			if($res>0)
+			{
+				redirect('Userpanel/employee');
+			}
+			else
+			{
+				echo "Data not updated";
+			}
+		}
+	}
 	/**
 		 Admin Designation
 	**/

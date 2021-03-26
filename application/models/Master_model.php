@@ -59,7 +59,6 @@ class Master_model extends CI_Model
 				'org_code'=>$randomid,
 				'username'=>$randomid,
 				'password'=>$randomid,
-				'status'=>'Active',
 				'ip_address'=>$ip
 			];
 			if($this->db->insert('user',$user_data))

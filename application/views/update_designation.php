@@ -19,8 +19,6 @@
                 <label>Designation Code</label>
                 <input type="text" class="form-control" value="<?php echo $key->designation_code;?>"> 
               </div>
-              
-              
               <div class="col-sm-12 col-md-12 col-lg-4">
                   <label>Status</label>
                   <select class="form-control" name="statuscombo">

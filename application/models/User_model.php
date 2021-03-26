@@ -15,7 +15,7 @@ class User_model extends CI_model
 	**/
 	function login()
 	{
-		$user=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID'),'password'=>$this->input->post('password')])->get('user');
+		$user=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID'),'password'=>$this->input->post('password'),'status'=>0])->get('user');
 		if($user->num_rows()>0)
 		{
 			$org=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID')])->get('organization');
@@ -45,7 +45,7 @@ class User_model extends CI_model
 	function check()
 	{
 
-		$flag=$this->db->where(['org_code'=>$this->session->userdata('org_code'),'status'=>0])->get('user');
+		$flag=$this->db->where(['org_code'=>$this->session->userdata('org_code'),'status'=>0,'password_flag'=>0])->get('user');
 		if($flag->num_rows()>0)
 		{	
 			return true;
@@ -63,7 +63,7 @@ class User_model extends CI_model
 	{
 		$data=[
 			'password'=>$this->input->post('password'),
-			'status'=>1
+			'password_flag'=>1
 		];
 		$this->db->where('org_code',$this->session->userdata('org_code'));
 		$res=$this->db->update('user',$data);
@@ -189,6 +189,63 @@ class User_model extends CI_model
 			return false;
 		}
 	}
+
+	function employeebyid($id)
+	{
+		return $this->db->select('*')->from('employee')->where('employee_code',$id)->get()->result();
+	}
+
+	function deleteemployee($id)
+	{
+		
+			$data=$this->db->select('employee_code')->where('employee_code',$id)->get('employee');
+			if($data->num_rows()>0)
+			{
+				$user=[
+						'status'=>0
+						];
+				$id=$data->row();
+				$this->db->where('employee_code',$id->employee_code);	
+				$res=$this->db->update('employee',$user);
+				if($res>0)
+				{
+					
+					return true;
+				} 
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+	}
+
+	function employeeedit($id)
+	{
+		$ip=$this->input->ip_address();
+		 $data=[
+			'employee'=>$this->input->post('employeeName'),
+		    'status'=>$this->input->post('statuscombo'),
+			'ip_address'=>$ip
+		];
+		
+		$this->db->trans_start();
+
+		if($this->db->where('employee_code',$id)->update('employee',$data))
+		 {
+				$this->db->trans_complete();
+				return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+
+	}
 	/**
 		In this Viewdata function it will give all the data from the oraganisation table 
 		->this data is used in the master admin view
@@ -203,7 +260,7 @@ class User_model extends CI_model
 		$ip=$this->input->ip_address();
 		$data=[
 				//'id'=>$this->input->post('NULL'),
-				'department_name'=>$this->input->post('DepartmentName'),
+				'department'=>$this->input->post('DepartmentName'),
 				'department_code'=>$randomid,
 				'org_code'=>$this->session->userdata('org_code'),
 				'ip_address'=>$ip,
@@ -231,7 +288,7 @@ class User_model extends CI_model
 	{
 		$ip=$this->input->ip_address();
 		 $data=[
-			'department_name'=>$this->input->post('DepartmentName'),
+			'department'=>$this->input->post('DepartmentName'),
 		    'status'=>$this->input->post('statuscombo'),
 			'ip_address'=>$ip
 		];
