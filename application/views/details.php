@@ -51,10 +51,10 @@
 	?>
 	<tr>
 		<td><?php echo $key->id; ?></td>
-		<td><?php echo $key->orgid; ?></td>	
-		<td><?php echo $key->clientname; ?></td>	
+		<td><?php echo $key->org_id; ?></td>	
+		<td><?php echo $key->client_name; ?></td>	
 		<td><?php echo $key->address;?></td>	
-		<td><?php echo $key->contactpersonname; ?></td>	
+		<td><?php echo $key->contact_name; ?></td>	
 		<td><?php echo $key->contactpersonemailid; ?></td>	
 		<td><?php echo $key->contactpersonmobileno; ?></td>	
 		<td><?php echo $key->contactpersonemergencycontactno; ?></td>	

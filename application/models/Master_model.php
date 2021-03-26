@@ -38,11 +38,11 @@ class Master_model extends CI_Model
 
 		$data=[
 			'org_code'=>$randomid,
-			'client_name'=>$this->input->post('ClientName'),
+			'org_name'=>$this->input->post('ClientName'),
 			'address'=>$this->input->post('Address'),
-		    'contact_name'=>$this->input->post('ContactPersonName'),
-			'contact_email'=>$this->input->post('ContactPersonEmailId'),
-			'contact_mobileno'=>$this->input->post('ContactPersonMobileNo'),
+		    'client_name'=>$this->input->post('ContactPersonName'),
+			'client_email'=>$this->input->post('ContactPersonEmailId'),
+			'client_mobileno'=>$this->input->post('ContactPersonMobileNo'),
 			'emergency_contact'=>$this->input->post('ContactPersonEmergencyNo'),
 			'no_branch'=>$this->input->post('NoofBranches'),
 			'status'=>'active',

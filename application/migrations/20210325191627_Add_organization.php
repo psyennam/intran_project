@@ -12,7 +12,7 @@ class Migration_add_organization extends CI_Migration {
                                 'constraint'=>'10',
                                 'unique'=>TRUE,
                         ),
-                        'client_name' => array(
+                        'org_name' => array(
                                 'type' => 'VARCHAR',
                                 'constraint'=>'50',
                                 
@@ -21,15 +21,15 @@ class Migration_add_organization extends CI_Migration {
                                 'type' => 'VARCHAR',
                                 'constraint'=>'50',
                         ),
-                        'contact_name' => array(
+                        'client_name' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'contact_email' => array(
+                        'client_email' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
                         ),
-                        'contact_mobileno' => array(
+                        'client_mobileno' => array(
                                 'type' => 'bigint',
                                 'constraint' => '10',
                         ),
