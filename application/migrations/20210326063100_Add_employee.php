@@ -12,7 +12,7 @@
                                                         'constraint' => '10',
                                                         'unique'=>true,
                                                 ),
-                                                'organization_code' => array(
+                                                'org_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
@@ -28,11 +28,11 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'branch_codes' => array(
+                                                'branch_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'createddate' => array(
+                                                'created_at' => array(
                                                         'type' => 'DATETIME',
                                                         'default'=>date('Y-m-d H:i:s'),        
                                                 ),
@@ -41,9 +41,8 @@
                                                         'constraint' => '20',
                                                 ),
                                                 'status' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '15',
-                                                        'default'=>'Active'
+                                                        'type' => 'BOOLEAN',
+                                                        'default'=>'0',
                                                 ),
                                                 
                                         ));     

@@ -7,12 +7,12 @@ class Migration_add_organization extends CI_Migration {
                                 'type' => 'INT',
                                 'auto_increment' => TRUE
                         ),
-                        'organization_id' => array(
+                        'org_code' => array(
                                 'type' => 'INT',
                                 'constraint'=>'10',
                                 'unique'=>TRUE,
                         ),
-                        'clientname' => array(
+                        'client_name' => array(
                                 'type' => 'VARCHAR',
                                 'constraint'=>'50',
                                 
@@ -21,31 +21,31 @@ class Migration_add_organization extends CI_Migration {
                                 'type' => 'VARCHAR',
                                 'constraint'=>'50',
                         ),
-                        'contactpersonname' => array(
+                        'contact_name' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'contactpersonemailid' => array(
+                        'contact_email' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
                         ),
-                        'contactpersonmobileno' => array(
+                        'contact_mobileno' => array(
                                 'type' => 'bigint',
                                 'constraint' => '10',
                         ),
-                        'contactpersonemergencycontactno' => array(
+                        'emergency_contact' => array(
                                 'type' => 'bigint',
                                 'constraint' => '10',
                         ),
-                        'noofbranches' => array(
+                        'no_branch' => array(
                                 'type' => 'int',
                         ),
                         'status' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '15',
-                                'default'=>"Active"
+                                'default'=>"Panding"
                         ),
-                        'ipaddress' => array(
+                        'ip_address' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '20',
                         ),
@@ -64,7 +64,7 @@ class Migration_add_organization extends CI_Migration {
                                 'type' => 'VARCHAR',
                                 'constraint'=>'300',
                         ),
-                        'createddate' => array(
+                        'created_at' => array(
                                 'type' => 'DATETIME',
                                 'default'=>date('Y-m-d H:i:s'),
                         ),

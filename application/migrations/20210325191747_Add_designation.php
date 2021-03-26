@@ -16,7 +16,7 @@ public function up(){
                         'constraint' => '10',
                         'unique'=>true,      
                 ),
-                'organization_id' => array(
+                'org_code' => array(
                         'type' => 'VARCHAR',
                         'constraint' => '10',      
                 ),
@@ -24,7 +24,7 @@ public function up(){
                         'type'=>'VARCHAR',
                         'constraint'=>'10',
                 ),
-                'createdat' => array(
+                'created_at' => array(
                         'type' => 'DATETIME',
                         'default'=>date('y-m-d H:i:s'),      
                 ),
@@ -33,8 +33,8 @@ public function up(){
                         'constraint' => '20',      
                 ),
                 'status' => array(
-                        'type' => 'VARCHAR',
-                        'constraint' => '10',      
+                        'type' => 'BOOLEAN',
+                        'default'=>'0',
                 ),
                 'branch_code' => array(
                         'type' => 'VARCHAR',

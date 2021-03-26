@@ -7,24 +7,7 @@
                                                         'type' => 'INT',
                                                         'auto_increment' => TRUE
                                                 ),
-                                                'employee_code' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '10',
-                                                        'unique'=>true,
-                                                ),
-                                                'organization_code' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '10',
-                                                ),
-                                                'role_code' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '10',
-                                                ),
-                                                'department_code' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '10',
-                                                ),
-                                                'designation_code' => array(
+                                                'org_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
@@ -32,18 +15,30 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'created_date' => array(
-                                                        'type' => 'DATETIME',
-                                                        'default'=>date('Y-m-d H:i:s'),        
+                                                'role' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
+                                                        'default'=>'Admin',
+                                                ),
+                                                'username' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
+                                                ),
+                                                'password' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
                                                 ),
                                                 'ip_address' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '20',
                                                 ),
+                                                'created_at' => array(
+                                                        'type' => 'DATETIME',
+                                                        'default'=>date('Y-m-d H:i:s'),        
+                                                ),
                                                 'status' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '15',
-                                                        'default'=>'Active'
+                                                        'type' => 'BOOLEAN',
+                                                        'default'=>'0',
                                                 ),
                                                 
                                         ));     

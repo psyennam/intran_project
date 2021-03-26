@@ -7,32 +7,32 @@
                                 'type' => 'INT',
                                 'auto_increment' => TRUE
                         ),
-                        'departmentname' => array(
+                        'department_name' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),
-                        'departmentcode' => array(
+                        'department_code' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '10',
                                  'unique'=>TRUE
                         ),
-                        'clientid' => array(
+                        'org_code' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '10',
                         ),
-                        'branchid' => array(
+                        'branch_code' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '10',
                         ),
-                        'ipaddress' => array(
+                        'ip_address' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '20',
                         ),
                         'status' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '10',
+                                'type' => 'BOOLEAN',
+                                'default'=>'0',
                         ),
-                        'createddate' => array(
+                        'created_at' => array(
                                 'type' => 'DATETIME',
                                 'default'=>date('Y-m-d H:i:s'),
                         ),

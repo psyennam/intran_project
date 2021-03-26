@@ -37,17 +37,16 @@ class Master_model extends CI_Model
 				$filename= $path.$img['upload_data']['file_name'];
 
 		$data=[
-			'id'=>$this->input->post('NULL'),
-			'organizationid'=>$randomid,
-			'clientname'=>$this->input->post('ClientName'),
+			'org_code'=>$randomid,
+			'client_name'=>$this->input->post('ClientName'),
 			'address'=>$this->input->post('Address'),
-		    'contactpersonname'=>$this->input->post('ContactPersonName'),
-			'contactpersonemailid'=>$this->input->post('ContactPersonEmailId'),
-			'contactpersonmobileno'=>$this->input->post('ContactPersonMobileNo'),
-			'contactpersonemergencycontactno'=>$this->input->post('ContactPersonEmergencyNo'),
-			'noofbranches'=>$this->input->post('NoofBranches'),
+		    'contact_name'=>$this->input->post('ContactPersonName'),
+			'contact_email'=>$this->input->post('ContactPersonEmailId'),
+			'contact_mobileno'=>$this->input->post('ContactPersonMobileNo'),
+			'emergency_contact'=>$this->input->post('ContactPersonEmergencyNo'),
+			'no_branch'=>$this->input->post('NoofBranches'),
 			'status'=>'active',
-			'ipaddress'=>$ip,
+			'ip_address'=>$ip,
 			'regdate'=>$this->input->post('RegistrationDate'),
 			'validity'=>$this->input->post('ValidityDate'),
 			'url'=>$this->input->post('Url'),
@@ -57,11 +56,11 @@ class Master_model extends CI_Model
 		if($this->db->insert('organization',$data))
 		{
 			$user_data=[
-				'organizationid'=>$randomid,
+				'org_code'=>$randomid,
 				'username'=>$randomid,
 				'password'=>$randomid,
 				'status'=>'active',
-				'ipaddress'=>$ip
+				'ip_address'=>$ip
 			];
 			if($this->db->insert('user',$user_data))
 			{
@@ -93,21 +92,21 @@ class Master_model extends CI_Model
 	function deletedata($id)
 	{
 		
-			$data=$this->db->select('organizationid')->where('id',$id)->get('organization');
+			$data=$this->db->select('org_code')->where('id',$id)->get('organization');
 			if($data->num_rows()>0)
 			{
 				$user=[
 						'status'=>'terminate'
 						];
 				$id=$data->row();
-				$this->db->where('organizationid',$id->organizationid);	
+				$this->db->where('org_code',$id->org_code);	
 				$res=$this->db->update('organization',$user);
 				if($res>0)
 				{
 					$user=[
 						'status'=>'terminate'
 						];
-					$this->db->where('organizationid',$id->organizationid);	
+					$this->db->where('org_code',$id->org_code);	
 					$user=$this->db->update('user',$user);
 					return $user;
 				} 
@@ -115,7 +114,7 @@ class Master_model extends CI_Model
 	}
 	function databyid($id)
 	{
-		return $this->db->select('*')->from('organization')->where('organizationid',$id)->get()->result();
+		return $this->db->select('*')->from('organization')->where('org_code',$id)->get()->result();
 	}
 	function edit($id)
 	{
@@ -137,12 +136,12 @@ class Master_model extends CI_Model
 		
 		$this->db->trans_start();
 
-		if($this->db->where('organizationid',$id)->update('organization',$data))
+		if($this->db->where('org_code',$id)->update('organization',$data))
 		 {
 			$usr_tbl=[
 				'status'=>$this->input->post('statuscombo')
 			];
-			if($this->db->where('organizationid',$id)->update('user',$usr_tbl))
+			if($this->db->where('org_code',$id)->update('user',$usr_tbl))
 			{
 				$this->db->trans_complete();
 				return true;
