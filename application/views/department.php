@@ -1,4 +1,4 @@
- <!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper. Contains page content -->
   		
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -19,7 +19,7 @@
           <div class="box">
             <div class="box-header">
               <!-- Form Start  -->
-        <form action="/MasterDasboard/Userpanel/departmentinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+        <form action="/intran_project/Userpanel/departmentinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
           		<!-- Modal Start  -->
               	<div class="modal fade" id="mymodel">
@@ -79,15 +79,15 @@
 	?>
 	<tr>
 		<td><?php echo $key->id;?></td>
-		<td><?php echo $key->departmentname; ?></td>	
-		<td><?php echo $key->departmentcode; ?></td>	
-		<td><?php echo $key->clientid;?></td>	
-		<td><?php echo $key->branchid; ?></td>	
-		<td><?php echo $key->ipaddress; ?></td>	
+		<td><?php echo $key->department_name; ?></td>	
+		<td><?php echo $key->department_code; ?></td>	
+		<td><?php echo $key->org_code;?></td>	
+		<td><?php echo $key->branch_code; ?></td>	
+		<td><?php echo $key->ip_address; ?></td>	
 		<td><?php echo $key->status; ?></td>	
-		<td><?php echo $key->createddate; ?></td>	
-		<td><a href="updatedata?id=<?php echo $key->departmentcode;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
-		<td><a href="deletedepartment?id=<?php echo $key->departmentcode;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
+		<td><?php echo $key->created_at; ?></td>	
+		<td><a href="updatedepartment?id=<?php echo $key->department_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
+		<td><a href="deletedepartment?id=<?php echo $key->department_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
 	</tr>	
 	<?php
 	}
@@ -96,7 +96,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
+          <th>ID</th>
 					<th>Department Name</th>
 					<th>Department Code</th>
 					<th>Client ID</th>

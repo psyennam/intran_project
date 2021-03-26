@@ -136,10 +136,10 @@ class Userpanel extends CI_controller
 		$this->load->view('dashboard',$data);
 		if($_POST)
 		{
-			$res=$this->Master_model->roleedit($id);
+			$res=$this->User_model->roleedit($id);
 			if($res>0)
 			{
-				redirect('Master/dashboard');
+				redirect('Userpanel/role');
 			}
 			else
 			{
@@ -191,6 +191,31 @@ class Userpanel extends CI_controller
 		}
 	}
 	/**
+		Department Update Form
+	**/
+	function updatedepartment()
+	{
+		$id=$this->input->get('id');
+		$data['row']=$this->User_model->departmentbyid($id);
+		$data['header']='admincomponents/header';
+		$data['nav']='admincomponents/nav';
+		$data['footer']='admincomponents/footer';
+		$data['content']='update_department';
+		$this->load->view('dashboard',$data);
+		if($_POST)
+		{
+			$res=$this->User_model->departmentedit($id);
+			if($res>0)
+			{
+				redirect('Userpanel/department');
+			}
+			else
+			{
+				echo "Data not updated";
+			}
+		}
+	}
+	/**
 		Change the active status to termiante
 	**/
 	function deletedepartment()
@@ -215,8 +240,25 @@ class Userpanel extends CI_controller
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
 		$data['content']='employee';
+		$data['employeedetails']=$this->User_model->viewemployee();
 		$this->load->view('dashboard',$data);
 	}
+	function employeeinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->User_model->employeeinsert();
+			if($insert>0)
+			{
+				redirect('Userpanel/employee');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+
 	/**
 		 Admin Designation
 	**/
@@ -243,6 +285,31 @@ class Userpanel extends CI_controller
 			else
 			{
 				echo "Data is not inserted";
+			}
+		}
+	}
+	/**
+		Designation Update Form
+	**/
+	function updatedesignation()
+	{
+		$id=$this->input->get('id');
+		$data['row']=$this->User_model->designationbyid($id);
+		$data['header']='admincomponents/header';
+		$data['nav']='admincomponents/nav';
+		$data['footer']='admincomponents/footer';
+		$data['content']='update_designation';
+		$this->load->view('dashboard',$data);
+		if($_POST)
+		{
+			$res=$this->User_model->designationedit($id);
+			if($res>0)
+			{
+				redirect('Userpanel/designation');
+			}
+			else
+			{
+				echo "Data not updated";
 			}
 		}
 	}

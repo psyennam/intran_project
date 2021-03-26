@@ -38,14 +38,14 @@ class Master_model extends CI_Model
 
 		$data=[
 			'org_code'=>$randomid,
-			'org_name'=>$this->input->post('ClientName'),
+			'org_name'=>$this->input->post('OraganizationName'),
 			'address'=>$this->input->post('Address'),
 		    'client_name'=>$this->input->post('ContactPersonName'),
 			'client_email'=>$this->input->post('ContactPersonEmailId'),
 			'client_mobileno'=>$this->input->post('ContactPersonMobileNo'),
 			'emergency_contact'=>$this->input->post('ContactPersonEmergencyNo'),
 			'no_branch'=>$this->input->post('NoofBranches'),
-			'status'=>'active',
+			'status'=>'Active',
 			'ip_address'=>$ip,
 			'regdate'=>$this->input->post('RegistrationDate'),
 			'validity'=>$this->input->post('ValidityDate'),
@@ -59,7 +59,7 @@ class Master_model extends CI_Model
 				'org_code'=>$randomid,
 				'username'=>$randomid,
 				'password'=>$randomid,
-				'status'=>'active',
+				'status'=>'Active',
 				'ip_address'=>$ip
 			];
 			if($this->db->insert('user',$user_data))
@@ -92,19 +92,19 @@ class Master_model extends CI_Model
 	function deletedata($id)
 	{
 		
-			$data=$this->db->select('org_code')->where('id',$id)->get('organization');
+			$data=$this->db->select('org_code')->where('org_code',$id)->get('organization');
 			if($data->num_rows()>0)
 			{
 				$user=[
-						'status'=>'terminate'
+						'status'=>'Terminated'
 						];
 				$id=$data->row();
 				$this->db->where('org_code',$id->org_code);	
 				$res=$this->db->update('organization',$user);
 				if($res>0)
 				{
-					$user=[
-						'status'=>'terminate'
+					$user=[	
+						'status'=>'1'
 						];
 					$this->db->where('org_code',$id->org_code);	
 					$user=$this->db->update('user',$user);
@@ -120,7 +120,7 @@ class Master_model extends CI_Model
 	{
 		$ip=$this->input->ip_address();
 		 $data=[
-			'org_name'=>$this->input->post('ClientName'),
+			'org_name'=>$this->input->post('OraganizationName'),
 			'address'=>$this->input->post('Address'),
 		    'client_name'=>$this->input->post('ContactPersonName'),
 			'client_email'=>$this->input->post('ContactPersonEmailId'),

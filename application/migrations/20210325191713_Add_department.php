@@ -7,7 +7,7 @@
                                 'type' => 'INT',
                                 'auto_increment' => TRUE
                         ),
-                        'department_name' => array(
+                        'department' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',
                         ),

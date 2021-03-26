@@ -66,10 +66,10 @@
 					<th>Role Name</th>
 					<th>Role Code</th>
 					<th>Client ID</th>
-					<th>Branch Code</th>
 					<th>CreateDate</th>
 					<th>Status</th>
 					<th>IpAddress</th>
+					<th>Branch Code</th>
 					<th>Update</th>
 					<th>Delete</th>
 			    </tr>
@@ -84,8 +84,8 @@
 		<td><?php echo $key->role_code; ?></td>	
 		<td><?php echo $key->org_code;?></td>	
 		<td><?php echo $key->created_at; ?></td>	
-		<td><?php echo $key->ip_address; ?></td>	
 		<td><?php echo $key->status; ?></td>	
+		<td><?php echo $key->ip_address; ?></td>	
 		<td><?php echo $key->branch_code; ?></td>	
 		<td><a href="updaterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel">UPDATE</button></a></td>
 		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
@@ -97,7 +97,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th>ID</th>
+          <th>ID</th>
 					<th>Role Name</th>
 					<th>Role Code</th>
 					<th>Client ID</th>

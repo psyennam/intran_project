@@ -38,7 +38,7 @@
 
     <form method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="ClientID" name="ClientID">
+        <input type="text" class="form-control" placeholder="Organization Id" name="ClientID">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

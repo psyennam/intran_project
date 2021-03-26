@@ -101,7 +101,7 @@ class Master extends CI_controller
 	**/
 	function deletedata()
 	{
-		$id=$this->input->get('id');
+		$id=$this->input->get('org_code');
 		$res=$this->Master_model->deletedata($id);
 		if($res>0)
 		{

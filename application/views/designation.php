@@ -19,7 +19,7 @@
           <div class="box">
             <div class="box-header">
               <!-- Form Start  -->
-        <form action="/MasterDasboard/Userpanel/designationinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+        <form action="/intran_project/Userpanel/designationinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
           		<!-- Modal Start  -->
               	<div class="modal fade" id="mymodel">
@@ -41,7 +41,7 @@
 													<?php foreach($depts as $row)
 															{
 													?>
-													<option value="<?php echo $row->departmentcode;?>"><?php echo $row->departmentname;?></option>
+													<option value="<?php echo $row->department_code;?>"><?php echo $row->department_name;?></option>
 													<?php
 														}
 													?>
@@ -93,16 +93,16 @@
 	?>
 	<tr>
 		<td><?php echo $key->id;?></td>
-		<td><?php echo $key->designationname; ?></td>	
-		<td><?php echo $key->designationcode; ?></td>
-		<td><?php echo $key->departmentid; ?></td>	
-		<td><?php echo $key->clientid;?></td>	
-		<td><?php echo $key->branchid; ?></td>	
-		<td><?php echo $key->createddate; ?></td>	
+		<td><?php echo $key->designation; ?></td>	
+		<td><?php echo $key->designation_code; ?></td>
+		<td><?php echo $key->department_code; ?></td>	
+		<td><?php echo $key->org_code;?></td>	
+		<td><?php echo $key->branch_code; ?></td>	
+		<td><?php echo $key->created_at; ?></td>	
 		<td><?php echo $key->status; ?></td>	
-		<td><?php echo $key->ipaddress; ?></td>	
-		<td><a href="updatedata?id=<?php echo $key->designationcode;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
-		<td><a href="deletedesignation?id=<?php echo $key->designationcode;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
+		<td><?php echo $key->ip_address; ?></td>	
+		<td><a href="updatedesignation?id=<?php echo $key->designation_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
+		<td><a href="deletedesignation?id=<?php echo $key->designation_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
 	</tr>	
 	<?php
 	}
