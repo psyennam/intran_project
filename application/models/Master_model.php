@@ -38,7 +38,7 @@ class Master_model extends CI_Model
 
 		$data=[
 			'id'=>$this->input->post('NULL'),
-			'orgid'=>$randomid,
+			'organizationid'=>$randomid,
 			'clientname'=>$this->input->post('ClientName'),
 			'address'=>$this->input->post('Address'),
 		    'contactpersonname'=>$this->input->post('ContactPersonName'),
@@ -47,18 +47,17 @@ class Master_model extends CI_Model
 			'contactpersonemergencycontactno'=>$this->input->post('ContactPersonEmergencyNo'),
 			'noofbranches'=>$this->input->post('NoofBranches'),
 			'status'=>'active',
+			'ipaddress'=>$ip,
 			'regdate'=>$this->input->post('RegistrationDate'),
 			'validity'=>$this->input->post('ValidityDate'),
-			'logo'=>$filename,
 			'url'=>$this->input->post('Url'),
-			'ipaddress'=>$ip
-
+			'logo'=>$filename
 		];
 		$this->db->trans_start();
-		if($this->db->insert('organsation',$data))
+		if($this->db->insert('organization',$data))
 		{
 			$user_data=[
-				'clientid'=>$randomid,
+				'organizationid'=>$randomid,
 				'username'=>$randomid,
 				'password'=>$randomid,
 				'status'=>'active',
@@ -86,7 +85,7 @@ class Master_model extends CI_Model
 	**/
 	function viewdata()
 	{
-		return $this->db->select('*')->from('organsation')->get()->result();
+		return $this->db->select('*')->from('organization')->get()->result();
 	}
 	/**
 		In this deletedata function if Master admin want to termiante with organisation then this function will change the active=terminate  
@@ -94,21 +93,21 @@ class Master_model extends CI_Model
 	function deletedata($id)
 	{
 		
-			$data=$this->db->select('orgid')->where('id',$id)->get('organsation');
+			$data=$this->db->select('organizationid')->where('id',$id)->get('organization');
 			if($data->num_rows()>0)
 			{
 				$user=[
 						'status'=>'terminate'
 						];
 				$id=$data->row();
-				$this->db->where('orgid',$id->orgid);	
-				$res=$this->db->update('organsation',$user);
+				$this->db->where('organizationid',$id->organizationid);	
+				$res=$this->db->update('organization',$user);
 				if($res>0)
 				{
 					$user=[
 						'status'=>'terminate'
 						];
-					$this->db->where('clientid',$id->orgid);	
+					$this->db->where('organizationid',$id->organizationid);	
 					$user=$this->db->update('user',$user);
 					return $user;
 				} 
@@ -116,7 +115,7 @@ class Master_model extends CI_Model
 	}
 	function databyid($id)
 	{
-		return $this->db->select('*')->from('organsation')->where('orgid',$id)->get()->result();
+		return $this->db->select('*')->from('organization')->where('organizationid',$id)->get()->result();
 	}
 	function edit($id)
 	{
@@ -138,12 +137,12 @@ class Master_model extends CI_Model
 		
 		$this->db->trans_start();
 
-		if($this->db->where('orgid',$id)->update('organsation',$data))
+		if($this->db->where('organizationid',$id)->update('organization',$data))
 		 {
 			$usr_tbl=[
 				'status'=>$this->input->post('statuscombo')
 			];
-			if($this->db->where('clientid',$id)->update('user',$usr_tbl))
+			if($this->db->where('organizationid',$id)->update('user',$usr_tbl))
 			{
 				$this->db->trans_complete();
 				return true;

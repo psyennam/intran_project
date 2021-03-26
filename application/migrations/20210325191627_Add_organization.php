@@ -7,10 +7,19 @@ class Migration_add_organization extends CI_Migration {
                                 'type' => 'INT',
                                 'auto_increment' => TRUE
                         ),
-                        'orgid' => array(
+                        'organization_id' => array(
                                 'type' => 'INT',
                                 'constraint'=>'10',
                                 'unique'=>TRUE,
+                        ),
+                        'clientname' => array(
+                                'type' => 'VARCHAR',
+                                'constraint'=>'50',
+                                
+                        ),
+                        'address' => array(
+                                'type' => 'VARCHAR',
+                                'constraint'=>'50',
                         ),
                         'contactpersonname' => array(
                                 'type' => 'VARCHAR',
