@@ -51,22 +51,22 @@
 	?>
 	<tr>
 		<td><?php echo $key->id; ?></td>
-		<td><?php echo $key->org_id; ?></td>	
-		<td><?php echo $key->client_name; ?></td>	
+		<td><?php echo $key->org_code; ?></td>	
+		<td><?php echo $key->org_name; ?></td>	
 		<td><?php echo $key->address;?></td>	
-		<td><?php echo $key->contact_name; ?></td>	
-		<td><?php echo $key->contactpersonemailid; ?></td>	
-		<td><?php echo $key->contactpersonmobileno; ?></td>	
-		<td><?php echo $key->contactpersonemergencycontactno; ?></td>	
-		<td><?php echo $key->noofbranches; ?></td>	
+		<td><?php echo $key->client_name; ?></td>	
+		<td><?php echo $key->client_email; ?></td>	
+		<td><?php echo $key->client_mobileno; ?></td>	
+		<td><?php echo $key->emergency_contact; ?></td>	
+		<td><?php echo $key->no_branch; ?></td>	
 		<td><span class="label label-success"><?php echo $key->status;?></span></td>
 		<td><?php echo $key->regdate;?></td>	
 		<td><?php echo $key->validity;?></td>
 		<td><img src="<?php echo $key->logo;?>" height="100px" width="100px"></td>
 		<td><?php echo $key->url; ?></td>	
-		<td><?php echo $key->createdtime; ?></td>
-		<td><?php echo $key->ipaddress; ?></td>	
-		<td><a href="updatedata?id=<?php echo $key->orgid;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
+		<td><?php echo $key->created_at; ?></td>
+		<td><?php echo $key->ip_address; ?></td>	
+		<td><a href="updatedata?id=<?php echo $key->org_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
 		<td><a href="deletedata?id=<?php echo $key->id;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
 	</tr>	
 	<?php
