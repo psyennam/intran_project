@@ -19,11 +19,12 @@
                 <label>employee Code</label>
                 <input type="text" class="form-control" name="RoleCode" value="<?php echo $key->employee_code;?>"> 
               </div>
+              
               <div class="col-sm-12 col-md-12 col-lg-4">
                   <label>Status</label>
                   <select class="form-control" name="statuscombo">
-                    <option value="1" <?php if($key->status == 1) {echo "selected";} ?>>Active</option>
-                    <option value="0" <?php if($key->status == 0) {echo "selected";} ?>>Hold</option>
+                    <option value="0" <?php if($key->status == 0) {echo "selected";} ?>>Active</option>
+                    <option value="1" <?php if($key->status == 1) {echo "selected";} ?>>InActive</option>
                   </select>
               </div>
                

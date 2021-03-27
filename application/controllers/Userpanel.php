@@ -241,12 +241,18 @@ class Userpanel extends CI_controller
 		$data['footer']='admincomponents/footer';
 		$data['content']='employee';
 		$data['employeedetails']=$this->User_model->viewemployee();
+		$data['empdetails']=$this->User_model->viewdepartment();
+		$data['designatiodetails']=$this->User_model->viewdesignation();
+		$data['roledetails']=$this->User_model->viewdata();
 		$this->load->view('dashboard',$data);
 	}
 	function employeeinsert()
 	{
+		
+		
 		if($_POST)
 		{
+
 			$insert=$this->User_model->employeeinsert();
 			if($insert>0)
 			{
@@ -317,7 +323,7 @@ class Userpanel extends CI_controller
 			$insert=$this->User_model->designationinsert();
 			if($insert>0)
 			{
-				redirect('Userpanel/department');		
+				redirect('Userpanel/designation');		
 			}
 			else
 			{

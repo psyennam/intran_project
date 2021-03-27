@@ -35,11 +35,61 @@
   							                <label>Employee Name</label>
   							                <input type="text" class="form-control" placeholder="Enter employee Name" name="employeeName">
   							              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4">
+                                <label>Date Of Birth</label>
+                                <input type="date" class="form-control" placeholder="Enter employee DOB" name="employeeDob">
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4">
+                                <label>Email</label>
+                                <input type="text" class="form-control" placeholder="Enter employee Email" name="employeeEmail">
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4">
+                                <label>Employee Contact</label>
+                                <input type="text" class="form-control" placeholder="Enter employee Contact" name="employeeContact">
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4">
+                                <label>Address</label>
+                                <input type="text" class="form-control" placeholder="Enter employee Address" name="employeeAddress">
+                              </div>
   							              <div class="col-sm-12 col-md-12 col-lg-4">
   							                <label>Organization code</label>
   							                <input type="text" class="form-control" name="org_code" value="<?php echo $this->session->userdata('org_code');?>" disabled>
   							              </div>
-  							            </div>
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                  <label>Department</label>
+                                  <select class="form-control" name="departmentcombo">
+                                  <?php 
+                                  foreach ($empdetails as $row) {
+                                  ?>
+                                      <option value="<?php echo $row->department_code ?>"><?php echo $row->department; ?>
+                                      </option>
+                                  <?php
+                                } ?>
+                                  </select>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-4">
+                                  <label>Designation</label>
+                                  <select class="form-control" name="designationcombo">
+                                  <?php 
+                                  foreach ($designatiodetails as $row) {
+                                  ?>
+                                      <option value="<?php echo $row->designation_code ?>"><?php echo $row->designation; ?></option>
+                                  <?php
+                                } ?>
+                                  </select>
+                                </div>
+                              <div class="col-sm-12 col-md-12 col-lg-4">
+                                  <label>Designation</label>
+                                  <select class="form-control" name="rolecombo">
+                                  <?php 
+                                  foreach ($roledetails as $row) {
+                                  ?>
+                                      <option value="<?php echo $row->role_code ?>"><?php echo $row->role; ?></option>
+                                  <?php
+                                } ?>
+                                  </select>
+                                </div>  							            
+                              </div>
               				</div>
               				<div class="modal-footer">
               					<div class="row">

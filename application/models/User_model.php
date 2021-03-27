@@ -87,7 +87,6 @@ class User_model extends CI_model
 				'org_code'=>$this->session->userdata('org_code'),
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip,
-				'status'=>1
 			];
 		$this->db->trans_start();
 		if($this->db->insert('role',$data)) 
@@ -139,7 +138,7 @@ class User_model extends CI_model
 			if($data->num_rows()>0)
 			{
 				$user=[
-						'status'=>0
+						'status'=>1
 						];
 				$id=$data->row();
 				$this->db->where('role_code',$id->role_code);	
@@ -171,17 +170,51 @@ class User_model extends CI_model
 		$ip=$this->input->ip_address();
 		$data=[
 				'employee'=>$this->input->post('employeeName'),
+				'dob'=>$this->input->post('employeeDob'),
+				'email'=>$this->input->post('employeeEmail'),
+				'contact'=>$this->input->post('employeeContact'),
+				'Address'=>$this->input->post('employeeAddress'),
 				'employee_code'=>$randomid,
 				'org_code'=>$this->session->userdata('org_code'),
+			
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip,
-				'status'=>1
 			];
 		$this->db->trans_start();
 		if($this->db->insert('employee',$data)) 
 		{
-			$this->db->trans_complete();
-			return true;
+			$mapping=[
+				'employee_id'=>$this->db->insert_id(),
+				'department_code'=>$this->input->post('departmentcombo'),
+				'designation_code'=>$this->input->post('designationcombo'),
+				'role_code'=>$this->input->post('rolecombo'),
+			];
+
+			if($this->db->insert('mapping_employee',$mapping))
+			{
+				$final=[
+					'org_code'=>$this->session->userdata('org_code'),
+					'role'=>$this->input->post('rolecombo'),
+					'username'=>$randomid,
+					'password'=>$randomid,
+					'created_at'=>date('y-m-d H:i:s'),
+					'ip_address'=>$ip,
+				];
+				if($this->db->insert('user',$final))
+				{
+					$this->db->trans_complete();
+					return true;
+				}
+				else{
+					$this->db->trans_rollback();
+					return false;
+				}
+			}
+			else{
+				$this->db->trans_rollback();
+				return false;
+			}
+			
 		}
 		else
 		{
@@ -202,7 +235,7 @@ class User_model extends CI_model
 			if($data->num_rows()>0)
 			{
 				$user=[
-						'status'=>0
+						'status'=>1
 						];
 				$id=$data->row();
 				$this->db->where('employee_code',$id->employee_code);	
@@ -264,7 +297,6 @@ class User_model extends CI_model
 				'department_code'=>$randomid,
 				'org_code'=>$this->session->userdata('org_code'),
 				'ip_address'=>$ip,
-				'status'=>1,
 				'created_at'=>date('y-m-d H:i:s')
 			];
 		$this->db->trans_start();
@@ -317,7 +349,7 @@ class User_model extends CI_model
 			if($data->num_rows()>0)
 			{
 				$user=[
-						'status'=>0
+						'status'=>1
 						];
 				$id=$data->row();
 				$this->db->where('department_code',$id->department_code);	
@@ -326,7 +358,7 @@ class User_model extends CI_model
 				{
 					$id=$data->row();
 					$tb_user=[
-						'status'=>0
+						'status'=>1
 						];
 					$this->db->where('department_code',$id->department_code);	
 					$user=$this->db->update('designation',$tb_user);
@@ -361,7 +393,6 @@ class User_model extends CI_model
 				'org_code'=>$this->session->userdata('org_code'),
 				'department_code'=>$this->input->post('designationtcombo'),
 				'created_at'=>date('y-m-d H:i:s'),
-				'status'=>1,
 				'ip_address'=>$ip
 			];
 		$this->db->trans_start();
