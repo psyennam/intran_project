@@ -21,7 +21,7 @@ class Userpanel extends CI_controller
 		{
 			
 			$res=$this->User_model->login();
-			if($res>0)
+			if($res==true)
 			{
 			/**
 				Check Function
@@ -38,7 +38,6 @@ class Userpanel extends CI_controller
 				{
 					redirect('Userpanel/dashboard');	
 				}
-				
 			}
 			else
 			{

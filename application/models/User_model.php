@@ -15,27 +15,56 @@ class User_model extends CI_model
 	**/
 	function login()
 	{
-		$user=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID'),'password'=>$this->input->post('password'),'status'=>0])->get('user');
-		if($user->num_rows()>0)
+
+		$part=$this->db->where(['username'=>$this->input->post('ClientID'),'role'=>"Admin"])->get('user');
+		if($part->num_rows()>0)
 		{
-			$org=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID')])->get('organization');
-			$org_tbl=$org->row();
-			$usertb_data=$user->row();
-			$arr=[
-				'id'=>$usertb_data->id,
-				'org_code'=>$usertb_data->org_code,
-				'role'=>$usertb_data->role,
-				'clientname'=>$org_tbl->org_name
+			$admin=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID'),'password'=>$this->input->post('password'),'status'=>0])->get('user');
+
+			if($admin->num_rows()>0)
+			{
+				$org=$this->db->select('*')->where('org_code',$this->input->post('ClientID'))->get('organization');
+				$org_details=$org->row();
+				$admin_tbl=$admin->row();
+				$arr=[
+				'org_code'=>$admin_tbl->org_code,
+				'role'=>$admin_tbl->role,
+				'org_name'=>$org_details->org_name,
 			];
 			$this->session->set_userdata($arr);
 			return true;
+			}
+			else{
+				echo "admin login is failed";
+				return false;
+			}
 		}
 		else
 		{
-			return false;
-		}	
-		
+			$employee=$this->db->select('*')->from('user')->join('mapping_employee','user.username=mapping_employee.employee_code')->where(['username'=>$this->input->post('ClientID'),'password'=>$this->input->post('password'),'status'=>0])->get();
+			if($employee->num_rows()>0)
+			{
+				$emp_tbl=$employee->row();
+				$emp=$this->db->select('*')->where('employee_code',$emp_tbl->username)->get('employee');
+				$emp_details=$emp->row();
+				
+				$arr=[
+					'org_code'=>$emp_tbl->org_code,
+					'role'=>$emp_tbl->role,
+					'employee'=>$emp_details->employee,
+				];
+				$this->session->set_userdata($arr);
+				return true;
+
+			}
+			else{
+				echo "employee not valid";
+				return false;
+			}	
+		}
+
 	}
+	
 	/**
 		Check Function
 		->In this function it will check admin password flag is 0 or not
@@ -45,7 +74,7 @@ class User_model extends CI_model
 	function check()
 	{
 
-		$flag=$this->db->where(['org_code'=>$this->session->userdata('org_code'),'status'=>0,'password_flag'=>0])->get('user');
+		$flag=$this->db->where(['username'=>$this->input->post('ClientID'),'status'=>0,'password_flag'=>0])->get('user');
 		if($flag->num_rows()>0)
 		{	
 			return true;
@@ -184,7 +213,7 @@ class User_model extends CI_model
 		if($this->db->insert('employee',$data)) 
 		{
 			$mapping=[
-				'employee_id'=>$this->db->insert_id(),
+				'employee_code'=>$randomid,
 				'department_code'=>$this->input->post('departmentcombo'),
 				'designation_code'=>$this->input->post('designationcombo'),
 				'role_code'=>$this->input->post('rolecombo'),
