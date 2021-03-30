@@ -4,19 +4,20 @@
  */
 class Userpanel extends CI_controller
 {
-	
+	private $data;
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
 		$this->load->model('User_model');
+		$this->data["title"] = "Login";
 	}
 	/*
 		Logim form
 	*/
 	function login()
 	{
-		$this->load->view('adminlogin');
+		$this->load->view('adminlogin', $this->data);
 		if($_POST)
 		{
 			

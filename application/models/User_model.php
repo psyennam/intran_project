@@ -4,7 +4,8 @@
  */
 class User_model extends CI_model
 {
-	
+	private $emp_code;
+	private $org_code;
 	function __construct()
 	{
 		parent::__construct();
@@ -13,56 +14,38 @@ class User_model extends CI_model
 		Organisation Admin Login
 		->In this function the Admin will login with client id 
 	**/
+
+	private function get_role(){
+		$res = $this->db->select('role_code')->where('employee_code', $this->emp_code)->get('mapping_employee');
+		if($res->num_rows() > 0){
+			$res = $res->row()->role_code;
+			$role = $this->db->where(['role_code' => $res, "org_code" => $this->org_code])->get('role')->row();
+			$this->session->set_userdata('role', $role->role);
+			$this->session->set_userdata('role_code', $role->role_code);
+		}else{
+			$this->session->set_userdata('role', 'admin');
+		}
+	}
+
 	function login()
 	{
+		$this->emp_code = $this->input->post('ClientID');
+		$username = $this->input->post('ClientID');
+		$password = $this->input->post('password');
 
-		$part=$this->db->where(['username'=>$this->input->post('ClientID'),'role'=>"Admin"])->get('user');
-		if($part->num_rows()>0)
+		$user = $this->db->select('*')->where(['username'=>$username,'password'=>$password,'status'=>0])->get('user');
+
+		if($user->num_rows() > 0)
 		{
-			$admin=$this->db->select('*')->where(['org_code'=>$this->input->post('ClientID'),'password'=>$this->input->post('password'),'status'=>0])->get('user');
-
-			if($admin->num_rows()>0)
-			{
-				$org=$this->db->select('*')->where('org_code',$this->input->post('ClientID'))->get('organization');
-				$org_details=$org->row();
-				$admin_tbl=$admin->row();
-				$arr=[
-				'org_code'=>$admin_tbl->org_code,
-				'role'=>$admin_tbl->role,
-				'org_name'=>$org_details->org_name,
-			];
-			$this->session->set_userdata($arr);
+			$this->org_code = $user->row()->org_code;
+			$this->get_role();
+			$this->session->set_userdata('org_name', org_info($this->org_code));
 			return true;
-			}
-			else{
-				echo "admin login is failed";
-				return false;
-			}
 		}
-		else
-		{
-			$employee=$this->db->select('*')->from('user')->join('mapping_employee','user.username=mapping_employee.employee_code')->where(['username'=>$this->input->post('ClientID'),'password'=>$this->input->post('password'),'status'=>0])->get();
-			if($employee->num_rows()>0)
-			{
-				$emp_tbl=$employee->row();
-				$emp=$this->db->select('*')->where('employee_code',$emp_tbl->username)->get('employee');
-				$emp_details=$emp->row();
-				
-				$arr=[
-					'org_code'=>$emp_tbl->org_code,
-					'role'=>$emp_tbl->role,
-					'employee'=>$emp_details->employee,
-				];
-				$this->session->set_userdata($arr);
-				return true;
-
-			}
-			else{
-				echo "employee not valid";
-				return false;
-			}	
+		else{
+			echo "admin login is failed";
+			return false;
 		}
-
 	}
 	
 	/**
