@@ -39,6 +39,7 @@ class User_model extends CI_model
 		{
 			$this->org_code = $user->row()->org_code;
 			$this->get_role();
+			$this->session->set_userdata('org_code',$this->org_code);
 			$this->session->set_userdata('org_name', org_info($this->org_code));
 			return true;
 		}
