@@ -1,9 +1,12 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><= $title;> | Log in</title>
+  <title><?= $title;?>| Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -30,7 +33,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?php echo base_url('Master/login');?>"><b>Admin</b></a>
+    <a href="<?php echo base_url('Userpanel/login');?>"><b>Admin</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -38,7 +41,7 @@
 
     <form method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Email" name="email">
+        <input type="text" class="form-control" placeholder="Organization Id" name="ClientID">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -64,9 +67,8 @@
     
     <!-- /.social-auth-links -->
 
-<!--     <a href="#">I forgot my password</a><br>
-    <a href="<?php echo base_url('Master/signup');?>" class="text-center">Register a new membership</a>
- -->
+    <a href="#">I forgot my password</a><br>
+
   </div>
   <!-- /.login-box-body -->
 </div>

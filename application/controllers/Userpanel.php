@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * 
  */
@@ -17,7 +18,7 @@ class Userpanel extends CI_controller
 	*/
 	function login()
 	{
-		$this->load->view('adminlogin', $this->data);
+		$this->load->view('admincomponents/adminlogin', $this->data);
 		if($_POST)
 		{
 			
@@ -52,14 +53,14 @@ class Userpanel extends CI_controller
 	*/
 	function forgetpassword()
 	{
-		$this->load->view('forgetpassword');
+		$this->load->view('admincomponents/forgetpassword');
 		if($_POST)
 		{
 			$this->form_validation->set_rules('password', 'Password', 'required');
 			$this->form_validation->set_rules('cnfpassword', 'Password Confirmation', 'required|matches[password]');
 			if ($this->form_validation->run() == FALSE)
             {
-                $this->load->view('forgetpassword');
+                $this->load->view('admincomponents/forgetpassword');
             }
             else
             {
@@ -84,7 +85,7 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$this->load->view('dashboard',$data);
+		$this->load->view('admincomponents/dashboard',$data);
 	}
 	/**
 		Master Admin Logout
@@ -102,9 +103,9 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$data['content']='role';
+		$data['content']='admincomponents/role';
 		$data['roledetails']=$this->User_model->viewdata();
-		$this->load->view('dashboard',$data);
+		$this->load->view('admincomponents/dashboard',$data);
 	}
 	function roleinsert()
 	{
@@ -132,8 +133,8 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$data['content']='update_role';
-		$this->load->view('dashboard',$data);
+		$data['content']='admincomponents/update_role';
+		$this->load->view('admincomponents/dashboard',$data);
 		if($_POST)
 		{
 			$res=$this->User_model->roleedit($id);
@@ -171,9 +172,9 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$data['content']='department';
+		$data['content']='admincomponents/department';
 		$data['departmentdetails']=$this->User_model->viewdepartment();
-		$this->load->view('dashboard',$data);
+		$this->load->view('admincomponents/dashboard',$data);
 	}
 	function departmentinsert()
 	{
@@ -200,8 +201,8 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$data['content']='update_department';
-		$this->load->view('dashboard',$data);
+		$data['content']='admincomponents/update_department';
+		$this->load->view('admincomponents/dashboard',$data);
 		if($_POST)
 		{
 			$res=$this->User_model->departmentedit($id);
@@ -239,12 +240,12 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$data['content']='employee';
+		$data['content']='admincomponents/employee';
 		$data['employeedetails']=$this->User_model->viewemployee();
 		$data['empdetails']=$this->User_model->viewdepartment();
 		$data['designatiodetails']=$this->User_model->viewdesignation();
 		$data['roledetails']=$this->User_model->viewdata();
-		$this->load->view('dashboard',$data);
+		$this->load->view('admincomponents/dashboard',$data);
 	}
 	function employeeinsert()
 	{
@@ -287,8 +288,8 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$data['content']='update_employee';
-		$this->load->view('dashboard',$data);
+		$data['content']='admincomponents/update_employee';
+		$this->load->view('admincomponents/dashboard',$data);
 		if($_POST)
 		{
 			$res=$this->User_model->employeeedit($id);
@@ -311,10 +312,10 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$data['content']='designation';
+		$data['content']='admincomponents/designation';
 		$data['depts']=$this->User_model->viewdepartment();
 		$data['designationdetails']=$this->User_model->viewdesignation();
-		$this->load->view('dashboard',$data);
+		$this->load->view('admincomponents/dashboard',$data);
 	}
 	function designationinsert()
 	{
@@ -341,8 +342,8 @@ class Userpanel extends CI_controller
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
-		$data['content']='update_designation';
-		$this->load->view('dashboard',$data);
+		$data['content']='admincomponents/update_designation';
+		$this->load->view('admincomponents/dashboard',$data);
 		if($_POST)
 		{
 			$res=$this->User_model->designationedit($id);

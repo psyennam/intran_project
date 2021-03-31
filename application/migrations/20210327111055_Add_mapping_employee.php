@@ -3,7 +3,7 @@
 
         public function up(){
                 $this->dbforge->add_field(array(
-                        'eployee_id' => array(
+                        'employee_id' => array(
                                 'type' => 'INT',
                         ),
                         'role_code' => array(

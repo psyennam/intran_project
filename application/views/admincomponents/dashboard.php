@@ -1,4 +1,6 @@
-
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +32,23 @@
   <![endif]-->
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"></head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style>
+    .example-modal .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+
+    .example-modal .modal {
+      background: transparent !important;
+    }
+  </style>
+</head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -45,17 +63,12 @@ $this->load->view($nav);
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <?php
-          if(!empty($content))
-          {
-           $this->load->view($content);
-          }
-          if(!empty($details))
-          {
-          $this->load->view($details);
+        <?php 
+            if(!empty($content))
+            {
+              $this->load->view($content);
             }
-      ?>
-
+        ?>
        <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -76,8 +89,24 @@ $this->load->view($nav);
 <script src="<?php echo base_url();?>asset/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url();?>asset/bower_components/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip    $.widget.bridge('uibutton', $.ui.button);
+-->
+<script>
+    $(function ()
+  {
+    
+  $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    )
+  
+  })
+</script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url();?>asset/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
@@ -104,36 +133,5 @@ $this->load->view($nav);
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url();?>asset/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url();?>asset/dist/js/demo.js"></script>
-<!-- DataTables -->
-<script src="<?php echo base_url();?>asset/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url();?>asset/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript">
-  $.widget.bridge('uibutton', $.ui.button);
-  $(function ()
-  {
-  //Date picker
-    $('#datepicker').datepicker({
-      autoclose: true
-    })
-    $('#datepicker1').datepicker({
-      autoclose: true
-    })
-  })
-</script>
-<script>
-  $(function () {
-
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
-</body>
+<script src="<?php echo base_url();?>asset/dist/js/demo.js"></script></body>
 </html>

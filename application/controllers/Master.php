@@ -1,4 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * 
  */
@@ -10,13 +12,14 @@ class Master extends CI_controller
 		parent::__construct();
 		$this->load->helper(array('form','url'));
 		$this->load->model('Master_model');
+		$this->data["title"]="Login";	
 	}
 	/*
 		Logim form
 	*/
 	function login()
 	{
-		$this->load->view('login');
+		$this->load->view('mastercomponents/login',$this->data);
 		if($_POST)
 		{
 			$username=$this->input->post('email');
@@ -37,15 +40,15 @@ class Master extends CI_controller
 	**/
 	function dashboard()
 	{
-		$data['header']='components/header';
-		$data['nav']='components/nav';
-		$data['footer']='components/footer';
+		$data['header']='mastercomponents/header';
+		$data['nav']='mastercomponents/nav';
+		$data['footer']='mastercomponents/footer';
 		$data['orgdetails']=$this->Master_model->viewdata();	
 		if($data['orgdetails']>0)
 		{
-			$data['details']='details';
+			$data['details']='mastercomponents/details';
 		}
-		$this->load->view('layout',$data);
+		$this->load->view('mastercomponents/layout',$data);
 
 	}
 	/**
@@ -53,10 +56,10 @@ class Master extends CI_controller
 	**/
 	function orgform()
 	{
-		$data['header']='components/header';
-		$data['nav']='components/nav';
-		$data['footer']='components/footer';
-		$data['content']='Organisationform';
+		$data['header']='mastercomponents/header';
+		$data['nav']='mastercomponents/nav';
+		$data['footer']='mastercomponents/footer';
+		$data['content']='mastercomponents/Organisationform';
 		if($_POST)
 		{
 			$res=$this->Master_model->registrationform();
@@ -69,7 +72,7 @@ class Master extends CI_controller
 				echo "Data is not inserted";
 			}
 		}
-		$this->load->view('layout',$data);
+		$this->load->view('mastercomponents/layout',$data);
 	}
 	/**
 		Orgnisation Update Form
@@ -78,11 +81,11 @@ class Master extends CI_controller
 	{
 		$id=$this->input->get('org_code');
 		$data['row']=$this->Master_model->databyid($id);
-		$data['header']='components/header';
-		$data['nav']='components/nav';
-		$data['footer']='components/footer';
-		$data['content']='updateform';
-		$this->load->view('layout',$data);
+		$data['header']='mastercomponents/header';
+		$data['nav']='mastercomponents/nav';
+		$data['footer']='mastercomponents/footer';
+		$data['content']='mastercomponents/updateform';
+		$this->load->view('mastercomponents/layout',$data);
 		if($_POST)
 		{
 			$res=$this->Master_model->edit($id);

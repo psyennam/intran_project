@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!-- Content Wrapper. Contains page content -->
   		
     <!-- Content Header (Page header) -->
