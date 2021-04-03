@@ -13,7 +13,7 @@
                                                         'NULL'=>false,
                                                 ),
                                                 'state_code' => array(
-                 dsa                                       'type' => 'VARCHAR',
+                                                        'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                         'NULL'=>false,
                                                 ),
