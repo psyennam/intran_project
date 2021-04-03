@@ -82,16 +82,10 @@ class Userpanel extends CI_controller
 	**/
 	function dashboard()
 	{
-		if($this->session->userdata('role') == "")
-		{
-			redirect('Userpanel/login');
-		}
-		else{	
-			$data['header']='admincomponents/header';
-			$data['nav']='admincomponents/nav';
-			$data['footer']='admincomponents/footer';
-			$this->load->view('admincomponents/dashboard',$data);
-		}
+		$data['header']='admincomponents/header';
+		$data['nav']='admincomponents/nav';
+		$data['footer']='admincomponents/footer';
+		$this->load->view('admincomponents/dashboard',$data);
 	}
 	/**
 		Master Admin Logout
