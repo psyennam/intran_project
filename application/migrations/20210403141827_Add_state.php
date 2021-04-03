@@ -3,7 +3,7 @@
 
                                 public function up(){
                                         $this->dbforge->add_field(array(
-                   as                             'id' => array(
+                                                'id' => array(
                                                         'type' => 'INT',
                                                         'auto_increment' => TRUE,
                                                 ),

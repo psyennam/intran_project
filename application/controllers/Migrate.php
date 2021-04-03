@@ -20,7 +20,7 @@ class Migrate extends CI_Controller
                                                         'unique'=>true,
                                                 ),
                                                 'org_code' => array(
-                           a                             'type' => 'VARCHAR',
+                                                        'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
                                                 'role_code' => array(
