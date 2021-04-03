@@ -17,7 +17,7 @@
                                                         'constraint' => '10',
                                                         'NULL'=>false,
                                                 ),
-                                                'city_code' => array(
+                                              'city_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                         'NULL'=>false,

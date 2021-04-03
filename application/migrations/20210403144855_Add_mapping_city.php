@@ -10,7 +10,7 @@
                                                 ),
                                                 'state_code' => array(
                                                         'type' => 'VARCHAR',
-                                                        'constraint' => '10',
+                   sas                                     'constraint' => '10',
                                                         'NULL'=>false,
                                                 ),
                                                 'country_code' => array(

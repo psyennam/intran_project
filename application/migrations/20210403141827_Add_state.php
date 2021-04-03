@@ -1,9 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-                                class Migration_Add_city extends CI_Migration {
+                                class Migration_Add_state extends CI_Migration {
 
                                 public function up(){
                                         $this->dbforge->add_field(array(
-                                                'id' => array(
+                   as                             'id' => array(
                                                         'type' => 'INT',
                                                         'auto_increment' => TRUE,
                                                 ),
@@ -13,11 +13,6 @@
                                                         'NULL'=>false,
                                                 ),
                                                 'state_code' => array(
-                 dsa                                       'type' => 'VARCHAR',
-                                                        'constraint' => '10',
-                                                        'NULL'=>false,
-                                                ),
-                                                'city_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                         'unique'=>true,
@@ -33,7 +28,7 @@
                                                         'constraint' => '10',
                                                         'NULL'=>false,
                                                 ),
-                                                'city'=>array(
+                                                'state'=>array(
                                                         'type' =>'VARCHAR',
                                                         'constraint'=>'50', 
                                                         'NULL'=>false,
@@ -54,12 +49,12 @@
                                                         'default'=>'Active'
                                                 ),
                                                 
-                                        ));       
+                                        ));     
                                         $this->dbforge->add_key('id', TRUE);
-                                        $this->dbforge->create_table('city');
+                                        $this->dbforge->create_table('state');
                                 }
 
                                 public function down(){
-                                        $this->dbforge->drop_table('city');
+                                        $this->dbforge->drop_table('state');
                                 }
                         }?>
