@@ -481,8 +481,8 @@ class Userpanel extends CI_controller
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
 		$data['content']='admincomponents/pincode';
-		$data['countrydetails']=$this->User_model->viewcountry();
-		$data['statedetails']=$this->User_model->viewstate();
+		// $data['countrydetails']=$this->User_model->viewcountry();
+		// $data['statedetails']=$this->User_model->viewstate();
 		$data['citydetails']=$this->User_model->viewcity();
 		$data['pincodedetails']=$this->User_model->viewpincode();
 		$this->load->view('admincomponents/dashboard',$data);

@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Country Data
+        Pincode Data
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
@@ -23,21 +23,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box">
             <div class="box-header">
               <!-- Form Start  -->
-        <form action="/intran_project/Userpanel/countryinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+        <form action="/intran_project/Userpanel/pincodeinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
           		<!-- Modal Start  -->
               	<div class="modal fade" id="mymodel">
               		<div class="modal-dialog modal-dialog-centered">
               			<div class="modal-content">
               				<div class="modal-header">
-              					<h3 class="text-center text-primary">Country</h3>	
+              					<h3 class="text-center text-primary">Role</h3>	
               					<button type="button" class="close" data-dismiss="modal">&times;</button>	
               				</div>
               				<div class="modal-body">
                             <div class="row">
+                              <div class="col-sm-12 col-md-4 col-lg-4">
+                                <label>City</label>
+                                  <select class="form-control" name="citycombo">
+                                  <?php 
+                                  foreach ($citydetails as $row) {
+                                  ?>
+                                      <option value="<?php echo $row->city_code ?>"><?php echo $row->city; ?>
+                                      </option>
+                                  <?php
+                                } ?>
+                                  </select>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-4">
+                                <label>area</label>
+                                <input type="text" class="form-control" placeholder="Enter Area Name" name="area">
+                              </div>
   							              <div class="col-sm-12 col-md-4 col-lg-4">
-  							                <label>Country Name</label>
-  							                <input type="text" class="form-control" placeholder="Enter Country Name" name="CountryName">
+  							                <label>ZipCode</label>
+  							                <input type="text" class="form-control" placeholder="Enter Role Name" name="zipCode">
   							              </div>
   							              <div class="col-sm-12 col-md-12 col-lg-4">
   							                <label>Organization Id</label>
@@ -65,51 +81,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                    <th>ID</th>
-					<th>Country Code</th>
-					<th>Country Name</th>
-					<th>Organization Code</th>
-					<th>Created_at</th>
-					<th>Status</th>
-					<th>IpAddress</th>
-					<th>Branch Code</th>
-<!-- 					<th>Update</th>
-					<th>Delete</th> -->
-			    </tr>
+                  <th>ID</th>
+        					<th>PinCode</th>
+                  <th>Area</th>
+        					<th>ZipCode</th>
+                  <th>CityCode</th>
+                  <th>Organization Code</th>
+        					<th>CreateDate</th>
+        					<th>Status</th>
+        					<th>IpAddress</th>
+        					<th>Branch Code</th>
+        					<!-- <th>Update</th> 
+        					<th>Delete</th>  -->
+        			    </tr>
                 </thead>
                <tbody>
               <?php
-	foreach ($countrydetails as $key) {
+	foreach ($pincodedetails as $key) {
 	?>
 	<tr>
 		<td><?php echo $key->id;?></td>
-		<td><?php echo $key->country_code; ?></td>	
-		<td><?php echo $key->country; ?></td>	
+		<td><?php echo $key->pin_code; ?></td>
+    	<td><?php echo $key->area; ?></td>
+		<td><?php echo $key->zip_code; ?></td>
+    <td><?php echo $key->city_code; ?></td>	
 		<td><?php echo $key->org_code;?></td>	
 		<td><?php echo $key->created_at; ?></td>	
 		<td><?php echo $key->status; ?></td>	
 		<td><?php echo $key->ip_address; ?></td>	
 		<td><?php echo $key->branch_code; ?></td>	
 		<!-- <td><a href="updaterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel">UPDATE</button></a></td>
-		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>	 -->				
+		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					 -->
 	</tr>	
 	<?php
 	}
-		?>            
+		?>          
       </tbody>
-      <tfoot>
-      <tr>
-					<th>ID</th>
-					<th>Country Code</th>
-					<th>Country Name</th>
-					<th>Organization Code</th>
-					<th>Created_at</th>
-					<th>Status</th>
-					<th>IpAddress</th>
-					<th>Branch Code</th>
-			<!-- 		<th>Update</th>
-					<th>Delete</th> -->
-			    </tr>
+    <tfoot>
+    <tr>
+          <th>ID</th>
+          <th>PinCode</th>
+          <th>Area</th>
+          <th>ZipCode</th>
+          <th>CityCode</th>
+          <th>Organization Code</th>
+          <th>CreateDate</th>
+          <th>Status</th>
+          <th>IpAddress</th>
+          <th>Branch Code</th>
+          <!-- <th>Update</th> 
+          <th>Delete</th>  -->
+		</tr>
                 </tfoot>
               </table>
             </div>

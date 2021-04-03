@@ -602,9 +602,37 @@ class User_model extends CI_model
 	/**
 		In this function it gives all the data from the Pincode table 
 	**/
-	function viewcity()
+	function viewpincode()
 	{
 		return $this->db->select('*')->get('pincode')->result();
+	}
+
+	function pincodeinsert()
+	{
+		$randomid=random_string('alnum',6);
+		$ip=$this->input->ip_address();
+		$data=[
+				//'id'=>$this->input->post('NULL'),
+				'zip_code'=>$this->input->post('zipCode'),
+				'area'=>$this->input->post('area'),
+				'pin_code'=>$randomid,
+				'city_code'=>$this->input->post('citycombo'),
+				'org_code'=>$this->session->userdata('org_code'),
+				'created_at'=>date('y-m-d H:i:s'),
+				'ip_address'=>$ip
+			];
+		$this->db->trans_start();
+		if($this->db->insert('pincode',$data)) 
+		{
+			# code...
+			$this->db->trans_complete();
+			return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
 	}
 }
 ?>
