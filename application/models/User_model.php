@@ -478,12 +478,16 @@ class User_model extends CI_model
 				return false;
 			}
 	}
-
+	/**
+		In this function it gives all the data from the country table 
+	**/
 	function viewcountry()
 	{
 		return $this->db->select('*')->get('country')->result();
 	}
-
+	/**
+		In this function Country data will be inserted
+	**/
 	function countryinsert()
 	{
 		$randomid=random_string('alnum',6);
@@ -508,6 +512,99 @@ class User_model extends CI_model
 			$this->db->trans_rollback();
 			return false;
 		}
+	}
+	/**
+		In this function it gives all the data from the state table 
+	**/
+	function viewstate()
+	{
+		return $this->db->select('*')->get('state')->result();
+	}
+	/**
+		In this function State data will be inserted
+	**/
+	function stateinsert()
+	{
+		$randomid=random_string('alnum',6);
+		$ip=$this->input->ip_address();
+		$data=[
+				//'id'=>$this->input->post('NULL'),
+				'country_code'=>$this->input->post('countrycombo'),
+				'state_code'=>$randomid,
+				'org_code'=>$this->session->userdata('org_code'),
+				'state'=>$this->input->post('StateName'),
+				'created_at'=>date('y-m-d H:i:s'),
+				'ip_address'=>$ip
+			];
+		$this->db->trans_start();
+		if($this->db->insert('state',$data)) 
+		{
+			# code...
+			$this->db->trans_complete();
+			return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
+	/**
+		In this function it gives all the data from the city table 
+	**/
+	function viewcity()
+	{
+		return $this->db->select('*')->get('city')->result();
+	}
+	/**
+		In this function City data will be inserted
+	**/
+	function cityinsert()
+	{
+		$randomid=random_string('alnum',6);
+		$ip=$this->input->ip_address();
+		$data=[
+				//'id'=>$this->input->post('NULL'),
+				'country_code'=>$this->input->post('countrycombo'),
+				'state_code'=>$this->input->post('statecombo'),
+				'city_code'=>$randomid,
+				'org_code'=>$this->session->userdata('org_code'),
+				'city'=>$this->input->post('CityName'),
+				'created_at'=>date('y-m-d H:i:s'),
+				'ip_address'=>$ip
+			];
+		$this->db->trans_start();
+		if($this->db->insert('city',$data)) 
+		{
+			$mapping_city=[
+				'city_code'=>$randomid,
+				'state_code'=>$this->input->post('statecombo'),
+				'country_code'=>$this->input->post('countrycombo')
+			];
+			if($this->db->insert('mapping_city',$mapping_city)) 
+			{
+				# code...
+				$this->db->trans_complete();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+			
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
+	/**
+		In this function it gives all the data from the Pincode table 
+	**/
+	function viewcity()
+	{
+		return $this->db->select('*')->get('pincode')->result();
 	}
 }
 ?>

@@ -379,8 +379,9 @@ class Userpanel extends CI_controller
 			echo "Data is not updated";
 		}
 	}
-
-
+	/*
+		Country View
+	*/
 	function country()
 	{
 		$data['header']='admincomponents/header';
@@ -390,7 +391,9 @@ class Userpanel extends CI_controller
 		$data['countrydetails']=$this->User_model->viewcountry();
 		$this->load->view('admincomponents/dashboard',$data);
 	}
-
+	/*
+		Country Insert
+	*/
 	function countryinsert()
 	{
 		if($_POST)
@@ -399,6 +402,102 @@ class Userpanel extends CI_controller
 			if($insert>0)
 			{
 				redirect('Userpanel/country');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+	/*
+		State View
+	*/
+	function state()
+	{
+		$data['header']='admincomponents/header';
+		$data['nav']='admincomponents/nav';
+		$data['footer']='admincomponents/footer';
+		$data['content']='admincomponents/state';
+		$data['countrydetails']=$this->User_model->viewcountry();
+		$data['statedetails']=$this->User_model->viewstate();
+		$this->load->view('admincomponents/dashboard',$data);
+	}
+	/*
+		State Insert
+	*/
+	function stateinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->User_model->stateinsert();
+			if($insert>0)
+			{
+				redirect('Userpanel/state');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+	/*
+		City View
+	*/
+	function city()
+	{
+		$data['header']='admincomponents/header';
+		$data['nav']='admincomponents/nav';
+		$data['footer']='admincomponents/footer';
+		$data['content']='admincomponents/city';
+		$data['countrydetails']=$this->User_model->viewcountry();
+		$data['statedetails']=$this->User_model->viewstate();
+		$data['citydetails']=$this->User_model->viewcity();
+		$this->load->view('admincomponents/dashboard',$data);
+	}
+	/*
+		City Insert
+	*/
+	function cityinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->User_model->cityinsert();
+			if($insert>0)
+			{
+				redirect('Userpanel/city');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+	/*
+		Pincode View
+	*/
+	function pincode()
+	{
+		$data['header']='admincomponents/header';
+		$data['nav']='admincomponents/nav';
+		$data['footer']='admincomponents/footer';
+		$data['content']='admincomponents/pincode';
+		$data['countrydetails']=$this->User_model->viewcountry();
+		$data['statedetails']=$this->User_model->viewstate();
+		$data['citydetails']=$this->User_model->viewcity();
+		$data['pincodedetails']=$this->User_model->viewpincode();
+		$this->load->view('admincomponents/dashboard',$data);
+	}
+	/*
+		City Insert
+	*/
+	function pincodeinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->User_model->pincodeinsert();
+			if($insert>0)
+			{
+				redirect('Userpanel/pincode');		
 			}
 			else
 			{

@@ -62,9 +62,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="<?php echo base_url('Userpanel/country');?>"><i class="fa fa-circle-o"></i>Country</a></li>
-           <li class="active"><a href="<?php echo base_url('Userpanel/state');?>"><i class="fa fa-circle-o"></i>State</a>
-            <li class="active"><a href="<?php echo base_url('Userpanel/city');?>"><i class="fa fa-circle-o"></i>City</a>
-           </li>  
+           <li class="active"><a href="<?php echo base_url('Userpanel/state');?>"><i class="fa fa-circle-o"></i>State</a></li>
+            <li class="active"><a href="<?php echo base_url('Userpanel/city');?>"><i class="fa fa-circle-o"></i>City</a></li>
+           <li class="active"><a href="<?php echo base_url('Userpanel/pincode');?>"><i class="fa fa-circle-o"></i>Pincode</a></li>  
           </ul>
         </li>
 
