@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-                                class Migration_Add_state extends CI_Migration {
+                                class Migration_Add_city extends CI_Migration {
 
                                 public function up(){
                                         $this->dbforge->add_field(array(
@@ -15,6 +15,11 @@
                                                 'state_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
+                                                        'NULL'=>false,
+                                                ),
+                                                'city_code' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
                                                         'unique'=>true,
                                                         'NULL'=>false,
                                                 ),
@@ -28,7 +33,7 @@
                                                         'constraint' => '10',
                                                         'NULL'=>false,
                                                 ),
-                                                'state'=>array(
+                                                'city'=>array(
                                                         'type' =>'VARCHAR',
                                                         'constraint'=>'50', 
                                                         'NULL'=>false,
@@ -49,12 +54,12 @@
                                                         'default'=>'Active'
                                                 ),
                                                 
-                                        ));     
+                                        ));       
                                         $this->dbforge->add_key('id', TRUE);
-                                        $this->dbforge->create_table('state');
+                                        $this->dbforge->create_table('city');
                                 }
 
                                 public function down(){
-                                        $this->dbforge->drop_table('state');
+                                        $this->dbforge->drop_table('city');
                                 }
                         }?>

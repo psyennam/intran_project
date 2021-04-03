@@ -39,7 +39,7 @@ class Migrate extends CI_Controller
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'createddate' => array(
+                                                'created_at' => array(
                                                         'type' => 'DATETIME',
                                                         'default'=>date('Y-m-d H:i:s'),        
                                                 ),

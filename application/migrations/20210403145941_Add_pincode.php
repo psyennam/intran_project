@@ -1,21 +1,25 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-                                class Migration_Add_state extends CI_Migration {
+                                class Migration_Add_pincode extends CI_Migration {
 
                                 public function up(){
                                         $this->dbforge->add_field(array(
                                                 'id' => array(
                                                         'type' => 'INT',
-                                                        'auto_increment' => TRUE,
+                                                        'auto_increment' => TRUE
                                                 ),
-                                                'country_code' => array(
+                                                'pin_code' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
+                                                        'unique'=>true,
+                                                ),
+                                                'zip_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                         'NULL'=>false,
                                                 ),
-                                                'state_code' => array(
+                                                'city_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
-                                                        'unique'=>true,
                                                         'NULL'=>false,
                                                 ),
                                                 'org_code' => array(
@@ -28,15 +32,10 @@
                                                         'constraint' => '10',
                                                         'NULL'=>false,
                                                 ),
-                                                'state'=>array(
-                                                        'type' =>'VARCHAR',
-                                                        'constraint'=>'50', 
-                                                        'NULL'=>false,
-                                                ),
                                                 'created_at' => array(
                                                         'type' => 'DATETIME',
-                                                        'default'=>date('Y-m-d H:i:s'), 
-
+                                                        'default'=>date('Y-m-d H:i:s'),  
+                                                        'NULL'=>false,      
                                                 ),
                                                 'ip_address' => array(
                                                         'type' => 'VARCHAR',
@@ -51,10 +50,10 @@
                                                 
                                         ));     
                                         $this->dbforge->add_key('id', TRUE);
-                                        $this->dbforge->create_table('state');
+                                        $this->dbforge->create_table('pincode');
                                 }
 
                                 public function down(){
-                                        $this->dbforge->drop_table('state');
+                                        $this->dbforge->drop_table('pincode');
                                 }
                         }?>
