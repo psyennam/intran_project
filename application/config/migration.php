@@ -75,8 +75,7 @@ $config['migration_auto_latest'] = TRUE;
 
 
 
-$config['migration_version'] = 20210403141827;
-
+$config['migration_version'] = 20210403145924;
 
 
 /*

@@ -19,7 +19,7 @@ class Migrate extends CI_Controller
                                                         'constraint' => '10',
                                                         'unique'=>true,
                                                 ),
-                                                'organization_code' => array(
+                                                'org_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
@@ -35,11 +35,11 @@ class Migrate extends CI_Controller
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'branch_codes' => array(
+                                                'branch_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'createddate' => array(
+                                                'created_at' => array(
                                                         'type' => 'DATETIME',
                                                         'default'=>date('Y-m-d H:i:s'),        
                                                 ),
