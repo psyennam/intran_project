@@ -51,6 +51,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            </li>  
           </ul>
         </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Menu</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="<?php echo base_url('Userpanel/country');?>"><i class="fa fa-circle-o"></i>Country</a></li>
+           <li class="active"><a href="<?php echo base_url('Userpanel/state');?>"><i class="fa fa-circle-o"></i>State</a>
+            <li class="active"><a href="<?php echo base_url('Userpanel/city');?>"><i class="fa fa-circle-o"></i>City</a>
+           </li>  
+          </ul>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->

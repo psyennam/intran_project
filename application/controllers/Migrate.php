@@ -38,6 +38,7 @@ class Migrate extends CI_Controller
                                                 'branch_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
+                                                        'NULL'=>true,
                                                 ),
                                                 'created_at' => array(
                                                         'type' => 'DATETIME',
@@ -50,7 +51,7 @@ class Migrate extends CI_Controller
                                                 'status' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '15',
-                                                        'default'=>'Active'
+                                                        'default'=>0,
                                                 ),
                                                 
                                         ));     

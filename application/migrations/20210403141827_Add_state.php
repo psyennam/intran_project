@@ -26,7 +26,7 @@
                                                 'branch_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
-                                                        'NULL'=>false,
+                                                        'NULL'=>true,
                                                 ),
                                                 'state'=>array(
                                                         'type' =>'VARCHAR',
@@ -46,7 +46,7 @@
                                                 'status' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '15',
-                                                        'default'=>'Active'
+                                                        'default'=>0,
                                                 ),
                                                 
                                         ));     

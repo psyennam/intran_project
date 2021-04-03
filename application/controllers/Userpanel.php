@@ -82,7 +82,7 @@ class Userpanel extends CI_controller
 	**/
 	function dashboard()
 	{
-		if(!$this->session->userdata('org_code') || !$this->session->userdata('role_code'))
+		if($this->session->userdata('role') !== "")
 		{
 			$data['header']='admincomponents/header';
 			$data['nav']='admincomponents/nav';
@@ -377,6 +377,33 @@ class Userpanel extends CI_controller
 		else
 		{
 			echo "Data is not updated";
+		}
+	}
+
+
+	function country()
+	{
+		$data['header']='admincomponents/header';
+		$data['nav']='admincomponents/nav';
+		$data['footer']='admincomponents/footer';
+		$data['content']='admincomponents/country';
+		$data['countrydetails']=$this->User_model->viewcountry();
+		$this->load->view('admincomponents/dashboard',$data);
+	}
+
+	function countryinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->User_model->countryinsert();
+			if($insert>0)
+			{
+				redirect('Userpanel/country');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
 		}
 	}
 }

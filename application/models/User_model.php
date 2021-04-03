@@ -478,5 +478,36 @@ class User_model extends CI_model
 				return false;
 			}
 	}
+
+	function viewcountry()
+	{
+		return $this->db->select('*')->get('country')->result();
+	}
+
+	function countryinsert()
+	{
+		$randomid=random_string('alnum',6);
+		$ip=$this->input->ip_address();
+		$data=[
+				//'id'=>$this->input->post('NULL'),
+				'country_code'=>$randomid,
+				'country'=>$this->input->post('CountryName'),
+				'org_code'=>$this->session->userdata('org_code'),
+				'created_at'=>date('y-m-d H:i:s'),
+				'ip_address'=>$ip
+			];
+		$this->db->trans_start();
+		if($this->db->insert('country',$data)) 
+		{
+			# code...
+			$this->db->trans_complete();
+			return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
 }
 ?>
