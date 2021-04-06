@@ -116,9 +116,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <th>ID</th>
           					<th>Employee Name</th>
           					<th>Employee Code</th>
-          					<th>Organization Code</th>
-          					<th>Branch Code</th>
-          					<th>Ip Address</th>
           					<th>Status</th>
           					<th>Create date</th>
           					<th>Update</th>
@@ -133,11 +130,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<td><?php echo $key->id;?></td>
 		<td><?php echo $key->employee; ?></td>	
 		<td><?php echo $key->employee_code; ?></td>	
-		<td><?php echo $key->org_code;?></td>	
-		<td><?php echo $key->branch_code; ?></td>	
-		<td><?php echo $key->ip_address; ?></td>	
-		<td><?php echo $key->status; ?></td>	
-		<td><?php echo $key->created_at; ?></td>	
+		<td><?php echo is_status($key->status); ?></td>  
+    <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>	
 		<td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
 		<td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					
 	</tr>	
@@ -146,20 +140,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
                 
     </tbody>
-    <tfoot>
-    <tr>
-      <th>ID</th>
-        <th>Employee Name</th>
-        <th>Employee Code</th>
-        <th>Organization Code</th>
-        <th>Branch Code</th>
-        <th>Ip Address</th>
-        <th>Status</th>
-        <th>Create date</th>
-        <th>Update</th>
-        <th>Delete</th>
-	    </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->

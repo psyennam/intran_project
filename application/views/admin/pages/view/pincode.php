@@ -86,13 +86,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Area</th>
         					<th>ZipCode</th>
                   <th>CityCode</th>
-                  <th>Organization Code</th>
         					<th>CreateDate</th>
         					<th>Status</th>
-        					<th>IpAddress</th>
-        					<th>Branch Code</th>
-        					<!-- <th>Update</th> 
-        					<th>Delete</th>  -->
         			    </tr>
                 </thead>
                <tbody>
@@ -105,11 +100,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	<td><?php echo $key->area; ?></td>
 		<td><?php echo $key->zip_code; ?></td>
     <td><?php echo $key->city_code; ?></td>	
-		<td><?php echo $key->org_code;?></td>	
-		<td><?php echo $key->created_at; ?></td>	
-		<td><?php echo $key->status; ?></td>	
-		<td><?php echo $key->ip_address; ?></td>	
-		<td><?php echo $key->branch_code; ?></td>	
+		<td><?php echo is_status($key->status); ?></td>  
+    <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>	
 		<!-- <td><a href="updaterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel">UPDATE</button></a></td>
 		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					 -->
 	</tr>	
@@ -117,22 +109,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 		?>          
       </tbody>
-    <tfoot>
-    <tr>
-          <th>ID</th>
-          <th>PinCode</th>
-          <th>Area</th>
-          <th>ZipCode</th>
-          <th>CityCode</th>
-          <th>Organization Code</th>
-          <th>CreateDate</th>
-          <th>Status</th>
-          <th>IpAddress</th>
-          <th>Branch Code</th>
-          <!-- <th>Update</th> 
-          <th>Delete</th>  -->
-		</tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->

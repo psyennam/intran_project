@@ -30,8 +30,8 @@
                     <td><?php echo $key->designation; ?></td> 
                     <td><?php echo $key->designation_code; ?></td>
                     <td><?php echo $key->department_code; ?></td> 
-                    <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
-                    <td><?php echo $key->status; ?></td>  
+                    <td><?php echo is_status($key->status); ?></td>  
+                    <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td> 
                     <td><a href="updatedesignation?id=<?php echo $key->designation_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
                     <td><a href="deletedesignation?id=<?php echo $key->designation_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>          
                   </tr> 

@@ -30,7 +30,7 @@
                 <td><?php echo $key->id;?></td>
                 <td><?php echo $key->department; ?></td>  
                 <td><?php echo $key->department_code; ?></td> 
-                <td><?php echo $key->status; ?></td>  
+                <td><?php echo is_status($key->status); ?></td>  
                 <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
                 <td><a href="updatedepartment?id=<?php echo $key->department_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
                 <td><a href="deletedepartment?id=<?php echo $key->department_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>          
