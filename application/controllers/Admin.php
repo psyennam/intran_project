@@ -111,7 +111,6 @@ class Admin extends CI_controller
 	}
 	function roleinsert()
 	{
-		//echo "Hi";
 		if($_POST)
 		{
 			$insert=$this->Admin_model->roleinsert();

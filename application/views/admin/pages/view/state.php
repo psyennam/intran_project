@@ -42,7 +42,7 @@
                           <td><?php echo $key->state_code; ?></td>  
                       		<td><?php echo $key->state; ?></td>	
                       		<td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td>	
-                      		<<td><?php echo is_status($key->status); ?></td>				
+                      		<td><?php echo is_status($key->status); ?></td>				
                       	</tr>	
                       	<?php } ?>     
                   </tbody>

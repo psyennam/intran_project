@@ -105,7 +105,6 @@ class Admin_model extends CI_model
 		$this->db->trans_start();
 		if($this->db->insert('role',$data)) 
 		{
-			# code...
 			$this->db->trans_complete();
 			return true;
 		}
