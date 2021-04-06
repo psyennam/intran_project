@@ -69,7 +69,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
           </div>
           <!-- Form 1 Start  -->
-          <form action="<?= base_url('Userpanel/cityinsert');?>" id="formone" class="form-group" method="post">
+          <form action="<?= base_url('Admin/cityinsert');?>" id="formone" class="form-group" method="post">
             <div class="modal-body">
               <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -128,7 +128,7 @@
             <h4 class="modal-title">Pincode</h4>  
           </div>
           <!-- Form 2 Start  -->
-          <form action="/intran_project/Userpanel/pincodeinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+          <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
             <div class="modal-body">
               <input type="hidden" name="city" value="" id="h_city_code">
               <div class="row">
