@@ -1030,3 +1030,280 @@ INFO - 2021-04-06 13:23:11 --> File loaded: C:\xampp\htdocs\intran_project\appli
 INFO - 2021-04-06 13:23:11 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
 INFO - 2021-04-06 13:23:11 --> Final output sent to browser
 DEBUG - 2021-04-06 13:23:11 --> Total execution time: 0.0606
+INFO - 2021-04-06 13:26:09 --> Config Class Initialized
+INFO - 2021-04-06 13:26:09 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:09 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:09 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:09 --> URI Class Initialized
+INFO - 2021-04-06 13:26:09 --> Router Class Initialized
+INFO - 2021-04-06 13:26:09 --> Output Class Initialized
+INFO - 2021-04-06 13:26:09 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:09 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:09 --> Input Class Initialized
+INFO - 2021-04-06 13:26:09 --> Language Class Initialized
+INFO - 2021-04-06 13:26:09 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:09 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:09 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:09 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:09 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:09 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:09 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:09 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:09 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:09 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:09 --> Model "Admin_model" initialized
+ERROR - 2021-04-06 13:26:09 --> Severity: Notice --> Undefined variable: arr C:\xampp\htdocs\intran_project\application\controllers\Admin.php 99
+INFO - 2021-04-06 13:26:09 --> Config Class Initialized
+INFO - 2021-04-06 13:26:09 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:09 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:09 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:09 --> URI Class Initialized
+INFO - 2021-04-06 13:26:09 --> Router Class Initialized
+INFO - 2021-04-06 13:26:09 --> Output Class Initialized
+INFO - 2021-04-06 13:26:09 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:09 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:09 --> Input Class Initialized
+INFO - 2021-04-06 13:26:09 --> Language Class Initialized
+INFO - 2021-04-06 13:26:09 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:09 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:09 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:09 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:09 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:09 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:09 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:09 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:09 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:09 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:09 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:09 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/adminlogin.php
+INFO - 2021-04-06 13:26:09 --> Final output sent to browser
+DEBUG - 2021-04-06 13:26:09 --> Total execution time: 0.0348
+INFO - 2021-04-06 13:26:13 --> Config Class Initialized
+INFO - 2021-04-06 13:26:13 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:13 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:13 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:13 --> URI Class Initialized
+INFO - 2021-04-06 13:26:13 --> Router Class Initialized
+INFO - 2021-04-06 13:26:13 --> Output Class Initialized
+INFO - 2021-04-06 13:26:13 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:13 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:13 --> Input Class Initialized
+INFO - 2021-04-06 13:26:13 --> Language Class Initialized
+INFO - 2021-04-06 13:26:13 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:13 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:13 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:13 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:13 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:13 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:13 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:13 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:13 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:13 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:13 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/adminlogin.php
+INFO - 2021-04-06 13:26:13 --> Config Class Initialized
+INFO - 2021-04-06 13:26:13 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:13 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:13 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:13 --> URI Class Initialized
+INFO - 2021-04-06 13:26:13 --> Router Class Initialized
+INFO - 2021-04-06 13:26:13 --> Output Class Initialized
+INFO - 2021-04-06 13:26:13 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:13 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:13 --> Input Class Initialized
+INFO - 2021-04-06 13:26:13 --> Language Class Initialized
+INFO - 2021-04-06 13:26:13 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:13 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:13 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:13 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:13 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:13 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:13 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:13 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:13 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:13 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:13 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:13 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-06 13:26:13 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-06 13:26:13 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-06 13:26:13 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-06 13:26:13 --> Final output sent to browser
+DEBUG - 2021-04-06 13:26:13 --> Total execution time: 0.0316
+INFO - 2021-04-06 13:26:22 --> Config Class Initialized
+INFO - 2021-04-06 13:26:22 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:22 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:22 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:22 --> URI Class Initialized
+INFO - 2021-04-06 13:26:22 --> Router Class Initialized
+INFO - 2021-04-06 13:26:22 --> Output Class Initialized
+INFO - 2021-04-06 13:26:22 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:22 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:22 --> Input Class Initialized
+INFO - 2021-04-06 13:26:22 --> Language Class Initialized
+INFO - 2021-04-06 13:26:22 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:22 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:22 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:22 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:22 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:22 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:22 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:22 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:22 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:22 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:22 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-06 13:26:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+ERROR - 2021-04-06 13:26:22 --> Severity: Notice --> Undefined property: stdClass::$role_code C:\xampp\htdocs\intran_project\application\views\admin\pages\view\country.php 93
+ERROR - 2021-04-06 13:26:22 --> Severity: Notice --> Undefined property: stdClass::$role_code C:\xampp\htdocs\intran_project\application\views\admin\pages\view\country.php 94
+INFO - 2021-04-06 13:26:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/country.php
+INFO - 2021-04-06 13:26:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-06 13:26:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-06 13:26:22 --> Final output sent to browser
+DEBUG - 2021-04-06 13:26:22 --> Total execution time: 0.0430
+INFO - 2021-04-06 13:26:24 --> Config Class Initialized
+INFO - 2021-04-06 13:26:24 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:24 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:24 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:24 --> URI Class Initialized
+INFO - 2021-04-06 13:26:24 --> Router Class Initialized
+INFO - 2021-04-06 13:26:24 --> Output Class Initialized
+INFO - 2021-04-06 13:26:24 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:24 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:24 --> Input Class Initialized
+INFO - 2021-04-06 13:26:24 --> Language Class Initialized
+INFO - 2021-04-06 13:26:24 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:24 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:24 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:24 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:24 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:24 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:24 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:24 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:24 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:24 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:24 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:24 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-06 13:26:24 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+ERROR - 2021-04-06 13:26:24 --> Severity: Notice --> Undefined property: stdClass::$role_code C:\xampp\htdocs\intran_project\application\views\admin\pages\view\state.php 107
+ERROR - 2021-04-06 13:26:24 --> Severity: Notice --> Undefined property: stdClass::$role_code C:\xampp\htdocs\intran_project\application\views\admin\pages\view\state.php 108
+INFO - 2021-04-06 13:26:24 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/state.php
+INFO - 2021-04-06 13:26:24 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-06 13:26:24 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-06 13:26:24 --> Final output sent to browser
+DEBUG - 2021-04-06 13:26:24 --> Total execution time: 0.0324
+INFO - 2021-04-06 13:26:33 --> Config Class Initialized
+INFO - 2021-04-06 13:26:33 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:33 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:33 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:33 --> URI Class Initialized
+INFO - 2021-04-06 13:26:33 --> Router Class Initialized
+INFO - 2021-04-06 13:26:33 --> Output Class Initialized
+INFO - 2021-04-06 13:26:33 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:33 --> Input Class Initialized
+INFO - 2021-04-06 13:26:33 --> Language Class Initialized
+INFO - 2021-04-06 13:26:33 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:33 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:33 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:33 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:33 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:33 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:33 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:33 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:33 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:33 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:33 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:33 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-06 13:26:33 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-06 13:26:33 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/role.php
+INFO - 2021-04-06 13:26:33 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-06 13:26:33 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-06 13:26:33 --> Final output sent to browser
+DEBUG - 2021-04-06 13:26:33 --> Total execution time: 0.0381
+INFO - 2021-04-06 13:26:35 --> Config Class Initialized
+INFO - 2021-04-06 13:26:35 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:35 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:35 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:35 --> URI Class Initialized
+INFO - 2021-04-06 13:26:35 --> Router Class Initialized
+INFO - 2021-04-06 13:26:35 --> Output Class Initialized
+INFO - 2021-04-06 13:26:35 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:35 --> Input Class Initialized
+INFO - 2021-04-06 13:26:35 --> Language Class Initialized
+INFO - 2021-04-06 13:26:35 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:35 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:35 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:35 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:35 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:35 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:35 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:35 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:35 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:35 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:35 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:35 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-06 13:26:35 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-06 13:26:35 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/department.php
+INFO - 2021-04-06 13:26:35 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-06 13:26:35 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-06 13:26:35 --> Final output sent to browser
+DEBUG - 2021-04-06 13:26:35 --> Total execution time: 0.0322
+INFO - 2021-04-06 13:26:38 --> Config Class Initialized
+INFO - 2021-04-06 13:26:38 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:38 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:38 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:38 --> URI Class Initialized
+INFO - 2021-04-06 13:26:38 --> Router Class Initialized
+INFO - 2021-04-06 13:26:38 --> Output Class Initialized
+INFO - 2021-04-06 13:26:38 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:38 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:38 --> Input Class Initialized
+INFO - 2021-04-06 13:26:38 --> Language Class Initialized
+INFO - 2021-04-06 13:26:38 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:38 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:38 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:38 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:38 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:38 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:38 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:38 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:38 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:38 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:38 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:38 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-06 13:26:38 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-06 13:26:38 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/employee.php
+INFO - 2021-04-06 13:26:38 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-06 13:26:38 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-06 13:26:38 --> Final output sent to browser
+DEBUG - 2021-04-06 13:26:38 --> Total execution time: 0.0405
+INFO - 2021-04-06 13:26:44 --> Config Class Initialized
+INFO - 2021-04-06 13:26:44 --> Hooks Class Initialized
+DEBUG - 2021-04-06 13:26:44 --> UTF-8 Support Enabled
+INFO - 2021-04-06 13:26:44 --> Utf8 Class Initialized
+INFO - 2021-04-06 13:26:44 --> URI Class Initialized
+INFO - 2021-04-06 13:26:44 --> Router Class Initialized
+INFO - 2021-04-06 13:26:44 --> Output Class Initialized
+INFO - 2021-04-06 13:26:44 --> Security Class Initialized
+DEBUG - 2021-04-06 13:26:44 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-06 13:26:44 --> Input Class Initialized
+INFO - 2021-04-06 13:26:44 --> Language Class Initialized
+INFO - 2021-04-06 13:26:44 --> Loader Class Initialized
+INFO - 2021-04-06 13:26:44 --> Helper loaded: string_helper
+INFO - 2021-04-06 13:26:44 --> Helper loaded: basic_helper
+INFO - 2021-04-06 13:26:44 --> Database Driver Class Initialized
+INFO - 2021-04-06 13:26:44 --> Helper loaded: form_helper
+INFO - 2021-04-06 13:26:44 --> Form Validation Class Initialized
+DEBUG - 2021-04-06 13:26:44 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-06 13:26:44 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-06 13:26:44 --> Controller Class Initialized
+INFO - 2021-04-06 13:26:44 --> Helper loaded: url_helper
+INFO - 2021-04-06 13:26:44 --> Model "Admin_model" initialized
+INFO - 2021-04-06 13:26:44 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-06 13:26:44 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-06 13:26:44 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/designation.php
+INFO - 2021-04-06 13:26:44 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-06 13:26:44 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-06 13:26:44 --> Final output sent to browser
+DEBUG - 2021-04-06 13:26:44 --> Total execution time: 0.0389

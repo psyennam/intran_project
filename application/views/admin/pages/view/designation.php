@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box">
             <div class="box-header">
               <!-- Form Start  -->
-        <form action="/intran_project/Userpanel/designationinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+        <form action="<?php base_url('Admin/designationinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
           		<!-- Modal Start  -->
               	<div class="modal fade" id="mymodel">
