@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,15 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" href="<?php echo base_url();?>asset/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url();?>asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  
   <style>
     .example-modal .modal {
       position: relative;
@@ -53,37 +44,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="wrapper">
 
 <!-- Header -->
-<?php
-$this->load->view($header);
-?>
-  <!-- Navabar -->
-<?php
-$this->load->view($nav);
-?>
-  <!-- Content Wrapper. Contains page content -->
+  <?php
+  $this->load->view('admin/components/header');
+  ?>
+<!-- Navabar -->
+  <?php
+  $this->load->view('admin/components/nav');
+  ?>
+<!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-        <?php 
-            if(!empty($content))
-            {
-              $this->load->view($content);
-            }
-        ?>
-       <!-- /.content -->
+    <?php if(!empty($page)){
+          $this->load->view($page);
+        } ?>
   </div>
-  <!-- /.content-wrapper -->
+<!-- /.content-footer -->
   <footer class="main-footer">
-    <?php $this->load->view($footer);?>
+    <?php $this->load->view('admin/components/footer');?>
   </footer>
-
-  
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
-</div>
-<!-- ./wrapper -->
-
 
 <!-- jQuery 3 -->
 <script src="<?php echo base_url();?>asset/bower_components/jquery/dist/jquery.min.js"></script>
@@ -113,10 +90,6 @@ $this->load->view($nav);
 <script src="<?php echo base_url();?>asset/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>asset/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<!-- <script src="<?php echo base_url();?>asset/dist/js/pages/dashboard.js"></script> -->
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="<?php echo base_url();?>asset/dist/js/demo.js"></script> -->
 <script src="<?php echo base_url();?>asset/javascript/scripts.js"></script>
 <script>
   // $(function(){ 

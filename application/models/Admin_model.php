@@ -2,7 +2,7 @@
 /**
  * 
  */
-class User_model extends CI_model
+class Admin_model extends CI_model
 {
 	private $emp_code;
 	private $org_code;

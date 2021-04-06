@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="">
-            <a href="<?php echo base_url('Userpanel/logout');?>" class="btn btn-danger btn-flat" >Sign out</a>
+            <a href="<?php echo base_url('Admin/logout');?>" class="btn btn-danger btn-flat" >Sign out</a>
           </li>
         </ul>
       </div>
