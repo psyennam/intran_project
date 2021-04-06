@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box">
             <div class="box-header">
               <!-- Form Start  -->
-        <form action="/intran_project/Userpanel/roleinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+        <form action="<?php base_url('Userpanel/roleinsert');?>" id="formone" class="form-group" method="post">
+          
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
           		<!-- Modal Start  -->
               	<div class="modal fade" id="mymodel">
@@ -98,20 +99,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
                 
                 </tbody>
-                <tfoot>
-                <tr>
-          <th>ID</th>
-					<th>Role Name</th>
-					<th>Role Code</th>
-					<th>organization ID</th>
-					<th>Branch Code</th>
-					<th>CreateDate</th>
-					<th>Status</th>
-					<th>IpAddress</th>
-					<th>Update</th>
-					<th>Delete</th>
-			    </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->

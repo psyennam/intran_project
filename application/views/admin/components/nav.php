@@ -44,10 +44,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Userpanel/role');?>"><i class="fa fa-circle-o"></i>Role</a></li>
-           <li class="active"><a href="<?php echo base_url('Userpanel/department');?>"><i class="fa fa-circle-o"></i>Department</a>
-            <li class="active"><a href="<?php echo base_url('Userpanel/employee');?>"><i class="fa fa-circle-o"></i>Employee</a>
-            <li class="active"><a href="<?php echo base_url('Userpanel/designation');?>"><i class="fa fa-circle-o"></i>Designation</a>
+            <li class="active"><a href="<?php echo base_url('Admin/role');?>"><i class="fa fa-circle-o"></i>Role</a></li>
+           <li class="active"><a href="<?php echo base_url('Admin/department');?>"><i class="fa fa-circle-o"></i>Department</a>
+            <li class="active"><a href="<?php echo base_url('Admin/employee');?>"><i class="fa fa-circle-o"></i>Employee</a>
+            <li class="active"><a href="<?php echo base_url('Admin/designation');?>"><i class="fa fa-circle-o"></i>Designation</a>
            </li>  
           </ul>
         </li>
@@ -61,10 +61,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Userpanel/country');?>"><i class="fa fa-circle-o"></i>Country</a></li>
-           <li class="active"><a href="<?php echo base_url('Userpanel/state');?>"><i class="fa fa-circle-o"></i>State</a></li>
-            <li class="active"><a href="<?php echo base_url('Userpanel/city');?>"><i class="fa fa-circle-o"></i>City</a></li>
-           <li class="active"><a href="<?php echo base_url('Userpanel/pincode');?>"><i class="fa fa-circle-o"></i>Pincode</a></li>  
+            <li class="active"><a href="<?php echo base_url('Admin/country');?>"><i class="fa fa-circle-o"></i>Country</a></li>
+           <li class="active"><a href="<?php echo base_url('Admin/state');?>"><i class="fa fa-circle-o"></i>State</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/city');?>"><i class="fa fa-circle-o"></i>City</a></li>
+           <li class="active"><a href="<?php echo base_url('Admin/pincode');?>"><i class="fa fa-circle-o"></i>Pincode</a></li>  
           </ul>
         </li>
 
