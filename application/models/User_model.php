@@ -563,38 +563,30 @@ class User_model extends CI_model
 	{
 		$randomid=random_string('alnum',6);
 		$ip=$this->input->ip_address();
+
 		$data=[
-				//'id'=>$this->input->post('NULL'),
-				'country_code'=>$this->input->post('countrycombo'),
-				'state_code'=>$this->input->post('statecombo'),
-				'city_code'=>$randomid,
-				'org_code'=>$this->session->userdata('org_code'),
-				'city'=>$this->input->post('CityName'),
-				'created_at'=>date('y-m-d H:i:s'),
-				'ip_address'=>$ip
-			];
+			'country_code'=>$this->input->post('countrycombo'),
+			'state_code'=>$this->input->post('statecombo'),
+			'city_code'=>$randomid,
+			'org_code'=>$this->session->userdata('org_code'),
+			'city'=>$this->input->post('CityName'),
+			'created_at'=>date('y-m-d H:i:s'),
+			'ip_address'=>$ip
+		];
 		$this->db->trans_start();
-		if($this->db->insert('city',$data)) 
-		{
+		if($this->db->insert('city',$data)){
 			$mapping_city=[
 				'city_code'=>$randomid,
 				'state_code'=>$this->input->post('statecombo'),
 				'country_code'=>$this->input->post('countrycombo')
 			];
-			if($this->db->insert('mapping_city',$mapping_city)) 
-			{
-				# code...
+			if($this->db->insert('mapping_city',$mapping_city)) {
 				$this->db->trans_complete();
 				return true;
-			}
-			else
-			{
+			}else{
 				return false;
 			}
-			
-		}
-		else
-		{
+		}else{
 			$this->db->trans_rollback();
 			return false;
 		}
@@ -609,27 +601,28 @@ class User_model extends CI_model
 
 	function pincodeinsert()
 	{
-		$randomid=random_string('alnum',6);
+		
 		$ip=$this->input->ip_address();
-		$data=[
-				//'id'=>$this->input->post('NULL'),
-				'zip_code'=>$this->input->post('zipCode'),
-				'area'=>$this->input->post('area'),
+		
+		$data = [];
+		for($i=0;$i<sizeof($_POST['zipCode']);$i++){
+			$randomid=random_string('alnum',6);
+			$data[] =[
+				'zip_code'=>$_POST['zipCode'][$i],
+				'city_code'=>$this->input->post('city'),
+				'area'=>$_POST['area'][$i],
 				'pin_code'=>$randomid,
-				'city_code'=>$this->input->post('citycombo'),
 				'org_code'=>$this->session->userdata('org_code'),
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip
 			];
+		}
+
 		$this->db->trans_start();
-		if($this->db->insert('pincode',$data)) 
-		{
-			# code...
+		if($this->db->insert_batch('pincode',$data)) {
 			$this->db->trans_complete();
 			return true;
-		}
-		else
-		{
+		}else{
 			$this->db->trans_rollback();
 			return false;
 		}

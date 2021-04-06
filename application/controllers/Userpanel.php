@@ -82,7 +82,7 @@ class Userpanel extends CI_controller
 	**/
 	function dashboard()
 	{
-		if($this->session->userdata('role') !== "")
+		if($this->session->userdata('role'))
 		{
 			$data['header']='admincomponents/header';
 			$data['nav']='admincomponents/nav';
@@ -445,6 +445,7 @@ class Userpanel extends CI_controller
 	*/
 	function city()
 	{
+		$data['id']=$this->input->get('citycode');
 		$data['header']='admincomponents/header';
 		$data['nav']='admincomponents/nav';
 		$data['footer']='admincomponents/footer';
