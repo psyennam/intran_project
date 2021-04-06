@@ -122,7 +122,7 @@
             <h4 class="modal-title">Pincode</h4>  
           </div>
           <!-- Form 2 Start  -->
-          <form action="/intran_project/Userpanel/pincodeinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+          <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
             <div class="modal-body">
               <input type="hidden" name="city" value="" id="h_city_code">
               <div class="row">
