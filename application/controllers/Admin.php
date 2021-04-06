@@ -104,10 +104,8 @@ class Admin extends CI_controller
 	**/
 	function role()
 	{
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/role';
+		$data['page']='admin/pages/view/role';
+		//$data['content']='admin/pages/view/role';
 		$data['roledetails']=$this->Admin_model->viewdata();
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -134,10 +132,7 @@ class Admin extends CI_controller
 	{
 		$id=$this->input->get('id');
 		$data['row']=$this->Admin_model->databyid($id);
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/update_role';
+		$data['page']='admin/pages/update/update_role';
 		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
@@ -173,10 +168,7 @@ class Admin extends CI_controller
 	**/
 	function department()
 	{
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/department';
+		$data['page']='admin/pages/view/department';
 		$data['departmentdetails']=$this->Admin_model->viewdepartment();
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -202,10 +194,7 @@ class Admin extends CI_controller
 	{
 		$id=$this->input->get('id');
 		$data['row']=$this->Admin_model->departmentbyid($id);
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/update_department';
+		$data['page']='admin/pages/update/update_department';
 		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
@@ -241,10 +230,7 @@ class Admin extends CI_controller
 	**/
 	function employee()
 	{
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/employee';
+		$data['page']='admin/pages/view/employee';
 		$data['employeedetails']=$this->Admin_model->viewemployee();
 		$data['empdetails']=$this->Admin_model->viewdepartment();
 		$data['designatiodetails']=$this->Admin_model->viewdesignation();
@@ -289,10 +275,7 @@ class Admin extends CI_controller
 	{
 		$id=$this->input->get('employee_code');
 		$data['row']=$this->Admin_model->employeebyid($id);
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/update_employee';
+		$data['page']='admin/pages/update/update_employee';
 		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
@@ -312,11 +295,7 @@ class Admin extends CI_controller
 	**/
 	function designation()
 	{
-
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/designation';
+		$data['page']='admin/pages/view/designation';
 		$data['depts']=$this->Admin_model->viewdepartment();
 		$data['designationdetails']=$this->Admin_model->viewdesignation();
 		$this->load->view('admin/components/layout',$data);
@@ -343,10 +322,7 @@ class Admin extends CI_controller
 	{
 		$id=$this->input->get('id');
 		$data['row']=$this->Admin_model->designationbyid($id);
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/update_designation';
+		$data['page']='admin/pages/update/update_designation';
 		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
@@ -382,10 +358,7 @@ class Admin extends CI_controller
 	*/
 	function country()
 	{
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/country';
+		$data['page']='admin/pages/view/country';
 		$data['countrydetails']=$this->Admin_model->viewcountry();
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -412,10 +385,7 @@ class Admin extends CI_controller
 	*/
 	function state()
 	{
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/state';
+		$data['page']='admin/pages/view/state';
 		$data['countrydetails']=$this->Admin_model->viewcountry();
 		$data['statedetails']=$this->Admin_model->viewstate();
 		$this->load->view('admin/components/layout',$data);
@@ -444,10 +414,7 @@ class Admin extends CI_controller
 	function city()
 	{
 		$data['id']=$this->input->get('citycode');
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/city';
+		$data['page']='admin/pages/view/city';
 		$data['countrydetails']=$this->Admin_model->viewcountry();
 		$data['statedetails']=$this->Admin_model->viewstate();
 		$data['citydetails']=$this->Admin_model->viewcity();
@@ -476,10 +443,7 @@ class Admin extends CI_controller
 	*/
 	function pincode()
 	{
-		$data['header']='admin/header';
-		$data['nav']='admin/nav';
-		$data['footer']='admin/footer';
-		$data['content']='admin/pincode';
+		$data['page']='admin/pages/view/pincode';
 		// $data['countrydetails']=$this->Admin_model->viewcountry();
 		// $data['statedetails']=$this->Admin_model->viewstate();
 		$data['citydetails']=$this->Admin_model->viewcity();
