@@ -19,7 +19,7 @@ class Master extends CI_controller
 	*/
 	function login()
 	{
-		$this->load->view('mastercomponents/login',$this->data);
+		$this->load->view('master/pages/login',$this->data);
 		if($_POST)
 		{
 			$username=$this->input->post('email');
@@ -40,15 +40,12 @@ class Master extends CI_controller
 	**/
 	function dashboard()
 	{
-		$data['header']='mastercomponents/header';
-		$data['nav']='mastercomponents/nav';
-		$data['footer']='mastercomponents/footer';
 		$data['orgdetails']=$this->Master_model->viewdata();	
 		if($data['orgdetails']>0)
 		{
-			$data['details']='mastercomponents/details';
+			$data['details']='master/pages/details';
 		}
-		$this->load->view('mastercomponents/layout',$data);
+		$this->load->view('master/pages/layout',$data);
 
 	}
 	/**
@@ -56,10 +53,7 @@ class Master extends CI_controller
 	**/
 	function orgform()
 	{
-		$data['header']='mastercomponents/header';
-		$data['nav']='mastercomponents/nav';
-		$data['footer']='mastercomponents/footer';
-		$data['content']='mastercomponents/Organisationform';
+		$data['content']='master/components/Organisationform';
 		if($_POST)
 		{
 			$res=$this->Master_model->registrationform();
@@ -72,7 +66,7 @@ class Master extends CI_controller
 				echo "Data is not inserted";
 			}
 		}
-		$this->load->view('mastercomponents/layout',$data);
+		$this->load->view('master/components/layout',$data);
 	}
 	/**
 		Orgnisation Update Form
@@ -81,11 +75,8 @@ class Master extends CI_controller
 	{
 		$id=$this->input->get('org_code');
 		$data['row']=$this->Master_model->databyid($id);
-		$data['header']='mastercomponents/header';
-		$data['nav']='mastercomponents/nav';
-		$data['footer']='mastercomponents/footer';
 		$data['content']='mastercomponents/updateform';
-		$this->load->view('mastercomponents/layout',$data);
+		$this->load->view('master/components/layout',$data);
 		if($_POST)
 		{
 			$res=$this->Master_model->edit($id);
