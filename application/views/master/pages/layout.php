@@ -38,11 +38,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- Header -->
 <?php
-$this->load->view($header);
+$this->load->view('master/components/header');
 ?>
   <!-- Navabar -->
 <?php
-$this->load->view($nav);
+$this->load->view('master/components/nav');
 ?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -62,7 +62,7 @@ $this->load->view($nav);
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <?php $this->load->view($footer);?>
+    <?php $this->load->view('master/components/footer');?>
   </footer>
 
   
