@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * 
  */
@@ -36,46 +37,46 @@ class Master_model extends CI_Model
 				$img = array('upload_data' => $this->upload->data());
 				$filename= $path.$img['upload_data']['file_name'];
 
-		$data=[
-			'org_code'=>$randomid,
-			'org_name'=>$this->input->post('OraganizationName'),
-			'address'=>$this->input->post('Address'),
-		    'client_name'=>$this->input->post('ContactPersonName'),
-			'client_email'=>$this->input->post('ContactPersonEmailId'),
-			'client_mobileno'=>$this->input->post('ContactPersonMobileNo'),
-			'emergency_contact'=>$this->input->post('ContactPersonEmergencyNo'),
-			'no_branch'=>$this->input->post('NoofBranches'),
-			'status'=>'Active',
-			'ip_address'=>$ip,
-			'regdate'=>$this->input->post('RegistrationDate'),
-			'validity'=>$this->input->post('ValidityDate'),
-			'url'=>$this->input->post('Url'),
-			'logo'=>$filename
-		];
-		$this->db->trans_start();
-		if($this->db->insert('organization',$data))
-		{
-			$user_data=[
-				'org_code'=>$randomid,
-				'username'=>$randomid,
-				'password'=>$randomid,
-				'ip_address'=>$ip
-			];
-			if($this->db->insert('user',$user_data))
-			{
-				$this->db->trans_complete();
-				return true;
-			}
-			else
-			{
-				$this->db->trans_rollback();
-			}
-		}
-		else
-		{
-			$this->db->trans_rollback();
-			return false;
-		}
+				$data=[
+					'org_code'=>$randomid,
+					'org_name'=>$this->input->post('OraganizationName'),
+					'address'=>$this->input->post('Address'),
+				    'client_name'=>$this->input->post('ContactPersonName'),
+					'client_email'=>$this->input->post('ContactPersonEmailId'),
+					'client_mobileno'=>$this->input->post('ContactPersonMobileNo'),
+					'emergency_contact'=>$this->input->post('ContactPersonEmergencyNo'),
+					'no_branch'=>$this->input->post('NoofBranches'),
+					'status'=>'Active',
+					'ip_address'=>$ip,
+					'regdate'=>$this->input->post('RegistrationDate'),
+					'validity'=>$this->input->post('ValidityDate'),
+					'url'=>$this->input->post('Url'),
+					'logo'=>$filename
+				];
+				$this->db->trans_start();
+					if($this->db->insert('organization',$data))
+					{
+						$user_data=[
+							'org_code'=>$randomid,
+							'username'=>$randomid,
+							'password'=>$randomid,
+							'ip_address'=>$ip
+						];
+						if($this->db->insert('user',$user_data))
+						{
+							$this->db->trans_complete();
+							return true;
+						}
+						else
+						{
+							$this->db->trans_rollback();
+						}
+					}
+					else
+					{
+						$this->db->trans_rollback();
+						return false;
+					}
 	}
 	/**
 		In this Viewdata function it will give all the data from the oraganisation table 
@@ -96,8 +97,8 @@ class Master_model extends CI_Model
 			{
 				$user=[
 						'status'=>'Terminated'
-						];
-				$id=$data->row();
+					];
+					$id=$data->row();
 				$this->db->where('org_code',$id->org_code);	
 				$res=$this->db->update('organization',$user);
 				if($res>0)

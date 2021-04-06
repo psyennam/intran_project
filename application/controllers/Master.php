@@ -53,7 +53,7 @@ class Master extends CI_controller
 	**/
 	function orgform()
 	{
-		$data['content']='master/components/Organisationform';
+		$data['content']='master/pages/Organisationform';
 		if($_POST)
 		{
 			$res=$this->Master_model->registrationform();
@@ -66,7 +66,7 @@ class Master extends CI_controller
 				echo "Data is not inserted";
 			}
 		}
-		$this->load->view('master/components/layout',$data);
+		$this->load->view('master/pages/layout',$data);
 	}
 	/**
 		Orgnisation Update Form
@@ -75,8 +75,8 @@ class Master extends CI_controller
 	{
 		$id=$this->input->get('org_code');
 		$data['row']=$this->Master_model->databyid($id);
-		$data['content']='mastercomponents/updateform';
-		$this->load->view('master/components/layout',$data);
+		$data['content']='master/pages/updateform';
+		$this->load->view('master/pages/layout',$data);
 		if($_POST)
 		{
 			$res=$this->Master_model->edit($id);
