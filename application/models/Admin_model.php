@@ -734,7 +734,7 @@ class Admin_model extends CI_model
 	**/
 	function viewpincode()
 	{
-		return $this->db->select('*')->get('pincode')->result();
+		return $this->db->select('*')->from('pincode')->join('city','city.id=pincode.city_code')->get()->result();
 	}
 	/**
 		In this function Pincode data will be inserted
@@ -743,7 +743,6 @@ class Admin_model extends CI_model
 	{
 		
 		$ip=$this->input->ip_address();
-		
 		$data = [];
 		for($i=0;$i<sizeof($_POST['zipCode']);$i++){
 			$data[] =[

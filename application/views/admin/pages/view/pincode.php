@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box">
             <div class="box-header">
               <!-- Form Start  -->
-              <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+               <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
           		<!-- Modal Start  -->
               	<div class="modal fade" id="mymodel">
@@ -38,13 +38,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                               <div class="col-sm-12 col-md-4 col-lg-4">
                                 <label>City</label>
                                   <select class="form-control" name="citycombo">
-                                  <?php 
-                                  foreach ($citydetails as $row) {
-                                  ?>
+                                  <?php foreach ($citydetails as $row) { ?>
                                       <option value="<?php echo $row->city_code ?>"><?php echo $row->city; ?>
                                       </option>
-                                  <?php
-                                } ?>
+                                  <?php } ?>
                                   </select>
                               </div>
                               <div class="col-sm-12 col-md-4 col-lg-4">
@@ -63,19 +60,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               				</div>
               				<div class="modal-footer">
               					<div class="row">
-							              <div class="col-md-12 text-center" style="margin-top: 10px;">
+							            <div class="col-md-12 text-center" style="margin-top: 10px;">
 							               <button type="submit" class="btn btn-primary">Submit</button>
-							              </div>
-							    </div>
-              				</div>
+                           </div>
+							          </div>
               			</div>
               		</div>
               	</div>
-            	<!-- End Modal  -->
-        </form>
-         <!-- End Form Start  -->
+              </form>
+              <!-- End Form Start  -->
             </div>
-            <!-- /.box-header -->
+            <!-- End Modal  -->
+          </div>
+          <!-- /.box-header -->
             <div class="box-body" style="overflow-x:auto;">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
@@ -83,23 +80,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>ID</th>
                   <th>Area</th>
         					<th>ZipCode</th>
-                  <th>CityCode</th>
+                  <th>City</th>
         					<th>CreateDate</th>
         					<th>Status</th>
         			    </tr>
                 </thead>
-                   <tbody>
+                <tbody>
                   <?php foreach ($pincodedetails as $key) { ?>
-              	  <tr>
-              		<td><?php echo $key->id;?></td>
+                  <tr>
+                  <td><?php echo $key->id;?></td>
                   <td><?php echo $key->area; ?></td>
-              		<td><?php echo $key->zip_code; ?></td>
-                  <td><?php echo $key->city_code; ?></td>	
-              		<td><?php echo is_status($key->status); ?></td>  
-                  <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>	
-              	 </tr>	
-    	           <?php } ?>          
-                  </tbody>
+                  <td><?php echo $key->zip_code; ?></td>
+                  <td><?php echo $key->city; ?></td> 
+                  <td><?php echo is_status($key->status); ?></td>  
+                  <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
+                 </tr>  
+                 <?php } ?>          
+                </tbody>
               </table>
             </div>
             <!-- /.box-body -->
@@ -109,11 +106,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- /.col -->
       </div>
       <!-- /.row -->
-    </section>
-    <!-- /.content -->
-
-  <!-- /.content-wrapper -->
-
+  </section>
+<!-- /.content -->
 <!-- page script -->
 <script>
   $(function () {
