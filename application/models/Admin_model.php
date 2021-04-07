@@ -765,5 +765,45 @@ class Admin_model extends CI_model
 		}
 	}
 
+	/**
+		In this function it gives all the data from the zone table 
+	**/
+	function viewzone()
+	{
+		return $this->db->select('*')->get('zone')->result();
+	}
+
+	/**
+		In this function Zone data will be inserted
+	**/
+	function zoneinsert()
+	{
+		$randomid=random_string('alnum',6);
+		$ip=$this->input->ip_address();
+
+		$data=[
+			'zone_code'=>$randomid,
+			'zone'=>$this->input->post('ZoneName'),
+			'state_code'=>$this->input->post('State'),
+			'employee'=>$this->input->post('Employee'),
+			'org_code'=>$this->session->userdata('org_code'),
+			'created_at'=>date('y-m-d H:i:s'),
+			'ip_address'=>$ip
+		];
+		
+		$insert=$this->db->insert('zone',$data);
+		if($insert>0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+
+	function get_manager()
+	{
+		return $this->db->select('*')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('role','role.role_code=mapping_employee.role_code')->where('role.role','manager')->get()->result();
+	}
 }
 ?>

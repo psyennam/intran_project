@@ -504,7 +504,7 @@ class Admin extends CI_controller
 		$this->load->view('admin/components/layout',$data);
 	}
 	/*
-		City Insert
+		Pincode Insert
 	*/
 	function pincodeinsert()
 	{
@@ -514,6 +514,42 @@ class Admin extends CI_controller
 			if($insert>0)
 			{
 				redirect('Admin/pincode');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+
+	/*
+		zone View
+	*/
+	function zone()
+	{
+		$data['page']='admin/pages/view/zone';
+		// $data['countrydetails']=$this->Admin_model->viewcountry();
+		// $data['statedetails']=$this->Admin_model->viewstate();
+		// $data['citydetails']=$this->Admin_model->viewcity();
+		$data['zonedetails']=$this->Admin_model->viewzone();
+		$data['info']=$this->Admin_model->get_manager();
+		$data['state']=$this->Admin_model->viewstate();
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	/*
+		Zone Insert
+	*/
+	function zoneinsert()
+	{
+		echo "string";
+		
+		if($_POST)
+		{
+			$insert=$this->Admin_model->zoneinsert();
+			if($insert>0)
+			{
+				redirect('Admin/zone');		
 			}
 			else
 			{
