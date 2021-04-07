@@ -361,6 +361,28 @@ class Admin extends CI_controller
 		$data['countrydetails']=$this->Admin_model->viewcountry();
 		$this->load->view('admin/components/layout',$data);
 	}
+	/**
+		Country Update Form
+	**/
+	function updatecountry()
+	{
+		$id=$this->input->get('id');
+		$data['row']=$this->Admin_model->countrybyid($id);
+		$data['page']='admin/pages/update/update_country';
+		$this->load->view('admin/components/layout',$data);
+		if($_POST)
+		{
+			$res=$this->Admin_model->designationedit($id);
+			if($res>0)
+			{
+				redirect('Admin/designation');
+			}
+			else
+			{
+				echo "Data not updated";
+			}
+		}
+	}
 	/*
 		Country Insert
 	*/
@@ -377,6 +399,22 @@ class Admin extends CI_controller
 			{
 				echo "Data is not inserted";
 			}
+		}
+	}
+	/*
+		Country Delete
+	*/
+	function deletecountry()
+	{
+		$id=$this->input->get('id');
+		$res=$this->Admin_model->deletecountry($id);
+		if($res>0)
+		{
+			redirect('Admin/country');	
+		}
+		else
+		{
+			echo "Data is not updated";
 		}
 	}
 	/*
@@ -405,6 +443,22 @@ class Admin extends CI_controller
 			{
 				echo "Data is not inserted";
 			}
+		}
+	}
+	/*
+		State Delete
+	*/
+	function deletestate()
+	{
+		$id=$this->input->get('id');
+		$res=$this->Admin_model->deletestate($id);
+		if($res>0)
+		{
+			redirect('Admin/state');	
+		}
+		else
+		{
+			echo "Data is not updated";
 		}
 	}
 	/*

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="box">
-      <h1 style="text-align: center;">Role Update Form</h1>
+      <h1 style="text-align: center;">Country Update Form</h1>
       
         <!-- Container  -->
         <div class="container">
@@ -12,14 +12,14 @@
           <form id="formone" class="form-group" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-sm-12 col-md-4 col-lg-4">
-                <label>Role Name</label>
-                <input type="text" class="form-control" placeholder="Enter Role Name" name="RoleName" value="<?php echo $key->role;?>">
+                <label>Department Name</label>
+                <input type="text" class="form-control" placeholder="Enter Department Name" name="DepartmentName" value="<?php echo $key->department;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
-                <label>Role Code</label>
-                <input type="text" class="form-control" name="RoleCode" value="<?php echo $key->role_code;?>"> 
+                <label>Department Code</label>
+                <input type="text" class="form-control" value="<?php echo $key->department_code;?>"> 
               </div>
-              <div class="col-sm-12 col-md-12 col-lg-4">
+              <div class="col-sm-12 col-md-12 col-lg-4 ">
                   <label>Status</label>
                   <select class="form-control" name="statuscombo">
                     <option value="0" <?php if($key->status == 0) {echo "selected";} ?>>Active</option>

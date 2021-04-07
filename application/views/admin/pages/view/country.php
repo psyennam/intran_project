@@ -22,6 +22,8 @@
                 <th>Country Code</th>
                 <th>Created_at</th>
                 <th>Status</th>
+                <th>Update</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -32,7 +34,8 @@
                   <td><?php echo $key->country_code; ?></td>  
                   <td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td> 
                   <td><?php echo is_status($key->status); ?></td>
-                  <!-- <td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td> -->     
+                  <td><a href="updatecountry?id=<?php echo $key->country_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>  
+                  <td><a href="deletecountry?id=<?php echo $key->country_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>    
                 </tr> 
                 <?php } } ?>
             </tbody>

@@ -32,6 +32,8 @@
       					<th>State Name</th>
       					<th>Created_at</th>
       					<th>Status</th>
+                <th>Update</th>
+                <th>Delete</th>
       			    </tr>
                 </thead>
                   <tbody>
@@ -42,7 +44,9 @@
                           <td><?php echo $key->state_code; ?></td>  
                       		<td><?php echo $key->state; ?></td>	
                       		<td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td>	
-                      		<td><?php echo is_status($key->status); ?></td>				
+                      		<td><?php echo is_status($key->status); ?></td>
+                          <td><a href="updatestate?id=<?php echo $key->state_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>  
+                          <td><a href="deletestate?id=<?php echo $key->state_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
                       	</tr>	
                       	<?php } ?>     
                   </tbody>

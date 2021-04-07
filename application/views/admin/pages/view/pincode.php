@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="box">
             <div class="box-header">
               <!-- Form Start  -->
-        <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+              <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
           		<!-- Modal Start  -->
               	<div class="modal fade" id="mymodel">
@@ -60,7 +60,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
   							              </div>
   							            </div>
-							       
               				</div>
               				<div class="modal-footer">
               					<div class="row">
@@ -82,7 +81,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <thead>
                 <tr>
                   <th>ID</th>
-        					<th>PinCode</th>
                   <th>Area</th>
         					<th>ZipCode</th>
                   <th>CityCode</th>
@@ -90,25 +88,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         					<th>Status</th>
         			    </tr>
                 </thead>
-               <tbody>
-              <?php
-	foreach ($pincodedetails as $key) {
-	?>
-	<tr>
-		<td><?php echo $key->id;?></td>
-		<td><?php echo $key->pin_code; ?></td>
-    	<td><?php echo $key->area; ?></td>
-		<td><?php echo $key->zip_code; ?></td>
-    <td><?php echo $key->city_code; ?></td>	
-		<td><?php echo is_status($key->status); ?></td>  
-    <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>	
-		<!-- <td><a href="updaterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel">UPDATE</button></a></td>
-		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>					 -->
-	</tr>	
-	<?php
-	}
-		?>          
-      </tbody>
+                   <tbody>
+                  <?php foreach ($pincodedetails as $key) { ?>
+              	  <tr>
+              		<td><?php echo $key->id;?></td>
+                  <td><?php echo $key->area; ?></td>
+              		<td><?php echo $key->zip_code; ?></td>
+                  <td><?php echo $key->city_code; ?></td>	
+              		<td><?php echo is_status($key->status); ?></td>  
+                  <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>	
+              	 </tr>	
+    	           <?php } ?>          
+                  </tbody>
               </table>
             </div>
             <!-- /.box-body -->

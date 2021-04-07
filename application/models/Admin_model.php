@@ -458,7 +458,7 @@ class Admin_model extends CI_model
 			if($data->num_rows()>0)
 			{
 				$user=[
-						'status'=>'terminate'
+						'status'=>1
 						];
 				$id=$data->row();
 				$this->db->where('designationcode',$id->designationcode);	
@@ -513,6 +513,98 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
+	/***
+		Country Data By Country Code
+	 ***/
+	function countrybyid($id)
+	{
+		return $this->db->select('*')->from('country')->where('country_code',$id)->get()->result();
+	}
+	function countryedit($id)
+	{
+		$ip=$this->input->ip_address();
+		 $data=[
+			'employee'=>$this->input->post('employeeName'),
+		    'status'=>$this->input->post('statuscombo'),
+			'ip_address'=>$ip
+		];
+		
+		$this->db->trans_start();
+
+		if($this->db->where('employee_code',$id)->update('employee',$data))
+		 {
+				$this->db->trans_complete();
+				return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+
+	}
+	/**
+		In this deletecountry function if Oragnsation admin want to delete any country then this function will change the active=In-active and also changed in the country data related table 
+	**/
+	function deletecountry($id)
+	{
+		
+			$data=$this->db->select('country_code')->where('country_code',$id)->get('country');
+			if($data->num_rows()>0)
+			{
+				$country_status=[
+						'status'=>1
+						];
+				$id=$data->row();
+				$this->db->where('country_code',$id->country_code);	
+				$this->db->trans_start();
+				if($this->db->update('country',$country_status))
+				{
+					$state_status=[
+						'status'=>1
+						];
+					$id=$data->row();
+					$this->db->where('country_code',$id->country_code);
+					if($this->db->update('state',$state_status))	
+					{
+						$city_status=[
+						'status'=>1
+						];
+						$id=$data->row();
+						$this->db->where('country_code',$id->country_code);
+						if($this->db->update('city',$city_status))
+						{
+							$this->db->trans_complete();
+							return true;
+						}
+						else
+						{
+							$this->db->trans_rollback();
+							return false;
+						}
+					
+					}
+					else
+					{
+						$this->db->trans_rollback();
+						return false;
+					}
+
+				}
+				else
+				{
+					$this->db->trans_rollback();
+					return false;
+				}
+				
+			}
+			else
+			{
+				
+				return false;
+			}
+	}
+
 	/**
 		In this function it gives all the data from the state table 
 	**/
@@ -550,12 +642,58 @@ class Admin_model extends CI_model
 		}
 	}
 	/**
+		In this deletestate function if admin want to delete any state then this function will change the active=In-active and also changed in the state data related table 
+	**/
+	function deletestate($id)
+	{
+		
+			$data=$this->db->select('state_code')->where('state_code',$id)->get('state');
+			if($data->num_rows()>0)
+			{
+				$state_status=[
+						'status'=>1
+						];
+				$id=$data->row();
+				$this->db->where('state_code',$id->state_code);	
+				$this->db->trans_start();
+				if($this->db->update('state',$state_status))
+				{
+					$city_status=[
+						'status'=>1
+						];
+					$id=$data->row();
+					$this->db->where('state_code',$id->state_code);
+					if($this->db->update('city',$city_status))	
+					{
+							$this->db->trans_complete();
+							return true;
+					}
+					else
+						{
+							$this->db->trans_rollback();
+							return false;
+						}
+				}
+				else
+				{
+					$this->db->trans_rollback();
+					return false;
+				}
+				
+			}
+			else
+			{
+				return false;
+			}
+	}
+	/**
 		In this function it gives all the data from the city table 
 	**/
 	function viewcity()
 	{
 		return $this->db->select('*')->get('city')->result();
 	}
+	
 	/**
 		In this function City data will be inserted
 	**/
@@ -598,7 +736,9 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('*')->get('pincode')->result();
 	}
-
+	/**
+		In this function Pincode data will be inserted
+	**/
 	function pincodeinsert()
 	{
 		
@@ -606,12 +746,10 @@ class Admin_model extends CI_model
 		
 		$data = [];
 		for($i=0;$i<sizeof($_POST['zipCode']);$i++){
-			$randomid=random_string('alnum',6);
 			$data[] =[
 				'zip_code'=>$_POST['zipCode'][$i],
 				'city_code'=>$this->input->post('city'),
 				'area'=>$_POST['area'][$i],
-				'pin_code'=>$randomid,
 				'org_code'=>$this->session->userdata('org_code'),
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip
@@ -627,5 +765,6 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
+
 }
 ?>
