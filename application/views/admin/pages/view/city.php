@@ -31,8 +31,8 @@
               <?php if(!empty($citydetails)) { $i=1; foreach($citydetails as $key) { ?>
               	<tr>
               		<td><?php echo $i++;?></td>
-                  <td><?php echo $key->city_code; ?></td>  
               		<td><?php echo $key->city; ?></td>
+                  <td><?php echo $key->city_code; ?></td>  
                   <td><?php echo $key->state_code; ?></td>  
               		<td><?php echo $key->country_code; ?></td>	
               		<td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td>	
