@@ -541,9 +541,7 @@ class Admin extends CI_controller
 		Zone Insert
 	*/
 	function zoneinsert()
-	{
-		echo "string";
-		
+	{		
 		if($_POST)
 		{
 			$insert=$this->Admin_model->zoneinsert();
