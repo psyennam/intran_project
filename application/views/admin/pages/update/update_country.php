@@ -12,7 +12,7 @@
           <form id="formone" class="form-group" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-sm-12 col-md-4 col-lg-4">
-                <label>Department Name</label>
+                <label>country name</label>
                 <input type="text" class="form-control" placeholder="Enter Department Name" name="DepartmentName" value="<?php echo $key->department;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">

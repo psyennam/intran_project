@@ -1,7 +1,7 @@
-  <!-- Content Wrapper. Contains page content -->           
+<!-- Content Wrapper. Contains page content -->           
     <!-- Content Header (Page header) -->
 <section class="content-header">
-  <h1>Country Data</h1>
+  <h1>Client Data</h1>
 </section>
 
 <!-- Main content -->
@@ -18,26 +18,34 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Country Name</th>
-                <th>Country Code</th>
-                <th>Created_at</th>
+                <th>client Name</th>
+                <th>client Code</th>
+                <th>email</th>
+                <th>dob</th>
+                <th>Address</th>
+                <th>contact</th>
                 <th>Status</th>
+                <th>Create date</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              <?php if(!empty($countrydetails)) { $i=1; foreach($countrydetails as $key) { ?>
+              <?php foreach ($clientdetails as $key) { ?>
                 <tr>
-                  <td><?php echo $i++;?></td>
-                  <td><?php echo $key->country; ?></td>  
-                  <td><?php echo $key->country_code; ?></td>  
-                  <td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td> 
+                  <td><?php echo $key->id;?></td>
+                  <td><?php echo $key->client; ?></td>  
+                  <td><?php echo $key->client_code; ?></td> 
+                  <td><?php echo $key->email;?></td>
+                  <td><?php echo $key->dob;?></td>
+                  <td><?php echo $key->address;?></td>
+                  <td><?php echo $key->contact;?></td>
+                  <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
                   <td><?php echo is_status($key->status); ?></td>
-                  <td><a href="updatecountry?id=<?php echo $key->country_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>  
-                  <td><a href="deletecountry?id=<?php echo $key->country_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>    
+                  <td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
+                  <td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>         
                 </tr> 
-                <?php } } ?>
+              <?php } ?>
             </tbody>
           </table>
         </div>
@@ -56,17 +64,20 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="text-center text-primary">country</h3>  
+            <h3 class="text-center text-primary">Client</h3>  
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
           </div>
           <!-- Form 1 Start  -->
-          <form action="<?= base_url('Admin/countryinsert');?>" id="formone" class="form-group" method="post">
+          <form action="<?= base_url('Admin/clientinsert');?>" id="formone" class="form-group" method="post">
             <div class="modal-body">
               <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4"></div>
-                <div class="col-sm-12 col-md-12 col-lg-4 text-center">
-                    <label>Country</label>
-                    <input type="text" class="form-control" name="CountryName">
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                  <label>Client Name</label>
+                  <input type="text" class="form-control" placeholder="Enter City Name" name="ClientName">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <label>emaial</label>
+                  <input type="text" class="form-control" name="email">
                 </div>
               </div>
             </div>
