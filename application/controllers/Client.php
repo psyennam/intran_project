@@ -39,5 +39,27 @@ class Client extends CI_controller
 			}
 		}
 	}
+	/**
+		Client Update Form
+	**/
+	function updateclient()
+	{
+		$id=$this->input->get('client_code');
+		$data['row']=$this->Client_model->clientbyid($id);
+		$data['page']='admin/pages/update/update_client';
+		$this->load->view('admin/components/layout',$data);
+		if($_POST)
+		{
+			$res=$this->Client_model->clientedit($id);
+			if($res>0)
+			{
+				redirect('Client/client');
+			}
+			else
+			{
+				echo "Data not updated";
+			}
+		}
+	}
 }
 

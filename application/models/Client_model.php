@@ -44,4 +44,36 @@ class Client_model extends CI_model
 			return false;
 		}
 	}
+	/***
+		Client Data By Client Code
+	 ***/
+	function clientbyid($id)
+	{
+		return $this->db->select('*')->from('client')->where('client_code',$id)->get()->result();
+	}
+	function clientedit($id)
+	{
+		$ip=$this->input->ip_address();
+		 $data=[
+				'client'=>$this->input->post('ClientName'),
+				'email'=>$this->input->post('Email'),
+				'contact'=>$this->input->post('Conatact'),
+				'dob'=>$this->input->post('dob'),
+				'Address'=>$this->input->post('Address'),
+				'ip_address'=>$ip,
+			];
+		
+		$this->db->trans_start();
+		if($this->db->where('client_code',$id)->update('client',$data))
+		 {
+				$this->db->trans_complete();
+				return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+
+	}
 }
