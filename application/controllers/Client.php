@@ -39,5 +39,20 @@ class Client extends CI_controller
 			}
 		}
 	}
+
+	function deleteclient()
+	{
+
+		$id=$this->input->get('client_code');
+		$res=$this->Client_model->deleteclient($id);
+		if($res>0)
+		{
+			redirect('Client/client');	
+		}
+		else
+		{
+			echo "Data is not updated";
+		}
+	}
 }
 
