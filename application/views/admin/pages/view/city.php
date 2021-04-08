@@ -25,6 +25,7 @@
       					<th>Created_at</th>
       					<th>Status</th>
       					<th>Add PinCode</th>
+                <th>Update</th>
       			  </tr>
             </thead>
             <tbody>
@@ -38,7 +39,7 @@
               		<td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td>	
               		<td><?php echo is_status($key->status); ?></td>
               		<td><button type="button" class="btn btn-success open_pincode_modal" data-citycode="<?= $key->id;?>">Add</button></td>
-              		<!-- <td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td> -->			
+              		<td><a href="updatecity?id=<?php echo $key->city_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>		
               	</tr>	
               	<?php } } ?>
             </tbody>

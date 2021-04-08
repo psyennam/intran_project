@@ -524,14 +524,14 @@ class Admin_model extends CI_model
 	{
 		$ip=$this->input->ip_address();
 		 $data=[
-			'employee'=>$this->input->post('employeeName'),
+			'country'=>$this->input->post('CountryName'),
 		    'status'=>$this->input->post('statuscombo'),
 			'ip_address'=>$ip
 		];
 		
 		$this->db->trans_start();
 
-		if($this->db->where('employee_code',$id)->update('employee',$data))
+		if($this->db->where('country_code',$id)->update('country',$data))
 		 {
 				$this->db->trans_complete();
 				return true;
@@ -612,6 +612,13 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('*')->get('state')->result();
 	}
+	/***
+		State Data By State Code
+	 ***/
+	function statebyid($id)
+	{
+		return $this->db->select('*')->from('state')->where('state_code',$id)->get()->result();
+	}
 	/**
 		In this function State data will be inserted
 	**/
@@ -620,7 +627,6 @@ class Admin_model extends CI_model
 		$randomid=random_string('alnum',6);
 		$ip=$this->input->ip_address();
 		$data=[
-				//'id'=>$this->input->post('NULL'),
 				'country_code'=>$this->input->post('countrycombo'),
 				'state_code'=>$randomid,
 				'org_code'=>$this->session->userdata('org_code'),
@@ -640,6 +646,29 @@ class Admin_model extends CI_model
 			$this->db->trans_rollback();
 			return false;
 		}
+	}
+	function stateedit($id)
+	{
+		$ip=$this->input->ip_address();
+		 $data=[
+			'state'=>$this->input->post('StateName'),
+		    'status'=>$this->input->post('statuscombo'),
+			'ip_address'=>$ip
+		];
+		
+		$this->db->trans_start();
+
+		if($this->db->where('state_code',$id)->update('state',$data))
+		 {
+				$this->db->trans_complete();
+				return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+
 	}
 	/**
 		In this deletestate function if admin want to delete any state then this function will change the active=In-active and also changed in the state data related table 
@@ -693,7 +722,13 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('*')->get('city')->result();
 	}
-	
+	/***
+		State Data By State Code
+	 ***/
+	function citybyid($id)
+	{
+		return $this->db->select('*')->from('city')->where('city_code',$id)->get()->result();
+	}
 	/**
 		In this function City data will be inserted
 	**/
@@ -728,6 +763,29 @@ class Admin_model extends CI_model
 			$this->db->trans_rollback();
 			return false;
 		}
+	}
+	function cityedit($id)
+	{
+		$ip=$this->input->ip_address();
+		 $data=[
+			'city'=>$this->input->post('CityName'),
+		    'status'=>$this->input->post('statuscombo'),
+			'ip_address'=>$ip
+		];
+		
+		$this->db->trans_start();
+
+		if($this->db->where('city_code',$id)->update('city',$data))
+		 {
+				$this->db->trans_complete();
+				return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+
 	}
 	/**
 		In this function it gives all the data from the Pincode table 
@@ -805,5 +863,6 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('*')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('role','role.role_code=mapping_employee.role_code')->where('role.role','manager')->get()->result();
 	}
+
 }
 ?>

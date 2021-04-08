@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="box">
-      <h1 style="text-align: center;">Country Update Form</h1>
+      <h1 style="text-align: center;">State Update Form</h1>
       
         <!-- Container  -->
         <div class="container">
@@ -10,8 +10,8 @@
           <form id="formone" class="form-group" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-sm-12 col-md-4 col-lg-4">
-                <label>Country Name</label>
-                <input type="text" class="form-control" placeholder="Enter Country Name" name="CountryName" value="<?php echo $key->country;?>">
+                <label>State Name</label>
+                <input type="text" class="form-control" placeholder="Enter Country Name" name="StateName" value="<?php echo $key->state;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4 ">
                   <label>Status</label>

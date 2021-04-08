@@ -361,28 +361,6 @@ class Admin extends CI_controller
 		$data['countrydetails']=$this->Admin_model->viewcountry();
 		$this->load->view('admin/components/layout',$data);
 	}
-	/**
-		Country Update Form
-	**/
-	function updatecountry()
-	{
-		$id=$this->input->get('id');
-		$data['row']=$this->Admin_model->countrybyid($id);
-		$data['page']='admin/pages/update/update_country';
-		$this->load->view('admin/components/layout',$data);
-		if($_POST)
-		{
-			$res=$this->Admin_model->designationedit($id);
-			if($res>0)
-			{
-				redirect('Admin/designation');
-			}
-			else
-			{
-				echo "Data not updated";
-			}
-		}
-	}
 	/*
 		Country Insert
 	*/
@@ -398,6 +376,28 @@ class Admin extends CI_controller
 			else
 			{
 				echo "Data is not inserted";
+			}
+		}
+	}
+	/**
+		Country Update Form
+	**/
+	function updatecountry()
+	{
+		$id=$this->input->get('id');
+		$data['row']=$this->Admin_model->countrybyid($id);
+		$data['page']='admin/pages/update/update_country';
+		$this->load->view('admin/components/layout',$data);
+		if($_POST)
+		{
+			$res=$this->Admin_model->countryedit($id);
+			if($res>0)
+			{
+				redirect('Admin/country');
+			}
+			else
+			{
+				echo "Data not updated";
 			}
 		}
 	}
@@ -445,6 +445,28 @@ class Admin extends CI_controller
 			}
 		}
 	}
+	/**
+		State Update Form
+	**/
+	function updatestate()
+	{
+		$id=$this->input->get('id');
+		$data['row']=$this->Admin_model->statebyid($id);
+		$data['page']='admin/pages/update/update_state';
+		$this->load->view('admin/components/layout',$data);
+		if($_POST)
+		{
+			$res=$this->Admin_model->stateedit($id);
+			if($res>0)
+			{
+				redirect('Admin/state');
+			}
+			else
+			{
+				echo "Data not updated";
+			}
+		}
+	}
 	/*
 		State Delete
 	*/
@@ -488,6 +510,28 @@ class Admin extends CI_controller
 			else
 			{
 				echo "Data is not inserted";
+			}
+		}
+	}
+	/**
+		City Update Form
+	**/
+	function updatecity()
+	{
+		$id=$this->input->get('id');
+		$data['row']=$this->Admin_model->citybyid($id);
+		$data['page']='admin/pages/update/update_city';
+		$this->load->view('admin/components/layout',$data);
+		if($_POST)
+		{
+			$res=$this->Admin_model->cityedit($id);
+			if($res>0)
+			{
+				redirect('Admin/city');
+			}
+			else
+			{
+				echo "Data not updated";
 			}
 		}
 	}
@@ -554,6 +598,11 @@ class Admin extends CI_controller
 				echo "Data is not inserted";
 			}
 		}
+	}
+	function dealerlist()
+	{
+		$data['page']='admin/pages/view/dealerlist';
+		$data['dealerlist']=$this->Admin_model->dealerlist();
 	}
 }
 ?>

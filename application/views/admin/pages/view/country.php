@@ -83,44 +83,4 @@
     </div>
     <!-- End Modal 1  -->
 
-    <!-- Modal 2 Start  -->
-    <div class="modal fade" id="pincode_modal">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button> 
-            <h4 class="modal-title">Pincode</h4>  
-          </div>
-          <!-- Form 2 Start  -->
-          <form action="/intran_project/Userpanel/pincodeinsert" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
-            <div class="modal-body">
-              <input type="hidden" name="city" value="" id="h_city_code">
-              <div class="row">
-                <div class="col-sm-5 col-md-5 col-lg-5">
-                  <label>area</label>
-                  <input type="text" class="form-control" placeholder="Enter Area Name" name="area[]">
-                </div>
-                <div class="col-sm-5 col-md-5 col-lg-5">
-                  <label>ZipCode</label>
-                  <input type="text" class="form-control" placeholder="Enter Role Name" name="zipCode[]">
-                </div>
-                <div class="col-sm-2 col-md-2 col-lg-2">
-                  <button type="button" class="btn btn-primary add_row" style="margin-top: 25px;"><i class="fa fa-plus"></i></button>
-                </div>
-              </div>
-              <div class="rows"></div>
-            </div>
-            <div class="modal-footer">
-              <div class="row">
-                <div class="col-md-12 text-center" style="margin-top: 10px;">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </div>
-            </div>
-          </form>
-          <!-- End Form 2 Start  -->
-        </div>
-      </div>
-    </div>
-    <!-- End Modal 2  -->
-  <!-- /.content-wrapper -->
+    
