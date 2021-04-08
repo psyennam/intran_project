@@ -20,4 +20,24 @@ class Client extends CI_controller
 		$data['clientdetails']=$this->Client_model->view_client();
 		$this->load->view('admin/components/layout',$data);
 	}
+
+	/*
+		Client Insert
+	*/
+	function clientinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->Client_model->clientinsert();
+			if($insert>0)
+			{
+				redirect('Client/client');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
 }
+

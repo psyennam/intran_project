@@ -38,12 +38,12 @@
                   <td><?php echo $key->client_code; ?></td> 
                   <td><?php echo $key->email;?></td>
                   <td><?php echo $key->dob;?></td>
-                  <td><?php echo $key->address;?></td>
+                  <td><?php echo $key->Address;?></td>
                   <td><?php echo $key->contact;?></td>
                   <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
                   <td><?php echo is_status($key->status); ?></td>
-                  <td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
-                  <td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>         
+                  <!-- <td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
+                  <td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td> -->         
                 </tr> 
               <?php } ?>
             </tbody>
@@ -68,7 +68,7 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
           </div>
           <!-- Form 1 Start  -->
-          <form action="<?= base_url('Admin/clientinsert');?>" id="formone" class="form-group" method="post">
+          <form action="<?= base_url('Client/clientinsert');?>" id="formone" class="form-group" method="post">
             <div class="modal-body">
               <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4">
@@ -76,8 +76,20 @@
                   <input type="text" class="form-control" placeholder="Enter City Name" name="ClientName">
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
-                  <label>emaial</label>
+                  <label>email</label>
                   <input type="text" class="form-control" name="email">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <label>dob</label>
+                  <input type="date" class="form-control" name="dob">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <label>Address</label>
+                  <input type="text" class="form-control" name="address">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <label>contact</label>
+                  <input type="text" class="form-control" name="contact">
                 </div>
               </div>
             </div>
