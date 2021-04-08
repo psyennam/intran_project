@@ -69,6 +69,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>
         </li>
 
+          <li class="treeview">
+          <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>Client</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="<?php echo base_url('Admin/dealerlist');?>"><i class="fa fa-circle-o"></i>DealerList</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i>QuotationList</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i>QuotationCloseList</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/pendingquotationlist');?>"><i class="fa fa-circle-o"></i>PendingQuotationList</a></li>  
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->
