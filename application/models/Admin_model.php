@@ -13,7 +13,7 @@ class Admin_model extends CI_model
 	}
 	/**
 		Organisation Admin Login
-		->In this function the Admin will login with client id 
+		->In this function the Admin will login with client id gjh
 	**/
 
 	private function get_role(){

@@ -15,7 +15,7 @@ class Admin extends CI_controller
 	}
 	/*
 		Logim form
-	*/
+	*/sda
 	function login()
 	{
 		$this->load->view('admin/adminlogin',$this->data);
