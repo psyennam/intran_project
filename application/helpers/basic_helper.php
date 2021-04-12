@@ -6,7 +6,7 @@ function org_info($org_id, $col = 'org_name'){
 }
 
 function get_title($code){
-	$ci = &get_instance();
+	$ci = &get_instance();	
 	$res = $ci->db->select('city')->where_in('city_code', explode(',', $code))->get('city')->result_array();
 	$s = array_reduce($res, 'array_merge_recursive', array());
 	return (is_array($s['city']))?implode(', ', $s['city']):$s['city'];
@@ -30,4 +30,23 @@ function is_status($sts){
 
 function json_response($data, $status){
 	echo json_encode(['status'=>  $status, 'data' => $data]);
+}
+
+function get_subzone($zone_code)
+{
+	$ci = &get_instance();
+	$res=$ci->db->select('zone,zone_code')->where('zone_code',$zone_code)->get('zone');
+	$id=$res->row()->zone;
+	return $id;
+}
+
+function get_zone($zone_code)
+{
+	$ci = &get_instance();
+	$res=$ci->db->select('parent')->where('zone_code',$zone_code)->get('zone');
+	$id=$res->row()->parent;
+
+	$resss=$ci->db->select('zone')->where('zone_code',$id)->get('zone');
+	$iddd=$resss->row()->zone;
+	return $iddd;
 }

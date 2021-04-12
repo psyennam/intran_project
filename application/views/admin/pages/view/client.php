@@ -24,8 +24,9 @@
                 <th>dob</th>
                 <th>Address</th>
                 <th>contact</th>
+                <th>zone</th>
+                <th>sub-Zone</th>
                 <th>Status</th>
-                <th>Create date</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -40,7 +41,8 @@
                   <td><?php echo $key->dob;?></td>
                   <td><?php echo $key->Address;?></td>
                   <td><?php echo $key->contact;?></td>
-                  <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
+                  <td><?php echo get_zone($key->zone_code);?></td>  
+                  <td><?php echo get_subzone($key->zone_code);?></td>  
                   <td><?php echo is_status($key->status); ?></td>
 
                   <td><a href="updateclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
@@ -92,7 +94,7 @@
                         echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
                       }?>
                     </select>
-                    <select class="form-control" id="optcity" name="city[]" multiple>
+                    <select class="form-control" id="optcity" name="city">
                     </select>
                   </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">

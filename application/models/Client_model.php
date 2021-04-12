@@ -29,6 +29,7 @@ class Client_model extends CI_model
 				'dob'=>$this->input->post('dob'),
 				'Address'=>$this->input->post('address'),
 				'contact'=>$this->input->post('contact'),
+				'zone_code'=>$this->input->post('city'),
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip,
 			];
@@ -114,5 +115,7 @@ class Client_model extends CI_model
 	{
 		return $this->db->select('zone_code as code,zone')->where('parent',null)->get('zone')->result();
 	}
+
+
 
 }

@@ -33,7 +33,7 @@
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4 ">
                   <label>Status</label>
-                  <select class="form-control" name="statuscombo">
+                  <select class="form-control" name="status">
                     <option value="0" <?php if($key->status == 0) {echo "selected";} ?>>Active</option>
                     <option value="1" <?php if($key->status == 1) {echo "selected";} ?>>In-Active</option>
                   </select>

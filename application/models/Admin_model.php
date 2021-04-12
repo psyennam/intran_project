@@ -27,7 +27,6 @@ class Admin_model extends CI_model
 			$this->session->set_userdata('role', 'admin');
 		}
 	}
-
 	function login()
 	{
 		$this->emp_code = $this->input->post('ClientID');
@@ -610,7 +609,7 @@ class Admin_model extends CI_model
 	**/
 	function viewstate()
 	{
-		return $this->db->select('*')->get('state')->result();
+		return $this->db->select('state_code as code,state')->get('state')->result();
 	}
 	/***
 		State Data By State Code
