@@ -106,4 +106,12 @@ class Client_model extends CI_model
 			return false;
 		}
 	}
+
+	/**
+		In this function it gives all the data from the zone table 
+	**/
+	function viewzone()
+	{
+		return $this->db->select('*')->join('employee','employee.employee_code=zone.employee')->where('parent',null)->get('zone')->result();
+	}
 }

@@ -18,9 +18,8 @@
                   <tr>
                     <th>ID</th>
           					<th>Zone</th>
-          					<th>Zone Code</th>
+          					<!-- <th>Zone Code</th> -->
                     <th>Employee</th>
-          					<th>CreateDate</th>
           					<th>Status</th>
           					<th>Update</th>
           					<th>Delete</th>
@@ -32,9 +31,8 @@
                   	<tr>
                   		<td><?php echo $key->id;?></td>
                   		<td><?php echo $key->zone; ?></td>	
-                  		<td><?php echo $key->zone_code; ?></td>
-                      <td><?php echo $key->employee; ?></td>		
-                      <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>			
+                  		<!-- <td><?php echo $key->zone_code; ?></td> -->
+                      <td><?php echo $key->employee; ?></td>					
                   		<td><?php echo is_status($key->status); ?></td>  
                   		<td><a href="updaterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel">UPDATE</button></a></td>
                   		<td><a href="deleterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
@@ -69,9 +67,8 @@
                 <tr>
                   <th>ID</th>
                   <th>SUb-Zone</th>
+                  <th>city</th>
                   <th>Employee</th>
-                  <th>CreateDate</th>
-                  <th>Status</th>
                   <th>Update</th>
                   <th>Delete</th>
                 </tr>
@@ -80,13 +77,12 @@
                   <?php if(!empty($subzonedetails)){ foreach ($subzonedetails as $key) { ?>
                     <tr>
                       <td><?php echo $key->id;?></td>
-                      <td><?php echo $key->zone; ?></td> 
-                       <td><?php echo $key->employee; ?></td> 
-                      <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>      
-                      <td><?php echo is_status($key->status); ?></td>      
+                      <td><?php echo $key->zone; ?></td>
+                       <td><?php echo (get_title($key->state_code)); ?></td>
+                       <td><?php echo $key->employee; ?></td>      
                       <td><a href="updaterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel">UPDATE</button></a></td>
                       <td><a href="deleterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
-                      <td><button type="button" class="btn btn-success open_zone_modal" data-zonecode = "<?= $key->zone_code ;?>">Add</button></td>          
+                      <!-- <td><button type="button" class="btn btn-success open_zone_modal" data-zonecode = "<?= $key->zone_code ;?>">Add</button></td> -->          
                     </tr> 
                   <?php } } ?>
                 </tbody>

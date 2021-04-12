@@ -828,14 +828,19 @@ class Admin_model extends CI_model
 	**/
 	function viewzone()
 	{
-		return $this->db->select('*')->where('parent',null)->get('zone')->result();
+		return $this->db->select('*')->join('employee','employee.employee_code=zone.employee')->where('parent',null)->get('zone')->result();
 	}
 	/**
 		In this function it gives all the data from the zone table 
 	**/
+
 	function subviewzone()
 	{
-		return $this->db->select('*')->where('parent!=',null)->get('zone')->result();
+		$subqry=$this->db->select('city_code')->from('city')->get()->result();		
+
+		// print_r($subqry);
+
+		return $this->db->select('*')->join('employee','employee.employee_code=zone.employee')->where_in('$subqry')->where('parent!=',null)->get('zone')->result();
 	}
 	/**
 		In this function Zone data will be inserted

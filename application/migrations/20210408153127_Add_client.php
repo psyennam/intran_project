@@ -42,6 +42,10 @@
                         'type' => 'VARCHAR',
                         'constraint' => '10',
                 ),
+                'zone_code' => array(
+                        'type' => 'VARCHAR',
+                        'constraint' => '50',
+                ),
                 'created_at' => array(
                         'type' => 'DATETIME',
                         'default'=>date('Y-m-d H:i:s'),        

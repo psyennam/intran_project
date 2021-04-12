@@ -84,6 +84,17 @@
                   <label>dob</label>
                   <input type="date" class="form-control" name="dob">
                 </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label>Select zone</label>
+                    <select class="form-control state" name="state">
+                      <option value=""> --- </option>
+                      <?php foreach($zonedetails as $k){
+                        echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
+                      }?>
+                    </select>
+                    <select class="form-control" id="optcity" name="city[]" multiple>
+                    </select>
+                </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                   <label>Address</label>
                   <input type="text" class="form-control" name="address">
@@ -106,3 +117,29 @@
       </div>
     </div>
     <!-- End Modal 1  -->
+
+<script>
+  $(document).ready(function(){
+    $('.zone').change(function(){
+      var zone_code = $(this).val();
+      if(zone_code != "")
+      {
+        $.post(base_url+"/Client/opt_zone/"+zone_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.zone+'</option>';
+            });
+            $('#optcity').html(html);
+          }
+        })
+      }
+    });
+
+    $('.open_zone_modal').click(function(){
+      $('#zonecode').val($(this).data('zonecode'));
+      $('#submodel').modal('toggle');
+    })
+  })
+</script>

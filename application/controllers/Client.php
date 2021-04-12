@@ -10,13 +10,14 @@ class Client extends CI_controller
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
-		$this->load->model('Client_model');
+		$this->load->model('Client_model','Admin_model');
 		$this->data["title"] = "Login";
 	}
 
 	function client()
 	{
 		$data['page']='admin/pages/view/client';
+		$data['zonedetails']=$this->Client_model->viewzone();	
 		$data['clientdetails']=$this->Client_model->view_client();
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -73,6 +74,15 @@ class Client extends CI_controller
 		else
 		{
 			echo "Data is not updated";
+		}
+	}
+
+	function opt_city($zone){
+		try{
+			$res = $this->db->select('zone_code as code, zone')->where('zone_code', $zone)->get('zone')->where('parent!=',null)->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
 		}
 	}
 

@@ -5,6 +5,12 @@ function org_info($org_id, $col = 'org_name'){
 	return $ci->db->select($col)->where('org_code',$org_id)->get('organization')->row()->$col;
 }
 
+function get_title($code){
+	$ci = &get_instance();
+	$res = $ci->db->select('city')->where_in('city_code', explode(',', $code))->get('city')->result_array();
+	$s = array_reduce($res, 'array_merge_recursive', array());
+	return (is_array($s['city']))?implode(', ', $s['city']):$s['city'];
+}
 
 function __date_format($date, $type = false){
 	switch ($type) {
