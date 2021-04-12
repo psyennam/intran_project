@@ -21,3 +21,7 @@ function __date_format($date, $type = false){
 function is_status($sts){
 	return ($sts == 0)?"Active":"In-active";
 }
+
+function json_response($data, $status){
+	echo json_encode(['status'=>  $status, 'data' => $data]);
+}

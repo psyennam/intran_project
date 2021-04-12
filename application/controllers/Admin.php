@@ -572,10 +572,9 @@ class Admin extends CI_controller
 	function zone()
 	{
 		$data['page']='admin/pages/view/zone';
-		// $data['countrydetails']=$this->Admin_model->viewcountry();
-		// $data['statedetails']=$this->Admin_model->viewstate();
-		// $data['citydetails']=$this->Admin_model->viewcity();
+
 		$data['zonedetails']=$this->Admin_model->viewzone();
+		$data['subzonedetails']=$this->Admin_model->subviewzone();
 		$data['info']=$this->Admin_model->get_manager();
 		$data['state']=$this->Admin_model->viewstate();
 		$this->load->view('admin/components/layout',$data);
@@ -599,10 +598,38 @@ class Admin extends CI_controller
 			}
 		}
 	}
+
 	function dealerlist()
 	{
 		$data['page']='admin/pages/view/dealerlist';
 		$data['dealerlist']=$this->Admin_model->dealerlist();
 	}
+
+
+	function opt_city($state){
+		try{
+			$res = $this->db->select('city_code as code, city')->where('state_code', $state)->get('city')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+
+	function subzoneinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->Admin_model->subzoneinsert();
+			if($insert>0)
+			{
+				redirect('Admin/zone');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+
 }
 ?>

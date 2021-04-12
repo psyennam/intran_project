@@ -39,6 +39,11 @@
       background: transparent !important;
     }
   </style>
+  <!-- jQuery 3 -->
+  <script src="<?= base_url();?>asset/bower_components/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript">
+    const base_url = '<?= base_url(); ?>';
+  </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -62,8 +67,7 @@
     <?php $this->load->view('admin/components/footer');?>
   </footer>
 
-<!-- jQuery 3 -->
-<script src="<?php echo base_url();?>asset/bower_components/jquery/dist/jquery.min.js"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url();?>asset/bower_components/jquery-ui/jquery-ui.min.js"></script>
 

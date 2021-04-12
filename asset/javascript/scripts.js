@@ -13,3 +13,14 @@ $('.add_row').click(function(){
 function remove_row(row_id){
 	$('#row_'+row_id).remove();
 }
+
+
+var i = 1;
+$('.add_sub').click(function(){ 
+	var html = '<div class="row" id="row_'+(i)+'"><div class="col-sm-12 col-md-4 col-lg-4"><label>Zone Name</label><input type="text" class="form-control" placeholder="Enter Sub-Zone Name" name="SubZoneName"></div>;
+		$('.rows').append(html);
+});
+
+function remove_row(row_id){
+	$('#row_'+row_id).remove();
+}

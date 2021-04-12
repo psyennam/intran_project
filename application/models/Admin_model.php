@@ -610,7 +610,7 @@ class Admin_model extends CI_model
 	**/
 	function viewstate()
 	{
-		return $this->db->select('*')->get('state')->result();
+		return $this->db->select('state_code as code, state')->get('state')->result();
 	}
 	/***
 		State Data By State Code
@@ -828,9 +828,15 @@ class Admin_model extends CI_model
 	**/
 	function viewzone()
 	{
-		return $this->db->select('*')->get('zone')->result();
+		return $this->db->select('*')->where('parent',null)->get('zone')->result();
 	}
-
+	/**
+		In this function it gives all the data from the zone table 
+	**/
+	function subviewzone()
+	{
+		return $this->db->select('*')->where('parent!=',null)->get('zone')->result();
+	}
 	/**
 		In this function Zone data will be inserted
 	**/
@@ -842,7 +848,7 @@ class Admin_model extends CI_model
 		$data=[
 			'zone_code'=>$randomid,
 			'zone'=>$this->input->post('ZoneName'),
-			'state_code'=>$this->input->post('State'),
+			'state_code'=>null,
 			'employee'=>$this->input->post('Employee'),
 			'org_code'=>$this->session->userdata('org_code'),
 			'created_at'=>date('y-m-d H:i:s'),
@@ -858,7 +864,34 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
+	/**
+		In this function Sub-Zone data will be inserted
+	**/
+	function subzoneinsert()
+	{
+		$randomid=random_string('alnum',6);
+		$ip=$this->input->ip_address();
 
+		$data=[
+			'zone_code'=>$randomid,
+			'zone'=>$this->input->post('SubZoneName'),
+			'state_code'=>implode(',',$this->input->post('city[]')),
+			'employee'=>$this->input->post('Employee'),
+			'org_code'=>$this->session->userdata('org_code'),
+			'created_at'=>date('y-m-d H:i:s'),
+			'parent'=>$this->input->post('zonecode'),
+			'ip_address'=>$ip
+		];
+		
+		$insert=$this->db->insert('zone',$data);
+		if($insert>0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	function get_manager()
 	{
 		return $this->db->select('*')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('role','role.role_code=mapping_employee.role_code')->where('role.role','manager')->get()->result();

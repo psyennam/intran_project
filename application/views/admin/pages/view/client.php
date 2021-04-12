@@ -42,6 +42,7 @@
                   <td><?php echo $key->contact;?></td>
                   <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
                   <td><?php echo is_status($key->status); ?></td>
+
                   <td><a href="updateclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
                   <td><a href="deleteclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>      
                 </tr> 

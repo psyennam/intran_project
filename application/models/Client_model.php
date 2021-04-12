@@ -60,6 +60,7 @@ class Client_model extends CI_model
 				'contact'=>$this->input->post('Conatact'),
 				'dob'=>$this->input->post('dob'),
 				'Address'=>$this->input->post('Address'),
+				'status'=>$this->input->post('status'),
 				'ip_address'=>$ip,
 			];
 		
@@ -74,6 +75,35 @@ class Client_model extends CI_model
 			$this->db->trans_rollback();
 			return false;
 		}
+	}
 
+	/**
+		In this deletedata function if Oragnsation admin want to termiante any role  then this function will change the active=terminate  
+	**/
+	function deleteclient($id)
+	{
+		$data=$this->db->select('client_code')->where('client_code',$id)->get('client');
+		if($data->num_rows()>0)
+		{
+			$client=[
+					'status'=>1
+					];
+			$id=$data->row();
+			$this->db->where('client_code',$id->client_code);	
+			$res=$this->db->update('client',$client);
+			if($res>0)
+			{
+
+				return true;
+			} 
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
