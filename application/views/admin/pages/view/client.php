@@ -85,7 +85,7 @@
                   <input type="date" class="form-control" name="dob">
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4">
-                    <label>Select zone</label>
+                    <label>Select State</label>
                     <select class="form-control state" name="state">
                       <option value=""> --- </option>
                       <?php foreach($zonedetails as $k){
@@ -94,7 +94,7 @@
                     </select>
                     <select class="form-control" id="optcity" name="city[]" multiple>
                     </select>
-                </div>
+                  </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                   <label>Address</label>
                   <input type="text" class="form-control" name="address">
@@ -118,13 +118,15 @@
     </div>
     <!-- End Modal 1  -->
 
+<!-- page script -->
 <script>
   $(document).ready(function(){
-    $('.zone').change(function(){
-      var zone_code = $(this).val();
-      if(zone_code != "")
+    $('.state').change(function(){
+      var state_code = $(this).val();
+      if(state_code != "")
       {
-        $.post(base_url+"/Client/opt_zone/"+zone_code, function(res){
+        alert(state_code);
+        $.post(base_url+"/Client/opt_zone/"+state_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -142,4 +144,4 @@
       $('#submodel').modal('toggle');
     })
   })
-</script>
+</script> 

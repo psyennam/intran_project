@@ -13,7 +13,7 @@ class Admin_model extends CI_model
 	}
 	/**
 		Organisation Admin Login
-		->In this function the Admin will login with client id gjh
+		->In this function the Admin will login with client id 
 	**/
 
 	private function get_role(){
@@ -610,7 +610,7 @@ class Admin_model extends CI_model
 	**/
 	function viewstate()
 	{
-		return $this->db->select('state_code as code, state')->get('state')->result();
+		return $this->db->select('*')->get('state')->result();
 	}
 	/***
 		State Data By State Code

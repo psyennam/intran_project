@@ -10,7 +10,7 @@ class Client extends CI_controller
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
-		$this->load->model('Client_model','Admin_model');
+		$this->load->model('Client_model');
 		$this->data["title"] = "Login";
 	}
 
@@ -77,9 +77,11 @@ class Client extends CI_controller
 		}
 	}
 
-	function opt_city($zone){
+	function opt_zone($zone)
+	{
 		try{
-			$res = $this->db->select('zone_code as code, zone')->where('zone_code', $zone)->get('zone')->where('parent!=',null)->result();
+
+			$res = $this->db->select('zone_code as code, zone')->where('parent', $zone)->get('zone')->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);

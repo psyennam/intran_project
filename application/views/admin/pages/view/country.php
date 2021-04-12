@@ -1,5 +1,5 @@
 <!-- Content Wrapper. Contains page content -->           
-    <!-- Content Header (Page header)kjl -->
+    <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>Country Data</h1>
 </section>
