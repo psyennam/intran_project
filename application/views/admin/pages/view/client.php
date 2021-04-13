@@ -1,15 +1,15 @@
 <!-- Content Wrapper. Contains page content -->           
     <!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>Client Data</h1>
-</section>
+<section class="content-header text-center" >
+    <h1 style="text-transform: capitalize;"><b>Client Data</b></h1>
+  </section>
 
 <!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <div class="box-header">
+        <div class="box-header text-center">
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
         </div>
         <!-- /.box-header -->
@@ -94,8 +94,10 @@
                         echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
                       }?>
                     </select>
-                    <select class="form-control" id="optcity" name="city">
-                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label>select City</label>
+                    <select class="form-control" id="optcity" name="city"></select>
                   </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                   <label>Address</label>
@@ -127,7 +129,6 @@
       var state_code = $(this).val();
       if(state_code != "")
       {
-        alert(state_code);
         $.post(base_url+"/Client/opt_zone/"+state_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';

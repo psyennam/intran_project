@@ -54,7 +54,13 @@
   ?>
 <!-- Navabar -->
   <?php
-  $this->load->view('admin/components/nav');
+  if($this->session->userdata('role') == 'employee')
+  {
+    $this->load->view('employee/components/nav');
+  }
+  else{
+    $this->load->view('admin/components/nav');
+  }
   ?>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

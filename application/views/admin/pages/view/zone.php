@@ -8,7 +8,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header text-center">
+            <div class="box-header text-center text-center">
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
             </div>
             <!-- /.box-header -->

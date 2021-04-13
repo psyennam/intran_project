@@ -1,24 +1,15 @@
- <!-- Content Wrapper. Contains page content -->
-  		<!-- Form Start  -->
-        
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        State Data
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
-    </section>
+<!-- Content Header (Page header) -->
+  <section class="content-header text-center" >
+    <h1 style="text-transform: capitalize;"><b>State Data</b></h1>
+  </section>
+  
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <div class="box-header text-center">
               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
             </div>
             <!-- /.box-header -->

@@ -29,10 +29,10 @@
                           <td><?php echo $key->id;?></td>
                           <td><?php echo $key->employee; ?></td>  
                           <td><?php echo $key->employee_code; ?></td>   
-                          <td><?php echo $key->status; ?></td>
+                          <td><?php echo is_status($key->status); ?></td>
                           <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
                           <td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
-                          <td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>         
+                          <td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
                         </tr> 
                       <?php } ?>
                     </tbody>

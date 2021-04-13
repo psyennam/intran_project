@@ -1,27 +1,14 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
- <!-- Content Wrapper. Contains page content -->
-  		<!-- Form Start  -->
-        
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Pincode Data
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-        <li><a href="#">Tables</a></li>
-        <li class="active">Data tables</li>
-      </ol>
-    </section>
+<!-- Content Header (Page header) -->
+<section class="content-header text-center" >
+    <h1 style="text-transform: capitalize;"><b>Pincode Data</b></h1>
+  </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header">
+            <div class="box-header text-center">
               <!-- Form Start  -->
                <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>

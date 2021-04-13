@@ -1,14 +1,14 @@
 <!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>Department Data</h1>
-</section>
+<section class="content-header text-center" >
+    <h1 style="text-transform: capitalize;"><b>Dipartment Data</b></h1>
+  </section>
 
 <!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <div class="box-header">
+        <div class="box-header text-center">
           <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
         </div>
         <div class="box-body" style="overflow-x:auto;">
