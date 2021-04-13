@@ -1,7 +1,7 @@
 <!-- Content Wrapper. Contains page content -->  	        
     <!-- Content Header (Page header) -->
 <section class="content-header text-center" >
-    <h1 style="text-transform: capitalize;"><b>CityS Data</b></h1>
+    <h1 style="text-transform: capitalize;"><b>City Data</b></h1>
   </section>
 
 <!-- Main content -->

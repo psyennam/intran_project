@@ -47,6 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
            <li class="active"><a href="<?php echo base_url('Admin/department');?>"><i class="fa fa-circle-o"></i>Department</a>
             <li class="active"><a href="<?php echo base_url('Admin/employee');?>"><i class="fa fa-circle-o"></i>Employee</a>
             <li class="active"><a href="<?php echo base_url('Admin/designation');?>"><i class="fa fa-circle-o"></i>Designation</a>
+           </li>
+           <li class="active"><a href="<?php echo base_url('Admin/productmanagement');?>"><i class="fa fa-circle-o"></i>Product management</a>
            </li>  
           </ul>
         </li>

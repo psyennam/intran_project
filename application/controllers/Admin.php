@@ -424,7 +424,7 @@ class Admin extends CI_controller
 	{
 		$data['page']='admin/pages/view/state';
 		$data['countrydetails']=$this->Admin_model->viewcountry();
-		$data['statedetails']=$this->Admin_model->viewstate();
+		$data['statedetails']=$this->Admin_model->viewstatestar();
 		$this->load->view('admin/components/layout',$data);
 	}
 	/*
@@ -631,5 +631,27 @@ class Admin extends CI_controller
 		}
 	}
 
+	function productmanagement()
+	{
+		$data['page']='admin/pages/view/productmanagement';
+
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	function productinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->Admin_model->productinsert();
+			if($insert>0)
+			{
+				redirect('Admin/productmanagement');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
 }
 ?>

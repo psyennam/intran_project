@@ -611,6 +611,11 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('state_code as code,state')->get('state')->result();
 	}
+
+	function viewstatestar()
+	{
+		return $this->db->select('*')->get('state')->result();	
+	}
 	/***
 		State Data By State Code
 	 ***/
@@ -901,5 +906,29 @@ class Admin_model extends CI_model
 		return $this->db->select('*')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('role','role.role_code=mapping_employee.role_code')->where('role.role','manager')->get()->result();
 	}
 
+	function productinsert()
+	{
+		$randomid=random_string('alnum',6);
+		$ip=$this->input->ip_address();
+
+		$data=[
+			'zone_code'=>$randomid,
+			'zone'=>$this->input->post('ZoneName'),
+			'state_code'=>null,
+			'employee'=>$this->input->post('Employee'),
+			'org_code'=>$this->session->userdata('org_code'),
+			'created_at'=>date('y-m-d H:i:s'),
+			'ip_address'=>$ip
+		];
+		
+		$insert=$this->db->insert('zone',$data);
+		if($insert>0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }
 ?>
