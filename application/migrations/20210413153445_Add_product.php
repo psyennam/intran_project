@@ -32,7 +32,7 @@
                                 'type' => 'INT',
                                 'constraint' => '10',
                         ),
-                        'distributer_price' => array(
+                        'distributor_price' => array(
                                 'type' => 'INT',
                                 'constraint' => '10',
                         ),

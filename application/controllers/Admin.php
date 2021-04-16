@@ -653,5 +653,48 @@ class Admin extends CI_controller
 			}
 		}
 	}
+	function company()
+	{
+		$data['page']='admin/pages/view/company';
+		$data['companydetails']=$this->Admin_model->viewcompany();
+		$this->load->view('admin/components/layout',$data);	
+	}
+	function companyinsert()
+	{
+		if ($_POST) 
+		{
+			$insert=$this->Admin_model->companyinsert();
+			if($insert>0)
+			{
+				redirect('Admin/company');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+	function producttype()
+	{
+		$data['page']='admin/pages/view/producttype';
+		$data['producttypedetails']=$this->Admin_model->viewproducttype();
+		$data['companydetails']=$this->Admin_model->viewcompany();
+		$this->load->view('admin/components/layout',$data);	
+	}
+	function producttypeinsert()
+	{
+		if ($_POST) 
+		{
+			$insert=$this->Admin_model->producttypeinsert();
+			if($insert>0)
+			{
+				redirect('Admin/producttype');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
 }
 ?>

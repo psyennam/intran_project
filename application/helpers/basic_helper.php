@@ -50,3 +50,8 @@ function get_zone($zone_code)
 	$iddd=$resss->row()->zone;
 	return $iddd;
 }
+function company_name($company_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('company')->where('company_code',$company_code)->get('company')->row()->company;
+}

@@ -930,5 +930,63 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
+	/**
+		In this function it gives all the data from the city table 
+	**/
+	function viewcompany()
+	{
+		return $this->db->select('*')->get('company')->result();
+	}
+	function companyinsert()
+	{
+		$randomid=random_string('alnum',6);
+		$ip=$this->input->ip_address();
+
+		$data=[
+			'company_code'=>$randomid,
+			'company'=>$this->input->post('CompanyName'),
+			'org_code'=>$this->session->userdata('org_code'),
+			'created_at'=>date('y-m-d H:i:s'),
+			'ip_address'=>$ip
+		];
+		
+		$insert=$this->db->insert('company',$data);
+		if($insert>0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}	
+	}
+	/**
+		In this function it gives all the data from the city table 
+	**/
+	function viewproducttype()
+	{
+		return $this->db->select('*')->get('product_type')->result();
+	}
+	function producttypeinsert()
+	{
+		
+		$ip=$this->input->ip_address();
+
+		$data=[
+			'company_code'=>$this->input->post('companycombo'),
+			'product_type'=>$this->input->post('ProductName'),
+			'org_code'=>$this->session->userdata('org_code'),
+			'created_at'=>date('y-m-d H:i:s'),
+			'ip_address'=>$ip
+		];
+		
+		$insert=$this->db->insert('product_type',$data);
+		if($insert>0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}	
+	}
 }
 ?>
