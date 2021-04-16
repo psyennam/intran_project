@@ -1,3 +1,5 @@
+<?php if(!empty($error)) echo $error; ?>
+
 <section class="content">
         <div class="box box-default">
             <div class="box-header with-border">
@@ -9,19 +11,19 @@
 				<form method="post" enctype="multipart/form-data">		
 					<div class="row">
 						<div class="col-md-12">
-							<div class="form-group col-md-3">
-								<label>Company</label>
-								<select id="company" name="company" class="form-control">
-									<option value="1">Dent Master</option>
-									<option value="2">Equip Master</option>
-								</select>
-							</div>
+							<div class="col-sm-12 col-md-4 col-lg-3">
+			                    <label>Select Company</label>
+		                    	<select class="form-control state" name="companycombo">
+		                      		<option value=""> --- </option>
+		                      		<?php foreach($companydetails as $k){
+		                        		echo '<option value="'.$k->company_code.'">'.$k->company.'</option>';
+		                      		}?>
+		                    	</select>
+                  			</div>
 							<div class="form-group col-md-3">
 								<label>Product Type</label>
-								<select id="producttype" name="producttype" class="form-control">
-									<option value="1">Machinery Part</option>
-									<option value="2">Spare Part</option>
-								</select>
+                				<select class="form-control" id="optcity" name="producttype">
+                				</select>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Name<span style="color:red">*</span></label>
@@ -204,7 +206,7 @@ var totalrows=0;
 $(".addCF").click(function(){
 	count++;
 	totalrows++;
-	$("#product_table_body").append('<tr id="newrow"><td style="text-align:center !important;"><span class="xyza'+count+'"></span></td><td><input type="text" id="c_name'+count+'"></td><td><input type="text" id="c_price'+count+'"></td></tr>');
+	$("#product_table_body").append('<tr id="newrow"><td style="text-align:center !important;"><span class="xyza'+count+'"></span></td><td><input type="text" name="c_name[]" id="c_name'+count+'"></td><td><input type="text" name="c_price[]" id="c_price'+count+'"></td></tr>');
 	
 	var z = '<a href="javascript:void(0);" class="remCF"><i class="fa fa-minus" aria-hidden="true" style="color:red;"></i></a>';
 	$('.xyza'+count).html('');
@@ -232,5 +234,24 @@ $("#product_table_body").on('click','.remCF',function(){
 	//$(this).parent().parent().remove();
 	$('#product_table_body tr:last').remove();
 });
+
+  $(document).ready(function(){
+    $('.state').change(function(){
+      var state_code = $(this).val();
+      if(state_code != "")
+      {
+        $.post(base_url+"/admin/opt_producttype/"+state_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value=""> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.id+'">'+value.product_type+'</option>';
+            });
+            $('#optcity').html(html);
+          }
+        })
+      }
+    });
+  })
 
 </script>

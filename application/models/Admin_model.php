@@ -909,9 +909,26 @@ class Admin_model extends CI_model
 	function productinsert()
 	{
 		$ip=$this->input->ip_address();
+		
+		$path = base_url().'uploads/';
+		$config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = null;
+        $config['max_width']            = 2000;
+        $config['max_height']           = 2000;
 
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('proimage'))
+                {
+                    $error = array('error' => $this->upload->display_errors());
+                }
+                
+                $file_name=$this->upload->file_name;
+				$img = array('upload_data' => $this->upload->data());
+				$filename= $path.$img['upload_data']['file_name'];
 		$data=[
-			'company'=>$this->input->post('company'),
+			'company'=>$this->input->post('companycombo'),
 			'product'=>$this->input->post('name'),
 			'product_code'=>$this->input->post('productcode'),
 			'product_type'=>$this->input->post('producttype'),
@@ -922,7 +939,7 @@ class Admin_model extends CI_model
 			'weight'=>$this->input->post('weight'),
 			'GST'=>$this->input->post('tax'),
 			'information'=>$this->input->post('information'),
-			'product_image'=>$this->input->post('proimage'),
+			'product_image'=>$filename,
 			'product_document'=>$this->input->post('procatg'),
 
 			'org_code'=>$this->session->userdata('org_code'),

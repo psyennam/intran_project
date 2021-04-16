@@ -634,6 +634,8 @@ class Admin extends CI_controller
 	function productmanagement()
 	{
 		$data['page']='admin/pages/view/productmanagement';
+		$data['producttypedetails']=$this->Admin_model->viewproducttype();
+		$data['companydetails']=$this->Admin_model->viewcompany();
 
 		$this->load->view('admin/components/layout',$data);
 
@@ -708,6 +710,16 @@ class Admin extends CI_controller
 			{
 				echo "Data is not inserted";
 			}
+		}
+	}
+
+	function opt_producttype($state){
+		
+		try{
+			$res = $this->db->select('id, product_type')->where('company_code',$state)->get('product_type')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
 		}
 	}
 }
