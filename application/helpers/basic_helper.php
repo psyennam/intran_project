@@ -35,7 +35,7 @@ function json_response($data, $status){
 function get_subzone($zone_code)
 {
 	$ci = &get_instance();
-	$res=$ci->db->select('zone,zone_code')->where('zone_code',$zone_code)->get('zone');
+	$res=$ci->db->select('zone')->where('zone_code',$zone_code)->get('zone');
 	$id=$res->row()->zone;
 	return $id;
 }

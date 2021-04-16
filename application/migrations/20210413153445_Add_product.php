@@ -16,6 +16,10 @@
                                 'type' => 'VARCHAR',
                                 'constraint' => '10',
                         ),
+                        'company'=>array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '20',
+                        ),
                         'product_type' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '20',
@@ -23,10 +27,6 @@
                         'description' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '50',
-                        ),
-                        'designation_code' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '10',
                         ),
                         'price' => array(
                                 'type' => 'INT',
@@ -49,12 +49,10 @@
                                 'constraint' => '50',
                         ),
                         'product_image' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '80',
+                                'type' => 'text',
                         ),
                         'product_document' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '80',
+                                'type' => 'text',
                         ),
                         'branch_code' => array(
                                 'type' => 'VARCHAR',
