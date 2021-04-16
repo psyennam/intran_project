@@ -908,27 +908,55 @@ class Admin_model extends CI_model
 
 	function productinsert()
 	{
-		$randomid=random_string('alnum',6);
 		$ip=$this->input->ip_address();
 
 		$data=[
-			'zone_code'=>$randomid,
-			'zone'=>$this->input->post('ZoneName'),
-			'state_code'=>null,
-			'employee'=>$this->input->post('Employee'),
+			'company'=>$this->input->post('company'),
+			'product'=>$this->input->post('name'),
+			'product_code'=>$this->input->post('productcode'),
+			'product_type'=>$this->input->post('producttype'),
+			'description'=>$this->input->post('description'),
+			'price'=>$this->input->post('customerprice'),
+			'distributor_price'=>$this->input->post('distributorprice'),
+			'HSN_code'=>$this->input->post('hsncode'),
+			'weight'=>$this->input->post('weight'),
+			'GST'=>$this->input->post('tax'),
+			'information'=>$this->input->post('information'),
+			'product_image'=>$this->input->post('proimage'),
+			'product_document'=>$this->input->post('procatg'),
+
 			'org_code'=>$this->session->userdata('org_code'),
 			'created_at'=>date('y-m-d H:i:s'),
 			'ip_address'=>$ip
 		];
-		
-		$insert=$this->db->insert('zone',$data);
-		if($insert>0)
+		$this->db->trans_start();
+
+		if($insert=$this->db->insert('product',$data))
 		{
-			return true;
+			$approved_price = [];
+			for($i=0;$i<sizeof($_POST['c_name']);$i++)
+			{
+				$approved_price[] =[
+					'product_id'=>$this->input->post('productcode'),
+					'company_code'=>$_POST['c_name'][$i],
+					'price'=>$_POST['c_price'][$i]
+				];
+			}
+			if($insert=$this->db->insert_batch('approved_price',$approved_price))
+			{
+				$this->db->trans_complete();
+				return true;
+			}
+			else{
+				$this->db->trans_rollback();
+				return false;
+			}
 		}
 		else{
+			$this->db->trans_rollback();
 			return false;
 		}
 	}
+
 }
 ?>

@@ -11,14 +11,14 @@
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
 								<label>Company</label>
-								<select id="company" class="form-control">
+								<select id="company" name="company" class="form-control">
 									<option value="1">Dent Master</option>
 									<option value="2">Equip Master</option>
 								</select>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Product Type</label>
-								<select id="producttype" class="form-control">
+								<select id="producttype" name="producttype" class="form-control">
 									<option value="1">Machinery Part</option>
 									<option value="2">Spare Part</option>
 								</select>
@@ -29,7 +29,7 @@
 							</div>
 							<div class="form-group col-md-3">
 								<label>Product Code<span style="color:red">*</span></label>
-								<input type="text" id="code" name="code" class="form-control">
+								<input type="text" id="code" name="productcode" class="form-control">
 							</div>
 						</div>
 					</div>
@@ -98,18 +98,17 @@
 									<tbody id="product_table_body">
 										<tr>
 											<td style="text-align:center !important;"><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
-											<td><input type="text" id="c_name0"></td>
-											<td><input type="text" id="c_price0"></td>
+											<td><input type="text" id="c_name0" name="c_name[]"></td>
+											<td><input type="text" id="c_price0" name="c_price[]"></td>
 										</tr>
 									</tbody>
-																	</table>
+								</table>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
-																	<input type="submit" class="btn btn-primary" value="Submit" id="btnSubmit" onclick="formsubmit();">
-																	<!--<input type="submit" class="btn btn-primary" value="Edit" id="btnSubmit" onclick="formsubmit();" style="margin-top:7% !important;">-->
-															</div>
+								<input type="submit" class="btn btn-primary" value="Submit" id="btnSubmit" onclick="formsubmit();">
+							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="alert alert-success alert-dismissible" id="alertsuccess" style="display:none !important;">

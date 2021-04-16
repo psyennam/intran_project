@@ -12,15 +12,15 @@
                                 'constraint' => '10',
                                 'unique'=>true,
                         ),
-                        'org_code' => array(
-                                'type' => 'VARCHAR',
-                                'constraint' => '10',
-                        ),
-                        'company'=>array(
+                        'product_type' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '20',
                         ),
-                        'product_type' => array(
+                        'product' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '20',
+                        ),
+                        'company'=>array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '20',
                         ),
@@ -32,7 +32,11 @@
                                 'type' => 'INT',
                                 'constraint' => '10',
                         ),
-                        'distributer_price' => array(
+                        'distributor_price' => array(
+                                'type' => 'INT',
+                                'constraint' => '10',
+                        ),
+                        'HSN_code' => array(
                                 'type' => 'INT',
                                 'constraint' => '10',
                         ),
@@ -53,6 +57,10 @@
                         ),
                         'product_document' => array(
                                 'type' => 'text',
+                        ),
+                        'org_code' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '10',
                         ),
                         'branch_code' => array(
                                 'type' => 'VARCHAR',
