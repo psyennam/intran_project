@@ -71,13 +71,13 @@
 							</div>
 							<div class="form-group col-md-3">
 								<label>Product Image</label>
-								<input type="file" id="proimage" name="proimage" class="form-control">
+								<input type="file" multiple id="proimage" name="proimage[]" class="form-control">
 								<a href="#" data-toggle="modal" data-target="#modal-default"><i class="fa fa-eye"></i></a>
 								<div id="myimage" style="display:none;"></div>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Product Document</label>
-								<input type="file" id="procatg" name="procatg" class="form-control" accept="application/pdf" />
+								<input type="file" id="procatg" name="procatg[]" class="form-control" accept="application/pdf" multiple />
 							<!--	<a href="#" data-toggle="modal" data-target="#modal-default1"><i class="fa fa-eye"></i></a>
 								<div id="myimage1" style="display:none;"></div>-->
 							</div>
