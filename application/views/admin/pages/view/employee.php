@@ -1,6 +1,6 @@
 <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1>Employee Data</h1>
+    <h1><?= _lang('Employee Data');?></h1>
   </section>
 
   <!-- Main content -->
@@ -9,18 +9,18 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><!-- <?= __lang('add')?> -->Add</button>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
           		  <div class="box-body" style="overflow-x:auto;">
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                       <tr>
-                        <th><!-- <?= __lang('id')?> -->ID</th>
-                        <th><!-- <?= __lang('employeename')?> -->Employee Name</th>
-                        <th><!-- <?= __lang('employeecode')?> -->Employee Code</th>
-                        <th><!-- <?= __lang('status')?> -->Status</th>
-                        <th><!-- <?= __lang('createdate')?> -->Create date</th>
-                        <th><!-- <?= __lang('update')?> -->Update</th>
-                        <th><!-- <?= __lang('delete')?> -->Delete</th>
+                        <th><?= __lang('ID');?></th>
+                        <th><?= __lang('Employee Name');?></th>
+                        <th><?= __lang('Employee Code');?></th>
+                        <th><?= __lang('Status');?></th>
+                        <th><?= __lang('CreateDate');?></th>
+                        <th><?= __lang('Update');?></th>
+                        <th><?= __lang('Delete');?></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -31,8 +31,8 @@
                           <td><?php echo $key->employee_code; ?></td>   
                           <td><?php echo is_status($key->status); ?></td>
                           <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
-                          <td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-primary"><!-- <?= __lang('update')?> -->UPDATE</button></a></td>
-                          <td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary"><!-- <?= __lang('delete')?> -->DELETE</button></a></td>
+                          <td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-primary"><?= __lang('UPDATE');?></button></a></td>
+                          <td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
                         </tr> 
                       <?php } ?>
                     </tbody>
@@ -44,7 +44,7 @@
               		  <div class="modal-dialog modal-dialog-centered">
               			  <div class="modal-content">
                         <div class="modal-header">
-              					  <h3 class="text-center text-primary"><!-- <?= __lang('employee')?> -->Employee</h3>	
+              					  <h3 class="text-center text-primary"><?= __lang('Employee');?></h3>	
               					  <button type="button" class="close" data-dismiss="modal">&times;</button>	
               				  </div>
                       <!-- Form Start  -->
@@ -52,31 +52,31 @@
                 				  <div class="modal-body">
                             <div class="row">
     							            <div class="col-sm-12 col-md-4 col-lg-4">
-    							              <label><!-- <?= __lang('employeename')?> -->Employee Name</label>
+    							              <label><?= __lang('Employee Name');?></label>
     							              <input type="text" class="form-control" placeholder="Enter employee Name" name="employeeName">
     							            </div>
                               <div class="col-sm-12 col-md-4 col-lg-4">
-                                <label><!-- <?= __lang('dateofbirth')?> -->Date Of Birth</label>
+                                <label><?= __lang('Date of Birth');?></label>
                                 <input type="date" class="form-control" placeholder="Enter employee DOB" name="employeeDob">
                               </div>
                               <div class="col-sm-12 col-md-4 col-lg-4">
-                                <label><!-- <?= __lang('email')?> -->Email</label>
+                                <label><?= __lang('Email');?></label>
                                 <input type="text" class="form-control" placeholder="Enter employee Email" name="employeeEmail">
                               </div>
                               <div class="col-sm-12 col-md-4 col-lg-4">
-                                <label><!-- <?= __lang('employeecontact')?> -->Employee Contact</label>
+                                <label><?= __lang('Employee Contact');?></label>
                                 <input type="text" class="form-control" placeholder="Enter employee Contact" name="employeeContact">
                               </div>
                               <div class="col-sm-12 col-md-4 col-lg-4">
-                                <label><!-- <?= __lang('address')?> -->Address</label>
+                                <label><?= __lang('Address');?></label>
                                 <input type="text" class="form-control" placeholder="Enter employee Address" name="employeeAddress">
                               </div>
     							            <div class="col-sm-12 col-md-12 col-lg-4">
-    							              <label><!-- <?= __lang('organizationcode')?> -->Organization code</label>
+    							              <label><?= __lang('Organization code');?></label>
     							              <input type="text" class="form-control" name="org_code" value="<?php echo $this->session->userdata('org_code');?>" disabled>
     							            </div>
                               <div class="col-sm-12 col-md-12 col-lg-4">
-                                <label><!-- <?= __lang('department')?> -->Department</label>
+                                <label><?= __lang('Department');?></label>
                                 <select class="form-control" name="departmentcombo">
                                   <?php foreach ($empdetails as $row) { ?>
                                     <option value="<?php echo $row->department_code ?>"><?php echo $row->department; ?>
@@ -85,7 +85,7 @@
                                 </select>
                               </div>
                               <div class="col-sm-12 col-md-12 col-lg-4">
-                                <label><!-- <?= __lang('designation')?> -->Designation</label>
+                                <label><?= __lang('Designation');?></label>
                                 <select class="form-control" name="designationcombo">
                                   <?php foreach ($designatiodetails as $row) { ?>
                                     <option value="<?php echo $row->designation_code ?>"><?php echo $row->designation; ?></option>
@@ -93,7 +93,7 @@
                                 </select>
                               </div>
                               <div class="col-sm-12 col-md-12 col-lg-4">
-                                <label><!-- <?= __lang('designation')?> -->Designation</label>
+                                <label><?= __lang('Designation');?></label>
                                 <select class="form-control" name="rolecombo">
                                   <?php foreach ($roledetails as $row) { ?>
                                       <option value="<?php echo $row->role_code ?>"><?php echo $row->role; ?></option>
@@ -105,7 +105,7 @@
                 				  <div class="modal-footer">
                 					  <div class="row">
   							              <div class="col-md-12 text-center" style="margin-top: 10px;">
-  							                <button type="submit" class="btn btn-primary"><!-- <?= __lang('submit')?> -->Submit</button>
+  							                <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
   							              </div>
   							            </div>
                 				  </div>
