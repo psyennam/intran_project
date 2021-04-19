@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b><!-- <?= __lang('admin')?> -->Admin</b></span>
+      <span class="logo-lg"><b><!-- <?= __lang('Admin')?> -->Admin</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <li class="">
-            <a href="<?php echo base_url('Admin/logout');?>" class="btn btn-danger btn-flat" ><!-- <?= __lang('signout')?> -->Sign out</a>
+            <a href="<?php echo base_url('Admin/logout');?>" class="btn btn-danger btn-flat" ><!-- <?= __lang('Sign out')?> -->Sign out</a>
           </li>
         </ul>
       </div>
