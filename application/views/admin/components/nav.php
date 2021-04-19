@@ -18,10 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header"><!-- <?= __lang('mainnavigation')?> -->MAIN NAVIGATION</li>
+        <li class="header"><!-- <?= __lang('MAIN NAVIGATION')?> -->MAIN NAVIGATION</li>
         <li class="active treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span><!-- <?= __lang('dashboard')?> -->Dashboard</span>
+            <i class="fa fa-dashboard"></i> <span><!-- <?= __lang('Dashboard')?> -->Dashboard</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -37,29 +37,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span><!-- <?= __lang('master')?> -->Master</span>
+            <span><!-- <?= __lang('Master')?> -->Master</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Admin/role');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('role')?> -->Role</a></li>
-           <li class="active"><a href="<?php echo base_url('Admin/department');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('department')?> -->Department</a>
-            <li class="active"><a href="<?php echo base_url('Admin/employee');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('employee')?> -->Employee</a>
-            <li class="active"><a href="<?php echo base_url('Admin/designation');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('designation')?> -->Designation</a>
+            <li class="active"><a href="<?php echo base_url('Admin/role');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Role')?> -->Role</a></li>
+           <li class="active"><a href="<?php echo base_url('Admin/department');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Department')?> -->Department</a>
+            <li class="active"><a href="<?php echo base_url('Admin/employee');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Employee')?> -->Employee</a>
+            <li class="active"><a href="<?php echo base_url('Admin/designation');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Designation')?> -->Designation</a>
            </li>
                   <li class="treeview">
                       <a href="#">
                         <i class="fa fa-pie-chart"></i>
-                        <span><!-- <?= __lang('management')?> -->Management</span>
+                        <span><!-- <?= __lang('Management')?> -->Management</span>
                         <span class="pull-right-container">
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
                       </a>
                         <ul class="treeview-menu">
-                        <li class="active"><a href="<?php echo base_url('Admin/productmanagement');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('productmanagement')?> -->Product management</a>
-                        <li class="active"><a href="<?php echo base_url('Admin/company');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('company')?> -->Company</a></li>
-                        <li class="active"><a href="<?php echo base_url('Admin/producttype');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('producttype')?> -->ProductType</a></li>  
+                        <li class="active"><a href="<?php echo base_url('Admin/productmanagement');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Product management')?> -->Product management</a>
+                        <li class="active"><a href="<?php echo base_url('Admin/company');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Company')?> -->Company</a></li>
+                        <li class="active"><a href="<?php echo base_url('Admin/producttype');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('ProductType')?> -->ProductType</a></li>  
                       </ul>
                   </li>
            </li>  
@@ -69,34 +69,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span><!-- <?= __lang('menu')?> -->Menu</span>
+            <span><!-- <?= __lang('Menu')?> -->Menu</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Admin/country');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('country')?> -->Country</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/state');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('state')?> -->State</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/city');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('city')?> -->City</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/pincode');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('pincode')?> -->Pincode</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/zone');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('zone')?> -->Zone</a></li>  
+            <li class="active"><a href="<?php echo base_url('Admin/country');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Country')?> -->Country</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/state');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('State')?> -->State</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/city');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('City')?> -->City</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/pincode');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Pincode')?> -->Pincode</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/zone');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Zone')?> -->Zone</a></li>  
           </ul>
         </li>
 
           <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span><!-- <?= __lang('client')?> -->Client</span>
+            <span><!-- <?= __lang('Client')?> -->Client</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="<?php echo base_url('Client/client');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('client')?> -->Client</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/dealerlist');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('dealerlist')?> -->Dealer List</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('quotationlist')?> -->Quotation List</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('quotationcloselist')?> -->Quotation Close List</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/pendingquotationlist');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('pendingquotationlist')?> -->Pending Quotation List</a></li>  
+            <li class="active"><a href="<?php echo base_url('Admin/dealerlist');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Dealer List')?> -->Dealer List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Quotation List')?> -->Quotation List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Quotation Close List')?> -->Quotation Close List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/pendingquotationlist');?>"><i class="fa fa-circle-o"></i><!-- <?= __lang('Pending Quotation List')?> -->Pending Quotation List</a></li>  
           </ul>
         </li>
       </ul>
