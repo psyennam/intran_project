@@ -3,7 +3,7 @@
 <section class="content">
         <div class="box box-default">
             <div class="box-header with-border">
-			  <h3 class="box-title">Product Information</h3>
+			  <h3 class="box-title"><!-- <?= __lang('productinformation')?> -->Product Information</h3>
 			</div>
 			
           <!-- /.box-header -->
@@ -12,7 +12,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="col-sm-12 col-md-4 col-lg-3">
-			                    <label>Select Company</label>
+			                    <label><!-- <?= __lang('selectcompany')?> -->Select Company</label>
 		                    	<select class="form-control state" name="companycombo">
 		                      		<option value=""> --- </option>
 		                      		<?php foreach($companydetails as $k){
@@ -21,16 +21,16 @@
 		                    	</select>
                   			</div>
 							<div class="form-group col-md-3">
-								<label>Product Type</label>
+								<label><!-- <?= __lang('producttype')?> -->Product Type</label>
                 				<select class="form-control" id="optcity" name="producttype">
                 				</select>
 							</div>
 							<div class="form-group col-md-3">
-								<label>Name<span style="color:red">*</span></label>
+								<label><!-- <?= __lang('name')?> -->Name<span style="color:red">*</span></label>
 								<input type="text" class="form-control" name="name" id="name">
 							</div>
 							<div class="form-group col-md-3">
-								<label>Product Code<span style="color:red">*</span></label>
+								<label><!-- <?= __lang('productcode')?> -->Product Code<span style="color:red">*</span></label>
 								<input type="text" id="code" name="productcode" class="form-control">
 							</div>
 						</div>
@@ -38,19 +38,19 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
-								<label>Description<span style="color:red">*</span></label>
+								<label><!-- <?= __lang('description')?> -->Description<span style="color:red">*</span></label>
 								<textarea id="description" name="description" class="form-control"></textarea>
 							</div>
 							<div class="form-group col-md-3">
-								<label>Price<span style="color:red;">*</span></label>
+								<label><!-- <?= __lang('price')?> -->Price<span style="color:red;">*</span></label>
 								<input type="text" id="customerprice" name="customerprice" class="form-control">
 							</div>
 							<div class="form-group col-md-3">
-								<label>Distributor Price<span style="color:red;">*</span></label>
+								<label><!-- <?= __lang('distributorprice')?> -->Distributor Price<span style="color:red;">*</span></label>
 								<input type="text" id="distributorprice" name="distributorprice" class="form-control">
 							</div>
 							<div class="form-group col-md-3">
-								<label>HSNCode</label>
+								<label><!-- <?= __lang('hsncode')?> -->HSNCode</label>
 								<input type="text" id="hsncode" name="hsncode" class="form-control">
 							</div>
 						</div>
@@ -58,25 +58,25 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
-								<label>Weight</label>
+								<label><!-- <?= __lang('weight')?> -->Weight</label>
 								<input type="text" id="weight" name="weight" class="form-control">
 							</div>
 							<div class="form-group col-md-3">
-								<label>GST</label>
+								<label><!-- <?= __lang('gst')?> -->GST</label>
 								<input type="text" id="tax" name="tax" class="form-control">
 							</div>
 							<div class="form-group col-md-3">
-								<label>Information</label>
+								<label><!-- <?= __lang('information')?> -->Information</label>
 								<textarea id="information" name="information" class="form-control"></textarea>
 							</div>
 							<div class="form-group col-md-3">
-								<label>Product Image</label>
+								<label><!-- <?= __lang('productimage')?> -->Product Image</label>
 								<input type="file" multiple id="proimage" name="proimage[]" class="form-control">
 								<a href="#" data-toggle="modal" data-target="#modal-default"><i class="fa fa-eye"></i></a>
 								<div id="myimage" style="display:none;"></div>
 							</div>
 							<div class="form-group col-md-3">
-								<label>Product Document</label>
+								<label><!-- <?= __lang('productdocument')?> -->Product Document</label>
 								<input type="file" id="procatg" name="procatg[]" class="form-control" accept="application/pdf" multiple />
 							<!--	<a href="#" data-toggle="modal" data-target="#modal-default1"><i class="fa fa-eye"></i></a>
 								<div id="myimage1" style="display:none;"></div>-->
@@ -84,7 +84,7 @@
 						</div>
 						<div class="col-md-12">
 							<div class="box-header with-border">
-								<h3 class="box-title">Approved Price</h3>
+								<h3 class="box-title"><!-- <?= __lang('approvedprice')?> -->Approved Price</h3>
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -92,9 +92,9 @@
 								<table id="sample_data" class="table table-bordered table-striped" width="100%">
 									<thead>
 										<tr>
-											<th class="span2" width="10%">Option</th>
-											<th>Company Name</th>
-											<th>Price</th>
+											<th class="span2" width="10%"><!-- <?= __lang('option')?> -->Option</th>
+											<th><!-- <?= __lang('companyname')?> -->Company Name</th>
+											<th><!-- <?= __lang('companyprice')?> -->Price</th>
 										</tr>
 									</thead>
 									<tbody id="product_table_body">
