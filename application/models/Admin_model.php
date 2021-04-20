@@ -909,24 +909,8 @@ class Admin_model extends CI_model
 	function productinsert()
 	{
 		$ip=$this->input->ip_address();
-		
-		$path = base_url().'uploads/';
-		$config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = null;
-        $config['max_width']            = 2000;
-        $config['max_height']           = 2000;
+		$this->load->helper('upload_helper');
 
-                $this->load->library('upload', $config);
-
-                if ( ! $this->upload->do_upload('proimage'))
-                {
-                    $error = array('error' => $this->upload->display_errors());
-                }
-                
-                $file_name=$this->upload->file_name;
-				$img = array('upload_data' => $this->upload->data());
-				$filename= $path.$img['upload_data']['file_name'];
 		$data=[
 			'company'=>$this->input->post('companycombo'),
 			'product'=>$this->input->post('name'),
@@ -939,9 +923,8 @@ class Admin_model extends CI_model
 			'weight'=>$this->input->post('weight'),
 			'GST'=>$this->input->post('tax'),
 			'information'=>$this->input->post('information'),
-			'product_image'=>$filename,
-			'product_document'=>$this->input->post('procatg'),
-
+			'product_image' => file_upload('proimage'),
+			'product_document' => (!empty($_FILES['procatg']['name']))?file_upload('procatg'):'',
 			'org_code'=>$this->session->userdata('org_code'),
 			'created_at'=>date('y-m-d H:i:s'),
 			'ip_address'=>$ip
