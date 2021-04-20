@@ -74,7 +74,7 @@ class Migrate extends CI_Controller
                 }
         }
 
-        public function abc()
+        public function run()
         {
                 $this->load->library('migration');
 
