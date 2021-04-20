@@ -61,3 +61,5 @@ function __lang($key){
 	$lang = 'hin';
 	return $ci->db->select('ml.__value as lang_val')->from('language as l')->join('mapping_language as ml', 'ml.id = l.id', 'inner')->where(['ml.__lang' => $lang, 'l.__key' => $key])->get()->row()->lang_val;
 }
+
+//hii

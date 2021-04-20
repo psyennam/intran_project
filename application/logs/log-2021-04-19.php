@@ -1420,3 +1420,4 @@ INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\appli
 INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
 INFO - 2021-04-19 18:56:25 --> Final output sent to browser
 DEBUG - 2021-04-19 18:56:25 --> Total execution time: 0.2683
+
