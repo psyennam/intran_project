@@ -55,3 +55,9 @@ function company_name($company_code)
 	$ci = &get_instance();
 	return $ci->db->select('company')->where('company_code',$company_code)->get('company')->row()->company;
 }
+
+function lang($word){
+	$ci = &get_instance();
+	$ci->load->helper('language');
+	return $ci->lang->line($word);
+}
