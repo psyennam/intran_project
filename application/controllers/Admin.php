@@ -599,11 +599,7 @@ class Admin extends CI_controller
 		}
 	}
 
-	function dealerlist()
-	{
-		$data['page']='admin/pages/view/dealerlist';
-		$data['dealerlist']=$this->Admin_model->dealerlist();
-	}
+	
 
 
 	function opt_city($state){
@@ -712,7 +708,6 @@ class Admin extends CI_controller
 			}
 		}
 	}
-
 	function opt_producttype($state){
 		
 		try{
@@ -721,6 +716,16 @@ class Admin extends CI_controller
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
 		}
+	}
+	function dealerlist()
+	{
+		$data['page']='admin/pages/view/dealerlist';
+		$this->load->view('admin/components/layout',$data);	
+	}
+	function leadform()
+	{
+		$data['page']='admin/pages/view/leadform';
+		$this->load->view('admin/components/layout',$data);	
 	}
 }
 ?>

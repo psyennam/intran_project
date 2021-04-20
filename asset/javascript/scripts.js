@@ -24,3 +24,13 @@ $('.add_sub').click(function(){
 function remove_row(row_id){
 	$('#row_'+row_id).remove();
 }
+// var i=1; 
+// $('.addCF').click(function(){ 
+// 	//var html = '<div class="row" id="row_'+(i)+'"><div class="col-sm-12 col-md-4 col-lg-4"><label>Zone Name</label><input type="text" class="form-control" placeholder="Enter Sub-Zone Name" name="SubZoneName"></div>;
+// 	var html='<tr id="newrow_'+(i)+'"><td style="text-align:center !important;"><span class="xyza"></span></td><td><input type="text" name="cp_name"></td><td><input type="text" name="cp_designation"></td><td><input type="text" name="cp_mobile"></td><td><input type="text" name="cp_email"></td></tr>';
+// 	$('#product_table_body').append(html);
+// });
+// function remove_row(row_id){
+// 	$('#product_table_body'+row_id).remove();
+// }
+ 
