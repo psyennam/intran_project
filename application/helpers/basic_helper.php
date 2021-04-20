@@ -56,8 +56,15 @@ function company_name($company_code)
 	return $ci->db->select('company')->where('company_code',$company_code)->get('company')->row()->company;
 }
 
+<<<<<<< HEAD
 function lang($word){
 	$ci = &get_instance();
 	$ci->load->helper('language');
 	return $ci->lang->line($word);
+=======
+function __lang($key){
+	$ci = &get_instance();
+	$lang = 'hin';
+	return $ci->db->select('ml.__value as lang_val')->from('language as l')->join('mapping_language as ml', 'ml.id = l.id', 'inner')->where(['ml.__lang' => $lang, 'l.__key' => $key])->get()->row()->lang_val;
+>>>>>>> pr/7
 }
