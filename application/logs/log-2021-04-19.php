@@ -787,3 +787,636 @@ INFO - 2021-04-19 15:05:01 --> Model "Admin_model" initialized
 INFO - 2021-04-19 15:05:01 --> File loaded: G:\xampp\htdocs\intran_project\application\views\admin/adminlogin.php
 INFO - 2021-04-19 15:05:01 --> Final output sent to browser
 DEBUG - 2021-04-19 15:05:01 --> Total execution time: 0.0609
+INFO - 2021-04-19 17:40:34 --> Config Class Initialized
+INFO - 2021-04-19 17:40:34 --> Hooks Class Initialized
+DEBUG - 2021-04-19 17:40:34 --> UTF-8 Support Enabled
+INFO - 2021-04-19 17:40:34 --> Utf8 Class Initialized
+INFO - 2021-04-19 17:40:34 --> URI Class Initialized
+INFO - 2021-04-19 17:40:34 --> Router Class Initialized
+INFO - 2021-04-19 17:40:34 --> Output Class Initialized
+INFO - 2021-04-19 17:40:34 --> Security Class Initialized
+DEBUG - 2021-04-19 17:40:34 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 17:40:34 --> Input Class Initialized
+INFO - 2021-04-19 17:40:34 --> Language Class Initialized
+INFO - 2021-04-19 17:40:34 --> Loader Class Initialized
+INFO - 2021-04-19 17:40:34 --> Helper loaded: basic_helper
+INFO - 2021-04-19 17:40:34 --> Helper loaded: file_helper
+INFO - 2021-04-19 17:40:34 --> Helper loaded: url_helper
+INFO - 2021-04-19 17:40:34 --> Database Driver Class Initialized
+INFO - 2021-04-19 17:40:34 --> Helper loaded: form_helper
+INFO - 2021-04-19 17:40:34 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 17:40:34 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 17:40:34 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 17:40:34 --> Controller Class Initialized
+INFO - 2021-04-19 17:40:34 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 17:40:34 --> Query error: Table 'masterdb.tbl_language' doesn't exist - Invalid query: SELECT `ml`.`__value` as `lang_val`
+FROM `tbl_language` as `l`
+INNER JOIN `tbl_mapping_language` as `ml` ON `ml`.`id` = `l`.`id`
+WHERE `ml`.`__lang` = 'hindi'
+AND `l`.`__key` = 'admin'
+INFO - 2021-04-19 17:40:34 --> Language file loaded: language/english/db_lang.php
+INFO - 2021-04-19 17:44:19 --> Config Class Initialized
+INFO - 2021-04-19 17:44:19 --> Hooks Class Initialized
+DEBUG - 2021-04-19 17:44:19 --> UTF-8 Support Enabled
+INFO - 2021-04-19 17:44:19 --> Utf8 Class Initialized
+INFO - 2021-04-19 17:44:19 --> URI Class Initialized
+INFO - 2021-04-19 17:44:19 --> Router Class Initialized
+INFO - 2021-04-19 17:44:19 --> Output Class Initialized
+INFO - 2021-04-19 17:44:19 --> Security Class Initialized
+DEBUG - 2021-04-19 17:44:19 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 17:44:19 --> Input Class Initialized
+INFO - 2021-04-19 17:44:19 --> Language Class Initialized
+INFO - 2021-04-19 17:44:19 --> Loader Class Initialized
+INFO - 2021-04-19 17:44:19 --> Helper loaded: basic_helper
+INFO - 2021-04-19 17:44:19 --> Helper loaded: file_helper
+INFO - 2021-04-19 17:44:19 --> Helper loaded: url_helper
+INFO - 2021-04-19 17:44:19 --> Database Driver Class Initialized
+INFO - 2021-04-19 17:44:19 --> Helper loaded: form_helper
+INFO - 2021-04-19 17:44:19 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 17:44:19 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 17:44:19 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 17:44:19 --> Controller Class Initialized
+INFO - 2021-04-19 17:44:19 --> Migrations Class Initialized
+INFO - 2021-04-19 17:44:19 --> Language file loaded: language/english/migration_lang.php
+INFO - 2021-04-19 17:44:19 --> Database Forge Class Initialized
+DEBUG - 2021-04-19 17:44:19 --> Migrating up from version 20210415211727 to version 20210419132709
+DEBUG - 2021-04-19 17:44:19 --> Finished migrating to 20210419132709
+INFO - 2021-04-19 17:44:19 --> Final output sent to browser
+DEBUG - 2021-04-19 17:44:19 --> Total execution time: 0.1339
+INFO - 2021-04-19 17:44:45 --> Config Class Initialized
+INFO - 2021-04-19 17:44:45 --> Hooks Class Initialized
+DEBUG - 2021-04-19 17:44:45 --> UTF-8 Support Enabled
+INFO - 2021-04-19 17:44:45 --> Utf8 Class Initialized
+INFO - 2021-04-19 17:44:45 --> URI Class Initialized
+INFO - 2021-04-19 17:44:45 --> Router Class Initialized
+INFO - 2021-04-19 17:44:45 --> Output Class Initialized
+INFO - 2021-04-19 17:44:45 --> Security Class Initialized
+DEBUG - 2021-04-19 17:44:45 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 17:44:45 --> Input Class Initialized
+INFO - 2021-04-19 17:44:45 --> Language Class Initialized
+INFO - 2021-04-19 17:44:45 --> Loader Class Initialized
+INFO - 2021-04-19 17:44:45 --> Helper loaded: basic_helper
+INFO - 2021-04-19 17:44:45 --> Helper loaded: file_helper
+INFO - 2021-04-19 17:44:45 --> Helper loaded: url_helper
+INFO - 2021-04-19 17:44:45 --> Database Driver Class Initialized
+INFO - 2021-04-19 17:44:45 --> Helper loaded: form_helper
+INFO - 2021-04-19 17:44:45 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 17:44:45 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 17:44:45 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 17:44:45 --> Controller Class Initialized
+INFO - 2021-04-19 17:44:45 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 17:44:45 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 17:44:45 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/adminlogin.php
+INFO - 2021-04-19 17:44:45 --> Final output sent to browser
+DEBUG - 2021-04-19 17:44:45 --> Total execution time: 0.0496
+INFO - 2021-04-19 17:48:03 --> Config Class Initialized
+INFO - 2021-04-19 17:48:03 --> Hooks Class Initialized
+DEBUG - 2021-04-19 17:48:03 --> UTF-8 Support Enabled
+INFO - 2021-04-19 17:48:03 --> Utf8 Class Initialized
+INFO - 2021-04-19 17:48:03 --> URI Class Initialized
+INFO - 2021-04-19 17:48:03 --> Router Class Initialized
+INFO - 2021-04-19 17:48:03 --> Output Class Initialized
+INFO - 2021-04-19 17:48:03 --> Security Class Initialized
+DEBUG - 2021-04-19 17:48:03 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 17:48:03 --> Input Class Initialized
+INFO - 2021-04-19 17:48:03 --> Language Class Initialized
+INFO - 2021-04-19 17:48:03 --> Loader Class Initialized
+INFO - 2021-04-19 17:48:03 --> Helper loaded: basic_helper
+INFO - 2021-04-19 17:48:03 --> Helper loaded: file_helper
+INFO - 2021-04-19 17:48:03 --> Helper loaded: url_helper
+INFO - 2021-04-19 17:48:03 --> Database Driver Class Initialized
+INFO - 2021-04-19 17:48:03 --> Helper loaded: form_helper
+INFO - 2021-04-19 17:48:03 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 17:48:03 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 17:48:03 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 17:48:03 --> Controller Class Initialized
+INFO - 2021-04-19 17:48:03 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 17:48:03 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 17:48:03 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/adminlogin.php
+INFO - 2021-04-19 17:48:03 --> Final output sent to browser
+DEBUG - 2021-04-19 17:48:03 --> Total execution time: 0.0407
+INFO - 2021-04-19 17:48:15 --> Config Class Initialized
+INFO - 2021-04-19 17:48:15 --> Hooks Class Initialized
+DEBUG - 2021-04-19 17:48:15 --> UTF-8 Support Enabled
+INFO - 2021-04-19 17:48:15 --> Utf8 Class Initialized
+INFO - 2021-04-19 17:48:15 --> URI Class Initialized
+INFO - 2021-04-19 17:48:15 --> Router Class Initialized
+INFO - 2021-04-19 17:48:15 --> Output Class Initialized
+INFO - 2021-04-19 17:48:15 --> Security Class Initialized
+DEBUG - 2021-04-19 17:48:15 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 17:48:15 --> Input Class Initialized
+INFO - 2021-04-19 17:48:15 --> Language Class Initialized
+INFO - 2021-04-19 17:48:15 --> Loader Class Initialized
+INFO - 2021-04-19 17:48:15 --> Helper loaded: basic_helper
+INFO - 2021-04-19 17:48:15 --> Helper loaded: file_helper
+INFO - 2021-04-19 17:48:15 --> Helper loaded: url_helper
+INFO - 2021-04-19 17:48:15 --> Database Driver Class Initialized
+INFO - 2021-04-19 17:48:15 --> Helper loaded: form_helper
+INFO - 2021-04-19 17:48:15 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 17:48:15 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 17:48:15 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 17:48:15 --> Controller Class Initialized
+INFO - 2021-04-19 17:48:15 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 17:48:15 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 17:48:15 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/adminlogin.php
+INFO - 2021-04-19 17:48:15 --> Config Class Initialized
+INFO - 2021-04-19 17:48:15 --> Hooks Class Initialized
+DEBUG - 2021-04-19 17:48:15 --> UTF-8 Support Enabled
+INFO - 2021-04-19 17:48:15 --> Utf8 Class Initialized
+INFO - 2021-04-19 17:48:15 --> URI Class Initialized
+INFO - 2021-04-19 17:48:15 --> Router Class Initialized
+INFO - 2021-04-19 17:48:15 --> Output Class Initialized
+INFO - 2021-04-19 17:48:15 --> Security Class Initialized
+DEBUG - 2021-04-19 17:48:15 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 17:48:15 --> Input Class Initialized
+INFO - 2021-04-19 17:48:15 --> Language Class Initialized
+INFO - 2021-04-19 17:48:15 --> Loader Class Initialized
+INFO - 2021-04-19 17:48:15 --> Helper loaded: basic_helper
+INFO - 2021-04-19 17:48:15 --> Helper loaded: file_helper
+INFO - 2021-04-19 17:48:15 --> Helper loaded: url_helper
+INFO - 2021-04-19 17:48:15 --> Database Driver Class Initialized
+INFO - 2021-04-19 17:48:15 --> Helper loaded: form_helper
+INFO - 2021-04-19 17:48:15 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 17:48:15 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 17:48:15 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 17:48:15 --> Controller Class Initialized
+INFO - 2021-04-19 17:48:15 --> Model "Admin_model" initialized
+INFO - 2021-04-19 17:48:15 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-19 17:48:15 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-19 17:48:15 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 17:48:15 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 17:48:15 --> Final output sent to browser
+DEBUG - 2021-04-19 17:48:15 --> Total execution time: 0.0550
+INFO - 2021-04-19 17:49:30 --> Config Class Initialized
+INFO - 2021-04-19 17:49:30 --> Hooks Class Initialized
+DEBUG - 2021-04-19 17:49:30 --> UTF-8 Support Enabled
+INFO - 2021-04-19 17:49:30 --> Utf8 Class Initialized
+INFO - 2021-04-19 17:49:30 --> URI Class Initialized
+INFO - 2021-04-19 17:49:30 --> Router Class Initialized
+INFO - 2021-04-19 17:49:30 --> Output Class Initialized
+INFO - 2021-04-19 17:49:30 --> Security Class Initialized
+DEBUG - 2021-04-19 17:49:30 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 17:49:30 --> Input Class Initialized
+INFO - 2021-04-19 17:49:30 --> Language Class Initialized
+INFO - 2021-04-19 17:49:30 --> Loader Class Initialized
+INFO - 2021-04-19 17:49:30 --> Helper loaded: basic_helper
+INFO - 2021-04-19 17:49:30 --> Helper loaded: file_helper
+INFO - 2021-04-19 17:49:30 --> Helper loaded: url_helper
+INFO - 2021-04-19 17:49:30 --> Database Driver Class Initialized
+INFO - 2021-04-19 17:49:30 --> Helper loaded: form_helper
+INFO - 2021-04-19 17:49:30 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 17:49:30 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 17:49:30 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 17:49:30 --> Controller Class Initialized
+INFO - 2021-04-19 17:49:30 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 17:49:30 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:49:30 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 17:49:30 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+INFO - 2021-04-19 17:49:30 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-19 17:49:30 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 17:49:30 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 17:49:30 --> Final output sent to browser
+DEBUG - 2021-04-19 17:49:30 --> Total execution time: 0.0350
+INFO - 2021-04-19 17:59:22 --> Config Class Initialized
+INFO - 2021-04-19 17:59:22 --> Hooks Class Initialized
+DEBUG - 2021-04-19 17:59:22 --> UTF-8 Support Enabled
+INFO - 2021-04-19 17:59:22 --> Utf8 Class Initialized
+INFO - 2021-04-19 17:59:22 --> URI Class Initialized
+INFO - 2021-04-19 17:59:22 --> Router Class Initialized
+INFO - 2021-04-19 17:59:22 --> Output Class Initialized
+INFO - 2021-04-19 17:59:22 --> Security Class Initialized
+DEBUG - 2021-04-19 17:59:22 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 17:59:22 --> Input Class Initialized
+INFO - 2021-04-19 17:59:22 --> Language Class Initialized
+INFO - 2021-04-19 17:59:22 --> Loader Class Initialized
+INFO - 2021-04-19 17:59:22 --> Helper loaded: basic_helper
+INFO - 2021-04-19 17:59:22 --> Helper loaded: file_helper
+INFO - 2021-04-19 17:59:22 --> Helper loaded: url_helper
+INFO - 2021-04-19 17:59:22 --> Database Driver Class Initialized
+INFO - 2021-04-19 17:59:22 --> Helper loaded: form_helper
+INFO - 2021-04-19 17:59:22 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 17:59:22 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 17:59:22 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 17:59:22 --> Controller Class Initialized
+INFO - 2021-04-19 17:59:22 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 17:59:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 17:59:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Undefined property: stdClass::$state_code C:\xampp\htdocs\intran_project\application\views\admin\pages\view\city.php 88
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Undefined property: stdClass::$state_code C:\xampp\htdocs\intran_project\application\views\admin\pages\view\city.php 88
+ERROR - 2021-04-19 17:59:22 --> Severity: Notice --> Undefined property: stdClass::$state_code C:\xampp\htdocs\intran_project\application\views\admin\pages\view\city.php 88
+INFO - 2021-04-19 17:59:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/city.php
+INFO - 2021-04-19 17:59:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 17:59:22 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 17:59:22 --> Final output sent to browser
+DEBUG - 2021-04-19 17:59:22 --> Total execution time: 0.0722
+INFO - 2021-04-19 18:04:04 --> Config Class Initialized
+INFO - 2021-04-19 18:04:04 --> Hooks Class Initialized
+DEBUG - 2021-04-19 18:04:04 --> UTF-8 Support Enabled
+INFO - 2021-04-19 18:04:04 --> Utf8 Class Initialized
+INFO - 2021-04-19 18:04:04 --> URI Class Initialized
+INFO - 2021-04-19 18:04:04 --> Router Class Initialized
+INFO - 2021-04-19 18:04:04 --> Output Class Initialized
+INFO - 2021-04-19 18:04:04 --> Security Class Initialized
+DEBUG - 2021-04-19 18:04:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 18:04:04 --> Input Class Initialized
+INFO - 2021-04-19 18:04:04 --> Language Class Initialized
+INFO - 2021-04-19 18:04:04 --> Loader Class Initialized
+INFO - 2021-04-19 18:04:04 --> Helper loaded: basic_helper
+INFO - 2021-04-19 18:04:04 --> Helper loaded: file_helper
+INFO - 2021-04-19 18:04:04 --> Helper loaded: url_helper
+INFO - 2021-04-19 18:04:04 --> Database Driver Class Initialized
+INFO - 2021-04-19 18:04:04 --> Helper loaded: form_helper
+INFO - 2021-04-19 18:04:04 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 18:04:04 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 18:04:04 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 18:04:04 --> Controller Class Initialized
+INFO - 2021-04-19 18:04:04 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:04:04 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:04:04 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:04:04 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-19 18:04:04 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/department.php
+INFO - 2021-04-19 18:04:04 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 18:04:04 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 18:04:04 --> Final output sent to browser
+DEBUG - 2021-04-19 18:04:04 --> Total execution time: 0.0723
+INFO - 2021-04-19 18:10:02 --> Config Class Initialized
+INFO - 2021-04-19 18:10:02 --> Hooks Class Initialized
+DEBUG - 2021-04-19 18:10:02 --> UTF-8 Support Enabled
+INFO - 2021-04-19 18:10:02 --> Utf8 Class Initialized
+INFO - 2021-04-19 18:10:02 --> URI Class Initialized
+INFO - 2021-04-19 18:10:02 --> Router Class Initialized
+INFO - 2021-04-19 18:10:02 --> Output Class Initialized
+INFO - 2021-04-19 18:10:02 --> Security Class Initialized
+DEBUG - 2021-04-19 18:10:02 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 18:10:02 --> Input Class Initialized
+INFO - 2021-04-19 18:10:02 --> Language Class Initialized
+INFO - 2021-04-19 18:10:02 --> Loader Class Initialized
+INFO - 2021-04-19 18:10:02 --> Helper loaded: basic_helper
+INFO - 2021-04-19 18:10:02 --> Helper loaded: file_helper
+INFO - 2021-04-19 18:10:02 --> Helper loaded: url_helper
+INFO - 2021-04-19 18:10:02 --> Database Driver Class Initialized
+INFO - 2021-04-19 18:10:02 --> Helper loaded: form_helper
+INFO - 2021-04-19 18:10:02 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 18:10:02 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 18:10:02 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 18:10:02 --> Controller Class Initialized
+INFO - 2021-04-19 18:10:02 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:10:02 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:10:02 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:10:02 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:10:02 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/department.php
+INFO - 2021-04-19 18:10:02 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 18:10:02 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 18:10:02 --> Final output sent to browser
+DEBUG - 2021-04-19 18:10:02 --> Total execution time: 0.0769
+INFO - 2021-04-19 18:40:53 --> Config Class Initialized
+INFO - 2021-04-19 18:40:53 --> Hooks Class Initialized
+DEBUG - 2021-04-19 18:40:53 --> UTF-8 Support Enabled
+INFO - 2021-04-19 18:40:53 --> Utf8 Class Initialized
+INFO - 2021-04-19 18:40:53 --> URI Class Initialized
+INFO - 2021-04-19 18:40:53 --> Router Class Initialized
+INFO - 2021-04-19 18:40:53 --> Output Class Initialized
+INFO - 2021-04-19 18:40:53 --> Security Class Initialized
+DEBUG - 2021-04-19 18:40:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 18:40:53 --> Input Class Initialized
+INFO - 2021-04-19 18:40:53 --> Language Class Initialized
+INFO - 2021-04-19 18:40:53 --> Loader Class Initialized
+INFO - 2021-04-19 18:40:53 --> Helper loaded: basic_helper
+INFO - 2021-04-19 18:40:53 --> Helper loaded: file_helper
+INFO - 2021-04-19 18:40:53 --> Helper loaded: url_helper
+INFO - 2021-04-19 18:40:53 --> Database Driver Class Initialized
+INFO - 2021-04-19 18:40:53 --> Helper loaded: form_helper
+INFO - 2021-04-19 18:40:53 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 18:40:53 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 18:40:53 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 18:40:53 --> Controller Class Initialized
+INFO - 2021-04-19 18:40:53 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:40:53 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:40:53 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:40:53 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-19 18:40:53 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/employee.php
+INFO - 2021-04-19 18:40:53 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 18:40:53 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 18:40:53 --> Final output sent to browser
+DEBUG - 2021-04-19 18:40:53 --> Total execution time: 0.3268
+INFO - 2021-04-19 18:47:49 --> Config Class Initialized
+INFO - 2021-04-19 18:47:49 --> Hooks Class Initialized
+DEBUG - 2021-04-19 18:47:49 --> UTF-8 Support Enabled
+INFO - 2021-04-19 18:47:49 --> Utf8 Class Initialized
+INFO - 2021-04-19 18:47:49 --> URI Class Initialized
+INFO - 2021-04-19 18:47:49 --> Router Class Initialized
+INFO - 2021-04-19 18:47:49 --> Output Class Initialized
+INFO - 2021-04-19 18:47:49 --> Security Class Initialized
+DEBUG - 2021-04-19 18:47:49 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 18:47:49 --> Input Class Initialized
+INFO - 2021-04-19 18:47:49 --> Language Class Initialized
+INFO - 2021-04-19 18:47:49 --> Loader Class Initialized
+INFO - 2021-04-19 18:47:49 --> Helper loaded: basic_helper
+INFO - 2021-04-19 18:47:49 --> Helper loaded: file_helper
+INFO - 2021-04-19 18:47:49 --> Helper loaded: url_helper
+INFO - 2021-04-19 18:47:49 --> Database Driver Class Initialized
+INFO - 2021-04-19 18:47:49 --> Helper loaded: form_helper
+INFO - 2021-04-19 18:47:49 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 18:47:49 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 18:47:49 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 18:47:49 --> Controller Class Initialized
+INFO - 2021-04-19 18:47:49 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:47:49 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:47:49 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:47:49 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+INFO - 2021-04-19 18:47:49 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/designation.php
+INFO - 2021-04-19 18:47:49 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 18:47:49 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 18:47:49 --> Final output sent to browser
+DEBUG - 2021-04-19 18:47:49 --> Total execution time: 0.3453
+INFO - 2021-04-19 18:56:25 --> Config Class Initialized
+INFO - 2021-04-19 18:56:25 --> Hooks Class Initialized
+DEBUG - 2021-04-19 18:56:25 --> UTF-8 Support Enabled
+INFO - 2021-04-19 18:56:25 --> Utf8 Class Initialized
+INFO - 2021-04-19 18:56:25 --> URI Class Initialized
+INFO - 2021-04-19 18:56:25 --> Router Class Initialized
+INFO - 2021-04-19 18:56:25 --> Output Class Initialized
+INFO - 2021-04-19 18:56:25 --> Security Class Initialized
+DEBUG - 2021-04-19 18:56:25 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 18:56:25 --> Input Class Initialized
+INFO - 2021-04-19 18:56:25 --> Language Class Initialized
+INFO - 2021-04-19 18:56:25 --> Loader Class Initialized
+INFO - 2021-04-19 18:56:25 --> Helper loaded: basic_helper
+INFO - 2021-04-19 18:56:25 --> Helper loaded: file_helper
+INFO - 2021-04-19 18:56:25 --> Helper loaded: url_helper
+INFO - 2021-04-19 18:56:25 --> Database Driver Class Initialized
+INFO - 2021-04-19 18:56:25 --> Helper loaded: form_helper
+INFO - 2021-04-19 18:56:25 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 18:56:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 18:56:25 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 18:56:25 --> Controller Class Initialized
+INFO - 2021-04-19 18:56:25 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/productmanagement.php
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 18:56:25 --> Final output sent to browser
+DEBUG - 2021-04-19 18:56:25 --> Total execution time: 0.3050
+INFO - 2021-04-19 18:56:25 --> Config Class Initialized
+INFO - 2021-04-19 18:56:25 --> Hooks Class Initialized
+DEBUG - 2021-04-19 18:56:25 --> UTF-8 Support Enabled
+INFO - 2021-04-19 18:56:25 --> Utf8 Class Initialized
+INFO - 2021-04-19 18:56:25 --> URI Class Initialized
+INFO - 2021-04-19 18:56:25 --> Router Class Initialized
+INFO - 2021-04-19 18:56:25 --> Output Class Initialized
+INFO - 2021-04-19 18:56:25 --> Security Class Initialized
+DEBUG - 2021-04-19 18:56:25 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-19 18:56:25 --> Input Class Initialized
+INFO - 2021-04-19 18:56:25 --> Language Class Initialized
+INFO - 2021-04-19 18:56:25 --> Loader Class Initialized
+INFO - 2021-04-19 18:56:25 --> Helper loaded: basic_helper
+INFO - 2021-04-19 18:56:25 --> Helper loaded: file_helper
+INFO - 2021-04-19 18:56:25 --> Helper loaded: url_helper
+INFO - 2021-04-19 18:56:25 --> Database Driver Class Initialized
+INFO - 2021-04-19 18:56:25 --> Helper loaded: form_helper
+INFO - 2021-04-19 18:56:25 --> Form Validation Class Initialized
+DEBUG - 2021-04-19 18:56:25 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-19 18:56:25 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-19 18:56:25 --> Controller Class Initialized
+INFO - 2021-04-19 18:56:25 --> Model "Admin_model" initialized
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-19 18:56:25 --> Severity: Notice --> Trying to get property 'lang_val' of non-object C:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/pages/view/productmanagement.php
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-19 18:56:25 --> File loaded: C:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-19 18:56:25 --> Final output sent to browser
+DEBUG - 2021-04-19 18:56:25 --> Total execution time: 0.2683
