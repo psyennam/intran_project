@@ -20,7 +20,7 @@
                 <th><?= __lang('ID');?></th>
                 <th><?= __lang('Country Name');?></th>
                 <th><?= __lang('Country Code');?></th>
-                <th><?= __lang('Created_at');?></th>
+                <th><?= __lang('Createdate');?></th>
                 <th><?= __lang('Status');?></th>
                 <th><?= __lang('Update');?></th>
                 <th><?= __lang('Delete');?></th>

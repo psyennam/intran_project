@@ -3468,3 +3468,42 @@ INFO - 2021-04-21 08:57:41 --> File loaded: G:\xampp\htdocs\intran_project\appli
 INFO - 2021-04-21 08:57:41 --> File loaded: G:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
 INFO - 2021-04-21 08:57:41 --> Final output sent to browser
 DEBUG - 2021-04-21 08:57:41 --> Total execution time: 0.1315
+INFO - 2021-04-21 09:08:27 --> Config Class Initialized
+INFO - 2021-04-21 09:08:27 --> Hooks Class Initialized
+DEBUG - 2021-04-21 09:08:27 --> UTF-8 Support Enabled
+INFO - 2021-04-21 09:08:27 --> Utf8 Class Initialized
+INFO - 2021-04-21 09:08:27 --> URI Class Initialized
+INFO - 2021-04-21 09:08:27 --> Router Class Initialized
+INFO - 2021-04-21 09:08:27 --> Output Class Initialized
+INFO - 2021-04-21 09:08:27 --> Security Class Initialized
+DEBUG - 2021-04-21 09:08:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2021-04-21 09:08:27 --> Input Class Initialized
+INFO - 2021-04-21 09:08:27 --> Language Class Initialized
+INFO - 2021-04-21 09:08:27 --> Loader Class Initialized
+INFO - 2021-04-21 09:08:27 --> Helper loaded: string_helper
+INFO - 2021-04-21 09:08:27 --> Helper loaded: basic_helper
+INFO - 2021-04-21 09:08:27 --> Helper loaded: url_helper
+INFO - 2021-04-21 09:08:27 --> Helper loaded: file_helper
+INFO - 2021-04-21 09:08:27 --> Language file loaded: language/en/basic_lang.php
+INFO - 2021-04-21 09:08:27 --> Database Driver Class Initialized
+INFO - 2021-04-21 09:08:27 --> Helper loaded: form_helper
+INFO - 2021-04-21 09:08:27 --> Form Validation Class Initialized
+DEBUG - 2021-04-21 09:08:27 --> Session: "sess_save_path" is empty; using "session.save_path" value from php.ini.
+INFO - 2021-04-21 09:08:27 --> Session: Class initialized using 'files' driver.
+INFO - 2021-04-21 09:08:27 --> Controller Class Initialized
+INFO - 2021-04-21 09:08:27 --> Model "Admin_model" initialized
+INFO - 2021-04-21 09:08:27 --> File loaded: G:\xampp\htdocs\intran_project\application\views\admin/components/header.php
+ERROR - 2021-04-21 09:08:27 --> Severity: Warning --> Attempt to read property "lang_val" on null G:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-21 09:08:27 --> Severity: Warning --> Attempt to read property "lang_val" on null G:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-21 09:08:27 --> Severity: Warning --> Attempt to read property "lang_val" on null G:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-21 09:08:27 --> Severity: Warning --> Attempt to read property "lang_val" on null G:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-21 09:08:27 --> File loaded: G:\xampp\htdocs\intran_project\application\views\admin/components/nav.php
+ERROR - 2021-04-21 09:08:27 --> Severity: Warning --> Attempt to read property "lang_val" on null G:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-21 09:08:27 --> Severity: Warning --> Attempt to read property "lang_val" on null G:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-21 09:08:27 --> Severity: Warning --> Attempt to read property "lang_val" on null G:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+ERROR - 2021-04-21 09:08:27 --> Severity: Warning --> Attempt to read property "lang_val" on null G:\xampp\htdocs\intran_project\application\helpers\basic_helper.php 62
+INFO - 2021-04-21 09:08:27 --> File loaded: G:\xampp\htdocs\intran_project\application\views\admin/pages/view/country.php
+INFO - 2021-04-21 09:08:27 --> File loaded: G:\xampp\htdocs\intran_project\application\views\admin/components/footer.php
+INFO - 2021-04-21 09:08:27 --> File loaded: G:\xampp\htdocs\intran_project\application\views\admin/components/layout.php
+INFO - 2021-04-21 09:08:27 --> Final output sent to browser
+DEBUG - 2021-04-21 09:08:27 --> Total execution time: 0.1710

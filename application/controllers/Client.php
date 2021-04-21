@@ -80,7 +80,6 @@ class Client extends CI_controller
 	function opt_zone($zone)
 	{
 		try{
-
 			$res = $this->db->select('zone_code as code, zone')->where('parent', $zone)->get('zone')->result();
 			json_response($res, 200);
 		}catch(Exception $e){
