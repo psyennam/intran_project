@@ -98,6 +98,7 @@
 						<div class="col-md-12">
 							<div class="form-group col-md-4">
 								<input type="submit" class="btn btn-primary" value="Submit" id="btnSubmit" onclick="formsubmit();">
+								 <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>
 							</div>
 						</div>
 					</div>
@@ -138,4 +139,9 @@
 	$('#product_table_body tr:last').remove();
 });
 
+function formBack()
+  {
+    parent.history.back();
+    return false;
+  }
 </script>

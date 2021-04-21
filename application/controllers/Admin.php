@@ -717,15 +717,61 @@ class Admin extends CI_controller
 			json_response($e->getMessage(), 500);
 		}
 	}
+	/**
+		Dealer-List
+	**/
 	function dealerlist()
 	{
 		$data['page']='admin/pages/view/dealerlist';
 		$this->load->view('admin/components/layout',$data);	
 	}
+	/**
+		Lead-Form
+	**/
 	function leadform()
 	{
 		$data['page']='admin/pages/view/leadform';
 		$this->load->view('admin/components/layout',$data);	
+	}
+	/**
+		Quotation-List
+	**/
+	function quotationlist()
+	{
+		$data['page']='admin/pages/view/quotationlist';
+		$this->load->view('admin/components/layout',$data);		
+	}
+	/**
+		QuotationClose-List
+	**/
+	function quotationcloselist()
+	{
+		$data['page']='admin/pages/view/quotationcloselist';
+		$this->load->view('admin/components/layout',$data);		
+	}
+	/**
+		Pending-QuotationList
+	**/
+	function pendinglist()
+	{
+		$data['page']='admin/pages/view/pendinglist';
+		$this->load->view('admin/components/layout',$data);		
+	}
+	/**
+		Expense-List
+	**/
+	function expenselist()
+	{
+		$data['page']='admin/pages/view/expenselist';
+		$this->load->view('admin/components/layout',$data);		
+	}
+	/**
+		Add-Expense
+	**/
+	function addexpense()
+	{
+		$data['page']='admin/pages/view/addExpense';
+		$this->load->view('admin/components/layout',$data);		
 	}
 }
 ?>
