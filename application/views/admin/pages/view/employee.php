@@ -1,6 +1,6 @@
 <!-- Content Header (Page header) -->
   <section class="content-header">
-    <h1><?= _lang('Employee Data');?></h1>
+    <h1><?= __lang('Employee Data');?></h1>
   </section>
 
   <!-- Main content -->

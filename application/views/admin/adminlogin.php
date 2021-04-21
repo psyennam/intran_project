@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?php echo base_url('Userpanel/login');?>"><b><!-- <?= __lang('admin')?> -->Admin</b></a>
+    <a href="<?php echo base_url('Userpanel/login');?>"><b><?= __lang('Admin')?></b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -42,24 +42,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <form method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="<?= lang('org_id')?>" name="ClientID">
+        <input type="text" class="form-control" placeholder="<?= __lang('Username'); ?>" name="ClientID">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password" name="password">
+        <input type="password" class="form-control" placeholder="<?=__lang('Password'); ?>" name="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="check"> Remember Me
+              <input type="checkbox" name="check"><?= __lang('Remember Me'); ?>
             </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat" name="login">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><?= __lang('Sign In'); ?></button>
         </div>
         <!-- /.col -->
       </div>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <!-- /.social-auth-links -->
 
-    <a href="#">I forgot my password</a><br>
+    <a href="#"><?= __lang('I forgot my password'); ?></a><br>
 
   </div>
   <!-- /.login-box-body -->

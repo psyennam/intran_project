@@ -15,8 +15,8 @@
                   <tr>
                     <th><?= __lang('ID');?></th>
                     <th><?= __lang('Designation');?></th>
-                    <th><?= __lang('DesignationCode');?></th>
-                    <th><?= __lang('DepartmentId');?></th>
+                    <th><?= __lang('Designation Code');?></th>
+                    <th><?= __lang('Department Code');?></th>
                     <th><?= __lang('CreateDate');?></th>
                     <th><?= __lang('Status');?></th>
                     <th><?= __lang('Update');?></th>
@@ -44,7 +44,7 @@
             		<div class="modal-dialog modal-dialog-centered">
             			<div class="modal-content">
             				<div class="modal-header">
-            					<h3 class="text-center text-primary"><?= __lang('Role');?></h3>	
+            					<h3 class="text-center text-primary"><?= __lang('Designation');?></h3>	
             					<button type="button" class="close" data-dismiss="modal">&times;</button>	
             				</div>
                     <!-- Form Start  -->
@@ -64,7 +64,7 @@
   												  </select>
     							        </div>
                           <div class="col-sm-12 col-md-12 col-lg-4">
-    							          <label><?= __lang('ClientId');?></label>
+    							          <label><?= __lang('Client Id');?></label>
     							          <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
     							        </div>
   							        </div>
