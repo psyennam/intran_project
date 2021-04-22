@@ -1,7 +1,7 @@
 <!-- Content Wrapper. Contains page content -->  	        
     <!-- Content Header (Page header) -->
 <section class="content-header text-center" >
-    <h1 style="text-transform: capitalize;"><b><?= --lang('City Data');?></b></h1>
+    <h1 style="text-transform: capitalize;"><b><?= __lang('City Data'); ?></b></h1>
   </section>
 
 <!-- Main content -->
@@ -18,13 +18,13 @@
             <thead>
               <tr>
                 <th><?= __lang('id');?></th>
-      					<th><?= __lang('cityname');?></th>
-                <th><?= __lang('citycode');?></th>
-                <th><?= __lang('statecode');?></th>
-      					<th><?= __lang('countrycode');?></th>
-      					<th><?= __lang('createdat');?></th>
-      					<th><?= __lang('status');?></th>
-      					<th><?= __lang('addpincode');?></th>
+      					<th><?= __lang('City Name');?></th>
+                <th><?= __lang('City Code');?></th>
+                <th><?= __lang('State Code');?></th>
+      					<th><?= __lang('Country Code');?></th>
+      					<th><?= __lang('createdate');?></th>
+      					<th><?= __lang('Status');?></th>
+      					<th><?= __lang('Add Pincode');?></th>
                 <th><?= __lang('update');?></th>
       			  </tr>
             </thead>
@@ -96,7 +96,7 @@
                   <input type="text" class="form-control" placeholder="Enter City Name" name="CityName">
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
-                  <label><?= __lang('Organization Id');?></label>
+                  <label><?= __lang('Organization Code');?></label>
                   <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
                 </div>
               </div>

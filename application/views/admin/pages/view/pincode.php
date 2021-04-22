@@ -32,15 +32,15 @@
                                   </select>
                               </div>
                               <div class="col-sm-12 col-md-4 col-lg-4">
-                                <label><?= __lang('area');?></label>
+                                <label><?= __lang('Area');?></label>
                                 <input type="text" class="form-control" placeholder="Enter Area Name" name="area">
                               </div>
   							              <div class="col-sm-12 col-md-4 col-lg-4">
-  							                <label><?= __lang('ZipCode');?></label>
-  							                <input type="text" class="form-control" placeholder="Enter Role Name" name="zipCode">
+  							                <label><?= __lang('PinCode');?></label>
+  							                <input type="text" class="form-control" placeholder="Enter PinCode" name="zipCode">
   							              </div>
   							              <div class="col-sm-12 col-md-12 col-lg-4">
-  							                <label><?= __lang('Organization Id');?></label>
+  							                <label><?= __lang('Organization Code');?></label>
   							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
   							              </div>
   							            </div>
@@ -66,7 +66,7 @@
                 <tr>
                   <th><?= __lang('ID');?></th>
                   <th><?= __lang('Area');?></th>
-        					<th><?= __lang('ZipCode');?></th>
+        					<th><?= __lang('PinCode');?></th>
                   <th><?= __lang('City');?></th>
         					<th><?= __lang('CreateDate');?></th>
         					<th><?= __lang('Status');?></th>

@@ -66,7 +66,7 @@
                 <thead>
                 <tr>
                   <th><?= __lang('ID');?></th>
-                  <th><?= __lang('SUb-Zone');?></th>
+                  <th><?= __lang('SUb Zone');?></th>
                   <th><?= __lang('city');?></th>
                   <th><?= __lang('Employee');?></th>
                   <th><?= __lang('Update');?></th>
@@ -143,7 +143,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="text-center text-primary"><?= __lang('Add Area');?></h3>  
+            <h3 class="text-center text-primary"><?= __lang('Area');?></h3>  
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
           </div>
           <!-- Form Start  -->
