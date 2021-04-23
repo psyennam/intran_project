@@ -720,9 +720,9 @@ class Admin extends CI_controller
 	/**
 		Dealer-List
 	**/
-	function dealerlist()
+	function leadlist()
 	{
-		$data['page']='admin/pages/view/dealerlist';
+		$data['page']='admin/pages/view/leadlist';
 		$this->load->view('admin/components/layout',$data);	
 	}
 	/**

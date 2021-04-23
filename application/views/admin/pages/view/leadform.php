@@ -20,7 +20,7 @@
 								</select>
 							</div>
 							<div class="form-group col-md-3">
-								<label>Dealership Name<span style="color:red">*</span></label>
+								<label>Supplier Name<span style="color:red">*</span></label>
 								<select id="name" name="name" class="form-control" onchange="getAllData();">
 									<option value=''>Select</option>
 									<option value='ABC'>ABC</option>

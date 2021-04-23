@@ -32,7 +32,7 @@
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="<?php echo base_url('Client/client');?>"><i class="fa fa-circle-o"></i>Client</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/dealerlist');?>"><i class="fa fa-circle-o"></i>Dealer List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/leadlist');?>"><i class="fa fa-circle-o"></i>Lead List</a></li>
             <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i>Quotation List</a></li>
             <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i>Quotation Close List</a></li>
             <li class="active"><a href="<?php echo base_url('Admin/pendinglist');?>"><i class="fa fa-circle-o"></i>Pending Quotation List</a></li>  
