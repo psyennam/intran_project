@@ -36,7 +36,8 @@
             <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i>Quotation List</a></li>
             <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i>Quotation Close List</a></li>
             <li class="active"><a href="<?php echo base_url('Admin/pendinglist');?>"><i class="fa fa-circle-o"></i>Pending Quotation List</a></li>  
-            <li class="active"><a href="<?php echo base_url('Admin/expenselist');?>"><i class="fa fa-circle-o"></i>Expense List</a></li>  
+            <li class="active"><a href="<?php echo base_url('Admin/expenselist');?>"><i class="fa fa-circle-o"></i>Expense List</a></li>
+            <li class="active"><a href="<?php echo base_url('Client/discuss');?>"><i class="fa fa-circle-o"></i>sample</a></li>  
           </ul>
           </li>
       </ul>

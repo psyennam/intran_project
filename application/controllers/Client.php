@@ -87,5 +87,11 @@ class Client extends CI_controller
 		}
 	}
 
+	function discuss()
+	{
+		$data['page']='employee/pages/view/discussion_with_customer';
+		// $data['page']='employee/pages/view/add_quotation';
+		$this->load->view('admin/components/layout',$data);
+	}
 }
 
