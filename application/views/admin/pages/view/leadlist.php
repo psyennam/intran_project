@@ -1,7 +1,7 @@
 <!-- Content Wrapper. Contains page content -->           
     <!-- Content Header (Page header) -->
 <section class="content-header text-center" >
-    <h1 style="text-transform: capitalize;"><b>Dealer-List Data</b></h1>
+    <h1 style="text-transform: capitalize;"><b>Lead-List Data</b></h1>
   </section>
 
 <!-- Main content -->
@@ -10,7 +10,7 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header text-center">
-          <a href="<?= base_url('admin/leadform');?>"><button type="button" class="btn btn-success">Add</button>/</a>
+          <a href="<?= base_url('admin/leadform');?>"><button type="button" class="btn btn-success">Add</button></a>
         </div>
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">
@@ -20,7 +20,7 @@
                 <th>ID</th>
                 <th>Check In</th>
                 <th>Company</th>
-                <th>DealerShip Name</th>
+                <th>Supplier Name</th>
                 <th>Brand</th>
                 <th>Address</th>
                 <th>Pincode</th>
