@@ -10,23 +10,21 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
-								<label>Pincode<span style="color:red">*</span></label>
-								<select id="pincode" name="pincode" class="form-control" onchange="getDealer();">
-									<option value=''>Select</option>
-									<option value='1'>400099</option>
-									<option value='2'>400609</option>
-									<option value='3'>400808</option>
-									<option value='4'>400095</option>	
-								</select>
+								<label>Select Zone<span style="color:red">*</span></label>
+                    			<select class="form-control state" name="state">
+                      			<option value=""> --- </option>
+                      			<?php foreach($zone as $k){
+                        		echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
+                      			}?>
+                   				 </select>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Select Sub-Zone</label>
+                    			<select class="form-control" id="optcity" name="city"></select>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Supplier Name<span style="color:red">*</span></label>
-								<select id="name" name="name" class="form-control" onchange="getAllData();">
-									<option value=''>Select</option>
-									<option value='ABC'>ABC</option>
-									<option value='PQR'>PQR</option>
-									<option value='XYZ'>XYZ</option>
-									<option value='PSS'>PSS</option>							
+								<select class="form-control" id="optsupplier" name="supplier"></select>
 								</select>
 							</div>
 							<div class="form-group col-md-3">
@@ -38,6 +36,10 @@
 									<option value='3'>CEBORA</option>		
 								</select>
 							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
 							<div class="form-group col-md-3">
 								<label>State</label>
 								<select id="state" class="form-control select2" data-show-subtext="true" data-live-search="true">
@@ -47,10 +49,24 @@
 									<option value='3'>Gujarat</option>
 								</select>
 							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
+							<div class="form-group col-md-3">
+								<label>City</label>
+								<select id="state" class="form-control select2" data-show-subtext="true" data-live-search="true">
+									<option value=''>Select</option>
+									<option value='1'>Maharashtra</option>
+									<option value='2'>Tamil Nadu</option>
+									<option value='3'>Gujarat</option>
+								</select>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Pincode</label>
+								<select id="state" class="form-control select2" data-show-subtext="true" data-live-search="true">
+									<option value=''>Select</option>
+									<option value='1'>Maharashtra</option>
+									<option value='2'>Tamil Nadu</option>
+									<option value='3'>Gujarat</option>
+								</select>
+							</div>
 							<div class="form-group col-md-3">
 								<label>Company Name</label>
 								<input type="text" id="company_name" name="company_name" class="form-control">
@@ -63,6 +79,7 @@
 								<label>Address<span style="color:red">*</span></label>
 								<textarea id="address" name="address" class="form-control"></textarea>
 							</div>
+							
 						</div>
 					</div>
 					<div class="box-header with-border">
@@ -144,4 +161,29 @@ function formBack()
     parent.history.back();
     return false;
   }
+/* Zone dependent combo */
+  $(document).ready(function(){
+    $('.state').change(function(){
+      var state_code = $(this).val();
+      if(state_code != "")
+      {
+        $.post(base_url+"/Admin/opt_zone/"+state_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.zone+'</option>';
+            });
+            $('#optcity').html(html);
+          }
+        })
+      }
+    });
+
+    $('.open_zone_modal').click(function(){
+      $('#zonecode').val($(this).data('zonecode'));
+      $('#submodel').modal('toggle');
+    })
+  })
 </script>
+

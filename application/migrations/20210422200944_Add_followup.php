@@ -15,7 +15,6 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                
                                                 'branch_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',

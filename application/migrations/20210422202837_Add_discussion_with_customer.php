@@ -23,7 +23,7 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '100',
                                                 ),
-                                                'addition_remark' => array(
+                                                'additional_remark' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '100',
                                                 ),

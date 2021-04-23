@@ -87,16 +87,16 @@
                   <input type="date" class="form-control" name="dob">
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4">
-                    <label>Select State</label>
+                    <label>Select Zone</label>
                     <select class="form-control state" name="state">
                       <option value=""> --- </option>
                       <?php foreach($zonedetails as $k){
                         echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
                       }?>
                     </select>
-                  </div>
+                </div>
                   <div class="col-sm-12 col-md-4 col-lg-4">
-                    <label>select City</label>
+                    <label>Select Sub-Zone</label>
                     <select class="form-control" id="optcity" name="city"></select>
                   </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -106,6 +106,23 @@
                 <div class="col-sm-12 col-md-12 col-lg-4">
                   <label>contact</label>
                   <input type="text" class="form-control" name="contact">
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                  <label>Pincode</label>
+                  <input type="text" class="form-control" name="address">
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label>Select State</label>
+                    <select class="form-control state" name="state">
+                      <option value=""> --- </option>
+                      <?php foreach($zonedetails as $k){
+                        echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
+                      }?>
+                    </select>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label>Select City</label>
+                    <select class="form-control" id="optcity" name="city"></select>
                 </div>
               </div>
             </div>
