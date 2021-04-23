@@ -20,7 +20,7 @@
                 <th>ID</th>
                 <th>client Name</th>
                 <th>client Code</th>
-                <th>email</th>
+                <th>Email</th>
                 <th>dob</th>
                 <th>Address</th>
                 <th>contact</th>

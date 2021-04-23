@@ -44,9 +44,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="<?php echo base_url('Admin/role');?>"><i class="fa fa-circle-o"></i><?= __lang('Role');?></a></li>
-           <li class="active"><a href="<?php echo base_url('Admin/department');?>"><i class="fa fa-circle-o"></i><?= __lang('Department');?></a>
-            <li class="active"><a href="<?php echo base_url('Admin/employee');?>"><i class="fa fa-circle-o"></i><?= __lang('Employee');?></a>
-            <li class="active"><a href="<?php echo base_url('Admin/designation');?>"><i class="fa fa-circle-o"></i><?= __lang('Designation');?></a>
+           <li class="active"><a href="<?php echo base_url('Admin/department');?>"><i class="fa fa-circle-o"></i><?= __lang('Department');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/employee');?>"><i class="fa fa-circle-o"></i><?= __lang('Employee');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/designation');?>"><i class="fa fa-circle-o"></i><?= __lang('Designation');?></a></li>
+              <li class="active"><a href="<?php echo base_url('Admin/country');?>"><i class="fa fa-circle-o"></i><?= __lang('Country');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/state');?>"><i class="fa fa-circle-o"></i><?= __lang('State');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/city');?>"><i class="fa fa-circle-o"></i><?= __lang('City');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/pincode');?>"><i class="fa fa-circle-o"></i><?= __lang('Pincode');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/zone');?>"><i class="fa fa-circle-o"></i><?= __lang('Zone');?></a></li>
            </li>
                   <li class="treeview">
                       <a href="#">
@@ -56,17 +61,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <i class="fa fa-angle-left pull-right"></i>
                         </span>
                       </a>
-                        <ul class="treeview-menu">
-                        <li class="active"><a href="<?php echo base_url('Admin/productmanagement');?>"><i class="fa fa-circle-o"></i><?= __lang('Product management');?></a>
+                      <ul class="treeview-menu">
+                        <li class="active"><a href="<?php echo base_url('Admin/productmanagement');?>"><i class="fa fa-circle-o"></i><?= __lang('Product management');?></a></li>
                         <li class="active"><a href="<?php echo base_url('Admin/company');?>"><i class="fa fa-circle-o"></i><?= __lang('Company');?></a></li>
                         <li class="active"><a href="<?php echo base_url('Admin/producttype');?>"><i class="fa fa-circle-o"></i><?= __lang('ProductType');?></a></li>  
                       </ul>
-                  </li>
-           </li>  
+                  </li>  
           </ul>
         </li>
 
-        <li class="treeview">
+        <!-- <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
             <span><?= __lang('Menu');?></span>
@@ -82,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="active"><a href="<?php echo base_url('Admin/zone');?>"><i class="fa fa-circle-o"></i><?= __lang('Zone');?></a></li>  
           </ul>
         </li>
-
+ -->
           <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
