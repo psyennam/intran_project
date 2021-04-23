@@ -46,6 +46,14 @@
                         'type' => 'VARCHAR',
                         'constraint' => '50',
                 ),
+                'state_code' => array(
+                        'type' => 'VARCHAR',
+                        'constraint' => '10',
+                        ),
+                'city_code' => array(
+                        'type' => 'VARCHAR',
+                        'constraint' => '10',
+                ),
                 'created_at' => array(
                         'type' => 'DATETIME',
                         'default'=>date('Y-m-d H:i:s'),        

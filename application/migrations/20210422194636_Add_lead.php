@@ -20,16 +20,19 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'supplier_name' => array(
+                                                'supplier_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '30',
                                                 ),
                                                 'brand' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '30',
-                                                        'NULL'=>true,
                                                 ),
                                                 'state_code' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
+                                                ),
+                                                'city_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),

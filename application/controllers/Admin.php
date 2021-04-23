@@ -10,7 +10,7 @@ class Admin extends CI_controller
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
-		$this->load->model('Admin_model');
+		$this->load->model(array('Admin_model','Client_model'));
 		$this->data["title"] = "Login";
 	}
 	/*
@@ -730,8 +730,19 @@ class Admin extends CI_controller
 	**/
 	function leadform()
 	{
+		$data['zone']=$this->Client_model->viewzone();
+		$data['client']=$this->Client_model->view_client();
 		$data['page']='admin/pages/view/leadform';
 		$this->load->view('admin/components/layout',$data);	
+	}
+	function opt_zone($zone)
+	{
+		try{
+			$res = $this->db->select('zone_code as code, zone')->where('parent', $zone)->get('zone')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
 	}
 	/**
 		Quotation-List
