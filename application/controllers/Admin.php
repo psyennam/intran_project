@@ -744,6 +744,15 @@ class Admin extends CI_controller
 			json_response($e->getMessage(), 500);
 		}
 	}
+	function sub_city($subzone)
+	{
+		try{
+			$res = $this->db->select('city_code as code,city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
 	/**
 		Quotation-List
 	**/

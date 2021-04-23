@@ -56,7 +56,6 @@
                 ),
                 'zip_code' => array(
                         'type' => 'INT',
-                        'constraint' => '10',
                 ),
                 'created_at' => array(
                         'type' => 'DATETIME',
