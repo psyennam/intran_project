@@ -21,7 +21,7 @@
       					<th><?= __lang('Country Code');?></th>
                 <th><?= __lang('State Code');?></th>
       					<th><?= __lang('State Name');?></th>
-      					<th><?= __lang('Created_at');?></th>
+      					<th><?= __lang('Createdate');?></th>
       					<th><?= __lang('Status');?></th>
                 <th><?= __lang('Update');?></th>
                 <th><?= __lang('Delete');?></th>
@@ -79,7 +79,7 @@
                         <input type="text" class="form-control" placeholder="Enter State Name" name="StateName">
                       </div>
                       <div class="col-sm-12 col-md-12 col-lg-4">
-                        <label><?= __lang('Organization Id');?></label>
+                        <label><?= __lang('Organization Code');?></label>
                         <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
                       </div>
                     </div>
