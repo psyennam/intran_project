@@ -491,7 +491,7 @@ class Admin extends CI_controller
 		$data['id']=$this->input->get('citycode');
 		$data['page']='admin/pages/view/city';
 		$data['countrydetails']=$this->Admin_model->viewcountry();
-		$data['statedetails']=$this->Admin_model->viewstate();
+		$data['statedetails']=$this->Admin_model->view_state();
 		$data['citydetails']=$this->Admin_model->viewcity();
 		$this->load->view('admin/components/layout',$data);
 	}

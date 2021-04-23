@@ -49,9 +49,13 @@
                 'state_code' => array(
                         'type' => 'VARCHAR',
                         'constraint' => '10',
-                        ),
+                ),
                 'city_code' => array(
                         'type' => 'VARCHAR',
+                        'constraint' => '10',
+                ),
+                'zip_code' => array(
+                        'type' => 'INT',
                         'constraint' => '10',
                 ),
                 'created_at' => array(

@@ -28,12 +28,12 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '30',
                                                 ),
-                                                'state_code' => array(
+                                                'city_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'city_code' => array(
-                                                        'type' => 'VARCHAR',
+                                                'zip_code' => array(
+                                                        'type' => 'INT',
                                                         'constraint' => '10',
                                                 ),
                                                 'company_name' => array(

@@ -41,15 +41,6 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
-								<label>State</label>
-								<select id="state" class="form-control select2" data-show-subtext="true" data-live-search="true">
-									<option value=''>Select</option>
-									<option value='1'>Maharashtra</option>
-									<option value='2'>Tamil Nadu</option>
-									<option value='3'>Gujarat</option>
-								</select>
-							</div>
-							<div class="form-group col-md-3">
 								<label>City</label>
 								<select id="state" class="form-control select2" data-show-subtext="true" data-live-search="true">
 									<option value=''>Select</option>

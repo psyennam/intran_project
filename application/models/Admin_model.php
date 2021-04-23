@@ -612,6 +612,11 @@ class Admin_model extends CI_model
 		return $this->db->select('state_code as code,state')->get('state')->result();
 	}
 
+	function view_state()
+	{
+		return $this->db->select('*')->get('state')->result();
+	}	
+
 	function viewstatestar()
 	{
 		return $this->db->select('*')->get('state')->result();	
