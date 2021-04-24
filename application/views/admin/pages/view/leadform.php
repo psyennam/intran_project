@@ -11,7 +11,7 @@
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
 								<label>Select Zone<span style="color:red">*</span></label>
-                    			<select class="form-control state" name="state">
+                    			<select class="form-control zone" name="zone">
                       			<option value=""> --- </option>
                       			<?php foreach($zone as $k){
                         		echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
@@ -20,8 +20,22 @@
 							</div>
 							<div class="form-group col-md-3">
 								<label>Select Sub-Zone</label>
-                    			<select class="form-control" id="optcity" name="city"></select>
+                    			<select class="form-control subzone" id="optzone" name="optzone"></select>
 							</div>
+							<div class="form-group col-md-3">
+								<label>City</label>
+								<select class="form-control subcity" id="optcity" name="optcity">
+								</select>
+							</div>
+							<div class="form-group col-md-3">
+								<label>Pincode</label>
+								<select class="form-control subpin" id="optpin" name="optpin">
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
 							<div class="form-group col-md-3">
 								<label>Supplier Name<span style="color:red">*</span></label>
 								<select class="form-control" id="optsupplier" name="supplier"></select>
@@ -34,28 +48,6 @@
 									<option value='1'>Lincoln Electric</option>
 									<option value='2'>AMADA WELD TECH</option>
 									<option value='3'>CEBORA</option>		
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="form-group col-md-3">
-								<label>City</label>
-								<select id="state" class="form-control select2" data-show-subtext="true" data-live-search="true">
-									<option value=''>Select</option>
-									<option value='1'>Maharashtra</option>
-									<option value='2'>Tamil Nadu</option>
-									<option value='3'>Gujarat</option>
-								</select>
-							</div>
-							<div class="form-group col-md-3">
-								<label>Pincode</label>
-								<select id="state" class="form-control select2" data-show-subtext="true" data-live-search="true">
-									<option value=''>Select</option>
-									<option value='1'>Maharashtra</option>
-									<option value='2'>Tamil Nadu</option>
-									<option value='3'>Gujarat</option>
 								</select>
 							</div>
 							<div class="form-group col-md-3">
@@ -154,20 +146,49 @@ function formBack()
   }
 /* Zone dependent combo */
   $(document).ready(function(){
-    $('.state').change(function(){
-      var state_code = $(this).val();
-      if(state_code != "")
+    $('.zone').change(function(){
+      var zone_code = $(this).val();
+      alert(zone_code);
+      if(zone_code != "")
       {
-        $.post(base_url+"/Admin/opt_zone/"+state_code, function(res){
+        $.post(base_url+"/Admin/opt_zone/"+zone_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
             $.each(res.data, function(index, value){
                 html += '<option value="'+value.code+'">'+value.zone+'</option>';
             });
+            $('#optzone').html(html);
+          }
+        })
+
+      }
+    });
+
+    $('.open_zone_modal').click(function(){
+      $('#zonecode').val($(this).data('zonecode'));
+      $('#submodel').modal('toggle');
+    })
+  })
+
+  /* City dependent combo */
+  $(document).ready(function(){
+    $('.subzone').change(function(){
+      var sub_code = $(this).val();
+      alert(sub_code);
+      if(sub_code!="")
+      {
+        $.post(base_url+"/Admin/sub_city/"+sub_code,function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.city+'</option>';
+            });
             $('#optcity').html(html);
           }
         })
+
       }
     });
 
@@ -177,4 +198,5 @@ function formBack()
     })
   })
 </script>
+<!-- SELECT c.city_code,c.city FROM tbl_client cl,tbl_city c WHERE cl.city_code=c.city_code and cl.zone_code='7ULwkV' -->
 
