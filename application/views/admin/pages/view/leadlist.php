@@ -45,7 +45,7 @@
                 </tr> 
               <?php } ?>
 
-            <input type="text" id="hdnId">
+            <input type="hidden" id="hdnId">
             <input type="hidden" id="hiddenabc">
 
             <div class="modal fade" id="modal-default">

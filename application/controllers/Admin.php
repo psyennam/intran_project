@@ -732,9 +732,28 @@ class Admin extends CI_controller
 	function leadform()
 	{
 		$data['zone']=$this->Client_model->viewzone();
-		$data['client']=$this->Client_model->view_client();
+		//print_r($data['zone']);
+		//$data['client']=$this->Client_model->view_client();
 		$data['page']='admin/pages/view/leadform';
 		$this->load->view('admin/components/layout',$data);	
+	}
+	/**
+		Lead-Form
+	**/
+	function leadinsert()
+	{
+		if ($_POST) 
+		{
+			$insert=$this->Admin_model->leadinsert();
+			if($insert>0)
+			{
+				redirect('Admin/leadlist');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}	
 	}
 	function opt_zone($zone)
 	{
@@ -772,6 +791,7 @@ class Admin extends CI_controller
 			json_response($e->getMessage(), 500);
 		}
 	}
+
 	/**
 		Quotation-List
 	**/

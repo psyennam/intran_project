@@ -6,7 +6,7 @@
 			
           <!-- /.box-header -->
 			<div class="box-body">
-				<form method="post" enctype="multipart/form-data">		
+				<form method="post" action="<?= base_url('Admin/leadinsert');?>">		
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
@@ -84,10 +84,10 @@
 										<tbody id="product_table_body">
 											<tr>
 												<td style="text-align:center !important;"><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
-												<td><input type="text" id="cp_name0" name="cp_name"></td>
-												<td><input type="text" id="cp_designation0" name="cp_designation"></td>
-												<td><input type="text" id="cp_mobile0" name="cp_mobile"></td>
-												<td><input type="text" id="cp_email0" name="cp_email"></td>
+												<td><input type="text" id="cp_name0" name="cp_name[]"></td>
+												<td><input type="text" id="cp_designation0" name="cp_designation[]"></td>
+												<td><input type="text" id="cp_mobile0" name="cp_mobile[]"></td>
+												<td><input type="text" id="cp_email0" name="cp_email[]"></td>
 											</tr>
 										</tbody>
 								</table>
@@ -97,7 +97,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group col-md-4">
-								<input type="submit" class="btn btn-primary" value="Submit" id="btnSubmit">
+								<button type="submit" class="btn btn-primary">Submit</button>
 								 <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>
 							</div>
 						</div>
@@ -112,7 +112,7 @@
 	$(".addCF").click(function(){
 	count++;
 	totalrows++;
-	$("#product_table_body").append('<tr id="newrow"><td style="text-align:center !important;"><span class="xyza'+count+'"></span></td><td><input type="text" id="cp_name'+count+'"></td><td><input type="text" id="cp_designation'+count+'"></td><td><input type="text" id="cp_mobile'+count+'"></td><td><input type="text" id="cp_email'+count+'"></td></tr>');
+	$("#product_table_body").append('<tr id="newrow"><td style="text-align:center !important;"><span class="xyza'+count+'"></span></td><td><input type="text" id="cp_name'+count+'" name="cp_name[]"></td><td><input type="text" id="cp_designation'+count+'" name="cp_designation[]"></td><td><input type="text" id="cp_mobile'+count+'" name="cp_mobile[]"></td><td><input type="text" id="cp_email'+count+'" name="cp_email[]"></td></tr>');
 	
 	var z = '<a href="javascript:void(0);" class="remCF"><i class="fa fa-minus" aria-hidden="true" style="color:red;"></i></a>';
 	$('.xyza'+count).html('');
@@ -148,7 +148,7 @@ function formBack()
   $(document).ready(function(){
     $('.zone').change(function(){
       var zone_code = $(this).val();
-      alert(zone_code);
+      
       if(zone_code != "")
       {
         $.post(base_url+"/Admin/opt_zone/"+zone_code, function(res){
@@ -175,7 +175,7 @@ function formBack()
   $(document).ready(function(){
     $('.subzone').change(function(){
       var sub_code = $(this).val();
-      alert(sub_code);
+      
       if(sub_code!="")
       {
         $.post(base_url+"/Admin/sub_city/"+sub_code,function(res){
@@ -201,7 +201,7 @@ function formBack()
   $(document).ready(function(){
     $('.subcity').change(function(){
       var city_code = $(this).val();
-      alert(city_code);
+      
       if(city_code!="")
       {
         $.post(base_url+"/Admin/opt_pincode/"+city_code,function(res){
@@ -227,7 +227,7 @@ function formBack()
   $(document).ready(function(){
     $('.subpin').change(function(){
       var pin_code = $(this).val();
-      alert(pin_code);
+      
       if(pin_code!="")
       {
         $.post(base_url+"/Admin/opt_supplier/"+pin_code,function(res){

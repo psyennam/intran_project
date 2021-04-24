@@ -16,13 +16,9 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'supplier_code' => array(
+                                                'zone_code' => array(
                                                         'type' => 'VARCHAR',
-                                                        'constraint' => '30',
-                                                ),
-                                                'brand' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '30',
+                                                        'constraint' => '10',
                                                 ),
                                                 'city_code' => array(
                                                         'type' => 'VARCHAR',
@@ -31,6 +27,14 @@
                                                 'zip_code' => array(
                                                         'type' => 'INT',
                                                         'constraint' => '10',
+                                                ),
+                                                'supplier_code' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '30',
+                                                ),
+                                                'brand' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '30',
                                                 ),
                                                 'company_name' => array(
                                                         'type' => 'VARCHAR',

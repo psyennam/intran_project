@@ -1,7 +1,7 @@
 <!-- Content Wrapper. Contains page content -->           
     <!-- Content Header (Page header) -->
 <section class="content-header text-center" >
-    <h1 style="text-transform: capitalize;"><b>Client Data</b></h1>
+    <h1 style="text-transform: capitalize;"><b>Supllier Data</b></h1>
   </section>
 
 <!-- Main content -->
@@ -87,6 +87,19 @@
                   <input type="date" class="form-control" name="dob">
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label>Select State</label>
+                    <select class="form-control state" name="state">
+                      <option value=""> --- </option>
+                      <?php foreach($zonedetails as $k){
+                        echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
+                      }?>
+                    </select>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label>Select City</label>
+                    <select class="form-control" id="optcity" name="city"></select>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
                     <label>Select Zone</label>
                     <select class="form-control state" name="state">
                       <option value=""> --- </option>
@@ -111,19 +124,7 @@
                   <label>Pincode</label>
                   <input type="text" class="form-control" name="address">
                 </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <label>Select State</label>
-                    <select class="form-control state" name="state">
-                      <option value=""> --- </option>
-                      <?php foreach($zonedetails as $k){
-                        echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
-                      }?>
-                    </select>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <label>Select City</label>
-                    <select class="form-control" id="optcity" name="city"></select>
-                </div>
+                
               </div>
             </div>
             <div class="modal-footer">
