@@ -1021,5 +1021,10 @@ class Admin_model extends CI_model
 			return false;
 		}	
 	}
+
+	function viewleadlist()
+	{
+		return $this->db->select('*')->get('lead')->result();
+	}
 }
 ?>
