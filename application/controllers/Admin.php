@@ -723,6 +723,7 @@ class Admin extends CI_controller
 	function leadlist()
 	{
 		$data['page']='admin/pages/view/leadlist';
+		$data['leaddetails']=$this->Admin_model->viewleadlist();
 		$this->load->view('admin/components/layout',$data);	
 	}
 	/**

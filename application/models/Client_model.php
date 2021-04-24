@@ -113,9 +113,13 @@ class Client_model extends CI_model
 	**/
 	function viewzone()
 	{
-		return $this->db->select('zone_code as code,zone')->where('parent',null)->get('zone')->result();
+		return $this->db->select('*')->join('employee','employee.employee_code=zone.employee')->where('parent',null)->get('zone')->result();
 	}
 
+	function viewleadlist()
+	{
+		return $this->db->select('*')->get('lead')->result();
+	}
 
 
 }

@@ -93,5 +93,25 @@ class Client extends CI_controller
 		// $data['page']='employee/pages/view/add_quotation';
 		$this->load->view('admin/components/layout',$data);
 	}
+
+		/**
+		Dealer-List
+	**/
+	function leadlist()
+	{
+		$data['page']='employee/pages/view/leadlist';
+		$data['leaddetails']=$this->Client_model->viewleadlist();
+		$this->load->view('admin/components/layout',$data);	
+	}
+	/**
+		Lead-Form
+	**/
+	function leadform()
+	{
+		$data['zone']=$this->Client_model->viewzone();
+		$data['client']=$this->Client_model->view_client();
+		$data['page']='employee/pages/view/leadform';
+		$this->load->view('admin/components/layout',$data);	
+	}
 }
 

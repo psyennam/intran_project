@@ -33,21 +33,20 @@
               <?php foreach ($leaddetails as $key) { ?>
                 <tr>
                   <td><?php echo $key->id;?></td>
-                  <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default" data-cmp="<?= $key->id;?>">Check In</button></td>
+                  <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">Check In</button></td>
                   <td><?php echo $key->company_name;?></td>
                   <td><?php echo $key->supplier_code; ?></td>
-                  <td><?php echo $key->brand;?></td>  
+                  <td><?php echo $key->brand; ?></td>  
                   <td><?php echo $key->address;?></td>
                   <td><?php echo $key->zip_code;?></td>  
-                  <td><?php echo is_status($key->status);?></td>
+                  <td><?php echo is_status($key->status); ?></td>
                   <!-- <td><a href="updateclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
                   <td><a href="deleteclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td> -->      
                 </tr> 
               <?php } ?>
 
-            <input type="text" id="hdnId">
+            <input type="hidden" id="hdnId">
             <input type="hidden" id="hiddenabc">
-
             <div class="modal fade" id="modal-default">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -61,7 +60,7 @@
                     <div class="row" style="text-align:center;">
                       <div class="col-md-12">
                         <div class="col-md-12 form-group">
-                          <input type="submit" id="btnAvailable" class="btn btn-primary" value="Customer Available">
+                          <input type="submit" id="btnAvailable" class="btn btn-primary" value="Customer Available" onclick="available();">
                         </div>
                         <div class="col-md-12 form-group">
                           <input type="submit" id="btnNotAvailable" class="btn btn-primary" value="Customer Not Available" onclick="notavailable();">
@@ -242,6 +241,8 @@ $(document).ready(function() {
   function available(){
     $("#modal-default").modal('hide');
     $("#modal-default1").modal('hide');
-    alert("hii");
+    var id = $("#hdnId").val();
+    //URL: "customerdiscussion.php?id="+id;
+    $(location).attr('href',"<?= base_url('Client/discuss'); ?>?id="+id);   
   }
 </script>

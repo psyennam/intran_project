@@ -16,10 +16,6 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'pin_code' => array(
-                                                        'type' => 'VARCHAR',
-                                                        'constraint' => '10',
-                                                ),
                                                 'supplier_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '30',
