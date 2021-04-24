@@ -747,7 +747,25 @@ class Admin extends CI_controller
 	function sub_city($subzone)
 	{
 		try{
-			$res = $this->db->select('city_code as code,city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
+			$res = $this->db->select('city.city_code as code,city.city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_pincode($citycode)
+	{
+		try{
+			$res = $this->db->distinct()->select('zip_code as code')->from('client')->where('city_code',$citycode)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_supplier($pincode)
+	{
+		try{
+			$res = $this->db->select('client_code as code,client')->from('client')->where('zip_code',$pincode)->get()->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);

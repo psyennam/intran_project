@@ -97,7 +97,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group col-md-4">
-								<input type="submit" class="btn btn-primary" value="Submit" id="btnSubmit" onclick="formsubmit();">
+								<input type="submit" class="btn btn-primary" value="Submit" id="btnSubmit">
 								 <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>
 							</div>
 						</div>
@@ -186,6 +186,58 @@ function formBack()
                 html += '<option value="'+value.code+'">'+value.city+'</option>';
             });
             $('#optcity').html(html);
+          }
+        })
+
+      }
+    });
+
+    $('.open_zone_modal').click(function(){
+      $('#zonecode').val($(this).data('zonecode'));
+      $('#submodel').modal('toggle');
+    })
+  })
+  /* Pincode dependent combo */
+  $(document).ready(function(){
+    $('.subcity').change(function(){
+      var city_code = $(this).val();
+      alert(city_code);
+      if(city_code!="")
+      {
+        $.post(base_url+"/Admin/opt_pincode/"+city_code,function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.code+'</option>';
+            });
+            $('#optpin').html(html);
+          }
+        })
+
+      }
+    });
+
+    $('.open_zone_modal').click(function(){
+      $('#zonecode').val($(this).data('zonecode'));
+      $('#submodel').modal('toggle');
+    })
+  })
+  /* Supplier dependent combo */
+  $(document).ready(function(){
+    $('.subpin').change(function(){
+      var pin_code = $(this).val();
+      alert(pin_code);
+      if(pin_code!="")
+      {
+        $.post(base_url+"/Admin/opt_supplier/"+pin_code,function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.client+'</option>';
+            });
+            $('#optsupplier').html(html);
           }
         })
 
