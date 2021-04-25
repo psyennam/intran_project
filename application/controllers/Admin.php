@@ -732,9 +732,28 @@ class Admin extends CI_controller
 	function leadform()
 	{
 		$data['zone']=$this->Client_model->viewzone();
-		$data['client']=$this->Client_model->view_client();
+		//print_r($data['zone']);
+		//$data['client']=$this->Client_model->view_client();
 		$data['page']='admin/pages/view/leadform';
 		$this->load->view('admin/components/layout',$data);	
+	}
+	/**
+		Lead-Form
+	**/
+	function leadinsert()
+	{
+		if ($_POST) 
+		{
+			$insert=$this->Admin_model->leadinsert();
+			if($insert>0)
+			{
+				redirect('Admin/leadlist');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}	
 	}
 	function opt_zone($zone)
 	{
@@ -748,12 +767,31 @@ class Admin extends CI_controller
 	function sub_city($subzone)
 	{
 		try{
-			$res = $this->db->select('city_code as code,city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
+			$res = $this->db->select('city.city_code as code,city.city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
 		}
 	}
+	function opt_pincode($citycode)
+	{
+		try{
+			$res = $this->db->distinct()->select('zip_code as code')->from('client')->where('city_code',$citycode)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_supplier($pincode)
+	{
+		try{
+			$res = $this->db->select('client_code as code,client')->from('client')->where('zip_code',$pincode)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+
 	/**
 		Quotation-List
 	**/

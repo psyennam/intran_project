@@ -96,11 +96,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Client/client');?>"><i class="fa fa-circle-o"></i><?= __lang('client');?></a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/leadlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Lead List');?></a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation List');?></a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation Close List');?></a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/pendingquotationlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Pending Quotation List');?> </a></li>  
+            <li class="active"><a href="<?php echo base_url('Client/client');?>"><i class="fa fa-circle-o"></i>Supplier</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/leadlist');?>"><i class="fa fa-circle-o"></i>Lead List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i>Quotation List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i>Quotation Close List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/pendingquotationlist');?>"><i class="fa fa-circle-o"></i>Pending Quotation List</a></li>  
           </ul>
         </li>
       </ul>
