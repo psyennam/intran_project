@@ -6,7 +6,7 @@
 			
   	<!-- /.box-header -->
 	<div class="box-body">
-		<form method="post"  enctype="multipart/form-data">		
+		<form method="post" enctype="multipart/form-data">		
 			<div style="display: none;" id="hiddendiv">
 				<div class="row">
 					<div class="col-md-12">
@@ -72,7 +72,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group col-md-4">
-							<input type="submit" class="btn btn-primary" value="Next" id="btnSubmit" onclick="formsubmit();">
+							<input type="button" class="btn btn-primary" value="Next" id="btnSubmit" onclick="formsubmit();">
 						</div>
 					</div>
 					<div class="col-md-12">
@@ -141,6 +141,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="modal fade" id="modal-default1">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -171,6 +172,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="modal fade" id="modal-default">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -200,6 +202,7 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="modal fade" id="modal-default3">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -232,11 +235,18 @@
 	</div>
 </section>
 <script>
-	$(document).ready(function() {
-		getcontactdiv();
-		getremarkdiv();
-		visitetype();
-	});
+
+$(document).ready(function() {		
+	getcontactdiv();
+	getremarkdiv();
+	getquotationdiv();
+	visitetype();
+});
+
+function getquotationdiv()
+{
+
+}
 
 function getcontactdiv(){
 	if($("#concernperson").val()!=""){
@@ -255,25 +265,20 @@ function getcontactdiv(){
 	}
 }
 
+/**
+* Remart Filed show/hide
+*/
 function getremarkdiv(){
-	if($("#addremark").val()!=""){
-		if($("#addremark").val()=="Yes"){
-			$("#getremarkdivs").show();
-		}
-		else{
-			$("#getremarkdivs").hide();
-		}
-	}
-	else{
+	if($("#addremark").val()=="Yes"){
+		$("#getremarkdivs").show();
+	}else{
 		$("#getremarkdivs").hide();
 	}
 }
-	var count=0;
-	var totalrows=0;
 
+var count=0;
 $(".addCF").click(function(){
 	count++;
-	totalrows++;
 	$("#product_table_body").append('<tr id="newrow"><td style="text-align:center !important;"><span class="xyza'+count+'"></span></td><td><input type="text" id="cp_name'+count+'"></td><td><input type="text" id="cp_designation'+count+'"></td><td><input type="text" id="cp_mobile'+count+'"></td><td><input type="text" id="cp_email'+count+'"></td></tr>');
 	
 	var z = '<a href="javascript:void(0);" class="remCF"><i class="fa fa-minus" aria-hidden="true" style="color:red;"></i></a>';
@@ -289,7 +294,6 @@ $(".addCF").click(function(){
 
 $("#product_table_body").on('click','.remCF',function(){
 	count--;
-	totalrows--;
 	var z = '<a href="javascript:void(0);" class="remCF"><i class="fa fa-minus" aria-hidden="true" style="color:red;"></i></a>';
 	$('.xyza'+count).html('');
 	for(var n=1; n <= count; n++){
@@ -299,9 +303,18 @@ $("#product_table_body").on('click','.remCF',function(){
 			$('.xyza'+n).html('');
 		}
 	}
-	//$(this).parent().parent().remove();
 	$('#product_table_body tr:last').remove();
 });
+
+// function formsubmit(){
+// 	if($("#btnSubmit").val()=="Next"){
+// 		if($("#quotationreq").val()=="Yes"){
+// 			$("#modal-default").modal('show');
+// 		}else{
+// 			alert("followuplist will be open");
+// 		}
+// 	}
+// }
 
 function formsubmit(){
 	var rowdata=[];
@@ -315,7 +328,7 @@ function formsubmit(){
 		rowdata.push(item);
 	}
 	if($("#btnSubmit").val()=="Next"){
-		$('form').ajaxForm({
+		$('form').ajax({
 			type:"POST",
 			url:"saveDiscusion.php",
 				data:{lead_id:"23",visit_type:$("#hiddenvisitetype").val(),con_person:$("#concernperson").val(),quot_req:$("#quotationreq").val(),selectremark:$("#addremark").val(),remark:$("#remark").val(),rowdata:rowdata},
@@ -346,9 +359,12 @@ function formsubmit(){
 		});
 	}
 }
+
 function confirm(){
+
 	$("#modal-default2").modal('show');
 	$("#modal-default").modal('hide');
+	func
 }
 function closeconfirm(){
 	$(location).attr('href','followuplist.php');		

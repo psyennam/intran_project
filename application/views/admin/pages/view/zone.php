@@ -148,7 +148,7 @@
           </div>
           <!-- Form Start  -->
             <form action="<?= base_url('Admin/subzoneinsert');?>" id="formone" class="form-group" method="post">
-              <input type="text" name="zonecode" id="zonecode">
+              <input type="hidden" name="zonecode" id="zonecode">
               <div class="modal-body">
                 <div class="row">
                   <div class="col-sm-12 col-md-4 col-lg-4">

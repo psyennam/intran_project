@@ -113,5 +113,65 @@ class Client extends CI_controller
 		$data['page']='employee/pages/view/leadform';
 		$this->load->view('admin/components/layout',$data);	
 	}
+
+	function leadlist_insert()
+	{
+		if($_POST['btnsubmit1']=='Submit')
+		{
+			$res=$this->Client_model->leadlist_insert();
+			if($res===true)
+			{
+				redirect('Client/add_quotation');				
+			}
+		}
+	}
+
+	function add_quotation()
+	{
+		$data['page']='employee/pages/view/add_quotation';
+		$data['companydetails']=$this->Client_model->companydetails();
+		// $data['productdetails']=$this->Client_model->productdetails();
+		$this->load->view('admin/components/layout',$data);
+
+
+	}
+
+	function opt_producttype($company_code){
+		
+		try{
+			$res = $this->db->select('id as code, product_type')->where('company_code',$company_code)->get('product_type')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_productname($producttype_code)
+	{
+		try{
+			$res = $this->db->select('product_code as code,product')->from('product')->where('product_type', $producttype_code)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+
+	function opt_price($product_code)
+	{
+		try{
+			$res = $this->db->select('price')->from('product')->where('product_code', $product_code)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_approvedprice($product_code)
+	{
+		try{
+			$res = $this->db->select('company_code as code,price')->from('approved_price')->where('product_id', $product_code)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
 }
 

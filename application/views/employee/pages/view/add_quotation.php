@@ -15,25 +15,37 @@
 										</div>
 										<div class="col-sm-12" id="productdiv">
 											<div class="col-md-3 form-group">	
+												<label>Company Name</label>
+												<select class="form-control companyname" id="companyname" name="companyname">
+													<option value="">---</option>
+												<?php foreach ($companydetails as $key) {?>
+													<option value="<?= $key->company_code; ?>"><?= $key->company;?></option>	
+												<?php } ?>
+												</select>
+											</div>
+											<div class="col-md-3 form-group">	
+												<label>Product Type</label>
+												<select class="form-control producttype" id="opt_producttype" name="producttype">	
+												</select>
+											</div>
+
+											<div class="col-md-3 form-group">	
 												<label>Product Name</label>
-												<select class="form-control" id="productname" onchange="myfunction2();">	
+												<select class="form-control productname" id="opt_productname" name="productname">	
 												</select>
 											</div>
 											<div class="col-md-3 form-group">	
 												<label>Quantity</label>
-												<input type="text" id="qty" class="form-control" onkeyup="gethiddenamt();">
+												<input type="text" id="qty" class="form-control" onkeyup="get_amount();">
 											</div>
 											<div class="col-md-3 form-group">	
 												<label>Price</label>
-												<input type="text" id="price" class="form-control" disabled>
+												<input type="text" id="opt_productprice" name="Productprice" class="form-control" disabled>
 											</div>
 											<div class="col-md-3 form-group">	
 												<label>Approved Price List</label>
-												<select id="approvedprice" class="form-control" onchange="getrate();">
-													<option value=''>Select</option>
-													<option value='1'>GYS-20000</option>
-													<option value='2'>SIDDHAPURA-21000</option>
-													<option value='3'>PLAIN-19000</option><option value='4'>Riland-55000</option><option value='5'>Epic-100000</option><option value='6'>Arcraft Plasma Equipments-280000</option><option value='7'>Sai Weld India-150000</option><option value='8'>Sparkweld Eng-43000</option><option value='9'>Canfab Welders-250500</option><option value='10'>Rajlaxmi-10000</option><option value='11'>AB-10000</option><option value='12'>XY-9000</option><option value='13'>-</option><option value='14'>Valeo-18000</option><option value='15'>Behr-16000</option><option value='16'>-</option><option value='17'>-</option><option value='18'>-</option><option value='19'>Toyota-500000</option><option value='20'>Hyundai-475000</option><option value='21'>Maruti-435000</option><option value='22'>Kia-495000</option><option value='23'>Maruti-88000</option><option value='24'>MSIL-2700</option><option value='25'>TKM-2675</option><option value='26'>HMIL-2750</option><option value='27'>MSIL-90000</option><option value='28'>TKM-100000</option><option value='29'>HMIL-100000</option><option value='30'>RENAULT-90000</option><option value='31'>FORD-90000</option>													</select>
+												<select id="opt_approvedprice" class="form-control approvedprice">				
+												</select>
 											</div>
 											<div class="col-md-3 form-group">	
 												<label>Rate</label>
@@ -41,7 +53,7 @@
 											</div>
 											<div class="col-md-3 form-group">	
 												<label>Discount Type</label>
-												<select id="discounttype" class="form-control" onchange="gethiddenamt();">
+												<select id="discounttype" class="form-control discounttype" onchange="discount_type();">
 													<option value="">Select</option>
 													<option value="amount">In Amount</option>
 													<option value="percent">In Percent</option>
@@ -49,7 +61,7 @@
 											</div>
 											<div class="col-md-3 form-group">	
 												<label>Discount</label>
-												<input type="text" id="discount" class="form-control" onkeyup="gethiddenamt()" readonly><span id="hiddenvalueamt" class="pull-right" style="color:red;">
+												<input type="text" id="discount" class="form-control" onkeyup="get_calculation()" readonly><span id="hiddenvalueamt" class="pull-right" style="color:red;">
 											</div>
 											<div class="col-md-3 form-group">	
 												<label>Total</label>
@@ -122,3 +134,139 @@
 			</div>
 		</div>
 	</section>
+
+	<script type="text/javascript">
+/* ProductType dependent combo */
+  $(document).ready(function(){
+    $('.companyname').change(function(){
+      var company_code = $(this).val();
+      // alert(company_code);
+      if(company_code != "")
+      {
+
+        $.post(base_url+"/Client/opt_producttype/"+company_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.product_type+'</option>';
+            });
+            $('#opt_producttype').html(html);
+          }
+        })
+
+      }
+    });
+  })
+  /* ProductName dependent combo */
+  $(document).ready(function(){
+    $('.producttype').change(function(){
+      var producttype_code = $(this).val();
+      // alert(producttype_code);
+      if(producttype_code != "")
+      {
+
+        $.post(base_url+"/Client/opt_productname/"+producttype_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.product+'</option>';
+                
+            });
+            $('#opt_productname').html(html);
+          }
+        })
+
+      }
+    });
+  })
+
+    /* Price box */
+  $(document).ready(function(){
+    $('.productname').change(function(){
+      var product_code = $(this).val();
+      // alert(product_code);
+      if(product_code != "")
+      {
+        $.post(base_url+"/Client/opt_price/"+product_code, function(res){
+          res = $.parseJSON(res);
+          var html;
+          if(res.status == 200){
+            $.each(res.data, function(index,value){
+            	$('#opt_productprice').val(value.price); 
+            	$('#total').val(value.price);   
+            });
+          }
+        })
+
+      }
+    });
+  })
+  /* ApprovedPrice dependent combo */
+  $(document).ready(function(){
+    $('.productname').change(function(){
+      var product_code = $(this).val();
+      // alert(product_code);
+      if(product_code != "")
+      {
+        $.post(base_url+"/Client/opt_approvedprice/"+product_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.price+'">'+value.code+'-'+value.price+'</option>';
+            });
+            $('#opt_approvedprice').html(html);
+
+          }
+        })
+
+      }
+    });
+  })
+   /* Rate box */
+  $(document).ready(function(){
+    $('.approvedprice').change(function(){
+      var approvedprice= $(this).val();
+      // alert(approvedprice);
+      if(approvedprice != "")
+      {
+        $('#rate').val(approvedprice);
+        $('#total').val(approvedprice); 
+      }
+    });
+  })
+
+function discount_type(){
+	var discounttype=$('#discounttype').val();
+	// alert(discounttype);
+	if (discounttype!="") 
+	{
+		$("#discount").attr("readonly",false);
+	}
+	else
+	{
+		$("#discount").attr("readonly", true);
+	}
+}
+
+function get_amount()
+{	
+	var qty=$("#qty").val();
+	var approved_price=$(".approvedprice").val();
+	$('#total').val(qty*approved_price);	
+}
+
+function get_calculation()
+{
+	var discount=$("#discount").val();
+	var total=$("#total").val();
+	// alert(total);
+	if($("#discounttype").val()=="amount")
+	{
+		$("#total").val(total-discount);
+	}
+}
+
+</script>
