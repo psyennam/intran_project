@@ -94,7 +94,7 @@ class Client extends CI_controller
 		$this->load->view('admin/components/layout',$data);
 	}
 
-		/**
+	/**
 		Dealer-List
 	**/
 	function leadlist()
@@ -173,5 +173,24 @@ class Client extends CI_controller
 			json_response($e->getMessage(), 500);
 		}
 	}
+	/**
+	Pending-QuotationList 
+	**/
+	function pendinglist()
+	{
+		$data['page']='employee/pages/view/pendinglist';
+		//$data['leaddetails']=$this->Client_model->viewleadlist();
+		$this->load->view('admin/components/layout',$data);
+	}
+	/**
+	Pending-QuotationList 
+	**/
+	function quotationcloselist()
+	{
+		$data['page']='employee/pages/view/quotationcloselist';
+		//$data['leaddetails']=$this->Client_model->viewleadlist();
+		$this->load->view('admin/components/layout',$data);
+	}
+	
 }
 
