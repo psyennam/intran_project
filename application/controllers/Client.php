@@ -182,16 +182,17 @@ class Client extends CI_controller
 		}
 	}
 	/**
-	Pending-QuotationList 
+		Pending-QuotationList 
 	**/
 	function pendinglist()
 	{
 		$data['page']='employee/pages/view/pendinglist';
+		$data['pendingdetails']=$this->Client_model->pendingdetails();
 		//$data['leaddetails']=$this->Client_model->viewleadlist();
 		$this->load->view('admin/components/layout',$data);
 	}
 	/**
-	Pending-QuotationList 
+		Quotation-CloseList 
 	**/
 	function quotationcloselist()
 	{

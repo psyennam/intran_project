@@ -206,5 +206,11 @@ class Client_model extends CI_model
 			return false;
 		}
 	}
-
+	/**
+		Int his function we get pending quotation list
+	**/
+	function pendingdetails()
+	{
+		return $this->db->select('*')->where('quotation_status',0)->get('quotation')->result();
+	}
 }

@@ -21,6 +21,14 @@
                 <th>Issue Date</th>
               </tr>
             </thead>
+          <tbody>
+              <?php foreach ($pendingdetails as $key) { ?>
+                <tr>
+                  <td><?php echo $key->id;?></td>
+                  <td><?php echo __date_format($key->created_at,'ddmmyyyy');?></td>
+                  </tr> 
+              <?php } ?>
+          </tbody>
           </table>
         </div>
         <!-- /.box-body -->
