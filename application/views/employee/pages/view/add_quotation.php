@@ -13,120 +13,73 @@
 												<h3 class="box-title">Add Quotation</h3>
 											</div>
 										</div>
-										<div class="col-sm-12" id="productdiv">
-											<div class="col-md-3 form-group">	
-												<label>Company Name</label>
-												<select class="form-control companyname" id="companyname" name="companyname">
-													<option value="">---</option>
-												<?php foreach ($companydetails as $key) {?>
-													<option value="<?= $key->company_code; ?>"><?= $key->company;?></option>	
-												<?php } ?>
-												</select>
+										<form method="post">
+											<div class="col-sm-12" id="productdiv">
+												<div class="col-md-3 form-group">	
+													<label>Company Name</label>
+													<select class="form-control companyname" id="companyname" name="companyname">
+														<option value="">---</option>
+													<?php foreach ($companydetails as $key) {?>
+														<option value="<?= $key->company_code; ?>"><?= $key->company;?></option>	
+													<?php } ?>
+													</select>
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Product Type</label>
+													<select class="form-control producttype" id="opt_producttype" name="producttype">	
+													</select>
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Product Name</label>
+													<select class="form-control productname" id="opt_productname" name="productname">	
+													</select>
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Quantity</label>
+													<input type="text" id="qty" name="qty" class="form-control" onkeyup="get_amount();">
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Price</label>
+													<input type="text" id="opt_productprice" name="Productprice" class="form-control" readonly>
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Approved Price List</label>
+													<select id="opt_approvedprice" name="approvedprice" class="form-control approvedprice">				
+													</select>
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Rate</label>
+													<input type="text" id="rate" class="form-control" name="rate">
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Discount Type</label>
+													<select id="discounttype" name="discounttype" class="form-control discounttype" onchange="discount_type();">
+														<option value="">Select</option>
+														<option value="amount">In Amount</option>
+														<option value="percent">In Percent</option>
+													</select>
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Discount</label>
+													<input type="text" id="discount" name="discount" class="form-control" onkeyup="get_calculation()" readonly><span id="hiddenvalueamt" class="pull-right" style="color:red;">
+												</div>
+												<div class="col-md-3 form-group">	
+													<label>Total</label>
+													<input type="text" id="total" name="total" class="form-control" readonly>
+												</div>
 											</div>
-											<div class="col-md-3 form-group">	
-												<label>Product Type</label>
-												<select class="form-control producttype" id="opt_producttype" name="producttype">	
-												</select>
-											</div>
-
-											<div class="col-md-3 form-group">	
-												<label>Product Name</label>
-												<select class="form-control productname" id="opt_productname" name="productname">	
-												</select>
-											</div>
-											<div class="col-md-3 form-group">	
-												<label>Quantity</label>
-												<input type="text" id="qty" class="form-control" onkeyup="get_amount();">
-											</div>
-											<div class="col-md-3 form-group">	
-												<label>Price</label>
-												<input type="text" id="opt_productprice" name="Productprice" class="form-control" disabled>
-											</div>
-											<div class="col-md-3 form-group">	
-												<label>Approved Price List</label>
-												<select id="opt_approvedprice" class="form-control approvedprice">				
-												</select>
-											</div>
-											<div class="col-md-3 form-group">	
-												<label>Rate</label>
-												<input type="text" id="rate" class="form-control">
-											</div>
-											<div class="col-md-3 form-group">	
-												<label>Discount Type</label>
-												<select id="discounttype" class="form-control discounttype" onchange="discount_type();">
-													<option value="">Select</option>
-													<option value="amount">In Amount</option>
-													<option value="percent">In Percent</option>
-												</select>
-											</div>
-											<div class="col-md-3 form-group">	
-												<label>Discount</label>
-												<input type="text" id="discount" class="form-control" onkeyup="get_calculation()" readonly><span id="hiddenvalueamt" class="pull-right" style="color:red;">
-											</div>
-											<div class="col-md-3 form-group">	
-												<label>Total</label>
-												<input type="text" id="total" class="form-control" readonly>
+											<div class="col-sm-12">
+												<div class="alert alert-warning alert-dismissible" id="alertzero" style="display:none !important;">
+													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+													<h4>Total less than zero</h4>
+												</div>
 											</div>
 										</div>
-										<div class="col-sm-12">
-											<div class="alert alert-warning alert-dismissible" id="alertzero" style="display:none !important;">
-												<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-												<h4>Total less than zero</h4>
-											</div>
+										<div class="col-sm-12" id="productdivs">
+											<input type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-primary" value="Submit">
+											<input type="submit" id="btnView" class="btn btn-primary" value="View" onclick="formView();">
 										</div>
-									</div>
-									<div class="col-sm-12" id="productdivs">
-										<input type="submit" id="btnSubmit" class="btn btn-primary" value="Submit" onclick="formSubmit();">
-										<input type="submit" id="btnView" class="btn btn-primary" value="View" onclick="formView();">
-									</div>
-									<div class="col-md-12">
-										<div class="alert alert-success alert-dismissible" id="alertsuccess" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Details Saved succeesfully</h4>
-										</div>
-										<div class="alert alert-success alert-dismissible" id="alertsuccessupdate" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Details Updated succeesfully</h4>
-										</div>
-										<div class="alert alert-success alert-dismissible" id="alertsuccessdeactive" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Record Deactive Successfully</h4>
-										</div>
-										<div class="alert alert-success alert-dismissible" id="alertsuccessactive" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Record Active Successfully</h4>
-										</div>
-										<div class="alert alert-danger alert-dismissible" id="alerterror" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Error! Something Went wrong</h4>
-										</div>
-										<div class="alert alert-warning alert-dismissible" id="alertexist" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>This State Already Exist</h4>
-										</div>
-										<div class="alert alert-warning alert-dismissible" id="alertcompany" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Please Select Company</h4>
-										</div>
-										<div class="alert alert-warning alert-dismissible" id="alertproduct" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Please Select Product</h4>
-										</div>
-										<div class="alert alert-warning alert-dismissible" id="alertquantity" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Please Enter Quantity</h4>
-										</div>
-										<div class="alert alert-warning alert-dismissible" id="alertrate" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>Please Enter Rate</h4>
-										</div>
-										<div class="alert alert-warning alert-dismissible" id="alertcnt" style="display:none !important;">
-											<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-											<h4>This Product Is Already Added</h4>
-										</div>
-										
-									</div>
-									<!-- Div For Product Description Table End -->
+									</form>
 								</div>
 							</div>
 						</div>

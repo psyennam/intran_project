@@ -123,8 +123,10 @@ class Client_model extends CI_model
 
 	function leadlist_insert()
 	{
+		$leadcode=$this->input->post('lead_code');
+
 		$data=[
-			'lead_code'=>$this->input->post('lead_code'),
+			'lead_code'=>$leadcode,
 			'concerned_person'=>$this->input->post('concernperson'),
 			'quotation_require'=>$this->input->post('quotationreq'),
 			'visit_type'=>$this->input->post('visitetype'),
@@ -138,7 +140,7 @@ class Client_model extends CI_model
 			for($i=0;$i<sizeof($_POST['cp_name']);$i++)
 			{
 				$contact_person[] =[
-					'lead_code'=>$this->input->post('lead_code'),
+					'lead_code'=>$leadcode,
 					'person_name'=>$_POST['cp_name'][$i],
 					'designation'=>$_POST['cp_designation'][$i],
 					'mobile_no'=>$_POST['cp_mobile'][$i],
@@ -148,14 +150,14 @@ class Client_model extends CI_model
 			if($insert=$this->db->insert_batch('mapping_lead',$contact_person))
 			{
 				$data2=[
-					'lead_code'=>$this->input->post('lead_code'),
+					'lead_code'=>$leadcode,
 					'quotation_require'=>$this->input->post('quotationreq'),
 					'ip_address'=>$this->input->ip_address(),
 				];
 				if($this->db->insert('followup',$data2))
 				{
 					$this->db->trans_complete();
-					return true;
+					return $leadcode;
 				}
 				else{
 					$this->db->trans_rollback();
@@ -181,6 +183,28 @@ class Client_model extends CI_model
 	function productdetails()
 	{
 		return $this->db->select('*')->get('product')->result();
+	}
+
+	function quotationinsert($id)
+	{
+		$quotation=[
+			'lead_code'=>$id,
+			'product_code'=>$this->input->post('productname'),
+			'quantity'=>$this->input->post('qty'),
+			'price'=>$this->input->post('Productprice'),
+			'approved_price'=>$this->input->post('approvedprice'),
+			'rate'=>$this->input->post('rate'),
+			'discount_type'=>$this->input->post('discounttype'),
+			'discount'=>$this->input->post('discount'),
+			'total'=>$this->input->post('total'),
+		];
+		if($this->db->insert('quotation',$quotation))
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 }

@@ -150,7 +150,7 @@
             </div>
               <div class="row" >
                   <div class="col-md-3">
-                    <input type="submit" class="btn btn-primary" name="btnsubmit1" value="Submit">
+                    <a href="#"><input type="submit" class="btn btn-primary" name="btnsubmit1" value="Submit"></a>
                   </div>
                 </div>
             </div>
