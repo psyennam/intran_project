@@ -24,9 +24,11 @@
           <tbody>
               <?php foreach ($pendingdetails as $key) { ?>
                 <tr>
+                  <td><a href="#"><i class="fa fa-pencil-square-o"></i>Edit</a><a href="#"><i class="fa fa fa-trash" style="margin:3px;"></i>Delete</a></td>
                   <td><?php echo $key->id;?></td>
+                  <td><?php echo client_name($key->lead_code);?></td>
                   <td><?php echo __date_format($key->created_at,'ddmmyyyy');?></td>
-                  </tr> 
+                </tr> 
               <?php } ?>
           </tbody>
           </table>

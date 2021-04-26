@@ -212,10 +212,53 @@ class Client_model extends CI_model
 		}
 	}
 	/**
-		Int his function we get pending quotation list
+		In this function we get pending quotation list
 	**/
 	function pendingdetails()
 	{
 		return $this->db->select('*')->where('quotation_status',0)->get('quotation')->result();
 	}
+	/**
+		In this function we get quotation close list
+	**/
+	function quotationcloselist()
+	{
+		return $this->db->select('*')->where('quotation_status',1)->get('quotation')->result();
+	}
+	/**
+		In this function we get expense list
+	**/
+	function expenselist()
+	{
+		return $this->db->select('*')->get('expense')->result();
+	}
+	/**
+		In this function we get expense list
+	**/
+	function expenseinsert()
+	{
+		$ip=$this->input->ip_address();
+		$this->load->helper('upload_helper');
+		$expense=[
+			'date'=>$this->input->post('date'),
+			'type'=>$this->input->post('expense_type'),
+			'description'=>$this->input->post('description'),
+			'amount'=>$this->input->post('amount'),
+			'expense_for'=>$this->input->post('expense_for'),
+			'expense_image'=>file_upload('expimage'),
+			'ip_address'=>$ip
+		];
+		$this->db->trans_start();	
+		if($this->db->insert('expense',$expense))
+		{
+			$this->db->trans_complete();
+			return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
+	
 }

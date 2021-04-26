@@ -1,14 +1,16 @@
-
+<!-- Content Wrapper. Contains page content -->           
+    <!-- Content Header (Page header) -->
+<!-- <section class="content-header text-center" >
+    <h1 style="text-transform: capitalize;"><b>Quotation-CloseList</b></h1>
+  </section>
+ -->
 <!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <div class="col-md-12">
-            <div class="box-header with-border" style="text-align:center;">
-              <h3 class="box-title" style="font-size:25px !important;">Quotation Close List</h3>
-            </div>
-            <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>
+        <div class="box-header with-border" style="text-align:center;">
+            <h3 class="box-title" style="font-size:25px !important;">Quotation-CloseList</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">
@@ -22,6 +24,17 @@
                 <th>Quotation Date</th>
               </tr>
             </thead>
+            <tbody>
+              <?php foreach ($quotationclosedetails as $key) { ?>
+                <tr>
+                  <td><?php echo $key->id;?></td>
+                  <td>PDF</td>  
+                  <td>InvoiceNumber</td> 
+                  <td><?php echo client_name($key->lead_code);?></td>
+                  <td><?php echo __date_format($key->created_at,'ddmmyyyy');?></td>      
+                </tr> 
+              <?php } ?>
+            </tbody>
           </table>
         </div>
         <!-- /.box-body -->
@@ -32,12 +45,6 @@
   </div>
   <!-- /.row -->
 </section>
-<!-- /.content -->
-<script>
-  function formBack()
-  {
-    parent.history.back();
-    return false;
-  }
-</script>
+    <!-- /.content -->
+
  

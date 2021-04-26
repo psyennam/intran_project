@@ -204,9 +204,35 @@ class Client extends CI_controller
 	function quotationcloselist()
 	{
 		$data['page']='employee/pages/view/quotationcloselist';
-		//$data['leaddetails']=$this->Client_model->viewleadlist();
+		$data['quotationclosedetails']=$this->Client_model->quotationcloselist();
 		$this->load->view('admin/components/layout',$data);
 	}
-	
+	/**
+		Expense-List 
+	**/
+	function expenselist()
+	{
+		$data['page']='employee/pages/view/expensedetails';
+		$data['expensedetails']=$this->Client_model->expenselist();
+		$this->load->view('admin/components/layout',$data);
+	}
+	/**
+		Expense-Insert 
+	**/
+	function expenseinsert()
+	{
+		if($_POST)
+		{
+			$res=$this->Client_model->expenseinsert();
+			if($res>0)
+			{
+				redirect('Client/expenselist');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
 }
 
