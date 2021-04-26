@@ -119,21 +119,29 @@ class Client extends CI_controller
 		if($_POST['btnsubmit1']=='Submit')
 		{
 			$res=$this->Client_model->leadlist_insert();
-			if($res===true)
+			if($res!==false)
 			{
-				redirect('Client/add_quotation');				
+				redirect('Client/add_quotation/'.$res);				
 			}
 		}
 	}
 
-	function add_quotation()
+	function add_quotation($id)
 	{
 		$data['page']='employee/pages/view/add_quotation';
 		$data['companydetails']=$this->Client_model->companydetails();
 		// $data['productdetails']=$this->Client_model->productdetails();
 		$this->load->view('admin/components/layout',$data);
 
+		if($_POST)
+		{
+			$res=$this->Client_model->quotationinsert($id);
 
+			if($res==false)
+			{
+				echo "Something Went Wrong";
+			}
+		}
 	}
 
 	function opt_producttype($company_code){
@@ -167,7 +175,7 @@ class Client extends CI_controller
 	function opt_approvedprice($product_code)
 	{
 		try{
-			$res = $this->db->select('company_code as code,price')->from('approved_price')->where('product_id', $product_code)->get()->result();
+			$res = $this->db->select('company_code as code,price')->from('approved_price')->where('product_id',$product_code)->get()->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
