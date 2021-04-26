@@ -185,6 +185,11 @@ class Client_model extends CI_model
 		return $this->db->select('*')->get('product')->result();
 	}
 
+	function viewquotation()
+	{
+		return $this->db->select('*')->get('quotation')->result();
+	}
+
 	function quotationinsert($id)
 	{
 		$quotation=[
