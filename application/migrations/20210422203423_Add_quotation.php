@@ -51,6 +51,11 @@
                                                         'constraint' => '15',
                                                         'default'=>0,
                                                 ),
+                                                'quotation_status' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '15',
+                                                        'NULL'=>true,
+                                                ),
                                                 
                                         ));     
                                         $this->dbforge->add_key('id', TRUE);

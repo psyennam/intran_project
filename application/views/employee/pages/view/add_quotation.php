@@ -136,6 +136,9 @@
 	</section>
 
 	<script type="text/javascript">
+	
+	$('#hiddenvalueamt').html(0);
+
 /* ProductType dependent combo */
   $(document).ready(function(){
     $('.companyname').change(function(){
@@ -229,11 +232,12 @@
   $(document).ready(function(){
     $('.approvedprice').change(function(){
       var approvedprice= $(this).val();
+      var Quantity=$("#qty").val();
       // alert(approvedprice);
       if(approvedprice != "")
       {
         $('#rate').val(approvedprice);
-        $('#total').val(approvedprice); 
+        $('#total').val(approvedprice*Quantity); 
       }
     });
   })
@@ -258,14 +262,37 @@ function get_amount()
 	$('#total').val(qty*approved_price);	
 }
 
+
 function get_calculation()
 {
+	// var total=$("#total").val();
+	var qty=$("#qty").val();
+	var rate=$("#rate").val();
 	var discount=$("#discount").val();
-	var total=$("#total").val();
-	// alert(total);
+	
+
 	if($("#discounttype").val()=="amount")
 	{
-		$("#total").val(total-discount);
+		if($("#discount").val() !="")
+		{
+			$("#total").val((qty*rate)-discount);
+		}
+		else{
+			$('#total').val(qty*rate);
+		}
+		$('#hiddenvalueamt').html(discount);
+	}
+	if($("#discounttype").val() =="percent")
+	{
+		var per=((qty*rate)*discount)/100;
+		if($("#discount").val() !="")
+		{
+			$("#total").val((qty*rate)-per);
+		}
+		else{
+			$('#total').val(qty*rate);
+		}
+		$('#hiddenvalueamt').html(per);
 	}
 }
 
