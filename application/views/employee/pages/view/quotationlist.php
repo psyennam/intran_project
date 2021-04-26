@@ -21,17 +21,14 @@
                 <th>Issue Date</th>
               </tr>
             </thead>
-            <tbody>
-              <?php foreach ($quotationdetails as $key) { ?>
+             <?php foreach ($quotationdetails as $key) { ?>
               <tr>
-                <td>
                   <td></td>
                   <td><?php echo $key->id;?></td>
                   <td><?= client_name($key->lead_code)?></td>
-                </td>
+                  <td><?= __date_format($key->created_at,'ddmmyyyy');?></td>
               </tr>
               <?php } ?>
-            </tbody>
           </table>
         </div>
         <!-- /.box-body -->

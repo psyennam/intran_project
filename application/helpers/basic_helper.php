@@ -61,3 +61,9 @@ function __lang($key){
 	$lang = 'en';
 	return $ci->db->select('ml.__value as lang_val')->from('language as l')->join('mapping_language as ml', 'ml.id = l.id', 'inner')->where(['ml.__lang' => $lang, 'l.__key' => $key])->get()->row()->lang_val;
 }
+
+function client_name($lead_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('client')->from('client as c1')->join('lead as l1','l1.supplier_code=c1.client_code')->where('l1.lead_code',$lead_code)->get()->row()->client;
+}

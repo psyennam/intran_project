@@ -126,6 +126,13 @@ class Client extends CI_controller
 		}
 	}
 
+	function quotationlist()
+	{
+		$data['page']='employee/pages/view/quotationlist';
+		$data['quotationdetails']=$this->Client_model->viewquotation();
+		$this->load->view('admin/components/layout',$data);
+	}
+
 	function add_quotation($id)
 	{
 		$data['page']='employee/pages/view/add_quotation';
