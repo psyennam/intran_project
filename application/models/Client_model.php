@@ -202,6 +202,7 @@ class Client_model extends CI_model
 			'discount_type'=>$this->input->post('discounttype'),
 			'discount'=>$this->input->post('discount'),
 			'total'=>$this->input->post('total'),
+			'ip_address'=>$this->input()->ip_address();
 		];
 		if($this->db->insert('quotation',$quotation))
 		{

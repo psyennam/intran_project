@@ -23,7 +23,7 @@
             </thead>
              <?php foreach ($quotationdetails as $key) { ?>
               <tr>
-                  <td></td>
+                  <td><a href=""><i class="fa fa-pencil-square-o"></i>Edit</a><a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a></td>
                   <td><?php echo $key->id;?></td>
                   <td><?= client_name($key->lead_code)?></td>
                   <td><?= __date_format($key->created_at,'ddmmyyyy');?></td>

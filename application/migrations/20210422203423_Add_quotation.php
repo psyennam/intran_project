@@ -54,7 +54,16 @@
                                                 'quotation_status' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '15',
-                                                        'NULL'=>true,
+                                                        'default'=>0,
+                                                ),
+                                                'invoice_number' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
+                                                        'UNIQUE'=>true,
+                                                ),
+                                                'quotation_close_date'=>array(
+                                                        'type' => 'DATETIME',
+                                                        'default'=>null,
                                                 ),
                                                 
                                         ));     
