@@ -7,6 +7,9 @@
                                                         'type' => 'INT',
                                                         'auto_increment' => TRUE
                                                 ),
+                                                'employee_code' => array(
+                                                        'type' => 'INT',
+                                                ),
                                                 'date' => array(
                                                         'type' => 'DATETIME',
                                                         'default'=>date('Y-m-d H:i:s'),       

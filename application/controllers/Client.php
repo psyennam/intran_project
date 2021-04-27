@@ -204,7 +204,7 @@ class Client extends CI_controller
 	function quotationcloselist()
 	{
 		$data['page']='employee/pages/view/quotationcloselist';
-		$data['quotationclosedetails']=$this->Client_model->quotationcloselist();
+		$data['quotationdetails']=$this->Client_model->quotationcloselist();
 		$this->load->view('admin/components/layout',$data);
 	}
 	/**
@@ -233,6 +233,29 @@ class Client extends CI_controller
 				echo "Data is not inserted";
 			}
 		}
+	}
+	/**
+		Pending-Edit 
+	**/
+	function pendingupdate()
+	{
+		$leadcode=$this->input->get('lead_code');
+		$data['pendingdetails']=$this->Client_model->pending_leadcode($leadcode);
+		$data['page']='employee/pages/view/pendingconfirmlist';
+		$this->load->view('admin/components/layout',$data);			
+	}
+	/**
+		Pending-Edit 
+	**/
+	function pendingconfirm()
+	{
+		$leadcode=$this->input->get('lead_code');
+		$res=$this->Client_model->quotation_confirm($leadcode);
+		if($res>0)
+		{
+			$data['page']='employee/pages/view/quotationcloselist';	
+		}
+		$this->load->view('admin/components/layout',$data);			
 	}
 }
 

@@ -21,17 +21,17 @@
                 <th>PDF</th>
                 <th>Invoice Number</th>
                 <th>DealerShip Name</th>
-                <th>Quotation Date</th>
+                <th>Quotation Close Date</th>
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($quotationclosedetails as $key) { ?>
+               <?php foreach ($quotationdetails as $key) { ?>
                 <tr>
                   <td><?php echo $key->id;?></td>
-                  <td>PDF</td>  
-                  <td>InvoiceNumber</td> 
+                  <td>PDF</td>
+                  <td>InvoiceNumber</td>
                   <td><?php echo client_name($key->lead_code);?></td>
-                  <td><?php echo __date_format($key->created_at,'ddmmyyyy');?></td>      
+                  <td><?php echo __date_format($key->quotation_close_date,'ddmmyyyy');?></td>
                 </tr> 
               <?php } ?>
             </tbody>

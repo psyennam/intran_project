@@ -15,23 +15,33 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>Action</th>
                 <th>Id</th>
-                <th>DealerShip Name</th>
-                <th>Issue Date</th>
-              </tr>
+                <!-- <th>Action</th> -->
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Total</th>  
+                </tr>
             </thead>
           <tbody>
               <?php foreach ($pendingdetails as $key) { ?>
                 <tr>
-                  <td><a href="pendingupdate?lead_code=<?php echo $key->lead_code;?>"><i class="fa fa-pencil-square-o"></i>Edit</a><a href="pendingdelete?lead_code=<?php echo $key->lead_code;?>"><i class="fa fa fa-trash" style="margin:3px;"></i>Delete</a></td>
                   <td><?php echo $key->id;?></td>
-                  <td><?php echo client_name($key->lead_code);?></td>
-                  <td><?php echo __date_format($key->created_at,'ddmmyyyy');?></td>
+                  <td><?php echo $key->product_code;?></td>
+                  <td><?php echo $key->quantity;?></td>
+                  <th><?php echo $key->price;?></th>
+                  <th><?php echo $key->discount;?></th>
+                  <th><?php echo $key->total;?></th>
                 </tr> 
               <?php } ?>
           </tbody>
           </table>
+          <div class="col-md-12" style="text-align:right !important;">
+            <a href="pendingconfirm?lead_code=<?php echo $key->lead_code;?>"><input type="submit" class="btn btn-primary" value="Confirm" id="btnConfirm"></a>
+            <input type="submit" class="btn btn-primary" value="View" id="btnView">
+            <input type="submit" class="btn btn-primary" value="Cancel" id="btnCancel">
+          </div>
         </div>
         <!-- /.box-body -->
       </div>
