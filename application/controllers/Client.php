@@ -257,5 +257,13 @@ class Client extends CI_controller
 		}
 		$this->load->view('admin/components/layout',$data);			
 	}
+
+	function pdf()
+	{
+		// echo "string";
+		$this->load->helper('pdf_helper');
+		// abc();
+		index();
+	}
 }
 

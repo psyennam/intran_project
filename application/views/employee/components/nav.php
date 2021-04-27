@@ -37,6 +37,7 @@
             <li class="active"><a href="<?php echo base_url('Client/quotationcloselist');?>"><i class="fa fa-circle-o"></i>Quotation Close List</a></li>
             <li class="active"><a href="<?php echo base_url('Client/pendinglist');?>"><i class="fa fa-circle-o"></i>Pending Quotation List</a></li>  
             <li class="active"><a href="<?php echo base_url('Client/expenselist');?>"><i class="fa fa-circle-o"></i>Expense List</a></li>  
+            <li class="active"><a href="<?php echo base_url('Client/pdf');?>"><i class="fa fa-circle-o"></i>PDF</a></li>  
           </ul>
           </li>
       </ul>
