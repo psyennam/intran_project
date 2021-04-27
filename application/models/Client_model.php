@@ -220,6 +220,26 @@ class Client_model extends CI_model
 		return $this->db->select('*')->where('quotation_status',0)->get('quotation')->result();
 	}
 	/**
+		In this function we get pending quotation list by leadcode
+	**/
+	function pending_leadcode($leadcode)
+	{
+		return $this->db->select('*')->where(['quotation_status'=>0,'lead_code'=>$leadcode])->get('quotation')->result();
+	}
+	/**
+		In this function pending quotation will be updated by leadcode
+	**/
+	function quotation_confirm($leadcode)
+	{
+		$confirm=[
+			'quotation_status'=>1,
+			'quotation_close_date'=>date('Y-m-d H:i:s')
+		];
+		$this->db->where('lead_code',$leadcode);
+		$res=$this->db->update('quotation',$confirm);
+		return $res;
+	}
+	/**
 		In this function we get quotation close list
 	**/
 	function quotationcloselist()
