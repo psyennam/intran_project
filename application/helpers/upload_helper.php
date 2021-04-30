@@ -1,4 +1,4 @@
-<?php
+    <?php
 
     function file_upload($file){
         $ci = &get_instance();
@@ -11,7 +11,7 @@
 
         if(empty($_FILES[$file]['name'][0]))
             return false;
-        else{   
+        else{       
             for ($i=0; $i<count($_FILES[$file]['name']); $i++) {
                 $_FILES['file']['name'] = $files[$file]['name'][$i];
                 $_FILES['file']['type'] = $files[$file]['type'][$i];

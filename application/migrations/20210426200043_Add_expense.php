@@ -8,7 +8,8 @@
                                                         'auto_increment' => TRUE
                                                 ),
                                                 'employee_code' => array(
-                                                        'type' => 'INT',
+                                                        'type' => 'VARCHAR',
+                                                        'constraint'=>'10'
                                                 ),
                                                 'date' => array(
                                                         'type' => 'DATETIME',
@@ -34,6 +35,11 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '500',
                                                 ),
+
+                                                'org_code' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
+                                                ),
                                                 'branch_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
@@ -50,7 +56,7 @@
                                                 'status' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '15',
-                                                        'default'=>0,
+                                                        'default'=>1,
                                                 ),
                                                 
                                         ));     

@@ -283,7 +283,9 @@ class Client_model extends CI_model
 			'amount'=>$this->input->post('amount'),
 			'expense_for'=>$this->input->post('expense_for'),
 			'expense_image'=>file_upload('expimage'),
-			'ip_address'=>$ip
+			'ip_address'=>$ip,
+			'employee_code'=>$this->session->userdata('emp_code'),
+			'org_code'=>$this->session->userdata('org_code')
 		];
 		$this->db->trans_start();	
 		if($this->db->insert('expense',$expense))

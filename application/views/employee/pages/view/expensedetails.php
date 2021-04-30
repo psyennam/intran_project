@@ -92,7 +92,7 @@
                   </div>
                   <div class="col-sm-12 col-md-4 col-lg-4">
                     <label>Expenses Image<span style="color:red">*</span></label>
-                    <input type="file" id="expimage" name="expimage" class="form-control">
+                    <input type="file" id="expimage" name="expimage[]" class="form-control">
                   </div>
                 </div>
               </div>
