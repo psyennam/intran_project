@@ -17,6 +17,7 @@
               <tr>
                 <th>Action</th>
                 <th>ID</th>
+                <th>PDF</th>
                 <th>DealerShip Name</th>
                 <th>Issue Date</th>
               </tr>
@@ -25,6 +26,7 @@
               <tr>
                   <td><a href=""><i class="fa fa-pencil-square-o"></i>Edit</a><a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a></td>
                   <td><?php echo $key->id;?></td>
+                  <td><a href="<?php echo base_url('Test/index/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>
                   <td><?= client_name($key->lead_code)?></td>
                   <td><?= __date_format($key->created_at,'ddmmyyyy');?></td>
               </tr>
@@ -47,4 +49,3 @@
     return false;
   }
 </script>
- 

@@ -1,13 +1,14 @@
 <?php 
 class Test extends ci_controller{
-	function index(){
+	function index($id){
 		require APPPATH.'libraries\tcpdf\tcpdf.php';
 		$this->pdf=new TCPDF();
 		$this->pdf->setPrintHeader(false);
 		$this->pdf->setPrintFooter(false);
 		$this->pdf->AddPage();
 		// $this->pdf->AddPage('L', 'A4');
-		$html = $this->abc();
+		//$id=1;
+		$html = $this->abc($id);
 
 		// Print text using writeHTMLCell()
 		$this->pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
@@ -19,13 +20,13 @@ class Test extends ci_controller{
 		$this->pdf->Output(time().'.pdf', 'I');
 	}
 
-	function abc(){
+	function abc($id){
 		$this->load->model('Client_model');
 		// $data['page']='admin/pages/view/client';
-		// $data['zonedetails']=$this->Client_model->viewzone();	
+		$data['quotationdetails']=$this->Client_model->viewquotationbyid($id);
 		// $data['clientdetails']=$this->Client_model->view_client();
 				//$data['page']='admin/pages/view/pdf_genrator';
-		return $this->load->view('pdf_genrator','',true);
+		return $this->load->view('pdf_genrator',$data,true);
 	}
 
 

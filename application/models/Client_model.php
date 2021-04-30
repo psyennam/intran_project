@@ -189,7 +189,10 @@ class Client_model extends CI_model
 	{
 		return $this->db->select('*')->get('quotation')->result();
 	}
-
+	function viewquotationbyid($id)
+	{
+		return $this->db->select('*')->where('id',$id)->get('quotation')->result();
+	}
 	function quotationinsert($id)
 	{
 		$quotation=[
@@ -281,5 +284,8 @@ class Client_model extends CI_model
 			return false;
 		}
 	}
-	
+	function viewcompany($id)
+	{
+		return $this->db->select('company_name,address')->from('quotation')->join('lead','lead.lead_code=quotation.lead_code')->where('id',$id)->get()->result();	
+	}	
 }

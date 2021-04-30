@@ -7,10 +7,12 @@
 
   <table border="0">
     <thead>
+      <?php foreach($quotationdetails as $key) {?>
       <tr>
         <th><h1>AdminLTE, Inc.</h1></th>
-        <th style="text-align: right;"><h4>Date: 2/10/2014</h4></th>
+        <th style="text-align: right;"><h4>Date:<?php echo __date_format($key->created_at,'ddmmyyyy');?></h4></th>
       </tr>
+    <?php }?>
     </thead>
   </table>
 
@@ -21,19 +23,18 @@
       <tr>
         <td style="text-align: left;"> 
           From
-            <strong>Admin, Inc.</strong><br>
-            795 Folsom Ave, Suite 600<br>
-            San Francisco, CA 94107<br>
+            <strong>Tailor Made Erp.</strong><br>
+            Surat<br>
+            Pincode:-395010<br>
             Phone: (804) 123-5432<br>
-            Email: info@almasaeedstudio.com
+            Email: info@TailorMadeErp.com
         </td>
         <td> 
           To
-            <strong>John Doe</strong><br>
-            795 Folsom Ave, Suite 600<br>
-            San Francisco, CA 94107<br>
+            <strong>Som Comapany</strong><br>
+            United State Of Pandesara<br>
             Phone: (555) 539-1037<br>
-            Email: john.doe@example.com
+            Email: Som.Comapany@example.com
         </td>
         <td style="text-align: right;">
            <b>Invoice #007612</b><br>
@@ -55,40 +56,17 @@
         <tr>
           <th>Qty</th>
           <th>Product</th>
-          <th>Serial #</th>
-          <th>Description</th>
-          <th>Subtotal</th>
+          <th>Rate</th>
         </tr>
         </thead>
         <tbody>
+        <?php foreach($quotationdetails as $key) {?>
         <tr>
-          <td>1</td>
-          <td>Call of Duty</td>
-          <td>455-981-221</td>
-          <td>El snort testosterone trophy driving gloves handsome</td>
-          <td>$64.50</td>
+          <td><?php echo $key->quantity;?></td>
+          <td><?php echo $key->product_code;?></td>
+          <td><?php echo $key->rate;?></td>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>Need for Speed IV</td>
-          <td>247-925-726</td>
-          <td>Wes Anderson umami biodiesel</td>
-          <td>$50.00</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Monsters DVD</td>
-          <td>735-845-642</td>
-          <td>Terry Richardson helvetica tousled street art master</td>
-          <td>$10.70</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Grown Ups Blue Ray</td>
-          <td>422-568-642</td>
-          <td>Tousled lomo letterpress</td>
-          <td>$25.99</td>
-        </tr>
+        <?php }?>
         </tbody>
       </table>
     </div>
@@ -99,22 +77,20 @@
       <p class="lead">Amount Due 2/22/2014</p>
       <div class="table-responsive">
         <table class="table">
+          <?php foreach($quotationdetails as $key) {?>
           <tr>
-            <th style="width:50%">Subtotal:</th>
-            <td>$250.30</td>
+            <th style="width:50%">Rate:</th>
+            <td><?php echo $key->rate;?></td>
           </tr>
           <tr>
-            <th>Tax (9.3%)</th>
-            <td>$10.34</td>
-          </tr>
-          <tr>
-            <th>Shipping:</th>
-            <td>$5.80</td>
+            <th>Discount:</th>
+            <td><?php echo $key->discount;?></td>
           </tr>
           <tr>
             <th>Total:</th>
-            <td>$265.24</td>
+            <td><?php echo $key->total;?></td>
           </tr>
+          <?php }?>
         </table>
       </div>
     </div>
