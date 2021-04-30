@@ -54,7 +54,7 @@
   ?>
 <!-- Navabar -->
   <?php
-  if($this->session->userdata('role') == 'employee')
+  if($this->session->userdata('role') != 'Admin')
   {
     $this->load->view('employee/components/nav');
   }

@@ -38,6 +38,7 @@ class Admin extends CI_controller
 				}
 				else
 				{
+
 					redirect('Admin/dashboard');	
 				}
 			}
@@ -67,7 +68,7 @@ class Admin extends CI_controller
 				$res=$this->Admin_model->update();
 				if($res>0)
 				{
-					redirect('Admin/components/layout');				
+						redirect('Admin/dashboard');	
 				}
 				else
 				{

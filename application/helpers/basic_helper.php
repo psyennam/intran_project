@@ -67,3 +67,9 @@ function client_name($lead_code)
 	$ci = &get_instance();
 	return $ci->db->select('client')->from('client as c1')->join('lead as l1','l1.supplier_code=c1.client_code')->where('l1.lead_code',$lead_code)->get()->row()->client;
 }
+function emp_name($emp_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('employee')->where('employee_code',$emp_code)->get('employee')->row()->employee;
+}
+

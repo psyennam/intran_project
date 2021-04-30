@@ -13,7 +13,6 @@ class Client extends CI_controller
 		$this->load->model('Client_model');
 		$this->data["title"] = "Login";
 	}
-
 	function client()
 	{
 		$data['page']='admin/pages/view/client';
@@ -261,9 +260,10 @@ class Client extends CI_controller
 	function pdf()
 	{
 		// echo "string";
-		$this->load->helper('pdf_helper');
-		// abc();
+		$this->load->helper('Pdf_helper');
 		index();
+		// abc();
+		//index();
 	}
 }
 

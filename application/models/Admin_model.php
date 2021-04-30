@@ -23,8 +23,9 @@ class Admin_model extends CI_model
 			$role = $this->db->where(['role_code' => $res, "org_code" => $this->org_code])->get('role')->row();
 			$this->session->set_userdata('role', $role->role);
 			$this->session->set_userdata('role_code', $role->role_code);
+			$this->session->set_userdata('emp_code', $this->emp_code);
 		}else{
-			$this->session->set_userdata('role', 'admin');
+			$this->session->set_userdata('role', 'Admin');
 		}
 	}
 	function login()
@@ -74,6 +75,7 @@ class Admin_model extends CI_model
 	**/
 	function update()
 	{
+		echo $this->session->userdata('emp_code');
 		$data=[
 			'password'=>$this->input->post('password'),
 			'password_flag'=>1

@@ -6,7 +6,7 @@ class Test extends ci_controller{
 		$this->pdf->setPrintHeader(false);
 		$this->pdf->setPrintFooter(false);
 		$this->pdf->AddPage();
-
+		// $this->pdf->AddPage('L', 'A4');
 		$html = $this->abc();
 
 		// Print text using writeHTMLCell()
@@ -21,10 +21,11 @@ class Test extends ci_controller{
 
 	function abc(){
 		$this->load->model('Client_model');
-		$data['page']='admin/pages/view/client';
-		$data['zonedetails']=$this->Client_model->viewzone();	
-		$data['clientdetails']=$this->Client_model->view_client();
-		return $this->load->view('admin/pages/view/client',$data, true);
+		// $data['page']='admin/pages/view/client';
+		// $data['zonedetails']=$this->Client_model->viewzone();	
+		// $data['clientdetails']=$this->Client_model->view_client();
+				//$data['page']='admin/pages/view/pdf_genrator';
+		return $this->load->view('pdf_genrator','',true);
 	}
 
 

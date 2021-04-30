@@ -1,4 +1,4 @@
-<!-- Content Wrapper. Contains page content -->           
+  <!-- Content Wrapper. Contains page content -->           
     <!-- Content Header (Page header) -->
 <section class="content-header text-center" >
     <h1 style="text-transform: capitalize;"><b>Supllier Data</b></h1>
