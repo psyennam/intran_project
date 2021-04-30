@@ -202,7 +202,7 @@ class Client_model extends CI_model
 			'discount_type'=>$this->input->post('discounttype'),
 			'discount'=>$this->input->post('discount'),
 			'total'=>$this->input->post('total'),
-			'ip_address'=>$this->input()->ip_address()
+			'ip_address'=>$this->input->ip_address()
 		];
 		if($this->db->insert('quotation',$quotation))
 		{
@@ -211,6 +211,19 @@ class Client_model extends CI_model
 		else{
 			return false;
 		}
+	}
+
+	function panding_quotationlist()
+	{
+		return $this->db->select('*')->where('status',0)->get('quotation')->result();
+	}
+	function quotationConfirm()
+	{
+		$status=['status'=>1];
+		$this->db->where('status',0);
+		$res=$this->db->update('quotation',$status);
+		return $res;
+		// return $this->db->update('quotation')->set('status',1)->where('status',0)->get()->result();
 	}
 	/**
 		In this function we get pending quotation list

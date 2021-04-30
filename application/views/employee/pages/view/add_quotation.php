@@ -76,7 +76,7 @@
 											</div>
 										</div>
 										<div class="col-sm-12" id="productdivs">
-											<input type="submit" id="btnSubmit" name="btnSubmit" class="btn btn-primary" value="Submit">
+											<input type="submit" id="btnNext" name="btnNext" class="btn btn-primary" value="ADD More">
 											<input type="submit" id="btnView" class="btn btn-primary" value="View" onclick="formView();">
 										</div>
 									</form>
@@ -88,8 +88,70 @@
 		</div>
 	</section>
 
-	<script type="text/javascript">
 	
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="col-md-12">
+            <div class="box-header with-border" style="text-align:center;">
+              <h3 class="box-title" style="font-size:25px !important;">Panding Quotation List</h3>
+            </div>
+            <!-- <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a> -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body" style="overflow-x:auto;">
+          <table id="example2" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Company Name</th>
+                <th>Product Type</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Approved Price Lis</th>
+                <th>Rate</th>
+                <th>Discount Type</th>
+                <th>Discount</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Invoice Number</th>
+              </tr>
+            </thead>
+            <tbody>
+             <?php foreach ($panding_quotationlist as $key) { ?>
+              <tr>
+                <td><?= $key->lead_code; ?></td>
+                <td><?= $key->product_code; ?></td>
+                <td><?= $key->quantity; ?></td>
+                <td><?= $key->price; ?></td>
+                <td><?= $key->approved_price; ?></td>
+                <td><?= $key->rate; ?></td>
+                <td><?= $key->discount_type; ?></td>
+                <td><?= $key->discount; ?></td>
+                <td><?= $key->total; ?></td>
+                <!-- <td><?= $key->crea; ?></td> -->
+                <!-- <td><?= $key->lead_code; ?></td> -->
+                <td><?= $key->status; ?></td>
+                <td><?= $key->invoice_number; ?></td>
+              </tr>
+              <?php } ?>
+              </tbody>
+          </table>
+          <a href="<?= base_url('Client/quotationconfirm'); ?>"><button class="btn btn-primary" type="button" name="btnConfirm" id="btnConfirm">Confirm</button></a>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+
+	<script type="text/javascript">
+
 	$('#hiddenvalueamt').html(0);
 
 /* ProductType dependent combo */

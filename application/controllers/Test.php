@@ -1,6 +1,8 @@
 <?php 
 class Test extends ci_controller{
 	function index(){
+		phpinfo();
+		return;
 		require APPPATH.'libraries\tcpdf\tcpdf.php';
 		$this->pdf=new TCPDF();
 		$this->pdf->setPrintHeader(false);
