@@ -46,7 +46,7 @@
  * @author Nicola Asuni - info@tecnick.com
  */
 class TCPDF_FONTS {
-
+	private $currentfont   = false;
 	/**
 	 * Static cache used for speed up uniord performances
 	 * @protected
@@ -69,6 +69,7 @@ class TCPDF_FONTS {
 	 * @since 5.9.123 (2010-09-30)
 	 * @public static
 	 */
+
 	public static function addTTFfont($fontfile, $fonttype='', $enc='', $flags=32, $outpath='', $platid=3, $encid=1, $addcbbox=false, $link=false) {
 		if (!TCPDF_STATIC::file_exists($fontfile)) {
 			// Could not find file
@@ -1995,7 +1996,7 @@ class TCPDF_FONTS {
 	 * @author Nicola Asuni
 	 * @public static
 	 */
-	public static function UTF8StringToArray($str, $isunicode=true, &$currentfont) {
+	public static function UTF8StringToArray($str, $isunicode=true, &$currentfont = false) {
 		if ($isunicode) {
 			// requires PCRE unicode support turned on
 			$chars = TCPDF_STATIC::pregSplit('//','u', $str, -1, PREG_SPLIT_NO_EMPTY);

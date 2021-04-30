@@ -134,7 +134,9 @@ class Client extends CI_controller
 
 	function add_quotation($id)
 	{
+		$code=$id;
 		$data['page']='employee/pages/view/add_quotation';
+		$data['panding_quotationlist']=$this->Client_model->panding_quotationlist();
 		$data['companydetails']=$this->Client_model->companydetails();
 		// $data['productdetails']=$this->Client_model->productdetails();
 		$this->load->view('admin/components/layout',$data);
@@ -147,6 +149,22 @@ class Client extends CI_controller
 			{
 				echo "Something Went Wrong";
 			}
+			else{
+				redirect('Client/add_quotation/'.$code);
+			}
+		}
+		
+	}
+
+	function quotationconfirm()
+	{
+		$ress=$this->Client_model->quotationConfirm();
+		if($ress==false)
+		{
+			echo "Something Went Wrong";
+		}
+		else{
+			echo "updated";
 		}
 	}
 
