@@ -35,7 +35,6 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '500',
                                                 ),
-
                                                 'org_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',

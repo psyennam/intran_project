@@ -7,12 +7,12 @@
 
   <table border="0">
     <thead>
-      <?php foreach($quotationdetails as $key) {?>
+      
       <tr>
         <th><h1>AdminLTE, Inc.</h1></th>
-        <th style="text-align: right;"><h4>Date:<?php echo __date_format($key->created_at,'ddmmyyyy');?></h4></th>
+            <th style="text-align: right;"><h4>Date:<?php echo date('d-m-y');?></h4>
+        </th>
       </tr>
-    <?php }?>
     </thead>
   </table>
 
@@ -73,24 +73,31 @@
   </div>
 
   <!-- /.col -->
+  <?php $rate=0; 
+        $discount=0;
+        $total=0;
+  ?>
     <div class="col-xs-6">
       <p class="lead">Amount Due 2/22/2014</p>
       <div class="table-responsive">
         <table class="table">
-          <?php foreach($quotationdetails as $key) {?>
+          <?php 
+            foreach($quotationdetails as $key)
+            {
+              $rate+=$key->rate;
+              $discount+=$key->discount;
+              $total+=$key->total;
+            }
+          ?>
           <tr>
-            <th style="width:50%">Rate:</th>
-            <td><?php echo $key->rate;?></td>
+          <th>Rate:-<?= $rate; ?></th>
           </tr>
           <tr>
-            <th>Discount:</th>
-            <td><?php echo $key->discount;?></td>
+          <th>Discount:-<?= $discount; ?></th>
           </tr>
           <tr>
-            <th>Total:</th>
-            <td><?php echo $key->total;?></td>
+          <th>Total:-<?= $total; ?></th>
           </tr>
-          <?php }?>
         </table>
       </div>
     </div>

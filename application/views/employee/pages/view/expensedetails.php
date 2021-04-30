@@ -28,8 +28,7 @@
               <?php foreach ($expensedetails as $key) { ?>
                 <tr>
                   <td><?php echo $key->id;?></td>
-                  <td>Action</td>  
-                  <td><?php echo __date_format($key->date,'ddmmyyyy');?></td>      
+                  <td><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>   
                   <td><?php echo $key->type;?></td> 
                   <td><?php echo $key->amount;?></td>
                 </tr> 

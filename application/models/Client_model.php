@@ -191,7 +191,8 @@ class Client_model extends CI_model
 	}
 	function viewquotationbyid($id)
 	{
-		return $this->db->select('*')->where('id',$id)->get('quotation')->result();
+
+		return $this->db->select('*')->where('lead_code',$id)->get('quotation')->result();
 	}
 	function quotationinsert($id)
 	{
@@ -251,7 +252,7 @@ class Client_model extends CI_model
 			'quotation_status'=>1,
 			'quotation_close_date'=>date('Y-m-d H:i:s')
 		];
-		$this->db->where('lead_code',$leadcode);
+		$this->db->where(['quotation_status'=>0,'lead_code'=>$leadcode]);
 		$res=$this->db->update('quotation',$confirm);
 		return $res;
 	}
@@ -299,8 +300,11 @@ class Client_model extends CI_model
 			return false;
 		}
 	}
-	function viewcompany($id)
+	/**
+		In this function 
+	**/
+	function viewexpensebyid($id)
 	{
-		return $this->db->select('company_name,address')->from('quotation')->join('lead','lead.lead_code=quotation.lead_code')->where('id',$id)->get()->result();	
-	}	
+		return $this->db->select('*')->where('id',$id)->get('expense')->result();
+	}
 }

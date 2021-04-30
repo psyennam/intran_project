@@ -30,9 +30,9 @@
                   <td><?php echo $key->id;?></td>
                   <td><?php echo $key->product_code;?></td>
                   <td><?php echo $key->quantity;?></td>
-                  <th><?php echo $key->price;?></th>
-                  <th><?php echo $key->discount;?></th>
-                  <th><?php echo $key->total;?></th>
+                  <td><?php echo $key->price;?></td>
+                  <td><?php echo $key->discount;?></td>
+                  <td><?php echo $key->total;?></td>
                 </tr> 
               <?php } ?>
           </tbody>

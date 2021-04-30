@@ -72,4 +72,18 @@ function emp_name($emp_code)
 	$ci = &get_instance();
 	return $ci->db->select('employee')->where('employee_code',$emp_code)->get('employee')->row()->employee;
 }
-
+function emp_email($emp_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('email')->where('employee_code',$emp_code)->get('employee')->row()->email;
+}
+function emp_address($emp_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('address')->where('employee_code',$emp_code)->get('employee')->row()->address;
+}
+function emp_contact($emp_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('contact')->where('employee_code',$emp_code)->get('employee')->row()->contact;
+}
