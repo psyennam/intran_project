@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
                                 class Migration_Add_mapping_quotation extends CI_Migration {
-                                //dasgjh
+                                
                                 public function up(){
                                         $this->dbforge->add_field(array(
                                                 'id' => array(
