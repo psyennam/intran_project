@@ -196,8 +196,38 @@ class Client_model extends CI_model
 	}
 	function quotationinsert($id)
 	{
+		$randomid=random_string('alnum',5);
+		$ip=$this->input->ip_address();
 		$quotation=[
+			'quotation_code'=>$randomid,
 			'lead_code'=>$id,
+			// 'product_code'=>$this->input->post('productname'),
+			//'total'=>$this->input->post('total'),
+			'ip_address'=>$ip
+			// 'invoice_number'=>
+
+			// 'quantity'=>$this->input->post('qty'),
+			// 'price'=>$this->input->post('Productprice'),
+			// 'approved_price'=>$this->input->post('approvedprice'),
+			// 'rate'=>$this->input->post('rate'),
+			// 'discount_type'=>$this->input->post('discounttype'),
+			// 'discount'=>$this->input->post('discount'),
+		];
+		if($this->db->insert('quotation',$quotation))
+		{
+			return $quotation['quotation_code'];
+		}
+		else{
+			return false;
+		}
+	}
+
+
+	function mapping_quotationinsert($lead_code,$quotation_code)
+	{
+		$mapping_quotation=[
+			'lead_code'=>$lead_code,
+			'quotation_code'=>$quotation_code,
 			'product_code'=>$this->input->post('productname'),
 			'quantity'=>$this->input->post('qty'),
 			'price'=>$this->input->post('Productprice'),
@@ -205,26 +235,30 @@ class Client_model extends CI_model
 			'rate'=>$this->input->post('rate'),
 			'discount_type'=>$this->input->post('discounttype'),
 			'discount'=>$this->input->post('discount'),
-			'total'=>$this->input->post('total'),
-			'ip_address'=>$this->input->ip_address()
+			'total'=>$this->input->post('total')
 		];
-		if($this->db->insert('quotation',$quotation))
+		if($this->db->insert('mapping_quotation',$mapping_quotation))
 		{
-			return true;
+			return $quotation_code;
 		}
 		else{
 			return false;
 		}
 	}
 
-	function panding_quotationlist()
+	function panding_quotationlist($code)
 	{
-		return $this->db->select('*')->where('status',0)->get('quotation')->result();
+		return $this->db->select('*')->where(['lead_code'=>$code,'quotation_status'=>0])->get('mapping_quotation')->result();
 	}
-	function quotationConfirm()
+	function quotationConfirm($code)
 	{
-		$status=['status'=>1];
-		$this->db->where('status',0);
+		$total=$this->db->select_sum('total')->from('mapping_quotation')->where('quotation_code',$code)->get()->row();
+		
+		$status=[
+			'status'=>1,
+			'total'=>$total->total
+		];
+		$this->db->where(['quotation_code'=>$code,'status'=>0]);
 		$res=$this->db->update('quotation',$status);
 		return $res;
 		// return $this->db->update('quotation')->set('status',1)->where('status',0)->get()->result();
@@ -234,34 +268,42 @@ class Client_model extends CI_model
 	**/
 	function pendingdetails()
 	{
-		return $this->db->select('*')->where('quotation_status',0)->get('quotation')->result();
+		/*return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.lead_code=mapping_quotation.lead_code')->where('quotation_status',0)->get()->result();*/
+		return $this->db->select('*')->get('quotation')->result();
 	}
 	/**
 		In this function we get pending quotation list by leadcode
 	**/
 	function pending_leadcode($leadcode)
 	{
-		return $this->db->select('*')->where(['quotation_status'=>0,'lead_code'=>$leadcode])->get('quotation')->result();
+		return $this->db->select('*')->where(['quotation_status'=>0,'lead_code'=>$leadcode])->get('mapping_quotation')->result();
 	}
 	/**
 		In this function pending quotation will be updated by leadcode
 	**/
 	function quotation_confirm($leadcode)
 	{
-		$confirm=[
-			'quotation_status'=>1,
-			'quotation_close_date'=>date('Y-m-d H:i:s')
+		$status=[
+			'quotation_status'=>1	
 		];
 		$this->db->where(['quotation_status'=>0,'lead_code'=>$leadcode]);
-		$res=$this->db->update('quotation',$confirm);
-		return $res;
+		$res=$this->db->update('mapping_quotation',$status);
+		if($res>0)
+		{	
+			$close_date=[
+			'quotation_close_date'=>date('Y-m-d H:i:s')	
+			];
+			$this->db->where('lead_code',$leadcode);
+			$res=$this->db->update('quotation',$close_date);
+			return $res;	
+		}
 	}
 	/**
 		In this function we get quotation close list
 	**/
 	function quotationcloselist()
 	{
-		return $this->db->select('*')->where('quotation_status',1)->get('quotation')->result();
+		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.lead_code=mapping_quotation.lead_code')->where('quotation_status',1)->get()->result();
 	}
 	/**
 		In this function we get expense list

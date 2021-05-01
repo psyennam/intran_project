@@ -132,39 +132,52 @@ class Client extends CI_controller
 		$this->load->view('admin/components/layout',$data);
 	}
 
+
 	function add_quotation($id)
 	{
 		$code=$id;
 		$data['page']='employee/pages/view/add_quotation';
-		$data['panding_quotationlist']=$this->Client_model->panding_quotationlist();
 		$data['companydetails']=$this->Client_model->companydetails();
 		// $data['productdetails']=$this->Client_model->productdetails();
-		$this->load->view('admin/components/layout',$data);
 
 		if($_POST)
 		{
-			$res=$this->Client_model->quotationinsert($id);
-
-			if($res==false)
+			if($this->input->post('qcode')=="")
 			{
-				echo "Something Went Wrong";
+				$res=$this->Client_model->quotationinsert($id);
+				$data['qcode'] = $res;
 			}
-			else{
-				redirect('Client/add_quotation/'.$code);
+			else
+			{
+				$data['qcode'] = $this->input->post('qcode');
+			}
+			
+			$mapping_res=$this->Client_model->mapping_quotationinsert($id,$data['qcode']);
+			$data['qcode'] = $mapping_res;
+			
+			if($mapping_res)
+			{
+				// redirect('Client/add_quotation/'.$code);	
+			}
+			else
+			{
+				echo "Something went wrong";
 			}
 		}
-		
+		$data['panding_quotationlist']=$this->Client_model->panding_quotationlist($code);
+		$this->load->view('admin/components/layout',$data);
 	}
 
-	function quotationconfirm()
+	function quotationconfirm($code)
 	{
-		$ress=$this->Client_model->quotationConfirm();
+		$ress=$this->Client_model->quotationConfirm($code);
 		if($ress==false)
 		{
 			echo "Something Went Wrong";
 		}
 		else{
-			echo "updated";
+			redirect('Client/pendinglist');
+			//echo "updated";
 		}
 	}
 
@@ -222,6 +235,7 @@ class Client extends CI_controller
 	{
 		$data['page']='employee/pages/view/quotationcloselist';
 		$data['quotationdetails']=$this->Client_model->quotationcloselist();
+		//print_r($data['quotationdetails']);
 		$this->load->view('admin/components/layout',$data);
 	}
 	/**

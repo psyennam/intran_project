@@ -14,6 +14,7 @@
 											</div>
 										</div>
 										<form method="post">
+                      <input type="text" name="qcode" value="<?= (isset($qcode))?$qcode:''; ?>">
 											<div class="col-sm-12" id="productdiv">
 												<div class="col-md-3 form-group">	
 													<label>Company Name</label>
@@ -105,7 +106,7 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>Company Name</th>
+                
                 <th>Product Type</th>
                 <th>Product Name</th>
                 <th>Quantity</th>
@@ -115,8 +116,6 @@
                 <th>Discount Type</th>
                 <th>Discount</th>
                 <th>Total</th>
-                <th>Status</th>
-                <th>Invoice Number</th>
               </tr>
             </thead>
             <tbody>
@@ -130,16 +129,12 @@
                 <td><?= $key->rate; ?></td>
                 <td><?= $key->discount_type; ?></td>
                 <td><?= $key->discount; ?></td>
-                <td><?= $key->total; ?></td>
-                <!-- <td><?= $key->crea; ?></td> -->
-                <!-- <td><?= $key->lead_code; ?></td> -->
-                <td><?= $key->status; ?></td>
-                <td><?= $key->invoice_number; ?></td>
+                <td><?= $key->total; ?></td>               
               </tr>
+          <a href="<?php if(isset($qcode)){ echo base_url('Client/quotationconfirm/'.$qcode);}else {echo base_url('Client/quotationconfirm');} ?>"><button class="btn btn-primary" type="button" name="btnConfirm" id="btnConfirm">Confirm</button></a>
               <?php } ?>
               </tbody>
           </table>
-          <a href="<?= base_url('Client/quotationconfirm'); ?>"><button class="btn btn-primary" type="button" name="btnConfirm" id="btnConfirm">Confirm</button></a>
         </div>
         <!-- /.box-body -->
       </div>
