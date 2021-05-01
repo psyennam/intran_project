@@ -190,9 +190,8 @@ class Client_model extends CI_model
 		return $this->db->select('*')->get('quotation')->result();
 	}
 	function viewquotationbyid($id)
-	{
-
-		return $this->db->select('*')->where('lead_code',$id)->get('quotation')->result();
+	{	
+		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where('mapping_quotation.lead_code',$id)->get('')->result();
 	}
 	function quotationinsert($id)
 	{
