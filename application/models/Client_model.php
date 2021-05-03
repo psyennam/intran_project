@@ -267,8 +267,7 @@ class Client_model extends CI_model
 	**/
 	function pendingdetails()
 	{
-		/*return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.lead_code=mapping_quotation.lead_code')->where('quotation_status',0)->get()->result();*/
-		return $this->db->select('*')->get('quotation')->result();
+		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where(['quotation.status'=>1,'mapping_quotation.quotation_status'=>0])->get()->result();
 	}
 	/**
 		In this function we get pending quotation list by leadcode
@@ -302,7 +301,7 @@ class Client_model extends CI_model
 	**/
 	function quotationcloselist()
 	{
-		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.lead_code=mapping_quotation.lead_code')->where('quotation_status',1)->get()->result();
+		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where(['quotation.status'=>1,'mapping_quotation.quotation_status'=>1])->get()->result();
 	}
 	/**
 		In this function we get expense list

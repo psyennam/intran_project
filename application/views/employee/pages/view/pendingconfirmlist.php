@@ -25,7 +25,7 @@
                 </tr>
             </thead>
           <tbody>
-              <?php foreach ($pendingdetails as $key) { ?>
+              <?php  if(!empty($pendingdetails)) { foreach($pendingdetails as $key) {?>
                 <tr>
                   <td><?php echo $key->id;?></td>
                   <td><?php echo $key->product_code;?></td>
@@ -34,7 +34,7 @@
                   <td><?php echo $key->discount;?></td>
                   <td><?php echo $key->total;?></td>
                 </tr> 
-              <?php } ?>
+              <?php } } ?>
           </tbody>
           </table>
           <div class="col-md-12" style="text-align:right !important;">

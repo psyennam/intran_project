@@ -39,6 +39,9 @@
                                                 'discount' => array(
                                                         'type' => 'INT',
                                                 ),
+                                                'total' => array(
+                                                        'type' => 'INT',
+                                                ),
                                                 'quotation_status' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '15',
