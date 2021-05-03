@@ -40,8 +40,8 @@
                   <td><?php echo $key->address;?></td>
                   <td><?php echo $key->zip_code;?></td>  
                   <td><?php echo is_status($key->status); ?></td>
-                  <!-- <td><a href="updateclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
-                  <td><a href="deleteclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td> -->      
+                  <td><a href="updatelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
+                  <td><a href="deletelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>      
                 </tr> 
               <?php } ?>            
             </tbody>

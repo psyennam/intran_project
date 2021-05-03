@@ -102,6 +102,13 @@ class Client extends CI_controller
 		$data['leaddetails']=$this->Client_model->viewleadlist();
 		$this->load->view('admin/components/layout',$data);	
 	}
+
+	function updatelead()
+	{
+		$data['page']='employee/pages/view/updateleadlist';
+		$data['leaddetails']=$this->Client_model->viewleadlist();
+		$this->load->view('admin/components/layout',$data);
+	}
 	/**
 		Lead-Form
 	**/
@@ -123,7 +130,7 @@ class Client extends CI_controller
 				redirect('Client/add_quotation/'.$res['lead_code']);				
 			}
 			else{
-				echo "followup list";
+				redirect('Client/followuplist');	
 			}
 		}
 	}
@@ -287,7 +294,8 @@ class Client extends CI_controller
 		$res=$this->Client_model->quotation_confirm($quotation_code);
 		if($res>0)
 		{
-			$data['page']='employee/pages/view/quotationcloselist';	
+			// $data['page']='employee/pages/view/quotationcloselist';	
+			redirect('Client/quotationcloselist');
 		}
 		$this->load->view('admin/components/layout',$data);			
 	}
@@ -301,6 +309,13 @@ class Client extends CI_controller
 		index();
 		// abc();
 		//index();
+	}
+
+	function followuplist()
+	{
+		$data['page']='employee/pages/view/followuplist';
+		$data['followupdetails']=$this->Client_model->followuplist();
+		$this->load->view('admin/components/layout',$data);
 	}
 }
 

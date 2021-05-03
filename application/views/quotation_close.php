@@ -7,7 +7,6 @@
 
   <table border="0">
     <thead>
-      
       <tr>
         <th><h1>AdminLTE, Inc.</h1></th>
             <th style="text-align: right;"><h4>Date:<?php echo date('d-m-y');?></h4>
@@ -31,7 +30,9 @@
         </td>
         <td> 
           To
-            <strong>Som Comapany</strong><br>
+            <strong><?php foreach ($closedetails as $key ) {
+            echo company_name_quotation($key->lead_code);
+            } ?></strong><br>
             United State Of Pandesara<br>
             Phone: (555) 539-1037<br>
             Email: Som.Comapany@example.com

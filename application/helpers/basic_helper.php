@@ -87,3 +87,9 @@ function emp_contact($emp_code)
 	$ci = &get_instance();
 	return $ci->db->select('contact')->where('employee_code',$emp_code)->get('employee')->row()->contact;
 }
+
+function company_name_quotation($lead_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('company_name')->from('lead as l1')->join('quotation as q1','q1.lead_code=l1.lead_code')->where('l1.lead_code',$lead_code)->get()->row()->company_name;
+}
