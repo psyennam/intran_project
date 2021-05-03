@@ -26,7 +26,7 @@
               <tr>
                   <td><a href=""><i class="fa fa-pencil-square-o"></i>Edit</a><a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a></td>
                   <td><?php echo $key->id;?></td>
-                  <td><a href="<?php echo base_url('Test/index/'.$key->lead_code);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>
+                  <td><a href="<?php echo base_url('Test/index/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>
                   <td><?= client_name($key->lead_code)?></td>
                   <td><?= __date_format($key->created_at,'ddmmyyyy');?></td>
               </tr>
