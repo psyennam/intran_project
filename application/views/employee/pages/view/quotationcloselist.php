@@ -25,10 +25,10 @@
               </tr>
             </thead>
             <tbody>
-               <?php foreach ($quotationdetails as $key) { ?>
+               <?php foreach($quotationdetails as $key) { ?>
                 <tr>
                   <td><?php echo $key->id;?></td>
-                  <td>PDF</td>
+                  <td><a href="<?php echo base_url('Test/close/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>
                   <td>InvoiceNumber</td>
                   <td><?php echo client_name($key->lead_code);?></td>
                   <td><?php echo __date_format($key->quotation_close_date,'ddmmyyyy');?></td>
