@@ -253,7 +253,7 @@ class Client_model extends CI_model
 
 	function panding_quotationlist($code)
 	{
-		return $this->db->select('*')->where(['lead_code'=>$code,'quotation_status'=>0])->get('mapping_quotation')->result();
+		return $this->db->select('*')->from('quotation')->join('mapping_quotation','mapping_quotation.quotation_code=quotation.quotation_code')->where(['quotation.lead_code'=>$code,'mapping_quotation.quotation_status'=>0,'quotation.status'=>0])->get()->result();
 	}
 	function quotationConfirm($code)
 	{
@@ -273,7 +273,9 @@ class Client_model extends CI_model
 	**/
 	function pendingdetails()
 	{
-		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where(['quotation.status'=>1,'mapping_quotation.quotation_status'=>0])->get()->result();
+		// return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where(['quotation.status'=>1,'mapping_quotation.quotation_status'=>0])->get()->result();
+
+		return $this->db->select('*')->where('status',1)->get('quotation')->result();
 	}
 	/**
 		In this function we get pending quotation list by leadcode
@@ -295,6 +297,8 @@ class Client_model extends CI_model
 	**/
 	function quotation_confirm($quotation_code)
 	{
+		// echo $quotation_code;
+	
 		$status=[
 			'quotation_status'=>1	
 		];
@@ -303,7 +307,8 @@ class Client_model extends CI_model
 		if($res>0)
 		{	
 			$close_date=[
-			'quotation_close_date'=>date('Y-m-d H:i:s')	
+			'quotation_close_date'=>date('Y-m-d H:i:s'),
+			'status'=>2	
 			];
 			$this->db->where('quotation_code',$quotation_code);
 			$res=$this->db->update('quotation',$close_date);
@@ -315,7 +320,8 @@ class Client_model extends CI_model
 	**/
 	function quotationcloselist()
 	{
-		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where(['quotation.status'=>1,'mapping_quotation.quotation_status'=>1])->get()->result();
+		// return $this->db->select('quotation.id,quotation.lead_code,quotation.quotation_code,quotation.quotation_close_date,quotation.invoice_number')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where(['quotation.status'=>1,'mapping_quotation.quotation_status'=>1])->get()->result();
+		return $this->db->select('*')->where('status',2)->get('quotation')->result();
 	}
 	/**
 		In this function we get expense list
@@ -360,5 +366,10 @@ class Client_model extends CI_model
 	function viewexpensebyid($id)
 	{
 		return $this->db->select('*')->where('id',$id)->get('expense')->result();
+	}
+
+	function view_close_quotation_by_id($id)
+	{
+		return $this->db->select('*')->where('quotation_code',$id)->get('quotation')->result();
 	}
 }

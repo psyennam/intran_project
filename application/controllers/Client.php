@@ -273,18 +273,17 @@ class Client extends CI_controller
 	**/
 	function pendingupdate()
 	{
-		$quotation_code=$this->input->get('quotation_code');
+		$data['quotation_code']=$this->input->get('quotation_code');
 		// echo $quotation_code;
-		$data['pendingdetails']=$this->Client_model->pending_quotation($quotation_code);
+		$data['pendingdetails']=$this->Client_model->pending_quotation($data['quotation_code']);
 		$data['page']='employee/pages/view/pendingconfirmlist';
 		$this->load->view('admin/components/layout',$data);			
 	}
 	/**
 		Pending-Confirm
 	**/
-	function pendingconfirm()
+	function pendingconfirm($quotation_code)
 	{
-		$quotation_code=$this->input->get('quotation_code');
 		$res=$this->Client_model->quotation_confirm($quotation_code);
 		if($res>0)
 		{
@@ -292,6 +291,8 @@ class Client extends CI_controller
 		}
 		$this->load->view('admin/components/layout',$data);			
 	}
+
+
 
 	function pdf()
 	{

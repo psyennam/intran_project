@@ -38,7 +38,7 @@
           </tbody>
           </table>
           <div class="col-md-12" style="text-align:right !important;">
-          <a href="pendingconfirm?quotation_code=<?php echo $key->quotation_code;?>"><input type="submit" class="btn btn-primary" value="Confirm" id="btnConfirm"></a>
+          <a href="<?= base_url('Client/pendingconfirm/'.$quotation_code); ?>"><input type="submit" class="btn btn-primary" value="Confirm" id="btnConfirm"></a>
           </div>
         </div>
         <!-- /.box-body -->
