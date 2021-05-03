@@ -997,6 +997,13 @@ class Admin_model extends CI_model
 	/**
 		In this function it gives all the data from the city table 
 	**/
+	function viewproduct()
+	{
+		return $this->db->select('*')->get('product')->result();
+	}
+	/**
+		In this function it gives all the data from the city table 
+	**/
 	function viewproducttype()
 	{
 		return $this->db->select('*')->get('product_type')->result();

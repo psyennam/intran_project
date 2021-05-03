@@ -627,10 +627,16 @@ class Admin extends CI_controller
 			}
 		}
 	}
-
 	function productmanagement()
 	{
+		$data['productdetails']=$this->Admin_model->viewproduct();
+		//print_r($data['productdetails']);
 		$data['page']='admin/pages/view/productmanagement';
+		$this->load->view('admin/components/layout',$data);
+	}
+	function productinsert()
+	{
+		$data['page']='admin/pages/view/productinsert';
 		$data['producttypedetails']=$this->Admin_model->viewproducttype();
 		$data['companydetails']=$this->Admin_model->viewcompany();
 

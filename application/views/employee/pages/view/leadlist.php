@@ -251,7 +251,7 @@ function check(){
 }
 
 function getcontactdiv(){
-    if($("#concernperson").val()=="Yes" || $("#concernperson").val()==""){
+    if($("#concernperson").val()=="Yes" || $("#concernperson").val()==" "){
       $("#ContactPerson").hide();
     }
     else{
