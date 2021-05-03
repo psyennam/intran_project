@@ -370,7 +370,14 @@ class Client_model extends CI_model
 
 	function view_close_quotation_by_id($id)
 	{
-		return $this->db->select('*')->where('quotation_code',$id)->get('quotation')->result();
+		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where('quotation.quotation_code',$id)->get()->result();
+
+		// return $this->db->select('DISTINCT(quotation.quotation_code),mapping_quotation.product_code,mapping_quotation.quantity,mapping_quotation.rate')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where('quotation.quotation_code',$id)->get()->result();
+	}
+
+	function followuplist()
+	{
+		return $this->db->select('*')->get('followup')->result();
 	}
 	/**
 	Update-DetailsById
