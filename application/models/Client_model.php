@@ -372,4 +372,16 @@ class Client_model extends CI_model
 	{
 		return $this->db->select('*')->where('quotation_code',$id)->get('quotation')->result();
 	}
+	/**
+	Update-DetailsById
+	**/
+	function getdetailsbyid($quotation_code)
+	{
+
+	return $this->db->select('*')->where(['quotation_status'=>0,'quotation_code'=>$quotation_code])->get('mapping_quotation')->result();
+	}
+	function updatedetailsbyid($id)
+	{
+		return $this->db->select('*')->where('id',$id)->get('mapping_quotation')->result();
+	}
 }

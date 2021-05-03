@@ -87,3 +87,8 @@ function emp_contact($emp_code)
 	$ci = &get_instance();
 	return $ci->db->select('contact')->where('employee_code',$emp_code)->get('employee')->row()->contact;
 }
+function product_name($product_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('product')->where('product_code',$product_code)->get('product')->row()->product;
+}

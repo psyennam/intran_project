@@ -17,18 +17,22 @@
               <tr>
                 <th>Action</th>
                 <th>ID</th>
-                <th>PDF</th>
-                <th>DealerShip Name</th>
-                <th>Issue Date</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Total</th>
               </tr>
             </thead>
-             <?php foreach ($quotationdetails as $key) { ?>
+             <?php foreach ($details as $key) { ?>
               <tr>
-                  <td><a href="<?php echo base_url('Client/update_quotation/'.$key->quotation_code);?>"><i class="fa fa-pencil-square-o"></i>Edit</a><a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a></td>
-                  <td><?php echo $key->id;?></td>
-                  <td><a href="<?php echo base_url('Test/index/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>
-                  <td><?= client_name($key->lead_code)?></td>
-                  <td><?= __date_format($key->created_at,'ddmmyyyy');?></td>
+                  <td><a href="<?php echo base_url('Client/update_quotation_form/'.$key->id);?>"><i class="fa fa-pencil-square-o"></i>Edit</a><a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a></td>
+                  <td><?= $key->id;?></td>
+                  <td><?= product_name($key->product_code);?></td>
+                  <td><?= $key->quantity;?></td>
+                  <td><?= $key->price;?></td>
+                  <td><?= $key->discount;?></td>
+                  <td><?= $key->total;?></td>
               </tr>
               <?php } ?>
           </table>

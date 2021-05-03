@@ -291,16 +291,25 @@ class Client extends CI_controller
 		}
 		$this->load->view('admin/components/layout',$data);			
 	}
-
-
-
-	function pdf()
+	/**
+		Update Quotation
+	**/
+	function update_quotation($quotation_code)
 	{
-		// echo "string";
-		$this->load->helper('Pdf_helper');
-		index();
-		// abc();
-		//index();
+		//echo $quotation_code;
+		$data['details']=$this->Client_model->getdetailsbyid($quotation_code);
+		//print_r($data['details']);
+		$data['page']='employee/pages/update/update_quotation';	
+		$this->load->view('admin/components/layout',$data);			
+	}
+	/**
+		Update Quotation
+	**/
+	function update_quotation_form($id)
+	{
+		$data['details']=$this->Client_model->updatedetailsbyid($id);
+		$data['page']='employee/pages/update/update_quotationform';	
+		$this->load->view('admin/components/layout',$data);		
 	}
 }
 
