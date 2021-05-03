@@ -29,7 +29,8 @@
                 <tr>
                   <td><?php echo $key->id;?></td>
                   <td><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>   
-                  <td><?php echo $key->type;?></td> 
+                  <td><?php echo $key->type;?></td>
+                  <td></td> 
                   <td><?php echo $key->amount;?></td>
                 </tr> 
               <?php } ?>

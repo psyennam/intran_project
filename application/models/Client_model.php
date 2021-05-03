@@ -127,12 +127,12 @@ class Client_model extends CI_model
 
 		$data=[
 			'lead_code'=>$leadcode,
+			'customer_available'=>$this->input->post('customercombo'),
 			'concerned_person'=>$this->input->post('concernperson'),
 			'quotation_require'=>$this->input->post('quotationreq'),
 			'visit_type'=>$this->input->post('visitetype'),
 			'additional_remark'=>$this->input->post('remark'),
-		];
-		
+		];	
 		$this->db->trans_start();
 		if($insert=$this->db->insert('discussion_with_customer',$data))
 		{
@@ -151,13 +151,19 @@ class Client_model extends CI_model
 			{
 				$data2=[
 					'lead_code'=>$leadcode,
+					'customer_available'=>$this->input->post('customercombo'),
+					'concerned_person'=>$this->input->post('concernperson'),
+					// 'location'=>
+					// 'contact_no'=>
 					'quotation_require'=>$this->input->post('quotationreq'),
-					'ip_address'=>$this->input->ip_address(),
+					'visit_type'=>$this->input->post('visitetype'),
+					'additional_remark'=>$this->input->post('remark'),
+					'ip_address'=>$this->input->ip_address()
 				];
 				if($this->db->insert('followup',$data2))
 				{
 					$this->db->trans_complete();
-					return $leadcode;
+					return $data2;
 				}
 				else{
 					$this->db->trans_rollback();
@@ -171,7 +177,7 @@ class Client_model extends CI_model
 		}
 		else{
 			$this->db->trans_rollback();
-			return false;	
+			return false;
 		}
 	}
 

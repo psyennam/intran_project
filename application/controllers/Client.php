@@ -118,9 +118,12 @@ class Client extends CI_controller
 		if($_POST['btnsubmit1']=='Submit')
 		{
 			$res=$this->Client_model->leadlist_insert();
-			if($res!==false)
+			if($res['quotation_require']==="Yes")
 			{
-				redirect('Client/add_quotation/'.$res);				
+				redirect('Client/add_quotation/'.$res['lead_code']);				
+			}
+			else{
+				echo "followup list";
 			}
 		}
 	}

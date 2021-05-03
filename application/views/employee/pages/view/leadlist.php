@@ -70,6 +70,7 @@
           <h4 class="modal-title" id="abc"></h4>
           <h4 class="modal-title">Available / Not Available</h4>
         </div>
+          <form method="post" enctype="multipart/form-data" action="<?= base_url('Client/leadlist_insert'); ?>">
         <div class="modal-body">
           <div class="row" style="text-align:center;">
             <div class="col-md-12">
@@ -80,7 +81,6 @@
             </div>
           </div>
 
-          <form method="post" enctype="multipart/form-data" action="<?= base_url('Client/leadlist_insert'); ?>">
           <input type="text" id="hdnId" name="lead_code">
             <div id="maindiv">
               <div id="hiddendiv">
@@ -111,7 +111,7 @@
                       </select>
                     </div>
                     <div class="form-group col-md-6" id="getremarkdivs">
-                      <label>Additional Remarks></label>
+                      <label>Additional Remarks</label>
                       <textarea id="remark" name="remark" class="form-control"></textarea>
                     </div> 
                   </div>
@@ -162,8 +162,7 @@
                 <div class="col-md-12">
                   <div class="col-md-12 form-group">
                     <label>Contact Person</label>
-                    <select id="cperson" class="form-control">
-                    </select>
+                    <input type="text" name="cperson" id="cperson" class="form-control">
                   </div>
                   <div class="col-md-12 form-group">
                     <label>Remark</label>
