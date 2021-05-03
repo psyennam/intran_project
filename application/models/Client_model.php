@@ -282,22 +282,30 @@ class Client_model extends CI_model
 	{
 		return $this->db->select('*')->where(['quotation_status'=>0,'lead_code'=>$leadcode])->get('mapping_quotation')->result();
 	}
+
+	/**
+		In this function we get pending quotation list by quotation
+	**/
+	function pending_quotation($quotation_code)
+	{
+		return $this->db->select('*')->where(['quotation_status'=>0,'quotation_code'=>$quotation_code])->get('mapping_quotation')->result();
+	}
 	/**
 		In this function pending quotation will be updated by leadcode
 	**/
-	function quotation_confirm($leadcode)
+	function quotation_confirm($quotation_code)
 	{
 		$status=[
 			'quotation_status'=>1	
 		];
-		$this->db->where(['quotation_status'=>0,'lead_code'=>$leadcode]);
+		$this->db->where(['quotation_status'=>0,'quotation_code'=>$quotation_code]);
 		$res=$this->db->update('mapping_quotation',$status);
 		if($res>0)
 		{	
 			$close_date=[
 			'quotation_close_date'=>date('Y-m-d H:i:s')	
 			];
-			$this->db->where('lead_code',$leadcode);
+			$this->db->where('quotation_code',$quotation_code);
 			$res=$this->db->update('quotation',$close_date);
 			return $res;	
 		}

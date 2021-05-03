@@ -38,9 +38,7 @@
           </tbody>
           </table>
           <div class="col-md-12" style="text-align:right !important;">
-<!--             <a href="pendingconfirm?lead_code=<?php echo $key->lead_code;?>"><input type="submit" class="btn btn-primary" value="Confirm" id="btnConfirm"></a>
- -->            <input type="submit" class="btn btn-primary" value="View" id="btnView">
-            <input type="submit" class="btn btn-primary" value="Cancel" id="btnCancel">
+          <a href="pendingconfirm?quotation_code=<?php echo $key->quotation_code;?>"><input type="submit" class="btn btn-primary" value="Confirm" id="btnConfirm"></a>
           </div>
         </div>
         <!-- /.box-body -->
