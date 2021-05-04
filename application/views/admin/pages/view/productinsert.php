@@ -76,7 +76,7 @@
 								<div id="myimage" style="display:none;"></div>
 							</div>
 							<div class="form-group col-md-3">
-								<label><?= __lang('Product Document');?></label>
+								<label><?= __lang('Product Document');?><span style="color:red;">*PDF</span></label>
 								<input type="file" id="procatg" name="procatg[]" class="form-control" accept="application/pdf" multiple />
 							<!--	<a href="#" data-toggle="modal" data-target="#modal-default1"><i class="fa fa-eye"></i></a>
 								<div id="myimage1" style="display:none;"></div>-->

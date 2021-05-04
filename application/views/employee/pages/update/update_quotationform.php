@@ -12,30 +12,33 @@
                           <h3 class="box-title">Add Quotation</h3>
                         </div>
                       </div>
+                      <form method="post">
+                        <?php foreach($details as $key) {?>
                       <div class="col-sm-12" id="productdiv">
                         <div class="col-md-3 form-group"> 
                           <label>Product Name</label>
-                          <select class="form-control" id="productname" onchange="myfunction2();">
-                            
+                          <select class="form-control productname" id="opt_productname" name="productname"> 
+                            <?php foreach($productdetails as $keyy){?>
+                            <option value="<?= $keyy->product_code?>"<?php if($keyy->product_code==$key->product_code){ echo "selected";} ?>><?php echo $keyy->product; ?></option>
+                          <?php }?>
                           </select>
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Quantity</label>
-                          <input type="text" id="qty" class="form-control" onkeyup="gethiddenamt();">
+                          <input type="text" id="qty" class="form-control" value="<?= $key->quantity;?>">
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Price</label>
-                          <input type="text" id="price" class="form-control" disabled>
+                          <input type="text" id="opt_productprice" value="<?= $key->price;?>" name="Productprice" class="form-control" readonly>
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Approved Price List</label>
-                          <select id="approvedprice" class="form-control" onchange="getrate();">
-                            <option value=''>Select</option>                     
+                          <select id="opt_approvedprice" name="approvedprice" class="form-control approvedprice">       
                           </select>
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Rate</label>
-                          <input type="text" id="rate" class="form-control">
+                          <input type="text" id="rate" class="form-control" name="rate">
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Discount Type</label>
@@ -51,13 +54,15 @@
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Total</label>
-                          <input type="text" id="total" class="form-control" readonly>
+                          <input type="text" id="total" class="form-control" value="<?= $key->total;?>" readonly>
                         </div>
                       </div>
+                    <?php };?>
                     </div>
                     <div class="col-sm-12" id="productdivs">
-                      <input type="submit" id="btnSubmit" class="btn btn-primary" value="Edit" >
+                    <input type="submit" id="btnSubmit" class="btn btn-primary" value="Edit" >
                     </div>
+                    </form>
                   <!-- Div For Product Description Table End -->
                 </div>
               </div>
@@ -66,3 +71,105 @@
       </div>
     </div>
   </section>
+  <script>
+    function discount_type(){
+  var discounttype=$('#discounttype').val();
+  // alert(discounttype);
+  if (discounttype!="") 
+  {
+    $("#discount").attr("readonly",false);
+  }
+  else
+  {
+    $("#discount").attr("readonly", true);
+  }
+}
+ /* Price box */
+  $(document).ready(function(){
+    $('.productname').change(function(){
+      var product_code = $(this).val();
+      alert(product_code);
+      if(product_code != "")
+      {
+        $.post(base_url+"/Client/opt_price/"+product_code, function(res){
+          res = $.parseJSON(res);
+          var html;
+          if(res.status == 200){
+            $.each(res.data, function(index,value){
+              $('#opt_productprice').val(value.price); 
+              $('#total').val(value.price);   
+            });
+          }
+        })
+
+      }
+    });
+  })
+  /* ApprovedPrice dependent combo */
+  $(document).ready(function(){
+    $('.productname').change(function(){
+      var product_code = $(this).val();
+      // alert(product_code);
+      if(product_code != "")
+      {
+        $.post(base_url+"/Client/opt_approvedprice/"+product_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.price+'">'+value.code+'-'+value.price+'</option>';
+            });
+            $('#opt_approvedprice').html(html);
+
+          }
+        })
+
+      }
+    });
+  })
+  /* Rate box */
+  $(document).ready(function(){
+    $('.approvedprice').change(function(){
+      var approvedprice= $(this).val();
+      var Quantity=$("#qty").val();
+      // alert(approvedprice);
+      if(approvedprice != "")
+      {
+        $('#rate').val(approvedprice);
+        $('#total').val(approvedprice*Quantity); 
+      }
+    });
+  })
+  function get_calculation()
+{
+  // var total=$("#total").val();
+  var qty=$("#qty").val();
+  var rate=$("#rate").val();
+  var discount=$("#discount").val();
+  
+
+  if($("#discounttype").val()=="amount")
+  {
+    if($("#discount").val() !="")
+    {
+      $("#total").val((qty*rate)-discount);
+    }
+    else{
+      $('#total').val(qty*rate);
+    }
+    $('#hiddenvalueamt').html(discount);
+  }
+  if($("#discounttype").val() =="percent")
+  {
+    var per=((qty*rate)*discount)/100;
+    if($("#discount").val() !="")
+    {
+      $("#total").val((qty*rate)-per);
+    }
+    else{
+      $('#total').val(qty*rate);
+    }
+    $('#hiddenvalueamt').html(per);
+  }
+}
+  </script>

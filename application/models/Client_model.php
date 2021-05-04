@@ -389,6 +389,13 @@ class Client_model extends CI_model
 	}
 	function updatedetailsbyid($id)
 	{
-		return $this->db->select('*')->where('id',$id)->get('mapping_quotation')->result();
+		return $this->db->select('*')->from('mapping_quotation')->join('product','mapping_quotation.product_code=product.product_code')->where('mapping_quotation.id',$id)->get()->result();
 	}
+
+	function fetch_productdetails()
+	{
+		return $this->db->select('*')->get('product')->result();
+	}
+
+	
 }

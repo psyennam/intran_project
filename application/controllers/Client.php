@@ -139,6 +139,7 @@ class Client extends CI_controller
 	{
 		$data['page']='employee/pages/view/quotationlist';
 		$data['quotationdetails']=$this->Client_model->viewquotation();
+		$data['status']=$this->Client_model->status();
 		$this->load->view('admin/components/layout',$data);
 	}
 
@@ -316,6 +317,8 @@ class Client extends CI_controller
 	function update_quotation_form($id)
 	{
 		$data['details']=$this->Client_model->updatedetailsbyid($id);
+		$data['productdetails']=$this->Client_model->fetch_productdetails();
+		
 		$data['page']='employee/pages/update/update_quotationform';	
 		$this->load->view('admin/components/layout',$data);		
 	}
