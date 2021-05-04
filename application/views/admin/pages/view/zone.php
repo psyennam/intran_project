@@ -103,18 +103,18 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="text-center text-primary"><?= __lang('Role');?></h3>  
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            <h3 class="text-center text-primary"><?= __lang('Zone');?></h3>  
           </div>
           <!-- Form Start  -->
             <form action="<?= base_url('Admin/zoneinsert');?>" id="formone" class="form-group" method="post">
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-sm-12 col-md-4 col-lg-4">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
                     <label><?= __lang('Zone Name');?></label>
                     <input type="text" class="form-control" placeholder="Enter Role Name" name="ZoneName">
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-4">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
                     <label><?= __lang('Employee');?></label>
                     <select name="Employee" class="form-control">
                       <?php foreach ($info as $key) { ?>
@@ -143,8 +143,8 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="text-center text-primary"><?= __lang('Area');?></h3>  
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            <h3 class="text-center text-primary"><?= __lang('Area');?></h3>  
           </div>
           <!-- Form Start  -->
             <form action="<?= base_url('Admin/subzoneinsert');?>" id="formone" class="form-group" method="post">

@@ -181,6 +181,13 @@ class Client_model extends CI_model
 		}
 	}
 
+	// function updateleadlist($code)
+	// {
+	// 	// $this->db->where(['lead_code'=>$code]);
+	// 	// $res=$this->db->update('quotation');
+	// 	// return $res;
+	// }
+
 	function companydetails()
 	{
 		return $this->db->select('*')->get('company')->result();

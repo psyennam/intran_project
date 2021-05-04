@@ -64,11 +64,11 @@
 
     <!-- Modal 1 Start  -->
     <div class="modal fade" id="mymodel">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="text-center text-primary">Client</h3>  
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            <h3 class="text-center text-primary">Client</h3>  
           </div>
           <!-- Form 1 Start  -->
           <form action="<?= base_url('Client/clientinsert');?>" id="formone" class="form-group" method="post">

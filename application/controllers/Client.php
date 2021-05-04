@@ -105,8 +105,9 @@ class Client extends CI_controller
 
 	function updatelead()
 	{
-		$data['page']='employee/pages/view/updateleadlist';
-		$data['leaddetails']=$this->Client_model->viewleadlist();
+		$code=$this->input->get('lead_code');
+		$data['page']='employee/pages/update/update_lead';
+		// $data['leaddetails']=$this->Client_model->updateleadlist($code);
 		$this->load->view('admin/components/layout',$data);
 	}
 	/**

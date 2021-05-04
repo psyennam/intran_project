@@ -9,68 +9,19 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header text-center">
-              <!-- Form Start  -->
-               <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
-              	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
-          		<!-- Modal Start  -->
-              	<div class="modal fade" id="mymodel">
-              		<div class="modal-dialog modal-dialog-centered">
-              			<div class="modal-content">
-              				<div class="modal-header">
-              					<h3 class="text-center text-primary"><?= __lang('Role')?></h3>	
-              					<button type="button" class="close" data-dismiss="modal">&times;</button>	
-              				</div>
-              				<div class="modal-body">
-                            <div class="row">
-                              <div class="col-sm-12 col-md-4 col-lg-4">
-                                <label><?= __lang('City');?></label>
-                                  <select class="form-control" name="citycombo">
-                                  <?php foreach ($citydetails as $row) { ?>
-                                      <option value="<?php echo $row->city_code ?>"><?php echo $row->city; ?>
-                                      </option>
-                                  <?php } ?>
-                                  </select>
-                              </div>
-                              <div class="col-sm-12 col-md-4 col-lg-4">
-                                <label><?= __lang('Area');?></label>
-                                <input type="text" class="form-control" placeholder="Enter Area Name" name="area">
-                              </div>
-  							              <div class="col-sm-12 col-md-4 col-lg-4">
-  							                <label><?= __lang('PinCode');?></label>
-  							                <input type="text" class="form-control" placeholder="Enter PinCode" name="zipCode">
-  							              </div>
-  							              <div class="col-sm-12 col-md-12 col-lg-4">
-  							                <label><?= __lang('Organization Code');?></label>
-  							                <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
-  							              </div>
-  							            </div>
-              				</div>
-              				<div class="modal-footer">
-              					<div class="row">
-							            <div class="col-md-12 text-center" style="margin-top: 10px;">
-							               <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
-                           </div>
-							          </div>
-              			</div>
-              		</div>
-              	</div>
-              </form>
-              <!-- End Form Start  -->
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
             </div>
-            <!-- End Modal  -->
-          </div>
-          <!-- /.box-header -->
             <div class="box-body" style="overflow-x:auto;">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th><?= __lang('ID');?></th>
                   <th><?= __lang('Area');?></th>
-        					<th><?= __lang('PinCode');?></th>
+                  <th><?= __lang('PinCode');?></th>
                   <th><?= __lang('City');?></th>
-        					<th><?= __lang('CreateDate');?></th>
-        					<th><?= __lang('Status');?></th>
-        			    </tr>
+                  <th><?= __lang('CreateDate');?></th>
+                  <th><?= __lang('Status');?></th>
+                  </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($pincodedetails as $key) { ?>
@@ -86,13 +37,52 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
+    </section>
+    		<!-- Modal Start  -->
+        	<div class="modal fade" id="mymodel">
+        		<div class="modal-dialog modal-dialog-centered">
+        			<div class="modal-content">
+        				<div class="modal-header">
+        					<button type="button" class="close" data-dismiss="modal">&times;</button>	
+        					<h3 class="text-center text-primary"><?= __lang('Pincode')?></h3>	
+        				</div>
+              <!-- Form Start  -->
+             <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+            	<div class="modal-body">
+                <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <label><?= __lang('City');?></label>
+                      <select class="form-control" name="citycombo">
+                      <?php foreach ($citydetails as $row) { ?>
+                          <option value="<?php echo $row->city_code ?>"><?php echo $row->city; ?>
+                          </option>
+                      <?php } ?>
+                      </select>
+                  </div>
+                  <div class="col-sm-12 col-md-12 col-lg-12">
+                    <label><?= __lang('Area');?></label>
+                    <input type="text" class="form-control" placeholder="Enter Area Name" name="area">
+                  </div>
+		              <div class="col-sm-12 col-md-12 col-lg-12">
+		                <label><?= __lang('PinCode');?></label>
+		                <input type="text" class="form-control" placeholder="Enter PinCode" name="zipCode">
+		              </div>
+		            </div>
+  				    </div>
+      				<div class="modal-footer">
+      					<div class="row">
+			            <div class="col-md-12" style="margin-top: 10px;">
+			               <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+                   </div>
+			          </div>
+      			</div>
+          </form>
+      	</div>
+      </div>
+    </div>
   </section>
 <!-- /.content -->
 <!-- page script -->

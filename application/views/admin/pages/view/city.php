@@ -60,14 +60,14 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="text-center text-primary"><?= __lang('City');?></h3>  
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            <h3 class="text-center text-primary"><?= __lang('City');?></h3>  
           </div>
           <!-- Form 1 Start  -->
           <form action="<?= base_url('Admin/cityinsert');?>" id="formone" class="form-group" method="post">
             <div class="modal-body">
               <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <label><?= __lang('Country');?></label>
                     <select class="form-control" name="countrycombo">
                     <?php 
@@ -79,7 +79,7 @@
                   } ?>
                     </select>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <label><?= __lang('State');?></label>
                     <select class="form-control" name="statecombo">
                     <?php 
@@ -91,13 +91,9 @@
                   } ?>
                     </select>
                 </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="col-sm-12 col-md-4 col-lg-12">
                   <label><?= __lang('City Name');?></label>
                   <input type="text" class="form-control" placeholder="Enter City Name" name="CityName">
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-4">
-                  <label><?= __lang('Organization Code');?></label>
-                  <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
                 </div>
               </div>
             </div>

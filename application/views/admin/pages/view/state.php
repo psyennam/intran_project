@@ -58,14 +58,14 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="text-center text-primary"><?= __lang('State');?></h3> 
           <button type="button" class="close" data-dismiss="modal">&times;</button> 
+          <h3 class="text-center text-primary"><?= __lang('State');?></h3> 
         </div>
             <!-- Form Start  -->
             <form action="<?php echo base_url('Admin/stateinsert');?>" id="formone" class="form-group" method="post">   
               <div class="modal-body">
                     <div class="row">
-                      <div class="col-sm-12 col-md-12 col-lg-4">
+                      <div class="col-sm-12 col-md-12 col-lg-6">
                           <label><?= __lang('Country');?></label>
                           <select class="form-control" name="countrycombo">
                           <?php foreach ($countrydetails as $row) { ?>
@@ -74,13 +74,9 @@
                           <?php } ?>
                           </select>
                       </div>
-                      <div class="col-sm-12 col-md-4 col-lg-4">
+                      <div class="col-sm-12 col-md-4 col-lg-6">
                         <label><?= __lang('State Name');?></label>
                         <input type="text" class="form-control" placeholder="Enter State Name" name="StateName">
-                      </div>
-                      <div class="col-sm-12 col-md-12 col-lg-4">
-                        <label><?= __lang('Organization Code');?></label>
-                        <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
                       </div>
                     </div>
               </div>

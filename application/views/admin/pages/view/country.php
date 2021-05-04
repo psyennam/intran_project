@@ -53,18 +53,17 @@
 
     <!-- Modal 1 Start  -->
     <div class="modal fade" id="mymodel">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="text-center text-primary"><?= __lang('country');?></h3>  
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            <h3 class="text-center text-primary"><?= __lang('country');?></h3>  
           </div>
           <!-- Form 1 Start  -->
           <form action="<?= base_url('Admin/countryinsert');?>" id="formone" class="form-group" method="post">
             <div class="modal-body">
               <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4"></div>
-                <div class="col-sm-12 col-md-12 col-lg-4 text-center">
+                <div class="col-sm-12 col-md-12 col-lg-12">
                     <label><?= __lang('Country');?></label>
                     <input type="text" class="form-control" name="CountryName">
                 </div>
