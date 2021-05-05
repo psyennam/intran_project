@@ -17,7 +17,9 @@ function __date_format($date, $type = false){
 		case 'ddmmyyyy':
 			return date('d-m-Y', strtotime($date));
 			break;
-		
+		case 'dd/mm/yyyy':
+			return date('d/m/Y', strtotime($date));
+			break;
 		default:
 			return date('Y-m-d', strtotime($date));
 			break;
@@ -98,4 +100,10 @@ function product_name($product_code)
 {
 	$ci = &get_instance();
 	return $ci->db->select('product')->where('product_code',$product_code)->get('product')->row()->product;
+}
+
+function org_name($org_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('org_name')->where('org_code',$org_code)->get('organization')->row()->org_name;
 }

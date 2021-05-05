@@ -38,7 +38,7 @@
               		<td><?php echo $key->country_code; ?></td>	
               		<td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td>	
               		<td><?php echo is_status($key->status); ?></td>
-              		<td><button type="button" class="btn btn-success open_pincode_modal" data-target="#pincode_model" data-citycode="<?= $key->id;?>"><?= __lang('Add');?></button></td>
+              		<td><button type="button" class="btn btn-success open_pincode_modal" data-toggle="modal" data-target="#pincode_modal" data-citycode="<?= $key->id;?>"><?= __lang('Add');?></button></td>
               		<td><a href="updatecity?id=<?php echo $key->city_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('UPDATE');?></button></a></td>		
               	</tr>	
               	<?php } } ?>
@@ -150,4 +150,3 @@
       </div>
     </div>
     <!-- End Modal 2  -->
-  <!-- /.content-wrapper -->
