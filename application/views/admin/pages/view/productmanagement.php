@@ -7,7 +7,7 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header text-center">
-          <a href="<?php echo base_url('Admin/productinsert');?>"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><!-- <?= __lang('add')?> -->Add</button>/</a>
+          <a href="<?php echo base_url('Admin/productinsert');?>"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><!-- <?= __lang('add')?> -->Add</button></a>
           
         </div>
         <!-- /.box-header -->

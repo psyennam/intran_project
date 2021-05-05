@@ -377,7 +377,10 @@ class Client_model extends CI_model
 
 	function view_close_quotation_by_id($id)
 	{
-		return $this->db->select('*')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where('quotation.quotation_code',$id)->get()->result();
+		return $this->db->select('*')
+		->from('quotation')
+		->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code', 'inner')
+		->where('quotation.quotation_code',$id)->get()->result();
 
 		// return $this->db->select('DISTINCT(quotation.quotation_code),mapping_quotation.product_code,mapping_quotation.quantity,mapping_quotation.rate')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where('quotation.quotation_code',$id)->get()->result();
 	}
@@ -404,5 +407,21 @@ class Client_model extends CI_model
 		return $this->db->select('*')->get('product')->result();
 	}
 
-	
+	function fetch_organizationdetails()
+	{
+		return $this->db->select('*')->where('org_code',$this->session->userdata('org_code'))->get('organization')->result();
+	}
+
+	function fetch_supplierdetails($id)
+	{
+		$s_code=$this->db->select('lead.supplier_code')->from('lead')->join('quotation','lead.lead_code=quotation.lead_code')->where('quotation_code',$id)->get()->row();
+		// echo $s_code->supplier_code;
+		return $this->db->select('*')->where('client_code',$s_code->supplier_code)->get('client')->result();
+
+	}
+
+	function viewstate()
+	{
+		return $this->db->select('*')->get('state')->result();	
+	}
 }

@@ -15,8 +15,9 @@ class Client extends CI_controller
 	}
 	function client()
 	{
+		$data['statedetails']=$this->Client_model->viewstate();
 		$data['page']='admin/pages/view/client';
-		$data['zonedetails']=$this->Client_model->viewzone();	
+		// $data['zonedetails']=$this->Client_model->viewzone();	
 		$data['clientdetails']=$this->Client_model->view_client();
 		$this->load->view('admin/components/layout',$data);
 	}

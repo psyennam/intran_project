@@ -74,12 +74,18 @@ class Test extends ci_controller{
 		//$data['page']='admin/pages/view/pdf_genrator';
 		return $this->load->view('expense_genrator',$data,true);
 	}
+
 	function quotation_close($id)
 	{
+		header("Content-type:application/pdf");
+		// header("Content-Dispo/sition:attachment;filename='downloaded.pdf'");
+
 		$this->load->model('Client_model');
 		$data['closedetails']=$this->Client_model->view_close_quotation_by_id($id);
+		$data['orgdetails']=$this->Client_model->fetch_organizationdetails();
+		$data['supplierdetails']=$this->Client_model->fetch_supplierdetails($id);
 		//$data['page']='admin/pages/view/pdf_genrator';
-		return $this->load->view('quotation_close',$data,true);
+		$this->load->view('quotation_close',$data);
 	}
 
 }
