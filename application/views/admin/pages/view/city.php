@@ -38,7 +38,7 @@
               		<td><?php echo $key->country_code; ?></td>	
               		<td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td>	
               		<td><?php echo is_status($key->status); ?></td>
-              		<td><button type="button" class="btn btn-success open_pincode_modal" data-target="#pincode_model" data-citycode="<?= $key->id;?>"><?= __lang('Add');?></button></td>
+              		<td><button type="button" class="btn btn-success open_pincode_modal" data-toggle="modal" data-target="#pincode_modal" data-citycode="<?= $key->id;?>"><?= __lang('Add');?></button></td>
               		<td><a href="updatecity?id=<?php echo $key->city_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('UPDATE');?></button></a></td>		
               	</tr>	
               	<?php } } ?>
@@ -151,3 +151,13 @@
     </div>
     <!-- End Modal 2  -->
   <!-- /.content-wrapper -->
+<script>
+  var i = 1;
+$('.add_row').click(function(){ 
+  var html ='<div class="row" id="row_'+(i)+'"><div class="col-sm-5 col-md-5 col-lg-5"><input type="text" class="form-control" placeholder="Enter Area Name" name="area[]"></div><div class="col-sm-5 col-md-5 col-lg-5"><input type="text" class="form-control" placeholder="Enter Role Name" name="zipCode[]"></div><div class="col-sm-2 col-md-2 col-lg-2"><a href="javascript:remove_row('+(i++)+');" class="btn btn-danger"><i class="fa fa-trash"></i></a></div></div>';
+  $('.rows').append(html);
+});
+function remove_row(row_id){
+  $('#row_'+row_id).remove();
+}
+</script>

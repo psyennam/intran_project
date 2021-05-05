@@ -140,7 +140,6 @@ class Client extends CI_controller
 	{
 		$data['page']='employee/pages/view/quotationlist';
 		$data['quotationdetails']=$this->Client_model->viewquotation();
-		$data['status']=$this->Client_model->status();
 		$this->load->view('admin/components/layout',$data);
 	}
 
