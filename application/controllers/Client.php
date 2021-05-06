@@ -15,13 +15,39 @@ class Client extends CI_controller
 	}
 	function client()
 	{
-		$data['statedetails']=$this->Client_model->viewstate();
+		//$data['statedetails']=$this->Client_model->viewstate();
 		$data['page']='admin/pages/view/client';
-		// $data['zonedetails']=$this->Client_model->viewzone();	
+		$data['zonedetails']=$this->Client_model->viewzone();	
+		//print_r($data['zonedetails']);
 		$data['clientdetails']=$this->Client_model->view_client();
 		$this->load->view('admin/components/layout',$data);
 	}
+	function opt_subzone($zone_code){
+		
+		try{
+			$res = $this->db->select('zone_code as code,zone')->where('parent',$zone_code)->get('zone')->result();
 
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_cityy($subzone_code){
+		
+		try{
+			$res = $this->db->select('zone.state_code')->from('zone')->where('zone.zone_code',$subzone_code)->get()->row();
+
+			// print_r($res);
+			// print_r(explode(',', $res->state_code));
+
+			$data=$this->db->select('city_code as code,city')->from('city')->where_in('city_code',explode(',',$res->state_code))->get()->result();
+			json_response($data, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	
+		
 	/*
 		Client Insert
 	*/

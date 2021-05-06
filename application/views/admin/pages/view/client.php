@@ -91,31 +91,22 @@
                   <input type="date" class="form-control" name="dob">
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4">
-                    <label>Select State</label>
-                    <select class="form-control state" name="state">
-                      <option value=""> --- </option>
-                      <?php foreach($statedetails as $k){
-                        echo '<option value="'.$k->code.'">'.$k->state.'</option>';
-                      }?>
-                    </select>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <label>Select City</label>
-                    <select class="form-control" id="optcity" name="city"></select>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
                     <label>Select Zone</label>
-                    <select class="form-control state" name="state">
+                    <select class="form-control Mainzone" name="zone">
                       <option value=""> --- </option>
                       <?php foreach($zonedetails as $k){
                         echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
                       }?>
                     </select>
                 </div>
-                  <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="col-sm-12 col-md-4 col-lg-4">
                     <label>Select Sub-Zone</label>
+                    <select class="form-control optsubzone" id="optsubzone" name="subzone"></select>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label>Select City</label>
                     <select class="form-control" id="optcity" name="city"></select>
-                  </div>
+                </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                   <label>Address</label>
                   <input type="text" class="form-control" name="address">
@@ -146,27 +137,47 @@
 
 <!-- page script -->
 <script>
-  $(document).ready(function(){
-    $('.state').change(function(){
-      var state_code = $(this).val();
-      if(state_code != "")
+$(document).ready(function(){
+    $('.Mainzone').change(function(){
+      var zone_code = $(this).val();
+      if(zone_code != "")
       {
-        $.post(base_url+"/Client/opt_zone/"+state_code, function(res){
+        $.post(base_url+"/Client/opt_subzone/"+zone_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
             $.each(res.data, function(index, value){
                 html += '<option value="'+value.code+'">'+value.zone+'</option>';
             });
+            $('#optsubzone').html(html);
+          }
+        })
+      }
+    })
+  });
+$(document).ready(function(){
+    $('.optsubzone').change(function(){
+      var subzone_code = $(this).val();
+      alert(subzone_code);
+      if(subzone_code != "")
+      {
+        $.post(base_url+"/Client/opt_cityy/"+subzone_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.city+ '</option>';
+            });
             $('#optcity').html(html);
           }
         })
       }
-    });
+    })
+  });
+
 
     $('.open_zone_modal').click(function(){
       $('#zonecode').val($(this).data('zonecode'));
       $('#submodel').modal('toggle');
     })
-  })
 </script> 
