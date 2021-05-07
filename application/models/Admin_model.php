@@ -879,6 +879,35 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
+
+	/**
+		In this function Zone data will be updated
+	**/
+	function zonedetails_by_id($zone_code)
+	{
+		return $this->db->select('*')->where('zone_code',$zone_code)->get('zone')->result();
+
+		// return $this->db->select('*')->from('zone')->join('employee','employee.employee_code=zone.employee')->join('','')->where('zone_code',$zone_code)->get('zone')->result();
+
+	}
+
+	function employeedetails_by_id()
+	{
+		return $this->db->select('*')->from('mapping_employee')->join('designation','designation.designation_code=mapping_employee.designation_code')->join('employee','mapping_employee.employee_code=employee.employee_code')->where('designation','Sales Manager')->get()->result();
+	}
+
+	function updatezone($zonecode)
+	{
+
+		$data=[
+			'zone'=>$this->input->post('ZoneName'),
+			'employee'=>$this->input->post('Employee')
+		];
+		$this->db->where('zone_code',$zonecode);
+		$res=$this->db->update('zone',$data);
+		return $res;
+	}
+
 	/**
 		In this function Sub-Zone data will be inserted
 	**/
@@ -907,6 +936,20 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
+
+	function updatesubzone($zone_code)
+	{
+		$data=[
+			'zone_code'=>$zone_code,
+			'zone'=>$this->input->post('SubZoneName'),
+			'state_code'=>implode(',',$this->input->post('city[]')),
+			'employee'=>$this->input->post('Employee'),
+		];
+		$this->db->where('zone_code',$zonecode);
+		$res=$this->db->update('zone',$data);
+		return $res;
+	}
+
 	function get_manager()
 	{
 		return $this->db->select('employee.employee_code,employee')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('designation','designation.designation_code=mapping_employee.designation_code')->where(['designation.designation'=>'Sales Manager'])->get()->result();
