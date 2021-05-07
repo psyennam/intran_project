@@ -1,7 +1,7 @@
-$('.open_pincode_modal').click(function(){ 
-	$('#h_city_code').val($(this).data('citycode'));
-	$('#pincode_modal').modal('toggle');
-});
+// $('.open_pincode_modal').click(function(){ 
+// 	$('#h_city_code').val($(this).data('citycode'));
+// 	$('#pincode_modal').modal('toggle');
+// });
 
 
 /*var i = 1;

@@ -15,7 +15,7 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th><?= __lang('ID');?> -->ID</th>
+                <th><?= __lang('ID');?></th>
                 <th><?= __lang('Department Name');?></th>
                 <th><?= __lang('Department Code');?></th>
                 <th><?= __lang('Status');?></th>

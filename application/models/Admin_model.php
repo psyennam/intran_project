@@ -412,7 +412,6 @@ class Admin_model extends CI_model
 		$this->db->trans_start();
 		if($this->db->insert('designation',$data)) 
 		{
-			# code...
 			$this->db->trans_complete();
 			return true;
 		}
@@ -910,7 +909,7 @@ class Admin_model extends CI_model
 	}
 	function get_manager()
 	{
-		return $this->db->select('*')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('role','role.role_code=mapping_employee.role_code')->where('role.role','manager')->get()->result();
+		return $this->db->select('employee.employee_code,employee')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('designation','designation.designation_code=mapping_employee.designation_code')->where(['designation.designation'=>'Sales Manager'])->get()->result();
 	}
 
 	function productinsert()

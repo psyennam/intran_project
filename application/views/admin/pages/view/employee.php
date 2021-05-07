@@ -93,7 +93,7 @@
                     </select>
                   </div>
                   <div class="col-sm-12 col-md-12 col-lg-4">
-                    <label><?= __lang('Designation');?></label>
+                    <label><?= __lang('Role');?></label>
                     <select class="form-control" name="rolecombo">
                       <?php foreach ($roledetails as $row) { ?>
                           <option value="<?php echo $row->role_code ?>"><?php echo $row->role; ?></option>

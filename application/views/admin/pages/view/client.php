@@ -117,7 +117,7 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                   <label>Pincode</label>
-                  <input type="text" class="form-control" name="address">
+                  <input type="text" class="form-control" name="Pincode">
                 </div>
                 
               </div>

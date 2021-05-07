@@ -29,7 +29,9 @@ class Client_model extends CI_model
 				'dob'=>$this->input->post('dob'),
 				'Address'=>$this->input->post('address'),
 				'contact'=>$this->input->post('contact'),
-				'zone_code'=>$this->input->post('city'),
+				'city_code'=>$this->input->post('city'),
+				'zone_code'=>$this->input->post('subzone'),
+				'zip_code'=>$this->input->post('Pincode'),
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip,
 			];
