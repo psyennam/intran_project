@@ -6,7 +6,7 @@
 			
           <!-- /.box-header -->
 			<div class="box-body">
-				<form method="post" action="<?= base_url('Admin/leadinsert');?>">		
+				<form method="post" action="<?= base_url('Client/leadlist_insert');?>">		
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
