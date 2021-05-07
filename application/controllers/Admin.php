@@ -693,6 +693,28 @@ class Admin extends CI_controller
 			}
 		}
 	}
+	/***
+		Company Update
+	***/
+	function updatecompany($id)
+	{
+		$data['data']=$this->Admin_model->companybyid($id);
+		$data['page']='admin/pages/update/update_company';
+		$this->load->view('admin/components/layout',$data);
+		if($_POST)
+		{	
+			$res=$this->Admin_model->editcompany($id);
+			
+			if($res==true)
+			{
+				redirect('Admin/company');
+			}
+			else
+			{
+				echo "Data is not updated";
+			}
+		}
+	}
 	function producttype()
 	{
 		$data['page']='admin/pages/view/producttype';
@@ -712,6 +734,28 @@ class Admin extends CI_controller
 			else
 			{
 				echo "Data is not inserted";
+			}
+		}
+	}
+	/***
+		ProductType Update
+	***/
+	function updateproducttype($id)
+	{
+		$data['data']=$this->Admin_model->producttypebyid($id);
+		$data['page']='admin/pages/update/update_producttype';
+		$this->load->view('admin/components/layout',$data);
+		if($_POST)
+		{	
+			$res=$this->Admin_model->editproducttype($id);
+			
+			if($res==true)
+			{
+				redirect('Admin/producttype');
+			}
+			else
+			{
+				echo "Data is not updated";
 			}
 		}
 	}

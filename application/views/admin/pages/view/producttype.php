@@ -33,7 +33,7 @@
                         <td><?php echo $key->product_type; ?></td> 
                         <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>			
                     		<td><?php echo is_status($key->status); ?></td>  
-                    		<td><a href="updatecompany?id=<?php echo $key->company_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
+                    		<td><a href="<?php echo base_url('Admin/updateproducttype/'.$key->id);?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
                     		<td><a href="deletecompany?id=<?php echo $key->company_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>					
                     	</tr>	
                     	<?php } } ?>

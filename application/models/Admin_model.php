@@ -994,6 +994,38 @@ class Admin_model extends CI_model
 		}	
 	}
 	/**
+		Comapny Update
+	**/
+	function editcompany($id)
+	{
+		$ip=$this->input->ip_address();
+		 $data=[
+			'company'=>$this->input->post('CompanyName'),
+		    'status'=>$this->input->post('statuscombo'),
+			'ip_address'=>$ip
+		];
+		
+		$this->db->trans_start();
+
+		if($this->db->where('company_code',$id)->update('company',$data))
+		 {
+				$this->db->trans_complete();
+				return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
+	/**
+		In this function it gives all the data from Comapny by id
+	**/
+	function companybyid($id)
+	{
+		return $this->db->select('*')->where('company_code',$id)->get('company')->result();
+	}
+	/**
 		In this function it gives all the data from the city table 
 	**/
 	function viewproduct()
@@ -1028,7 +1060,38 @@ class Admin_model extends CI_model
 			return false;
 		}	
 	}
+		/**
+		Comapny Update
+	**/
+	function editproducttype($id)
+	{
+		$ip=$this->input->ip_address();
+		 $data=[
+			'product_type'=>$this->input->post('ProductTypeName'),
+		    'status'=>$this->input->post('statuscombo'),
+			'ip_address'=>$ip
+		];
+		
+		$this->db->trans_start();
 
+		if($this->db->where('id',$id)->update('product_type',$data))
+		 {
+				$this->db->trans_complete();
+				return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
+	/**
+		In this function it gives all the data from ProductType by id
+	**/
+	function producttypebyid($id)
+	{
+		return $this->db->select('*')->where('id',$id)->get('product_type')->result();
+	}
 	function viewleadlist()
 	{
 		return $this->db->select('*')->get('lead')->result();
