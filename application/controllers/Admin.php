@@ -600,8 +600,52 @@ class Admin extends CI_controller
 		}
 	}
 
-	
+	/*
+		Zone Update
+	*/
 
+	function updatezone()
+	{
+		$zone_code=$this->input->get('zone_code');
+		$data['page']="admin/pages/update/update_zone";
+		$data['empdetails']=$this->Admin_model->employeedetails_by_id();
+		$data['zonedetails']=$this->Admin_model->zonedetails_by_id($zone_code);
+		if($_POST)
+		{
+			$res=$this->Admin_model->updatezone($zone_code);
+			if($res>0)
+			{
+				redirect('Admin/zone');
+			}
+			else{
+				echo "Something Went Wrong";
+			}
+		}
+
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	function updatesubzone()
+	{
+		$zone_code=$this->input->get('zone_code');
+		$data['page']="admin/pages/update/update_subzone";
+		$data['empdetails']=$this->Admin_model->employeedetails_by_id();
+		$data['state']=$this->Admin_model->viewstate();
+		$data['zonedetails']=$this->Admin_model->zonedetails_by_id($zone_code);
+		if($_POST)
+		{
+			$res=$this->Admin_model->updatesubzone($zone_code);
+			if($res>0)
+			{
+				redirect('Admin/zone');
+			}
+			else{
+				echo "Something Went Wrong";
+			}
+		}
+
+		$this->load->view('admin/components/layout',$data);
+	}
 
 	function opt_city($state){
 		try{
