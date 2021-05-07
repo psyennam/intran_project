@@ -123,6 +123,55 @@ class Client_model extends CI_model
 		return $this->db->select('*')->get('lead')->result();
 	}
 
+	function leadinsert()
+	{
+		$ip=$this->input->ip_address();
+		$randomid=random_string('alnum',6);
+		$data=[
+			'lead_code'=>$randomid,
+			'org_code'=>$this->session->userdata('org_code'),
+			'zone_code'=>$this->input->post('optzone'),
+			'city_code'=>$this->input->post('optcity'),
+			'zip_code'=>$this->input->post('optpin'),
+			'supplier_code'=>$this->input->post('supplier'),
+			'brand'=>$this->input->post('brand'),
+			'company_name'=>$this->input->post('company_name'),
+			'gst'=>$this->input->post('gst'),
+			'address'=>$this->input->post('address'),
+			'created_at'=>date('y-m-d H:i:s'),
+			'ip_address'=>$ip
+		];
+		$this->db->trans_start();
+
+		if($insert=$this->db->insert('lead',$data))
+		{
+			$contact_person= [];
+			for($i=0;$i<sizeof($_POST['cp_name']);$i++)
+			{
+				$contact_person[] =[
+					'lead_code'=>$randomid,
+					'person_name'=>$_POST['cp_name'][$i],
+					'designation'=>$_POST['cp_designation'][$i],
+					'mobile_no'=>$_POST['cp_mobile'][$i],
+					'email'=>$_POST['cp_email'][$i]
+				];
+			}
+			if($insert=$this->db->insert_batch('mapping_lead',$contact_person))
+			{
+				$this->db->trans_complete();
+				return true;
+			}
+			else{
+				$this->db->trans_rollback();
+				return false;
+			}
+		}
+		else{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
+
 	function leadlist_insert()
 	{
 		$leadcode=$this->input->post('lead_code');
@@ -131,6 +180,7 @@ class Client_model extends CI_model
 			'lead_code'=>$leadcode,
 			'customer_available'=>$this->input->post('customercombo'),
 			'concerned_person'=>$this->input->post('concernperson'),
+			'contact_person'=>$this->input->post('Personname'),
 			'quotation_require'=>$this->input->post('quotationreq'),
 			'visit_type'=>$this->input->post('visitetype'),
 			'additional_remark'=>$this->input->post('remark'),
@@ -155,6 +205,7 @@ class Client_model extends CI_model
 					'lead_code'=>$leadcode,
 					'customer_available'=>$this->input->post('customercombo'),
 					'concerned_person'=>$this->input->post('concernperson'),
+					'contact_person'=>$this->input->post('Personname'),
 					// 'location'=>
 					// 'contact_no'=>
 					'quotation_require'=>$this->input->post('quotationreq'),
@@ -182,6 +233,8 @@ class Client_model extends CI_model
 			return false;
 		}
 	}
+
+	
 
 	// function updateleadlist($code)
 	// {

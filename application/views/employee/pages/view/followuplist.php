@@ -14,7 +14,9 @@
                 <thead>
                   <tr>
                     <th><?= __lang('ID');?></th>
-          					<th>Dealership Name</th>
+                    <th>Visit Type</th>
+                    <th>Customer Available/Not</th>
+          					<th>Dealership name</th>
           					<th>Quotation Require</th>
           			 </tr>
                 </thead>
@@ -22,6 +24,8 @@
                   <?php if(!empty($followupdetails)){foreach ($followupdetails as $key) { ?>
                     	<tr>
                     		<td><?php echo $key->id;?></td>
+                        <td><?= visit_type($key->visit_type);?></td>
+                        <td><?= $key->customer_available ?></td>
                     		<td><?php echo client_name($key->lead_code); ?></td>
                         <td><?php echo $key->quotation_require;?></td>					
                     	</tr>	

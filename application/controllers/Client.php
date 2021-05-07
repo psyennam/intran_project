@@ -144,13 +144,43 @@ class Client extends CI_controller
 	{
 		$data['zone']=$this->Client_model->viewzone();
 		$data['client']=$this->Client_model->view_client();
+		//$data['person']=$this->Client_model->view_person();
+
 		$data['page']='employee/pages/view/leadform';
 		$this->load->view('admin/components/layout',$data);	
 	}
 
+function opt_personname($lead_code)
+	{
+		try{
+			$res = $this->db->select('lead_code as code,person_name,mobile_no,email')->where('lead_code',$lead_code)->get('mapping_lead')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	/**
+		Lead-Form
+	**/
+	function leadinsert()
+	{
+		if ($_POST) 
+		{
+			$insert=$this->Client_model->leadinsert();
+			if($insert>0)
+			{
+				redirect('Client/leadlist');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}	
+	}
+
 	function leadlist_insert()
 	{
-		if($_POST['btnsubmit1']=='Submit')
+		if($_POST)
 		{
 			$res=$this->Client_model->leadlist_insert();
 			if($res['quotation_require']==="Yes")
@@ -163,6 +193,43 @@ class Client extends CI_controller
 		}
 	}
 
+	function opt_supplier($pincode)
+	{
+		try{
+			$res = $this->db->select('client_code as code,client')->from('client')->where('zip_code',$pincode)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+
+	// function opt_zone($zone)
+	// {
+	// 	try{
+	// 		$res = $this->db->select('zone_code as code, zone')->where('parent', $zone)->get('zone')->result();
+	// 		json_response($res, 200);
+	// 	}catch(Exception $e){
+	// 		json_response($e->getMessage(), 500);
+	// 	}
+	// }
+	function sub_city($subzone)
+	{
+		try{
+			$res = $this->db->select('city.city_code as code,city.city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_pincode($citycode)
+	{
+		try{
+			$res = $this->db->distinct()->select('zip_code as code')->from('client')->where('city_code',$citycode)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
 	function quotationlist()
 	{
 		$data['page']='employee/pages/view/quotationlist';

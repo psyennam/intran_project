@@ -23,9 +23,9 @@
                                 'type' => 'VARCHAR',
                                 'constraint' => '10',
                         ),
-                        'contact_no' => array(
-                                'type' => 'INT',
-                                'constraint' => '10',
+                        'contact_person' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '20',
                         ),
                         'quotation_require' => array(
                                 'type' => 'VARCHAR',

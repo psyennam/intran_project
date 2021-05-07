@@ -107,3 +107,9 @@ function org_name($org_code)
 	$ci = &get_instance();
 	return $ci->db->select('org_name')->where('org_code',$org_code)->get('organization')->row()->org_name;
 }
+
+function visit_type($code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('visit_type')->where('id',$code)->get('visit_type')->row()->visit_type;	
+}

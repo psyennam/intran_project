@@ -5,6 +5,7 @@
   </section> -->
 
 <!-- Main content -->
+
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
@@ -15,7 +16,7 @@
               <b style="font-size: 20px;">Lead Data</b>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <a href="<?= base_url('admin/leadform');?>"><button type="button" class="btn btn-success pull-right">Add</button></a>
+              <a href="<?= base_url('Client/leadform');?>"><button type="button" class="btn btn-success pull-right">Add</button></a>
             </div>
           </div>
         <!-- /.box-header -->
@@ -102,12 +103,18 @@
                     </div>
                     <div class="form-group col-md-6">
                       <label>Concerned person is Same?<span style="color:red">*</span></label>
-                      <select id="concernperson" name="concernperson" class="form-control" onchange="getcontactdiv();">
+                      <select id="concernperson" name="concernperson" class="form-control Concernperson" onchange="getcontactdiv();">
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                       </select>
                     </div>
+                    <div class="form-group col-md-6">
+                      <label>Person Name<span style="color:red">*</span></label>
+                      <select id="Personname" name="Personname" class="form-control Personname">
+                      </select>
+                    </div>
+                    
                     <div class="form-group col-md-6">
                       <label>Quotation Required<span style="color:red">*</span></label>
                       <select id="quotationreq" name="quotationreq" class="form-control">
@@ -257,11 +264,38 @@ function check(){
 }
 
 function getcontactdiv(){
-    if($("#concernperson").val()=="Yes" || $("#concernperson").val()==" "){
+    if($("#concernperson").val()==""){
       $("#ContactPerson").hide();
+      $("#Personname").val("").change().attr('readonly',true);
+    }
+    else if($("#concernperson").val()=="Yes")
+    {
+      var lead_code=$("#hdnId").val();
+      alert(lead_code);
+      /*var lead_code=$("#hdnId").val();
+      alert(lead_code);*/
+       if(lead_code != "")
+      {
+
+        $.post(base_url+"/Client/opt_personname/"+lead_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.person_name+'">'+value.person_name+'</option>';
+            });
+            $('#Personname').html(html);
+          }
+        })
+
+      }
+      $("#Personname").attr('readonly',false);
+      $("#ContactPerson").hide();
+
     }
     else{
       $("#ContactPerson").show();
+      $("#Personname").val("").change().attr('readonly',true);
     }
 }
 
@@ -366,4 +400,5 @@ function available(){
   //URL: "customerdiscussion.php?id="+id;
   $(location).attr('href',"<?= base_url('Client/discuss'); ?>?id="+id);   
 }
+
 </script>
