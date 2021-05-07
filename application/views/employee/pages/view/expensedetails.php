@@ -1,17 +1,23 @@
 <!-- Content Wrapper. Contains page content -->           
-    <!-- Content Header (Page header) -->
+    <!-- Content Header (Page header) --><!-- 
 <section class="content-header text-center" >
     <h1 style="text-transform: capitalize;"><b>Expense-List</b></h1>
-</section>
-
+</section> -->
 <!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <div class="box-header text-center text-center">
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel">Add</button>
+        <div class="box-header">
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+              <b style="font-size: 20px;">Expense Data</b>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 ">
+              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel">Add</button>
+            </div>
           </div>
+        </div>
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">
           <table id="example2" class="table table-bordered table-hover">
