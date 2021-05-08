@@ -15,10 +15,8 @@ class Client extends CI_controller
 	}
 	function client()
 	{
-		//$data['statedetails']=$this->Client_model->viewstate();
 		$data['page']='admin/pages/view/client';
 		$data['zonedetails']=$this->Client_model->viewzone();	
-		//print_r($data['zonedetails']);
 		$data['clientdetails']=$this->Client_model->view_client();
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -36,10 +34,6 @@ class Client extends CI_controller
 		
 		try{
 			$res = $this->db->select('zone.state_code')->from('zone')->where('zone.zone_code',$subzone_code)->get()->row();
-
-			// print_r($res);
-			// print_r(explode(',', $res->state_code));
-
 			$data=$this->db->select('city_code as code,city')->from('city')->where_in('city_code',explode(',',$res->state_code))->get()->result();
 			json_response($data, 200);
 		}catch(Exception $e){
@@ -89,6 +83,9 @@ class Client extends CI_controller
 		}
 	}
 
+	/*
+		Delete Client(Supplier)
+	*/
 	function deleteclient()
 	{
 		$id=$this->input->get('client_code');
@@ -150,7 +147,7 @@ class Client extends CI_controller
 		$this->load->view('admin/components/layout',$data);	
 	}
 
-function opt_personname($lead_code)
+	function opt_personname($lead_code)
 	{
 		try{
 			$res = $this->db->select('lead_code as code,person_name,mobile_no,email')->where('lead_code',$lead_code)->get('mapping_lead')->result();
@@ -202,16 +199,6 @@ function opt_personname($lead_code)
 			json_response($e->getMessage(), 500);
 		}
 	}
-
-	// function opt_zone($zone)
-	// {
-	// 	try{
-	// 		$res = $this->db->select('zone_code as code, zone')->where('parent', $zone)->get('zone')->result();
-	// 		json_response($res, 200);
-	// 	}catch(Exception $e){
-	// 		json_response($e->getMessage(), 500);
-	// 	}
-	// }
 	function sub_city($subzone)
 	{
 		try{

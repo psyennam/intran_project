@@ -1,3 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
+
     <!-- Content Header (Page header) -->
     <section class="content-header text-center" >
       <h1 style="text-transform: capitalize;"><b><?= __lang('Role Data');?></b></h1>

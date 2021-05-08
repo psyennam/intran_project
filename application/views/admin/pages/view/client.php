@@ -75,7 +75,7 @@
             <h3 class="modal-title text-primary">Client</h3>  
           </div>
           <!-- Form 1 Start  -->
-          <form action="<?= base_url('Client/clientinsert');?>" id="formone" class="form-group" method="post">
+          <form action="<?= base_url('Admin/clientinsert');?>" id="formone" class="form-group" method="post">
             <div class="modal-body">
               <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4">
@@ -140,9 +140,10 @@
 $(document).ready(function(){
     $('.Mainzone').change(function(){
       var zone_code = $(this).val();
+      alert(zone_code);
       if(zone_code != "")
       {
-        $.post(base_url+"/Client/opt_subzone/"+zone_code, function(res){
+        $.post(base_url+"/Admin/opt_subzone/"+zone_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -161,7 +162,7 @@ $(document).ready(function(){
       alert(subzone_code);
       if(subzone_code != "")
       {
-        $.post(base_url+"/Client/opt_cityy/"+subzone_code, function(res){
+        $.post(base_url+"/Admin/opt_cityy/"+subzone_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){

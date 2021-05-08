@@ -10,7 +10,7 @@ class Admin extends CI_controller
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
-		$this->load->model(array('Admin_model','Client_model'));
+		$this->load->model(array('Admin_model','Admin_model'));
 		$this->data["title"] = "Login";
 	}
 	/*
@@ -48,7 +48,7 @@ class Admin extends CI_controller
 				echo "user not valid";
 			}
 		}
-	}
+	}	
 	/*
 		Foreget Password
 	*/
@@ -647,14 +647,14 @@ class Admin extends CI_controller
 		$this->load->view('admin/components/layout',$data);
 	}
 
-	function opt_city($state){
-		try{
-			$res = $this->db->select('city_code as code, city')->where('state_code', $state)->get('city')->result();
-			json_response($res, 200);
-		}catch(Exception $e){
-			json_response($e->getMessage(), 500);
-		}
-	}
+	// function opt_city($state){
+	// 	try{
+	// 		$res = $this->db->select('city_code as code, city')->where('state_code', $state)->get('city')->result();
+	// 		json_response($res, 200);
+	// 	}catch(Exception $e){
+	// 		json_response($e->getMessage(), 500);
+	// 	}
+	// }
 
 	function subzoneinsert()
 	{
@@ -803,34 +803,222 @@ class Admin extends CI_controller
 			}
 		}
 	}
-	function opt_producttype($state){
+	// function opt_producttype($state){
+		
+	// 	try{
+	// 		$res = $this->db->select('id, product_type')->where('company_code',$state)->get('product_type')->result();
+	// 		json_response($res, 200);
+	// 	}catch(Exception $e){
+	// 		json_response($e->getMessage(), 500);
+	// 	}
+	// }
+	// /**
+	// 	Dealer-List
+	// **/
+	// function leadlist()
+	// {
+	// 	$data['page']='admin/pages/view/leadlist';
+	// 	$data['leaddetails']=$this->Admin_model->viewleadlist();
+	// 	$this->load->view('admin/components/layout',$data);	
+	// }
+	// /**
+	// 	Lead-Form
+	// **/
+	// function leadform()
+	// {
+	// 	$data['zone']=$this->Admin_model->viewzone();
+	// 	$data['page']='admin/pages/view/leadform';
+	// 	$this->load->view('admin/components/layout',$data);	
+	// }
+	// /**
+	// 	Lead-Form
+	// **/
+	// function leadinsert()
+	// {
+	// 	if ($_POST) 
+	// 	{
+	// 		$insert=$this->Admin_model->leadinsert();
+	// 		if($insert>0)
+	// 		{
+	// 			redirect('Admin/leadlist');
+	// 		}
+	// 		else
+	// 		{
+	// 			echo "Data is not inserted";
+	// 		}
+	// 	}	
+	// }
+
+	// function sub_city($subzone)
+	// {
+	// 	try{
+	// 		$res = $this->db->select('city.city_code as code,city.city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
+	// 		json_response($res, 200);
+	// 	}catch(Exception $e){
+	// 		json_response($e->getMessage(), 500);
+	// 	}
+	// }
+	// function opt_pincode($citycode)
+	// {
+	// 	try{
+	// 		$res = $this->db->distinct()->select('zip_code as code')->from('client')->where('city_code',$citycode)->get()->result();
+	// 		json_response($res, 200);
+	// 	}catch(Exception $e){
+	// 		json_response($e->getMessage(), 500);
+	// 	}
+	// }
+	// function opt_supplier($pincode)
+	// {
+	// 	try{
+	// 		$res = $this->db->select('client_code as code,client')->from('client')->where('zip_code',$pincode)->get()->result();
+	// 		json_response($res, 200);
+	// 	}catch(Exception $e){
+	// 		json_response($e->getMessage(), 500);
+	// 	}
+	// }
+
+	function client()
+	{
+		$data['page']='admin/pages/view/client';
+		$data['zonedetails']=$this->Admin_model->view_zone();	
+		$data['clientdetails']=$this->Admin_model->view_client();
+		$this->load->view('admin/components/layout',$data);
+	}
+	function opt_subzone($zone_code){
 		
 		try{
-			$res = $this->db->select('id, product_type')->where('company_code',$state)->get('product_type')->result();
+			$res = $this->db->select('zone_code as code,zone')->where('parent',$zone_code)->get('zone')->result();
+
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
 		}
 	}
+	function opt_cityy($subzone_code){
+		
+		try{
+			$res = $this->db->select('zone.state_code')->from('zone')->where('zone.zone_code',$subzone_code)->get()->row();
+			$data=$this->db->select('city_code as code,city')->from('city')->where_in('city_code',explode(',',$res->state_code))->get()->result();
+			json_response($data, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	
+		
+	/*
+		Client Insert
+	*/
+	function clientinsert()
+	{
+		if($_POST)
+		{
+			$insert=$this->Admin_model->clientinsert();
+			if($insert>0)
+			{
+				redirect('Admin/client');		
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+	/**
+		Client Update Form
+	**/
+	function updateclient()
+	{
+		$id=$this->input->get('client_code');
+		$data['row']=$this->Admin_model->clientbyid($id);
+		$data['page']='admin/pages/update/update_client';
+		$this->load->view('admin/components/layout',$data);
+		if($_POST)
+		{
+			$res=$this->Admin_model->clientedit($id);
+			if($res>0)
+			{
+				redirect('Admin/client');
+			}
+			else
+			{
+				echo "Data not updated";
+			}
+		}
+	}
+
+	/*
+		Delete Client(Supplier)
+	*/
+	function deleteclient()
+	{
+		$id=$this->input->get('client_code');
+		$res=$this->Admin_model->deleteclient($id);
+		if($res>0)
+		{
+			redirect('Admin/client');	
+		}
+		else
+		{
+			echo "Data is not updated";
+		}
+	}
+
+	function opt_zone($zone)
+	{
+		try{
+			$res = $this->db->select('zone_code as code, zone')->where('parent', $zone)->get('zone')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+
+	function discuss()
+	{
+		$data['page']='employee/pages/view/discussion_with_customer';
+		// $data['page']='employee/pages/view/add_quotation';
+		$this->load->view('admin/components/layout',$data);
+	}
+
 	/**
 		Dealer-List
 	**/
 	function leadlist()
 	{
-		$data['page']='admin/pages/view/leadlist';
+		$data['page']='employee/pages/view/leadlist';
 		$data['leaddetails']=$this->Admin_model->viewleadlist();
 		$this->load->view('admin/components/layout',$data);	
+	}
+
+	function updatelead()
+	{
+		$code=$this->input->get('lead_code');
+		$data['page']='employee/pages/update/update_lead';
+		// $data['leaddetails']=$this->Admin_model->updateleadlist($code);
+		$this->load->view('admin/components/layout',$data);
 	}
 	/**
 		Lead-Form
 	**/
 	function leadform()
 	{
-		$data['zone']=$this->Client_model->viewzone();
-		//print_r($data['zone']);
-		//$data['client']=$this->Client_model->view_client();
-		$data['page']='admin/pages/view/leadform';
+		$data['zone']=$this->Admin_model->viewzone();
+		$data['client']=$this->Admin_model->view_client();
+		//$data['person']=$this->Admin_model->view_person();
+
+		$data['page']='employee/pages/view/leadform';
 		$this->load->view('admin/components/layout',$data);	
+	}
+
+	function opt_personname($lead_code)
+	{
+		try{
+			$res = $this->db->select('lead_code as code,person_name,mobile_no,email')->where('lead_code',$lead_code)->get('mapping_lead')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
 	}
 	/**
 		Lead-Form
@@ -850,10 +1038,26 @@ class Admin extends CI_controller
 			}
 		}	
 	}
-	function opt_zone($zone)
+
+	function leadlist_insert()
+	{
+		if($_POST)
+		{
+			$res=$this->Admin_model->leadlist_insert();
+			if($res['quotation_require']==="Yes")
+			{
+				redirect('Admin/add_quotation/'.$res['lead_code']);				
+			}
+			else{
+				redirect('Admin/followuplist');	
+			}
+		}
+	}
+
+	function opt_supplier($pincode)
 	{
 		try{
-			$res = $this->db->select('zone_code as code, zone')->where('parent', $zone)->get('zone')->result();
+			$res = $this->db->select('client_code as code,client')->from('client')->where('zip_code',$pincode)->get()->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
@@ -877,55 +1081,198 @@ class Admin extends CI_controller
 			json_response($e->getMessage(), 500);
 		}
 	}
-	function opt_supplier($pincode)
+	function quotationlist()
+	{
+		$data['page']='employee/pages/view/quotationlist';
+		$data['quotationdetails']=$this->Admin_model->viewquotation();
+		$this->load->view('admin/components/layout',$data);
+	}
+
+
+	function add_quotation($id)
+	{
+		$code=$id;
+		$data['page']='employee/pages/view/add_quotation';
+		$data['companydetails']=$this->Admin_model->companydetails();
+		// $data['productdetails']=$this->Admin_model->productdetails();
+
+		if($_POST)
+		{
+			if($this->input->post('qcode')=="")
+			{
+				$res=$this->Admin_model->quotationinsert($id);
+				$data['qcode'] = $res;
+			}
+			else
+			{
+				$data['qcode'] = $this->input->post('qcode');
+			}
+			
+			$mapping_res=$this->Admin_model->mapping_quotationinsert($id,$data['qcode']);
+			$data['qcode'] = $mapping_res;
+			
+			if($mapping_res)
+			{
+				// redirect('Admin/add_quotation/'.$code);	
+			}
+			else
+			{
+				echo "Something went wrong";
+			}
+		}
+		$data['panding_quotationlist']=$this->Admin_model->panding_quotationlist($code);
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	function quotationconfirm($code)
+	{
+		$ress=$this->Admin_model->quotationConfirm($code);
+		if($ress==false)
+		{
+			echo "Something Went Wrong";
+		}
+		else{
+			redirect('Admin/pendinglist');
+			//echo "updated";
+		}
+	}
+
+	function opt_producttype($company_code){
+		
+		try{
+			$res = $this->db->select('id as code, product_type')->where('company_code',$company_code)->get('product_type')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_productname($producttype_code)
 	{
 		try{
-			$res = $this->db->select('client_code as code,client')->from('client')->where('zip_code',$pincode)->get()->result();
+			$res = $this->db->select('product_code as code,product')->from('product')->where('product_type', $producttype_code)->get()->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
 		}
 	}
 
-	/**
-		Quotation-List
-	**/
-	function quotationlist()
+	function opt_price($product_code)
 	{
-		$data['page']='admin/pages/view/quotationlist';
-		$this->load->view('admin/components/layout',$data);		
+		try{
+			$res = $this->db->select('price')->from('product')->where('product_code', $product_code)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_approvedprice($product_code)
+	{
+		try{
+			$res = $this->db->select('company_code as code,price')->from('approved_price')->where('product_id',$product_code)->get()->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
 	}
 	/**
-		QuotationClose-List
-	**/
-	function quotationcloselist()
-	{
-		$data['page']='admin/pages/view/quotationcloselist';
-		$this->load->view('admin/components/layout',$data);		
-	}
-	/**
-		Pending-QuotationList
+		Pending-QuotationList 
 	**/
 	function pendinglist()
 	{
-		$data['page']='admin/pages/view/pendinglist';
-		$this->load->view('admin/components/layout',$data);		
+		$data['page']='employee/pages/view/pendinglist';
+		$data['pendingdetails']=$this->Admin_model->pendingdetails();
+		//$data['leaddetails']=$this->Admin_model->viewleadlist();
+		$this->load->view('admin/components/layout',$data);
 	}
 	/**
-		Expense-List
+		Quotation-CloseList 
+	**/
+	function quotationcloselist()
+	{
+		$data['page']='employee/pages/view/quotationcloselist';
+		$data['quotationdetails']=$this->Admin_model->quotationcloselist();
+		//print_r($data['quotationdetails']);
+		$this->load->view('admin/components/layout',$data);
+	}
+	/**
+		Expense-List 
 	**/
 	function expenselist()
 	{
-		$data['page']='admin/pages/view/expenselist';
-		$this->load->view('admin/components/layout',$data);		
+		$data['page']='employee/pages/view/expensedetails';
+		$data['expensedetails']=$this->Admin_model->expenselist();
+		$this->load->view('admin/components/layout',$data);
 	}
 	/**
-		Add-Expense
+		Expense-Insert 
 	**/
-	function addexpense()
+	function expenseinsert()
 	{
-		$data['page']='admin/pages/view/addExpense';
+		if($_POST)
+		{
+			$res=$this->Admin_model->expenseinsert();
+			if($res>0)
+			{
+				redirect('Admin/expenselist');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
+		}
+	}
+	/**
+		Pending-Edit 
+	**/
+	function pendingupdate()
+	{
+		$data['quotation_code']=$this->input->get('quotation_code');
+		// echo $quotation_code;
+		$data['pendingdetails']=$this->Admin_model->pending_quotation($data['quotation_code']);
+		$data['page']='employee/pages/view/pendingconfirmlist';
+		$this->load->view('admin/components/layout',$data);			
+	}
+	/**
+		Pending-Confirm
+	**/
+	function pendingconfirm($quotation_code)
+	{
+		$res=$this->Admin_model->quotation_confirm($quotation_code);
+		if($res>0)
+		{
+			// $data['page']='employee/pages/view/quotationcloselist';	
+			redirect('Admin/quotationcloselist');
+		}
+		$this->load->view('admin/components/layout',$data);			
+	}
+	/**
+		Update Quotation
+	**/
+	function update_quotation($quotation_code)
+	{
+		//echo $quotation_code;
+		$data['details']=$this->Admin_model->getdetailsbyid($quotation_code);
+		//print_r($data['details']);
+		$data['page']='employee/pages/update/update_quotation';	
+		$this->load->view('admin/components/layout',$data);			
+	}
+	/**
+		Update Quotation
+	**/
+	function update_quotation_form($id)
+	{
+		$data['details']=$this->Admin_model->updatedetailsbyid($id);
+		$data['productdetails']=$this->Admin_model->fetch_productdetails();
+		
+		$data['page']='employee/pages/update/update_quotationform';	
 		$this->load->view('admin/components/layout',$data);		
+	}
+
+	function followuplist()
+	{
+		$data['page']='employee/pages/view/followuplist';
+		$data['followupdetails']=$this->Admin_model->followuplist();
+		$this->load->view('admin/components/layout',$data);
 	}
 }
 ?>
