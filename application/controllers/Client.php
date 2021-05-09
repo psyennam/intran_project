@@ -10,7 +10,7 @@ class Client extends CI_controller
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
-		$this->load->model('Client_model');
+		$this->load->model(array('Client_model','Warranty_model'));
 		$this->data["title"] = "Login";
 	}
 	function client()
@@ -374,12 +374,13 @@ class Client extends CI_controller
 	function pendingconfirm($quotation_code)
 	{
 		$res=$this->Client_model->quotation_confirm($quotation_code);
-		if($res>0)
+		$warranty=$this->Warranty_model->warranty_insert($quotation_code);
+		if($warranty>0)
 		{
 			// $data['page']='employee/pages/view/quotationcloselist';	
 			redirect('Client/quotationcloselist');
 		}
-		$this->load->view('admin/components/layout',$data);			
+		$this->load->view('admin/components/layout',$data);		
 	}
 	/**
 		Update Quotation

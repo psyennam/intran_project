@@ -55,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="active"><a href="<?php echo base_url('Admin/company');?>"><i class="fa fa-circle-o"></i><?= __lang('Company');?></a></li>
             <li class="active"><a href="<?php echo base_url('Admin/producttype');?>"><i class="fa fa-circle-o"></i><?= __lang('ProductType');?></a></li>
             <li class="active"><a href="<?php echo base_url('Admin/productmanagement');?>"><i class="fa fa-circle-o"></i><?= __lang('Product management');?></a></li>
+             <li class="active"><a href="<?php echo base_url('Warranty/warrantytype');?>"><i class="fa fa-circle-o"></i>Warranty</a></li>
            </li>  
           </ul>
         </li>
