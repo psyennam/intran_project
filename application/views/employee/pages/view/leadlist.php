@@ -25,7 +25,9 @@
             <thead>
               <tr>
                 <th>ID</th>
+                <?php if(in_array('C',$this->session->userdata('privileges'))){ ?>
                 <th>Check In</th>
+              <?php } ?>
                 <th>Company</th>
                 <th>Supplier Name</th>
                 <th>Brand</th>
@@ -33,14 +35,19 @@
                 <th>Pincode</th>
                 <th>Status</th>
                 <th>Update</th>
+              <?php if(in_array('D',$this->session->userdata('privileges'))){ ?>
                 <th>Delete</th>
+              <?php } ?>
               </tr>
             </thead>
              <tbody>
               <?php foreach ($leaddetails as $key) { ?>
                 <tr>
                   <td><?php echo $key->id;?></td>
-                  <td><button type="button" class="btn btn-success lead-modal" data-lead_code=<?= $key->lead_code;?> data-company_name=<?= $key->company_name; ?>>Check In</button></td>
+                  <?php if(in_array('C',$this->session->userdata('privileges'))){ ?>
+                <td><button type="button" class="btn btn-success lead-modal" data-lead_code=<?= $key->lead_code;?> data-company_name=<?= $key->company_name; ?>>Check In</button></td>
+              <?php } ?>
+                  
                   <td><?php echo $key->company_name;?></td>
                   <td><?php echo $key->supplier_code; ?></td>
                   <td><?php echo $key->brand; ?></td>  
@@ -48,7 +55,9 @@
                   <td><?php echo $key->zip_code;?></td>  
                   <td><?php echo is_status($key->status); ?></td>
                   <td><a href="updatelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
-                  <td><a href="deletelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>      
+                  <?php if(in_array('D',$this->session->userdata('privileges'))) { ?>
+                  <td><a href="deletelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
+                  <?php } ?>      
                 </tr> 
               <?php } ?>            
             </tbody>

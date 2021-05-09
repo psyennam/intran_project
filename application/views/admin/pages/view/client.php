@@ -11,9 +11,11 @@
             <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
               <b style="font-size: 20px;">Supllier Data</b>
             </div>
+            <?php if(in_array('C',$this->session->userdata('privileges'))){?>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
               <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel">Add</button>
             </div>
+            <?php } ?>
           </div>
         </div>
         <!-- /.box-header -->
@@ -31,8 +33,13 @@
                 <th>zone</th>
                 <th>sub-Zone</th>
                 <th>Status</th>
+                <?php if(in_array('U',$this->session->userdata('privileges'))){?>
                 <th>Update</th>
+              <?php } 
+              if(in_array('D',$this->session->userdata('privileges'))){
+              ?>
                 <th>Delete</th>
+              <?php } ?>
               </tr>
             </thead>
             <tbody>
@@ -48,9 +55,11 @@
                   <td><?php echo get_zone($key->zone_code);?></td>  
                   <td><?php echo get_subzone($key->zone_code);?></td>  
                   <td><?php echo is_status($key->status); ?></td>
-
-                  <td><a href="updateclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
-                  <td><a href="deleteclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>      
+                  <?php if(in_array('U',$this->session->userdata('privileges'))){?>
+                <td><a href="updateclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
+              <?php } if(in_array('D',$this->session->userdata('privileges'))){?>
+                  <td><a href="deleteclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
+                  <?php } ?>      
                 </tr> 
               <?php } ?>
             </tbody>

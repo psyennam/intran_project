@@ -12,6 +12,10 @@ class Client extends CI_controller
 		$this->load->helper(array('form','url'));
 		$this->load->model('Client_model');
 		$this->data["title"] = "Login";
+		if(!$this->session->userdata('is_login'))
+		{
+			redirect('User/login');
+		}	
 	}
 	function client()
 	{
@@ -67,7 +71,7 @@ class Client extends CI_controller
 	{
 		$id=$this->input->get('client_code');
 		$data['row']=$this->Client_model->clientbyid($id);
-		$data['page']='admin/pages/update/update_client';
+		$data['page']='employee/pages/update/update_client';
 		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
@@ -131,6 +135,8 @@ class Client extends CI_controller
 	{
 		$code=$this->input->get('lead_code');
 		$data['page']='employee/pages/update/update_lead';
+		$data['zone']=$this->Client_model->viewzone();
+		$data['client']=$this->Client_model->view_client();
 		// $data['leaddetails']=$this->Client_model->updateleadlist($code);
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -202,7 +208,7 @@ class Client extends CI_controller
 	function sub_city($subzone)
 	{
 		try{
-			$res = $this->db->select('city.city_code as code,city.city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
+			$res = $this->db->distinct()->select('city.city_code as code,city.city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);

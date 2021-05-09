@@ -24,12 +24,12 @@
             </thead>
              <?php foreach ($quotationdetails as $key) { ?>
               <tr>
-                  <td><?php if($key->status==1)
-                  {
-                  ?>
+                  <td><?php if($key->status==1) {
+                   if(in_array('U',$this->session->userdata('privileges'))){ ?>
                     <a href="<?php echo base_url('Client/update_quotation/'.$key->quotation_code);?>">Edit</a>
-                  <?php }?>
+                  <?php } } if(in_array('D',$this->session->userdata('privileges'))){ ?>
                   <a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a>
+                <?php } ?>
                   </td>
                   <td><?php echo $key->id;?></td>
                   <td><a href="<?php echo base_url('Test/index/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>

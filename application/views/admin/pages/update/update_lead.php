@@ -3,11 +3,12 @@
     <div class="box-header with-border">
       <h3 class="box-title">Update Lead Information</h3>
     </div>
-      
           <!-- /.box-header -->
       <div class="box-body">
         <form method="post" enctype="multipart/form-data">    
+          <!-- <?php foreach ($leadinfo as $key) { ?> -->
           <div class="row">
+            
             <div class="col-md-12">
               <div class="form-group col-md-3">
                 <label>Select Zone<span style="color:red">*</span></label>
@@ -102,6 +103,7 @@
               </div>
             </div>
           </div>
+        <!-- <?php } ?> -->
         </form>
       </div>
     </div>
@@ -151,7 +153,7 @@ function formBack()
       alert(zone_code);
       if(zone_code != "")
       {
-        $.post(base_url+"/Client/opt_zone/"+zone_code, function(res){
+        $.post(base_url+"/Admin/opt_zone/"+zone_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -173,7 +175,7 @@ function formBack()
       alert(sub_code);
       if(sub_code!="")
       {
-        $.post(base_url+"/Client/sub_city/"+sub_code,function(res){
+        $.post(base_url+"/Admin/sub_city/"+sub_code,function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -194,7 +196,7 @@ function formBack()
       alert(city_code);
       if(city_code!="")
       {
-        $.post(base_url+"/Client/opt_pincode/"+city_code,function(res){
+        $.post(base_url+"/Admin/opt_pincode/"+city_code,function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -216,7 +218,7 @@ function formBack()
       
       if(pin_code!="")
       {
-        $.post(base_url+"/Client/opt_supplier/"+pin_code,function(res){
+        $.post(base_url+"/Admin/opt_supplier/"+pin_code,function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -231,5 +233,4 @@ function formBack()
     })
 });
 </script>
-
 

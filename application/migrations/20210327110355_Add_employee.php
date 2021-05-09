@@ -54,6 +54,10 @@ public function up(){
                         'type' => 'BOOLEAN',
                         'default'=>'0',
                 ),
+                'privileges'=>array(
+                        'type'=>'VARCHAR',
+                        'constraint' => '5',
+                ),
                 
         ));     
         $this->dbforge->add_key('id', TRUE);

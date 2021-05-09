@@ -24,10 +24,8 @@
             </thead>
              <?php foreach ($quotationdetails as $key) { ?>
               <tr>
-                  <td><?php if($key->status==1)
-                  {
-                  ?>
-                    <a href="<?php echo base_url('Admin/update_quotation/'.$key->quotation_code);?>">Edit</a>
+                  <td><?php if($key->status==1) { ?>
+                  <a href="<?php echo base_url('Admin/update_quotation/'.$key->quotation_code);?>">Edit</a>
                   <?php }?>
                   <a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a>
                   </td>

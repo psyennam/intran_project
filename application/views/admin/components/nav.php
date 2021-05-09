@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
+  <!-- <?php if($this->session->userdata('role')=="Admin") { ?> -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header"><?= __lang('MAIN NAVIGATION');?></li>
         <li class="active treeview">
@@ -93,6 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </ul>
         </li>
       </ul>
+    <!-- <?php } ?> -->
     </section>
     <!-- /.sidebar -->
   </aside>
