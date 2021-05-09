@@ -17,15 +17,20 @@ class Admin_model extends CI_model
 	**/
 
 	private function get_role(){
-		$res = $this->db->select('role_code')->where('employee_code', $this->emp_code)->get('mapping_employee');
+		$res = $this->db->select('mapping_employee.role_code,employee.privileges')->from('employee')->join('mapping_employee','mapping_employee.employee_code=employee.employee_code')->where('mapping_employee.employee_code', $this->emp_code)->get();
 		if($res->num_rows() > 0){
-			$res = $res->row()->role_code;
-			$role = $this->db->where(['role_code' => $res, "org_code" => $this->org_code])->get('role')->row();
+			$role_code = $res->row()->role_code;
+			
+			$privileges = explode(',', $res->row()->privileges);
+			$role = $this->db->where(['role_code' => $role_code, "org_code" => $this->org_code])->get('role')->row();
 			$this->session->set_userdata('role', $role->role);
 			$this->session->set_userdata('role_code', $role->role_code);
 			$this->session->set_userdata('emp_code', $this->emp_code);
+			$this->session->set_userdata('privileges',$privileges);
 		}else{
+			$privileges=['C','R','U','D'];
 			$this->session->set_userdata('role', 'Admin');
+			$this->session->set_userdata('privileges',$privileges);
 		}
 	}
 	function login()
@@ -42,6 +47,7 @@ class Admin_model extends CI_model
 			$this->get_role();
 			$this->session->set_userdata('org_code',$this->org_code);
 			$this->session->set_userdata('org_name', org_info($this->org_code));
+			$this->session->set_userdata('is_login',true);
 			return true;
 		}
 		else{
@@ -1184,6 +1190,29 @@ class Admin_model extends CI_model
 		}
 	}
 
+	// function updatelead($leadcode){
+	// 	$data=[
+	// 		'lead_code'=>$leadcode,
+	// 		'zone_code'=>$this->input->post('optzone'),
+	// 		'city_code'=>$this->input->post('optcity'),
+	// 		'zip_code'=>$this->input->post('optpin'),
+	// 		'supplier_code'=>$this->input->post('supplier'),
+	// 		'brand'=>$this->input->post('brand'),
+	// 		'company_name'=>$this->input->post('company_name'),
+	// 		'gst'=>$this->input->post('gst'),
+	// 		'address'=>$this->input->post('address'),
+	// 	];
+
+	// 	$res=$this->db->where('lead_code',$leadcode)->update('lead',$data);
+	// 	if($res>0)
+	// 	{
+	// 		return true;
+	// 	}
+	// 	else{
+	// 		return false;
+	// 	}
+	// }
+
 	/*
 		Client View
 	*/
@@ -1368,6 +1397,11 @@ class Admin_model extends CI_model
 	// 	// $res=$this->db->update('quotation');
 	// 	// return $res;
 	// }
+
+	function leaddetails_by_id($lead_code)
+	{
+		return $this->db->select('*')->where('lead_code',$lead_code)->get('lead')->result();
+	}
 
 	function companydetails()
 	{

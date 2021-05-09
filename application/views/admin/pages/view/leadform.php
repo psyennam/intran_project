@@ -163,19 +163,14 @@ function formBack()
         })
 
       }
-    });
-
-    $('.open_zone_modal').click(function(){
-      $('#zonecode').val($(this).data('zonecode'));
-      $('#submodel').modal('toggle');
     })
-  })
+});
 
   /* City dependent combo */
   $(document).ready(function(){
     $('.subzone').change(function(){
       var sub_code = $(this).val();
-      
+      alert(sub_code);
       if(sub_code!="")
       {
         $.post(base_url+"/Admin/sub_city/"+sub_code,function(res){
@@ -188,20 +183,15 @@ function formBack()
             $('#optcity').html(html);
           }
         })
-
       }
-    });
-
-    $('.open_zone_modal').click(function(){
-      $('#zonecode').val($(this).data('zonecode'));
-      $('#submodel').modal('toggle');
     })
-  })
+});
+
   /* Pincode dependent combo */
   $(document).ready(function(){
     $('.subcity').change(function(){
       var city_code = $(this).val();
-      
+      alert(city_code);
       if(city_code!="")
       {
         $.post(base_url+"/Admin/opt_pincode/"+city_code,function(res){
@@ -216,13 +206,9 @@ function formBack()
         })
 
       }
-    });
-
-    $('.open_zone_modal').click(function(){
-      $('#zonecode').val($(this).data('zonecode'));
-      $('#submodel').modal('toggle');
     })
-  })
+});
+
   /* Supplier dependent combo */
   $(document).ready(function(){
     $('.subpin').change(function(){
@@ -242,13 +228,8 @@ function formBack()
         })
 
       }
-    });
-
-    $('.open_zone_modal').click(function(){
-      $('#zonecode').val($(this).data('zonecode'));
-      $('#submodel').modal('toggle');
     })
-  })
+});
 </script>
 <!-- SELECT c.city_code,c.city FROM tbl_client cl,tbl_city c WHERE cl.city_code=c.city_code and cl.zone_code='7ULwkV' -->
 

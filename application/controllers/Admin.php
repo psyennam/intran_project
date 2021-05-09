@@ -11,95 +11,93 @@ class Admin extends CI_controller
 		parent::__construct();
 		$this->load->helper(array('form','url'));
 		$this->load->model(array('Admin_model','Admin_model'));
-		$this->data["title"] = "Login";
+		// $this->data["title"] = "Login";
+		if(!$this->session->userdata('is_login'))
+		{
+			redirect('User/login');
+		}
+
+		if($this->session->userdata('role')=="Admin")
+		{
+		}
+		else{
+			redirect('User/login');
+		}
 	}
 	/*
 		Logim form
 	*/
-	function login()
-	{
-		$this->load->view('admin/adminlogin',$this->data);
-		if($_POST)
-		{
+	// function login()
+	// {
+	// 	$this->load->view('admin/adminlogin',$this->data);
+	// 	if($_POST)
+	// 	{
 			
-			$res=$this->Admin_model->login();
-			if($res==true)
-			{
-			/**
-				Check Function
-				->In this function it will check that the user has changed he password or not 
-				->if the password flag is 0 then it redirect to forgetpassword page
-				->or Dasboard 
-			**/	
-				if($this->Admin_model->check())
-				{
+	// 		$res=$this->Admin_model->login();
+	// 		if($res==true)
+	// 		{
+	// 		/**
+	// 			Check Function
+	// 			->In this function it will check that the user has changed he password or not 
+	// 			->if the password flag is 0 then it redirect to forgetpassword page
+	// 			->or Dasboard 
+	// 		**/	
+	// 			if($this->Admin_model->check())
+	// 			{
 					
-					redirect('Admin/forgetpassword');
-				}
-				else
-				{
+	// 				redirect('Admin/forgetpassword');
+	// 			}
+	// 			else
+	// 			{
 
-					redirect('Admin/dashboard');	
-				}
-			}
-			else
-			{
-				//return false;
-				echo "user not valid";
-			}
-		}
-	}	
-	/*
-		Foreget Password
-	*/
-	function forgetpassword()
-	{
-		$this->load->view('admin/forgetpassword');
-		if($_POST)
-		{
-			$this->form_validation->set_rules('password', 'Password', 'required');
-			$this->form_validation->set_rules('cnfpassword', 'Password Confirmation', 'required|matches[password]');
-			if ($this->form_validation->run() == FALSE)
-            {
-                $this->load->view('admin/forgetpassword');
-            }
-            else
-            {
-				$res=$this->Admin_model->update();
-				if($res>0)
-				{
-						redirect('Admin/dashboard');	
-				}
-				else
-				{
-					redirect('Admin/forgetpassword');
+	// 				redirect('Admin/dashboard');	
+	// 			}
+	// 		}
+	// 		else
+	// 		{
+	// 			//return false;
+	// 			echo "user not valid";
+	// 		}
+	// 	}
+	// }	
+	// /*
+	// 	Foreget Password
+	// */
+	// function forgetpassword()
+	// {
+	// 	$this->load->view('admin/forgetpassword');
+	// 	if($_POST)
+	// 	{
+	// 		$this->form_validation->set_rules('password', 'Password', 'required');
+	// 		$this->form_validation->set_rules('cnfpassword', 'Password Confirmation', 'required|matches[password]');
+	// 		if ($this->form_validation->run() == FALSE)
+ //            {
+ //                $this->load->view('admin/forgetpassword');
+ //            }
+ //            else
+ //            {
+	// 			$res=$this->Admin_model->update();
+	// 			if($res>0)
+	// 			{
+	// 					redirect('Admin/dashboard');	
+	// 			}
+	// 			else
+	// 			{
+	// 				redirect('Admin/forgetpassword');
 					
-				}
-			}
-		}
-	}
-	/**
-		Master Admin Dasboard
-	**/
-	function dashboard()
-	{
-		if($this->session->userdata('role'))
-		{
-			$data['page']='';
-			$this->load->view('admin/components/layout',$data);
-		}
-		else{
-			redirect('Admin/logout');
-		}
-	}
+	// 			}
+	// 		}
+	// 	}
+	// }
+	
 	/**
 		Master Admin Logout
 	**/
-	function logout()
-	{
-		$this->session->sess_destroy($arr);
-		redirect('Admin/login');
-	}
+	// function logout()
+	// {
+	// 	$this->session->sess_destroy($arr);
+	// 	redirect('Admin/login');
+	// }
 	/**
 		 Admin role
 	**/
@@ -112,6 +110,9 @@ class Admin extends CI_controller
 	}
 	function roleinsert()
 	{
+		if(in_array('C',$this->session->userdata('privileges'))){
+			redirect('/User/logout');
+		}
 		if($_POST)
 		{
 			$insert=$this->Admin_model->roleinsert();
@@ -986,7 +987,7 @@ class Admin extends CI_controller
 	**/
 	function leadlist()
 	{
-		$data['page']='employee/pages/view/leadlist';
+		$data['page']='admin/pages/view/leadlist';
 		$data['leaddetails']=$this->Admin_model->viewleadlist();
 		$this->load->view('admin/components/layout',$data);	
 	}
@@ -994,7 +995,10 @@ class Admin extends CI_controller
 	function updatelead()
 	{
 		$code=$this->input->get('lead_code');
-		$data['page']='employee/pages/update/update_lead';
+		$data['page']='admin/pages/update/update_lead';
+		$data['zone']=$this->Admin_model->view_zone();
+		$data['client']=$this->Admin_model->view_client();
+		// $data['leadinfo']=$this->Admin_model->leaddetails_by_id($code);
 		// $data['leaddetails']=$this->Admin_model->updateleadlist($code);
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -1003,11 +1007,11 @@ class Admin extends CI_controller
 	**/
 	function leadform()
 	{
-		$data['zone']=$this->Admin_model->viewzone();
+		$data['zone']=$this->Admin_model->view_zone();
 		$data['client']=$this->Admin_model->view_client();
 		//$data['person']=$this->Admin_model->view_person();
 
-		$data['page']='employee/pages/view/leadform';
+		$data['page']='admin/pages/view/leadform';
 		$this->load->view('admin/components/layout',$data);	
 	}
 
@@ -1066,7 +1070,7 @@ class Admin extends CI_controller
 	function sub_city($subzone)
 	{
 		try{
-			$res = $this->db->select('city.city_code as code,city.city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
+			$res = $this->db->distinct()->select('city.city_code as code,city.city')->from('client')->join('city','client.city_code=city.city_code')->where('zone_code',$subzone)->get()->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
@@ -1083,7 +1087,7 @@ class Admin extends CI_controller
 	}
 	function quotationlist()
 	{
-		$data['page']='employee/pages/view/quotationlist';
+		$data['page']='admin/pages/view/quotationlist';
 		$data['quotationdetails']=$this->Admin_model->viewquotation();
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -1092,7 +1096,7 @@ class Admin extends CI_controller
 	function add_quotation($id)
 	{
 		$code=$id;
-		$data['page']='employee/pages/view/add_quotation';
+		$data['page']='admin/pages/view/add_quotation';
 		$data['companydetails']=$this->Admin_model->companydetails();
 		// $data['productdetails']=$this->Admin_model->productdetails();
 
