@@ -111,20 +111,25 @@ class Admin extends CI_controller
 	function roleinsert()
 	{
 		if(in_array('C',$this->session->userdata('privileges'))){
+			if($_POST)
+			{
+				$insert=$this->Admin_model->roleinsert();
+				if($insert>0)
+				{
+					redirect('Admin/role');		
+				}
+				else
+				{
+					echo "Data is not inserted";
+				}
+			}
+			
+		}
+		else
+		{
 			redirect('/User/logout');
 		}
-		if($_POST)
-		{
-			$insert=$this->Admin_model->roleinsert();
-			if($insert>0)
-			{
-				redirect('Admin/role');		
-			}
-			else
-			{
-				echo "Data is not inserted";
-			}
-		}
+		
 	}
 	/**
 		Role Update Form
