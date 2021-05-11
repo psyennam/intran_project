@@ -14,9 +14,9 @@
                                                 ),
                                                 'title' => array(
                                                         'type' => 'VARCHAR',
-                                                        'constraint' => '10',
+                                                        'constraint' => '20',
                                                 ),
-                                                'org_code'=>rray(
+                                                'org_code'=>array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
@@ -28,6 +28,7 @@
                                                 'maintenance' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '30',
+                                                        'NULL'=>true,
                                                 ),
                                                  'duration' => array(
                                                         'type' => 'DATE',

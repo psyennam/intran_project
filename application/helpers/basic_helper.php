@@ -20,6 +20,9 @@ function __date_format($date, $type = false){
 		case 'dd/mm/yyyy':
 			return date('d/m/Y', strtotime($date));
 			break;
+		case 'expire_date':
+			return date('d-m-Y', strtotime("+12 months",strtotime($date)));
+			break;  
 		default:
 			return date('Y-m-d', strtotime($date));
 			break;
@@ -113,3 +116,4 @@ function visit_type($code)
 	$ci = &get_instance();
 	return $ci->db->select('visit_type')->where('id',$code)->get('visit_type')->row()->visit_type;	
 }
+

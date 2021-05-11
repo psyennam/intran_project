@@ -57,6 +57,9 @@ class Warranty_model extends CI_model
 		$sr_no=random_string('alnum',6);
 		$ip=$this->input->ip_address();
 		
+		$in=$this->db->select('invoice_number')->where('quotation_code',$quotation_code)->get('quotation')->row();
+
+
 		$data=[
 			'warranty_code'=>$randomid,
 			'supplier_code'=>$row->supplier_code,
@@ -64,6 +67,7 @@ class Warranty_model extends CI_model
 			'product_code'=>$row->product_code,
 			'start_at'=>date('y-m-d H:i:s'),
 			'quantity'=>$row->quantity,
+			'invoice_number'=>$in->invoice_number,
 			'sr_no'=>$sr_no,
 			'created_at'=>date('y-m-d H:i:s'),
 			'ip_address'=>$ip
@@ -80,5 +84,16 @@ class Warranty_model extends CI_model
 			$this->db->trans_rollback();
 			return false;
 		}
+	}
+	function warranty_update()
+	{
+		$invoice_number=$this->input->post('invoice_number');
+
+		$tbl_warranty=[
+			'warranty_type'=>$this->input->post('warrantytype_combo'),
+		];
+		$this->db->where('invoice_number',$invoice_number);
+		$res=$this->db->update('warranty',$tbl_warranty);
+		return $res;
 	}
 }

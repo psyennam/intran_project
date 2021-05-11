@@ -333,6 +333,7 @@ class Client extends CI_controller
 	{
 		$data['page']='employee/pages/view/quotationcloselist';
 		$data['quotationdetails']=$this->Client_model->quotationcloselist();
+		$data['warrantytype']=$this->Warranty_model->view_warrantytype();
 		//print_r($data['quotationdetails']);
 		$this->load->view('admin/components/layout',$data);
 	}

@@ -1424,14 +1424,16 @@ class Admin_model extends CI_model
 	function quotationinsert($id)
 	{
 		$randomid=random_string('alnum',5);
+		$randominvoice=random_string('alnum',5);
+
 		$ip=$this->input->ip_address();
 		$quotation=[
 			'quotation_code'=>$randomid,
 			'lead_code'=>$id,
 			// 'product_code'=>$this->input->post('productname'),
 			//'total'=>$this->input->post('total'),
-			'ip_address'=>$ip
-			// 'invoice_number'=>
+			'ip_address'=>$ip,
+			'invoice_number'=>$randominvoice,
 
 			// 'quantity'=>$this->input->post('qty'),
 			// 'price'=>$this->input->post('Productprice'),

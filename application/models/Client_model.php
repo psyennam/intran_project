@@ -264,14 +264,16 @@ class Client_model extends CI_model
 	function quotationinsert($id)
 	{
 		$randomid=random_string('alnum',5);
+		$randominvoice=random_string('alnum',6);
 		$ip=$this->input->ip_address();
 		$quotation=[
 			'quotation_code'=>$randomid,
 			'lead_code'=>$id,
 			// 'product_code'=>$this->input->post('productname'),
 			//'total'=>$this->input->post('total'),
-			'ip_address'=>$ip
-			// 'invoice_number'=>
+			'ip_address'=>$ip,
+			'invoice_number'=>$randominvoice,
+
 
 			// 'quantity'=>$this->input->post('qty'),
 			// 'price'=>$this->input->post('Productprice'),
@@ -383,7 +385,7 @@ class Client_model extends CI_model
 	function quotationcloselist()
 	{
 		// return $this->db->select('quotation.id,quotation.lead_code,quotation.quotation_code,quotation.quotation_close_date,quotation.invoice_number')->from('quotation')->join('mapping_quotation','quotation.quotation_code=mapping_quotation.quotation_code')->where(['quotation.status'=>1,'mapping_quotation.quotation_status'=>1])->get()->result();
-		return $this->db->select('*')->where('status',2)->get('quotation')->result();
+		return $this->db->select('*')->where('quotation.status',2)->join('warranty','warranty.invoice_number=quotation.invoice_number')->get('quotation')->result();
 	}
 	/**
 		In this function we get expense list
@@ -479,4 +481,6 @@ class Client_model extends CI_model
 	{
 		return $this->db->select('*')->get('state')->result();	
 	}
+
+	
 }

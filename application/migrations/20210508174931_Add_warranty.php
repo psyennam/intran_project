@@ -27,6 +27,7 @@
                                                 'invoice_number' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
+                                                        'null'=>true,
                                                 ),
                                                 'start_at' => array(
                                                         'type' => 'DATETIME',
@@ -46,6 +47,7 @@
                                                 'warranty_type'=> array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
+                                                        'null'=>true,
                                                 ),
                                                 'branch_code' => array(
                                                         'type' => 'VARCHAR',
