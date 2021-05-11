@@ -72,9 +72,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   </div>
   <!-- /.login-box-body -->
+<a href="<?= base_url("Complaint"); ?>" class="pull-right"><b>Register Complaint</b></a>
 </div>
 <!-- /.login-box -->
-
 <!-- jQuery 3 -->
 <script src="<?php echo base_url('asset/bower_components/jquery/dist/jquery.min.js');?>"></script>
 <!-- Bootstrap 3.3.7 -->

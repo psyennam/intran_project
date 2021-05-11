@@ -35,7 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	function update_warranty()
 	{
-		// $invoice_number=$this->input->post('invoice_number');
 		// echo $invoice_number;
 		$res=$this->Warranty_model->warranty_update();
 		if($res>0)
