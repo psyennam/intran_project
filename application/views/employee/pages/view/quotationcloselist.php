@@ -35,7 +35,7 @@
                   <td><?php echo client_name($key->lead_code);?></td>
                   <td><?php echo __date_format($key->quotation_close_date,'ddmmyyyy');?></td>
                   <?php if($key->warranty_type==null){ ?>
-                    <td><button type="button" class="btn btn-success lead-modal" data-invoice_number=<?= $key->invoice_number;?>>Add</button>
+                    <td><button type="button" class="btn btn-success lead-modal" data-invoice_number="<?= $key->invoice_number;?>">Add</button>
                     </td>
                   <?php } ?>
                   <td></td>
