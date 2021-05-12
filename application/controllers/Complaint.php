@@ -6,19 +6,16 @@ class Complaint extends CI_controller{
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
-		$this->load->model('Complaint_model');
+		$this->load->model(array('Admin_model','Admin_model'));
 		// if(!$this->session->userdata('is_login'))
 		// {
 		// 	redirect('User/login');
 		// }
 	}
 
-	function viewcomplaint()
+	function index()
 	{
-		$data['complaint']=$this->Complaint_model->viewcomplaint();
-		$data['technician']=$this->Complaint_model->viewtechnician();
-		$data['page']='employee/pages/view/complaint';
-		$this->load->view('admin/components/layout',$data);
+		$this->load->view('employee/pages/view/complaint');
 	}
 }
 

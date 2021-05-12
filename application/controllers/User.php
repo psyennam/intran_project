@@ -102,4 +102,35 @@ class User extends CI_controller
 		$this->session->sess_destroy($arr);
 		redirect('User/login');
 	}
+
+	function opt_invoice($lead_code)
+	{
+		try{
+			$res = $this->db->select('invoice_number as code')->where('lead_code',$lead_code)->get('quotation')->result();
+
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+
+	function opt_product($invoice_number)
+	{
+		try{
+			$res = $this->db->select('mapping_quotation.product_code as code,product.product')->where('invoice_number',$invoice_number)->join('quotation','quotation.quotation_code=mapping_quotation.quotation_code')->join('product','product.product_code=mapping_quotation.product_code')->get('mapping_quotation')->result();
+
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
+	function opt_warranty($product_code)
+	{
+		try{
+			$res = $this->db->select('warranty_code as code,title,DATE(start_at) as start_at,DATE(ADDDATE(start_at,INTERVAL 365 DAY)) as end_at')->where(['product_code'=>$product_code])->join('warranty_type','warranty_type.warranty_type_code=warranty.warranty_type')->get('warranty')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
 }
