@@ -12,8 +12,11 @@
                                                 ),
                                                 'employee_code' => array(
                                                         'type' => 'VARCHAR',
-                                                        'constraint' => '10',
-                                                        
+                                                        'constraint' => '10',      
+                                                ),
+                                                'assigned_by' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',      
                                                 ),
                                                 'remark' => array(
                                                         'type' => 'VARCHAR',

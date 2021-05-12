@@ -17,14 +17,16 @@ class Admin_model extends CI_model
 	**/
 
 	private function get_role(){
-		$res = $this->db->select('mapping_employee.role_code,employee.privileges')->from('employee')->join('mapping_employee','mapping_employee.employee_code=employee.employee_code')->where('mapping_employee.employee_code', $this->emp_code)->get();
+		$res = $this->db->select('mapping_employee.role_code,employee.privileges,mapping_employee.designation_code')->from('employee')->join('mapping_employee','mapping_employee.employee_code=employee.employee_code')->where('mapping_employee.employee_code', $this->emp_code)->get();
 		if($res->num_rows() > 0){
 			$role_code = $res->row()->role_code;
-			
+			$designation_code=$res->row()->designation_code;
 			$privileges = explode(',', $res->row()->privileges);
 			$role = $this->db->where(['role_code' => $role_code, "org_code" => $this->org_code])->get('role')->row();
+			$designation = $this->db->where(['designation_code' => $designation_code, "org_code" => $this->org_code])->get('designation')->row();
 			$this->session->set_userdata('role', $role->role);
 			$this->session->set_userdata('role_code', $role->role_code);
+			$this->session->set_userdata('designation', $designation->designation);
 			$this->session->set_userdata('emp_code', $this->emp_code);
 			$this->session->set_userdata('privileges',$privileges);
 		}else{

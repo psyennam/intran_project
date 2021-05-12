@@ -67,6 +67,7 @@ class Complaint_model extends CI_model
 		$data=[
 		'complaint_code'=>$this->input->post('complaint_code'),
 		'employee_code'=>$this->input->post('warrantytype_combo'),
+		'assigned_by'=>$this->session->userdata('emp_code'),
 		'remark'=>$data->description,
 		'ip_address'=>$ip
 		];
@@ -75,6 +76,54 @@ class Complaint_model extends CI_model
 		{
 			$this->db->trans_complete();
 			return true;
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+
+	}
+	function view_tracking()
+	{
+		return $this->db->select('*')->where(['employee_code'=>$this->session->userdata('emp_code'),'complaint_tracking.status'=>0])->join('complaint','complaint.complaint_code=complaint_tracking.complaint_code')->join('lead','complaint.customer_code=lead.lead_code')->get('complaint_tracking')->result();
+		// return $this->db->select('*')->from('complaint_tracking')->get()->result();
+	}
+
+	function accept_complaint()
+	{
+		$ip=$this->input->ip_address();
+		$data=$this->db->select('*')->where('complaint_code',$this->input->post('complaint_code'))->get('complaint_tracking')->row();
+		$comp_tr=[
+		'complaint_code'=>$this->input->post('complaint_code'),
+		'employee_code'=>$data->employee_code,
+		'assigned_by'=>$data->assigned_by,
+		'remark'=>$this->input->post('remark'),
+		'ip_address'=>$ip,
+		'status'=>1
+		];
+		$this->db->trans_start();
+		if($this->db->insert('complaint_tracking',$comp_tr)) 
+		{
+			$comp=[
+				'status'=>1
+			];
+			if($this->db->where('complaint_code',$data->complaint_code)->update('complaint',$comp))
+			{
+				if($this->db->where(['complaint_code'=>$data->complaint_code,'status'=>0])->update('complaint_tracking',$comp))
+				{
+					$this->db->trans_complete();
+					return true;
+				}
+				else{
+					$this->db->trans_rollback();
+					return false;
+				}
+			}
+			else{
+				$this->db->trans_rollback();
+				return false;
+			}
 		}
 		else
 		{

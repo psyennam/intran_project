@@ -31,7 +31,7 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li class="active"><a href="<?php echo base_url('complaint/viewcomplaint');?>"><i class="fa fa-circle-o"></i>Complient</a></li>  
+              <li class="active"><a href="<?php if($this->session->userdata('designation')=="Service Technician"){ echo base_url('Complaint/complaint_tracking'); }else{echo base_url('complaint/viewcomplaint');}?>"><i class="fa fa-circle-o"></i>Complient</a></li>  
             </ul>
           </li>
         <?php if(!$this->session->userdata('role')=="manager"){?>

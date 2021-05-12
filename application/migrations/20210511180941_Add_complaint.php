@@ -16,7 +16,7 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
-                                                'quotation_code' => array(
+                                                'invoice_number' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),

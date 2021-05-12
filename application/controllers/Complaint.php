@@ -36,16 +36,45 @@ class Complaint extends CI_controller{
 	}
 	function insert_complaint_tracking()
 	{
-		$res=$this->complaint_model->insert_complaint_tracking();
-		if($res>0)
+		if($_POST)
 		{
-			redirect('Complaint/viewcomplaint');
-		}
-		else
-		{
-			echo "Data is not inserted";
+			$res=$this->complaint_model->insert_complaint_tracking();
+			if($res>0)
+			{
+				redirect('Complaint/viewcomplaint');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}
 		}
 	}
+	function complaint_tracking()
+	{
+		$data['complaint']=$this->complaint_model->view_tracking();
+		// $data['technician']=$this->complaint_model->viewtechnician();
+		// $data['page']='employee/pages/view/complaint';
+		$data['page']='employee/pages/view/complaint_tracking';
+		$this->load->view('admin/components/layout',$data);
+		// print_r($data['technician']);
+	}
+
+	function accept_complaint()
+	{
+		if($_POST)
+		{
+			$res=$this->complaint_model->accept_complaint();
+			if($res>0)
+			{
+				redirect('Complaint/complaint_tracking');
+			}
+			else
+			{
+				echo "Data is not inserted";
+			}	
+		}
+	}
+	
 }
 
 
