@@ -15,7 +15,7 @@ class Complaint extends CI_controller{
 
 	function index()
 	{
-		echo "Hello";
+		$this->load->view('employee/pages/view/complaint');
 	}
 }
 

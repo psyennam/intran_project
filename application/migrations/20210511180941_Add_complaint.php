@@ -7,7 +7,7 @@
                                                         'type' => 'INT',
                                                         'auto_increment' => TRUE
                                                 ),
-                                                'complient_code' => array(
+                                                'complaint_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                         'unique'=>true,
