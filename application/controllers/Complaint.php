@@ -16,6 +16,14 @@ class Complaint extends CI_controller{
 	function complaint_form()
 	{
 		$this->load->view('employee/pages/view/complaint_form');
+		if($_POST)
+		{
+		$res=$this->complaint_model->complaint_form_insert();
+		if($res==true)
+		{
+			redirect('Complaint/viewcomplaint');
+		}
+		}
 	}
 
 	function viewcomplaint()
@@ -24,6 +32,19 @@ class Complaint extends CI_controller{
 		$data['technician']=$this->complaint_model->viewtechnician();
 		$data['page']='employee/pages/view/complaint';
 		$this->load->view('admin/components/layout',$data);
+		// print_r($data['technician']);
+	}
+	function insert_complaint_tracking()
+	{
+		$res=$this->complaint_model->insert_complaint_tracking();
+		if($res>0)
+		{
+			redirect('Complaint/viewcomplaint');
+		}
+		else
+		{
+			echo "Data is not inserted";
+		}
 	}
 }
 

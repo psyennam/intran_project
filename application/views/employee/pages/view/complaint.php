@@ -22,20 +22,22 @@
                 <th>Description Name</th>
                 <th>Email</th>
                 <th>MobileNo</th>
-                <th>Complient Issue Date</th>
+                <th>complaint Issue Date</th>
+                <th>Status</th>
               </tr>
             </thead>
              <?php foreach ($complaint as $key) { ?>
               <tr>
                   </td>
                   <td><?php echo $key->id;?></td>
-                 <td><button type="button" class="btn btn-success lead-modal" data-invoice_number="<?= $key->id;?>">Add</button>
+                 <td><button type="button" class="btn btn-success lead-modal" data-complaint_code="<?= $key->complaint_code;?>">Add</button>
                   <td><?= client_name($key->customer_code)?></td>
                   <td><?= product_name($key->product_code)?></td>
                   <td><?= $key->description;?></td>
                   <td><?= $key->email;?></td>
                   <td><?= $key->mobile_no;?></td> 
                   <td><?= __date_format($key->created_at,'ddmmyyyy');?></td>
+                  <td><?= is_status($key->status);?></td>
               </tr>
               <?php } ?>
           </table>
@@ -58,11 +60,11 @@
             <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Assign Technician</h4>
           </div>
-          <form method="post" action="<?php echo base_url('Warranty/update_warranty'); ?>">
+          <form method="post" action="<?php echo base_url('Complaint/insert_complaint_tracking'); ?>">
           <div class="modal-body">
             <div class="row" style="text-align:center;">
               <div class="col-md-12">
-                <input type="text" id="hdnId" name="invoice_number">
+                <input type="text" id="hdnId" name="complaint_code">
                 <div class="form-group col-md-12">
                   <label>Technician</label>
                   <select name="warrantytype_combo">
@@ -90,7 +92,7 @@
   }
    $(document).ready(function(){  
    $('.lead-modal').click(function(){
-      $('#hdnId').val($(this).data('invoice_number'));
+      $('#hdnId').val($(this).data('complaint_code'));
       $('#modal-default').modal('toggle');
     })
   })

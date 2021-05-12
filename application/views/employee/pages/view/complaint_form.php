@@ -83,19 +83,19 @@
         </div>
         <div>
           <label>mobile_Number</label>
-          <input type="text" class="form-control" id="mobilenumber" placeholder="Enter mobile_Number">
+          <input type="text" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="Enter mobile_Number">
         </div>
         <div>
           <label >Email Address</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
         </div>
         <div>
           <label >Subject</label>
-          <input type="email" class="form-control" id="subject" placeholder="Subject">
+          <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject">
         </div>
         <div>
           <label >Discription</label>
-          <input type="email" class="form-control" id="discription" placeholder="description">
+          <input type="text" class="form-control" id="discription" name="discription" placeholder="description">
         </div>
         </div>
       </div>
