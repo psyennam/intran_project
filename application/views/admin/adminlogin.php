@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   </div>
   <!-- /.login-box-body -->
-<a href="<?= base_url("Complaint"); ?>" class="pull-right"><b>Register Complaint</b></a>
+<a href="<?= base_url("Complaint/complaint_form"); ?>" class="pull-right"><b>Register Complaint</b></a>
 </div>
 <!-- /.login-box -->
 <!-- jQuery 3 -->
