@@ -1,55 +1,56 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
-
-    <!-- Content Header (Page header) -->
-    <section class="content-header text-center" >
-      <h1 style="text-transform: capitalize;"><b><?= __lang('Role Data');?></b></h1>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header text-center">
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+<!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+                <b style="font-size: 20px;"><?= __lang('Role Data');?></b>
+              </div>
+              <div class="col-sm-6 col-md-6 col-lg-6 ">
+                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+              </div>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body" style="overflow-x:auto;">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th><?= __lang('ID');?></th>
-          					<th><?= __lang('Role Name');?></th>
-          					<th><?= __lang('Role Code');?></th>
-          					<th><?= __lang('CreateDate');?></th>
-          					<th><?= __lang('Status');?></th>
-          					<th><?= __lang('Update');?></th>
-          					<th><?= __lang('Delete');?></th>
-          			 </tr>
-                </thead>
-                <tbody>
-                  <?php foreach ($roledetails as $key) { ?>
-                    	<tr>
-                    		<td><?php echo $key->id;?></td>
-                    		<td><?php echo $key->role; ?></td>	
-                    		<td><?php echo $key->role_code; ?></td>		
-                    		<td><?php echo is_status($key->status); ?></td>  
-                        <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>			
-                    		<td><a href="updaterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
-                    		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>					
-                    	</tr>	
-                    	<?php } ?>
-                  </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
+          <!-- /.box-header -->
+          <div class="box-body" style="overflow-x:auto;">
+            <table id="example2" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th><?= __lang('ID');?></th>
+        					<th><?= __lang('Role Name');?></th>
+        					<th><?= __lang('Role Code');?></th>
+        					<th><?= __lang('CreateDate');?></th>
+        					<th><?= __lang('Status');?></th>
+        					<th><?= __lang('Update');?></th>
+        					<th><?= __lang('Delete');?></th>
+        			 </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($roledetails as $key) { ?>
+                  	<tr>
+                  		<td><?php echo $key->id;?></td>
+                  		<td><?php echo $key->role; ?></td>	
+                  		<td><?php echo $key->role_code; ?></td>		
+                  		<td><?php echo is_status($key->status); ?></td>  
+                      <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>			
+                  		<td><a href="updaterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
+                  		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>					
+                  	</tr>	
+                  	<?php } ?>
+                </tbody>
+            </table>
+          </div>
+          <!-- /.box-body -->
         </div>
-        <!-- /.col -->
+        <!-- /.box -->
       </div>
-      <!-- /.row -->
-    </section>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </section>
     <!-- /.content -->
     <!-- Modal Start  -->
     <div class="modal fade" id="mymodel">
