@@ -1,15 +1,24 @@
-<section class="content-header text-center" >
+<!-- <section class="content-header text-center" >
     <h1 style="text-transform: capitalize;"><b>Product List</b></h1>
-  </section>
+  </section> -->
 <!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <div class="box-header text-center">
-          <a href="<?php echo base_url('Admin/productinsert');?>"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><!-- <?= __lang('add')?> -->Add</button></a>
-          
+        <div class="box-header">
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+              <b style="font-size: 20px;">Product Data</b>
+            </div>
+            <?php if(in_array('C',$this->session->userdata('privileges'))){?>
+            <div class="col-sm-6 col-md-6 col-lg-6 ">
+              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel">Add</button>
+            </div>
+            <?php } ?>
+          </div>
         </div>
+        
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">
           <table id="example2" class="table table-bordered table-hover">
