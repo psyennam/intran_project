@@ -1,16 +1,20 @@
 <!-- Content Wrapper. Contains page content -->           
     <!-- Content Header (Page header) -->
-<section class="content-header text-center" >
-    <h1 style="text-transform: capitalize;"><b><?= __lang('Country Data');?></b></h1>
-  </section>
 
 <!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
-        <div class="box-header text-center">
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+        <div class="box-header">
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+              <b style="font-size: 20px;">Country Data</b>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 ">
+              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+            </div>
+          </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">

@@ -45,7 +45,7 @@
                   <td><?= __date_format($key->created_at,'ddmmyyyy');?></td>
                   <td><?= emp_name($key->assigned_by) ?></td>
                   <td><?= is_status($key->status);?></td>
-                  <td><button type="button" class="btn btn-success lead-modal" data-complaint_code="<?= $key->complaint_code;?>" data-description="<?= $key->description;?>">Add</button></td>
+                  <td><?php if($key->status==0){?><button type="button" class="btn btn-success lead-modal" data-complaint_code="<?= $key->complaint_code;?>" data-description="<?= $key->description;?>">Add</button><?php } ?></td>
               </tr>
               <?php } ?>
           </table>

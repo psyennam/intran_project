@@ -116,4 +116,8 @@ function visit_type($code)
 	$ci = &get_instance();
 	return $ci->db->select('visit_type')->where('id',$code)->get('visit_type')->row()->visit_type;	
 }
+function complaint_status($sts)
+{
+	return ($sts == 2)?"Completed":"In-active";
+}
 

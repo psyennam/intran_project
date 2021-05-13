@@ -74,7 +74,12 @@ class Complaint extends CI_controller{
 			}	
 		}
 	}
-	
+	function close_tracking()
+	{
+		$data['closedata']=$this->complaint_model->close_tracking();
+		$data['page']='employee/pages/view/close_tracking';
+		$this->load->view('admin/components/layout',$data);
+	}
 }
 
 

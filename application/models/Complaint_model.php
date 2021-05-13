@@ -100,7 +100,7 @@ class Complaint_model extends CI_model
 		'assigned_by'=>$data->assigned_by,
 		'remark'=>$this->input->post('remark'),
 		'ip_address'=>$ip,
-		'status'=>1
+		'status'=>2
 		];
 		$this->db->trans_start();
 		if($this->db->insert('complaint_tracking',$comp_tr)) 
@@ -131,6 +131,10 @@ class Complaint_model extends CI_model
 			return false;
 		}
 
+	}
+	function close_tracking()
+	{
+		return $this->db->select('*')->from('complaint_tracking')->where('status',2)->get()->result();
 	}
 }
 ?>
