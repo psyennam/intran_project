@@ -49,14 +49,14 @@
           		<div class="modal-content">
                 <div class="modal-header">
           				<button type="button" class="close" data-dismiss="modal">&times;</button>	
-          				<h3 class="text-center text-primary"><?= __lang('Department');?></h3>	
+          				<h3 class="modal-title text-primary"><?= __lang('Department');?></h3>	
           			</div>
                 <form action="<?php echo base_url('Admin/departmentinsert');?>" id="formone" class="form-group" method="post">   
             			<div class="modal-body">
                     <div class="row">
   						        <div class="col-sm-12 col-md-12 col-lg-12">
     		                <label><?= __lang('Department Name');?></label>
-    		                <input type="text" class="form-control" placeholder="Enter Department Name" name="DepartmentName">
+    		                <input type="text" class="form-control" placeholder="Department Name" name="DepartmentName">
   			              </div>
 			              </div>
           			  </div>

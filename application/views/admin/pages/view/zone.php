@@ -1,107 +1,106 @@
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-                  <b style="font-size: 20px;"><?= __lang('Zone Data');?></b>
-                </div>
-                <?php if(in_array('C',$this->session->userdata('privileges'))){?>
-                <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
-                </div>
-                <?php } ?>
+<!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+                <b style="font-size: 20px;"><?= __lang('Zone Data');?></b>
               </div>
+              <?php if(in_array('C',$this->session->userdata('privileges'))){?>
+              <div class="col-sm-6 col-md-6 col-lg-6 ">
+                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+              </div>
+              <?php } ?>
             </div>
-            <!-- /.box-header -->
-            <div class="box-body" style="overflow-x:auto;">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th><?= __lang('ID');?></th>
-          					<th><?= __lang('Zone');?></th>
-          					<!-- <th>Zone Code</th> -->
-                    <th><?= __lang('Employee');?></th>
-          					<th><?= __lang('Status');?></th>
-          					<th><?= __lang('Update');?></th>
-          					<th><?= __lang('Delete');?></th>
-                    <th><?= __lang('Sub Zone');?></th>
-          			 </tr>
-                </thead>
-                <tbody>
-                  <?php if(!empty($zonedetails)){ foreach ($zonedetails as $key) { ?>
-                  	<tr>
-                  		<td><?php echo $key->id;?></td>
-                  		<td><?php echo $key->zone; ?></td>	
-                  		<!-- <td><?php echo $key->zone_code; ?></td> -->
-                      <td><?php echo $key->employee; ?></td>					
-                  		<td><?php echo is_status($key->status); ?></td>  
-                  		<td><a href="updatezone?zone_code=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
-                  		<td><a href="deleterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
-                      <td><button type="button" class="btn btn-success open_zone_modal" data-zonecode = "<?= $key->zone_code?>"><?= __lang('Add');?></button></td>					
-                  	</tr>	
-                  <?php } } ?>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
           </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <div class="box-header">
-              <h3 class="box-title"><?= __lang('Sub-Zone Data Table');?></h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
+          <!-- /.box-header -->
+          <div class="box-body" style="overflow-x:auto;">
+            <table id="example2" class="table table-bordered table-hover">
+              <thead>
                 <tr>
                   <th><?= __lang('ID');?></th>
-                  <th><?= __lang('SUb Zone');?></th>
-                  <th><?= __lang('city');?></th>
+        					<th><?= __lang('Zone');?></th>
+        					<!-- <th>Zone Code</th> -->
                   <th><?= __lang('Employee');?></th>
-                  <th><?= __lang('Update');?></th>
-                  <th><?= __lang('Delete');?></th>
-                </tr>
-                </thead>
-                <tbody>
-                  <?php if(!empty($subzonedetails)){ foreach ($subzonedetails as $key) { ?>
-                    <tr>
-                      <td><?php echo $key->id;?></td>
-                      <td><?php echo $key->zone; ?></td>
-                       <td><?php echo (get_title($key->state_code)); ?></td>
-                       <td><?php echo $key->employee; ?></td>      
-                      <td><a href="updatesubzone?zone_code=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
-                      <td><a href="deleterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
-                      <!-- <td><button type="button" class="btn btn-success open_zone_modal" data-zonecode = "<?= $key->zone_code ;?>">Add</button></td> -->          
-                    </tr> 
-                  <?php } } ?>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.box-body -->
+        					<th><?= __lang('Status');?></th>
+        					<th><?= __lang('Update');?></th>
+        					<th><?= __lang('Delete');?></th>
+                  <th><?= __lang('Sub Zone');?></th>
+        			 </tr>
+              </thead>
+              <tbody>
+                <?php if(!empty($zonedetails)){ foreach ($zonedetails as $key) { ?>
+                	<tr>
+                		<td><?php echo $key->id;?></td>
+                		<td><?php echo $key->zone; ?></td>	
+                		<!-- <td><?php echo $key->zone_code; ?></td> -->
+                    <td><?php echo $key->employee; ?></td>					
+                		<td><?php echo is_status($key->status); ?></td>  
+                		<td><a href="updatezone?zone_code=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
+                		<td><a href="deleterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
+                    <td><button type="button" class="btn btn-block btn-success open_zone_modal" data-zonecode = "<?= $key->zone_code?>"><?= __lang('Add');?></button></td>					
+                	</tr>	
+                <?php } } ?>
+              </tbody>
+            </table>
           </div>
-          <!-- /.box -->
+          <!-- /.box-body -->
         </div>
-        <!-- /.col -->
+        <!-- /.box -->
       </div>
-      <!-- /.row -->
-    </section>
-    <!-- /.content -->
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="box">
+          <div class="box-header">
+            <h3 class="box-title"><?= __lang('Sub-Zone Data Table');?></h3>
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="example2" class="table table-bordered table-hover">
+              <thead>
+              <tr>
+                <th><?= __lang('ID');?></th>
+                <th><?= __lang('SUb Zone');?></th>
+                <th><?= __lang('city');?></th>
+                <th><?= __lang('Employee');?></th>
+                <th><?= __lang('Update');?></th>
+                <th><?= __lang('Delete');?></th>
+              </tr>
+              </thead>
+              <tbody>
+                <?php if(!empty($subzonedetails)){ foreach ($subzonedetails as $key) { ?>
+                  <tr>
+                    <td><?php echo $key->id;?></td>
+                    <td><?php echo $key->zone; ?></td>
+                     <td><?php echo (get_title($key->state_code)); ?></td>
+                     <td><?php echo $key->employee; ?></td>      
+                    <td><a href="updatesubzone?zone_code=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
+                    <td><a href="deleterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
+                    <!-- <td><button type="button" class="btn btn-success open_zone_modal" data-zonecode = "<?= $key->zone_code ;?>">Add</button></td> -->          
+                  </tr> 
+                <?php } } ?>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </section>
+  <!-- /.content -->
 
     <!-- Modal Start  -->
     <div class="modal fade" id="mymodel">
@@ -109,7 +108,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
-            <h3 class="text-center text-primary"><?= __lang('Zone');?></h3>  
+            <h3 class="modal-title text-primary"><?= __lang('Zone');?></h3>  
           </div>
           <!-- Form Start  -->
             <form action="<?= base_url('Admin/zoneinsert');?>" id="formone" class="form-group" method="post">
@@ -149,7 +148,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
-            <h3 class="text-center text-primary"><?= __lang('Area');?></h3>  
+            <h3 class="modal-title text-primary"><?= __lang('Area');?></h3>  
           </div>
           <!-- Form Start  -->
             <form action="<?= base_url('Admin/subzoneinsert');?>" id="formone" class="form-group" method="post">

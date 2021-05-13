@@ -56,102 +56,101 @@
 </section>
     <!-- /.content -->
 
-    <!-- Modal 1 Start  -->
-    <div class="modal fade" id="mymodel">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button> 
-            <h3 class="text-center text-primary"><?= __lang('City');?></h3>  
-          </div>
-          <!-- Form 1 Start  -->
-          <form action="<?= base_url('Admin/cityinsert');?>" id="formone" class="form-group" method="post">
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <label><?= __lang('Country');?></label>
-                    <select class="form-control" name="countrycombo">
-                    <?php 
-                    foreach ($countrydetails as $row) {
-                    ?>
-                        <option value="<?php echo $row->country_code ?>"><?php echo $row->country; ?>
-                        </option>
-                    <?php
-                  } ?>
-                    </select>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <label><?= __lang('State');?></label>
-                    <select class="form-control" name="statecombo">
-                    <?php 
-                    foreach ($statedetails as $row) {
-                    ?>
-                        <option value="<?php echo $row->state_code; ?>"><?php echo $row->state; ?>
-                        </option>
-                    <?php
-                  } ?>
-                    </select>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-12">
-                  <label><?= __lang('City Name');?></label>
-                  <input type="text" class="form-control" placeholder="Enter City Name" name="CityName">
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <div class="row">
-                <div class="col-md-12 text-center" style="margin-top: 10px;">
-                  <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+<!-- Modal 1 Start  -->
+<div class="modal fade" id="mymodel">
+  <div class="modal-dialog modal-md modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+        <h3 class="modal-title text-primary"><?= __lang('City');?></h3>  
       </div>
+      <!-- Form 1 Start  -->
+      <form action="<?= base_url('Admin/cityinsert');?>" id="formone" class="form-group" method="post">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <label><?= __lang('Country');?></label>
+                <select class="form-control" name="countrycombo">
+                <?php 
+                foreach ($countrydetails as $row) {
+                ?>
+                    <option value="<?php echo $row->country_code ?>"><?php echo $row->country; ?>
+                    </option>
+                <?php
+              } ?>
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <label><?= __lang('State');?></label>
+                <select class="form-control" name="statecombo">
+                <?php 
+                foreach ($statedetails as $row) {
+                ?>
+                    <option value="<?php echo $row->state_code; ?>"><?php echo $row->state; ?>
+                    </option>
+                <?php
+              } ?>
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-12">
+              <label><?= __lang('City Name');?></label>
+              <input type="text" class="form-control" placeholder="Enter City Name" name="CityName">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="row">
+            <div class="col-md-12 text-center" style="margin-top: 10px;">
+              <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-    <!-- End Modal 1  -->
+  </div>
+</div>
+<!-- End Modal 1  -->
 
-    <!-- Modal 2 Start  -->
-    <div class="modal fade" id="pincode_modal">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button> 
-            <h4 class="modal-title"><?= __lang('Pincode');?></h4>  
-          </div>
-          <!-- Form 2 Start  -->
-          <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
-            <div class="modal-body">
-              <input type="text" name="city" id="h_city_code">
-              <div class="row">
-                <div class="col-sm-5 col-md-5 col-lg-5">
-                  <label><?= __lang('area');?></label>
-                  <input type="text" class="form-control" placeholder="Enter Area Name" name="area[]">
-                </div>
-                <div class="col-sm-5 col-md-5 col-lg-5">
-                  <label><?= __lang('Pincode');?></label>
-                  <input type="text" class="form-control" placeholder="Enter Pincode" name="zipCode[]">
-                </div>
-                <div class="col-sm-2 col-md-2 col-lg-2">
-                  <button type="button" class="btn btn-primary add_row" style="margin-top: 25px;"><i class="fa fa-plus"></i></button>
-                </div>
-              </div>
-              <div class="rows"></div>
-            </div>
-            <div class="modal-footer">
-              <div class="row">
-                <div class="col-md-12 text-center" style="margin-top: 10px;">
-                  <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
-                </div>
-              </div>
-            </div>
-          </form>
-          <!-- End Form 2 Start  -->
-        </div>
+<!-- Modal 2 Start  -->
+<div class="modal fade" id="pincode_modal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button> 
+        <h4 class="modal-title"><?= __lang('Pincode');?></h4>  
       </div>
+      <!-- Form 2 Start  -->
+      <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
+        <div class="modal-body">
+          <input type="hidden" name="city" id="h_city_code">
+          <div class="row">
+            <div class="col-sm-5 col-md-5 col-lg-5">
+              <label><?= __lang('area');?></label>
+              <input type="text" class="form-control" placeholder="Enter Area Name" name="area[]">
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+              <label><?= __lang('Pincode');?></label>
+              <input type="text" class="form-control" placeholder="Enter Pincode" name="zipCode[]">
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+              <button type="button" class="btn btn-primary add_row" style="margin-top: 25px;"><i class="fa fa-plus"></i></button>
+            </div>
+          </div>
+          <div class="rows"></div>
+        </div>
+        <div class="modal-footer">
+          <div class="row">
+            <div class="col-md-12 text-center" style="margin-top: 10px;">
+              <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- End Form 2 Start  -->
     </div>
-    <!-- End Modal 2  -->
-  <!-- /.content-wrapper -->
+  </div>
+</div>
+<!-- End Modal 2  -->
 
 <script>
 $('.open_pincode_modal').click(function(){ 

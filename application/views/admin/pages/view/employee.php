@@ -34,7 +34,7 @@
                       <td><?php echo $key->employee_code; ?></td>   
                       <td><?php echo is_status($key->status); ?></td>
                       <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
-                      <td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
+                      <td><a href="updateemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
                       <td><a href="deleteemployee?employee_code=<?php echo $key->employee_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
                     </tr> 
                   <?php } ?>
@@ -43,35 +43,35 @@
             </div>  
             <!-- Modal Start  -->
           	  <div class="modal fade" id="mymodel">
-          		  <div class="modal-dialog modal-dialog-centered">
+          		  <div class="modal-dialog modal-lg modal-dialog-centered">
           			  <div class="modal-content">
                     <div class="modal-header">
           					  <button type="button" class="close" data-dismiss="modal">&times;</button>	
-          					  <h3 class="text-center text-primary">Employee</h3>	
+          					  <h3 class="modal-title text-primary">Employee</h3>	
           				  </div>
                   <!-- Form Start  -->
-                    <form action="<?php echo base_url('Admin/employeeinsert');?>" id="formone" class="form-group" method="post">   
+                    <form action="<?php echo base_url('Admin/employeeinsert');?>" id="formone" class="form-group" method="post" autocomplete="off">   
             				  <div class="modal-body">
                         <div class="row">
 							            <div class="col-sm-12 col-md-4 col-lg-4">
-							              <label>Employee Name</label>
-							              <input type="text" class="form-control" placeholder="Enter employee Name" name="employeeName">
+							              <label>Name</label>
+							              <input type="text" class="form-control" placeholder="Enter Name" name="employeeName">
 							            </div>
                           <div class="col-sm-12 col-md-4 col-lg-4">
                             <label>Date Of Birth</label>
-                            <input type="date" class="form-control" placeholder="Enter employee DOB" name="employeeDob">
+                            <input type="date" class="form-control" name="employeeDob">
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4">
                             <label>Email</label>
-                            <input type="text" class="form-control" placeholder="Enter employee Email" name="employeeEmail">
+                            <input type="text" class="form-control" placeholder="Enter Email" name="employeeEmail">
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4">
-                            <label>Employee Contact</label>
-                            <input type="text" class="form-control" placeholder="Enter employee Contact" name="employeeContact">
+                            <label>Contact Number</label>
+                            <input type="text" class="form-control" placeholder="10 digit mobile no." name="employeeContact">
                           </div>
                           <div class="col-sm-12 col-md-4 col-lg-4">
                             <label>Address</label>
-                            <input type="text" class="form-control" placeholder="Enter employee Address" name="employeeAddress">
+                            <input type="text" class="form-control" placeholder="Address" name="employeeAddress">
                           </div>
                           <div class="col-sm-12 col-md-12 col-lg-4">
                             <label>Department</label>

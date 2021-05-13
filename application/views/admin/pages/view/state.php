@@ -1,4 +1,4 @@
-  <!-- Main content -->
+ <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
@@ -60,7 +60,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button> 
-          <h3 class="text-center text-primary"><?= __lang('State');?></h3> 
+          <h3 class="modal-title text-primary"><?= __lang('State');?></h3> 
         </div>
             <!-- Form Start  -->
             <form action="<?php echo base_url('Admin/stateinsert');?>" id="formone" class="form-group" method="post">   
