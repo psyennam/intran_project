@@ -5,17 +5,17 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-          <div class="row">
-            <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-              <b style="font-size: 20px;"><?= __lang('Product Type Data');?></b>
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+                  <b style="font-size: 20px;"><?= __lang('Product Type Data');?></b>
+                </div>
+                <?php if(in_array('C',$this->session->userdata('privileges'))){?>
+                <div class="col-sm-6 col-md-6 col-lg-6 ">
+                  <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+                </div>
+                <?php } ?>
+              </div>
             </div>
-            <?php if(in_array('C',$this->session->userdata('privileges'))){?>
-            <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
-            </div>
-            <?php } ?>
-          </div>
-        </div>
             <!-- /.box-header -->
             <div class="box-body" style="overflow-x:auto;">
               <table id="example2" class="table table-bordered table-hover">
