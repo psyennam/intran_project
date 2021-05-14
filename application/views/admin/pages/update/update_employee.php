@@ -12,16 +12,16 @@
           <form id="formone" class="form-group" method="post" enctype="multipart/form-data">
             <div class="row">
               <div class="col-sm-12 col-md-4 col-lg-4">
-                <label><?= __lang('employee Name');?><</label>
+                <label><?= __lang('employee Name');?></label>
                 <input type="text" class="form-control" placeholder="Enter employee Name" name="employeeName" value="<?php echo $key->employee;?>">
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
-                <label><?= __lang('employee Code');?><</label>
+                <label><?= __lang('employee Code');?></label>
                 <input type="text" class="form-control" name="RoleCode" value="<?php echo $key->employee_code;?>"> 
               </div>
               
               <div class="col-sm-12 col-md-12 col-lg-4">
-                  <label><?= __lang('Status');?><</label>
+                  <label><?= __lang('Status');?></label>
                   <select class="form-control" name="statuscombo">
                     <option value="0" <?php if($key->status == 0) {echo "selected";} ?>>Active</option>
                     <option value="1" <?php if($key->status == 1) {echo "selected";} ?>>InActive</option>
@@ -32,7 +32,7 @@
 
             <div class="row">
               <div class="col-md-12 text-center" style="margin-top: 10px;">
-                <button type="submit" class="btn btn-primary"><?= __lang('Submit');?><</button>
+                <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
               </div>
             </div>
           </form>

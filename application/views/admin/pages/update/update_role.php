@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="box">
-      <h1 style="text-align: center;"><?= __lang('Role Update Form');?><</h1>
+      <h1 style="text-align: center;"><?= __lang('Role Update Form');?></h1>
       
         <!-- Container  -->
         <div class="container">
