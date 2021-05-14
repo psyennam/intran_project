@@ -55,11 +55,11 @@
                   <td><?php echo get_zone($key->zone_code);?></td>  
                   <td><?php echo get_subzone($key->zone_code);?></td>  
                   <td><?php echo is_status($key->status); ?></td>
-                  <?php if(in_array('U',$this->session->userdata('privileges'))){?>
+                  <!-- <?php if(in_array('U',$this->session->userdata('privileges'))){?>
                 <td><a href="updateclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-primary">UPDATE</button></a></td>
               <?php } if(in_array('D',$this->session->userdata('privileges'))){?>
                   <td><a href="deleteclient?client_code=<?php echo $key->client_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
-                  <?php } ?>      
+                  <?php } ?>     -->  
                 </tr> 
               <?php } ?>
             </tbody>
