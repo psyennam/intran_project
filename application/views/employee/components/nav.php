@@ -39,7 +39,7 @@
             <?php } ?>
             </ul>
           </li>
-        <?php if(!$this->session->userdata('role')=="manager"){?>
+        <?php if($this->session->userdata('role')=="Employee" && $this->session->userdata('designation')=="Manager"){?>
         <li class="treeview">
             <a href="#">
               <i class="fa fa-pie-chart"></i>

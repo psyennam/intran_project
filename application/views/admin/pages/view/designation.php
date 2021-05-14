@@ -1,13 +1,17 @@
-<section class="content-header text-center" >
-    <h1 style="text-transform: capitalize;"><b><?= __lang('Designation Data');?></b></h1>
-  </section>
   <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
-            <div class="box-header text-center">
-              	<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+            <div class="box-header">
+              <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
+                  <b style="font-size: 20px;"><?= __lang('Designation Data');?></b>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6 ">
+                  <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+                </div>
+              </div>     	
             </div>
             <div class="box-body" style="overflow-x:auto;">
               <table id="example2" class="table table-bordered table-hover">
@@ -44,16 +48,16 @@
             		<div class="modal-dialog modal-dialog-centered">
             			<div class="modal-content">
             				<div class="modal-header">
-            					<h3 class="text-center text-primary"><?= __lang('Designation');?></h3>	
             					<button type="button" class="close" data-dismiss="modal">&times;</button>	
+            					<h3 class="modal-title text-primary"><?= __lang('Designation');?></h3>	
             				</div>
                     <!-- Form Start  -->
                     <form action="<?= base_url('Admin/designationinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
               				<div class="modal-body">
                         <div class="row">
   							          <div class="col-sm-12 col-md-4 col-lg-4">
-  							            <label><?= __lang('Designation Name');?></label>
-  							            <input type="text" class="form-control" placeholder="Enter Designation Name" name="DesignationName">
+  							            <label><?= __lang('Designation');?></label>
+  							            <input type="text" class="form-control" placeholder="Enter Designation" name="DesignationName">
   							          </div>
   							          <div class="col-sm-12 col-md-4 col-lg-4">
     							          <label><?= __lang('Department Name');?></label>
@@ -62,10 +66,6 @@
   													    <option value="<?php echo $row->department_code;?>"><?php echo $row->department;?></option>
   													  <?php } ?>
   												  </select>
-    							        </div>
-                          <div class="col-sm-12 col-md-12 col-lg-4">
-    							          <label><?= __lang('Client Id');?></label>
-    							          <input type="text" class="form-control" name="ClientId" value="<?php echo $this->session->userdata('org_code');?>" disabled>
     							        </div>
   							        </div>
               				</div>

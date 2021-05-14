@@ -11,7 +11,7 @@
                 </div>
                 <?php if(in_array('C',$this->session->userdata('privileges'))){?>
               <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
+              <!-- <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button> -->
                 </div>
                 <?php } ?>
               </div>
@@ -52,7 +52,7 @@
         			<div class="modal-content">
         				<div class="modal-header">
         					<button type="button" class="close" data-dismiss="modal">&times;</button>	
-        					<h3 class="text-center text-primary"><?= __lang('Pincode')?></h3>	
+        					<h3 class="modal-title text-primary"><?= __lang('Pincode')?></h3>	
         				</div>
               <!-- Form Start  -->
              <form action="<?php echo base_url('Admin/pincodeinsert');?>" id="formone" class="form-group" method="post" enctype="multipart/form-data">   
@@ -90,17 +90,4 @@
     </div>
   </section>
 <!-- /.content -->
-<!-- page script -->
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>	
+
