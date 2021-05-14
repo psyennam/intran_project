@@ -1,7 +1,3 @@
-<!-- <section class="content-header text-center" >
-    <h1 style="text-transform: capitalize;"><b>Product List</b></h1>
-  </section> -->
-<!-- Main content -->
 <section class="content">
   <div class="row">
     <div class="col-xs-12">
@@ -13,7 +9,7 @@
             </div>
             <?php if(in_array('C',$this->session->userdata('privileges'))){?>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel">Add</button>
+               <a href="<?php echo base_url('Admin/productinsert');?>"><button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel">Add</button></a>
             </div>
             <?php } ?>
           </div>
@@ -56,13 +52,3 @@
   </div>
   <!-- /.row -->
 </section>
-    <!-- /.content -->
-<!-- /.content -->
-<script>
-  function formBack()
-  {
-    parent.history.back();
-    return false;
-  }
-</script>
- 
