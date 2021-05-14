@@ -1283,5 +1283,29 @@ class Admin extends CI_controller
 		$data['followupdetails']=$this->Admin_model->followuplist();
 		$this->load->view('admin/components/layout',$data);
 	}
+	function expensereport()
+	{
+		$data['page']='admin/pages/view/expensereport';
+		$data['employee']=$this->Admin_model->employee_manager();
+		$data['expensedetails']=$this->Admin_model->expensereport();
+		$this->load->view('admin/components/layout',$data);
+	}
+	function expense_type()
+	{
+		$postData = $this->input->post();
+		echo $postData;
+		//$data=$this->Admin_model->expense_type($type);
+		//$data=$this->Admin_model->expensereport();
+		/*foreach ($data as $key) 
+		{
+			echo "<tr>";
+			echo "<td>".$key->id."</td>";
+			echo "<td>".emp_name($key->employee_code)."</td>";
+			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
+			echo "<td>".$key->type."</td>";
+			echo "<td>".$key->amount."</td>";
+			echo "</tr>";
+		}*/
+	}
 }
 ?>

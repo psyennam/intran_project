@@ -1638,6 +1638,33 @@ class Admin_model extends CI_model
 		return $this->db->select('*')->where('client_code',$s_code->supplier_code)->get('client')->result();
 
 	}
-
+	function employee_manager()
+	{
+		return $this->db->select('*')->from('employee')
+		->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')
+		->join('role','mapping_employee.role_code=role.role_code')
+		->where('role.role',"manager")
+		->get()->result();
+	}
+	function expensereport()
+	{
+		return $this->db->select('*')->from('expense')
+		->join('employee','expense.employee_code=employee.employee_code')
+		->get()->result();
+	}
+	function expense_name($code)
+	{
+		return $this->db->select('*')->from('expense')
+		->where('expense.employee_code',$code)
+		->join('employee','expense.employee_code=employee.employee_code')
+		->get()->result();
+	}
+	function expense_type($type)
+	{
+		return $this->db->select('*')->from('expense')
+		->where('type',$type)
+		->join('employee','expense.employee_code=employee.employee_code')
+		->get()->result();
+	}
 }
 ?>
