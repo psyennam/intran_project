@@ -16,24 +16,34 @@
           <input type="date" id="txttodate" name="txttodate" class="form-control" autocomplete="off">
         </div>
         <div class="col-md-3 form-group">
-          <label>Type</label>
-          <select id="type" name="type" class="form-control">
+          <label>Department</label>
+          <select id="department" name="department" class="form-control">
             <option value="">Select</option>
-            <option value="In City">In City</option>
-            <option value="Out Of City">Out Of City</option>           
+            <?php foreach ($department as $key) { ?>
+            <option value="<?= $key->department_code; ?>"><?= $key->department; ?></option>        
+            <?php } ?>           
           </select>
         </div>
         <div class="col-md-3 form-group">
-          <label>Employee Name</label>
-          <select id="empname" name="empname" class="form-control">
-            <option value=''>Select</option>
-            <?php foreach($employee as $row){?>
-              <option value="<?php echo $row->employee_code;?>"><?php echo $row->employee;?></option>
+          <label>Role</label>
+          <select id="role" name="role" class="form-control">
+            <option value="">Select</option>
+            <?php foreach ($role as $key) { ?>
+            <option value="<?= $key->role_code; ?>"><?= $key->role; ?></option>        
+            <?php } ?>
+          </select>
+        </div>
+        <div class="col-md-3 form-group">
+          <label>Designation</label>
+          <select id="designation" name="designation" class="form-control">
+            <option value="">Select</option>
+            <?php foreach($designation as $row){?>
+              <option value="<?php echo $row->designation_code;?>"><?php echo $row->designation;?></option>
             <?php }?>
           </select>   
         </div>
-        <div class="col-md-3">
-          <button type="Submit" id="BtnSearch" class="btn btn-primary" value="Search" onclick="Search();">Search</button>
+        <div class="col-md-1 form-group">
+          <button type="Submit" id="BtnSearch" class="btn btn-primary form-control" value="Search" onclick="Search();">Search</button>
         </div>
       </div>
     </div>
@@ -49,11 +59,16 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Action</th>
-                  <th>Date</th>
                   <th>Employee Name</th>
-                  <th>Expense Type</th>
-                  <th>Amount</th>
+                  <th>Department</th>
+                  <th>Role</th>
+                  <th>designation</th>
+                  <th>Contact NO</th>
+                  <th>Date</th>
+                  <!-- <th>Action</th> -->
+                  <!-- <th>Expense Type</th> -->
+                  <!-- <th>Amount</th> -->
+
                 </tr>
               </thead>
               <!-- <tbody>
@@ -91,18 +106,19 @@
   
   var fromdate=$("#txtfromdate").val();
   var todate=$("#txttodate").val();
-  var type=$("#type").val();
-  var empname=$("#empname").val();
+  var department=$("#department").val();
+  var role=$("#role").val();
+  var designation=$("#designation").val();
   
   function Search(){
-    tableData($("#empname").val(),$("#type").val(),$("#txtfromdate").val(),$("#txttodate").val());
+    tableData($("#role").val(),$("#department").val(),$("#txtfromdate").val(),$("#txttodate").val(),$("#designation").val());
   }
 
-  function tableData(empname,type,fromdate,todate){
+  function tableData(role,department,designation,fromdate,todate){
     $.ajax({
       type:"POST",
       url:"<?php echo base_url('Admin/expense_type');?>",
-      data:{empname:empname,type:type,fromdate:fromdate,todate:todate},
+      data:{role:role,department:department,designation:designation,fromdate:fromdate,todate:todate},
       
       success:function(data){
         $('#table').html(data); 

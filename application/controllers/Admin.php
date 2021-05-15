@@ -1300,32 +1300,6 @@ class Admin extends CI_controller
 		$todate = $this->input->post('todate');
 		
 		$data=$this->Admin_model->common($type,$emp_name,$fromdate,$todate);
-
-		// if(!empty($emp_name))
-		// {
-		// 	$data=$this->Admin_model->expense_name($emp_name);
-		// 	if($data!=null)
-		// 	{
-		// 		echo "string";
-		// 		$cnt=1;
-		// 	}	
-		// }
-		// else if(!empty($type)){
-		// 	$data=$this->Admin_model->expense_type($type);
-		// 	if($data!=null)
-		// 	{
-		// 		$cnt=2;
-		// 	}
-		// }
-
-		// if($cnt==1)
-		// {
-		// 	$data=$this->Admin_model->expense_name($emp_name);
-		// }
-		// else{
-		// 	$data=$this->Admin_model->expense_type($type);
-		// }
-		// $data=$this->Admin_model->expensereport();
 		foreach ($data as $key) 
 		{
 			echo "<tr>";
@@ -1338,5 +1312,95 @@ class Admin extends CI_controller
 			echo "</tr>";
 		}
 	}
+	function employeereport()
+	{
+		$data['page']='admin/pages/view/employeereport';
+		$data['department']=$this->Admin_model->viewdepartment();
+		$data['role']=$this->Admin_model->viewdata();
+		$data['designation']=$this->Admin_model->viewdesignation();
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	function employee_type()
+	{
+		$role= $this->input->post('role');
+		$department = $this->input->post('department');
+		$designation= $this->input->post('designation');
+		$fromdate = $this->input->post('fromdate');
+		$todate = $this->input->post('todate');
+		
+		$data=$this->Admin_model->employee_common($role,$department,$designation,$fromdate,$todate);
+		foreach ($data as $key) 
+		{
+			echo "<tr>";
+			echo "<td>".$key->id."</td>";
+			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
+			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
+			echo "<td>".emp_name($key->employee_code)."</td>";
+			echo "<td>".$key->type."</td>";
+			echo "<td>".$key->amount."</td>";
+			echo "</tr>";
+		}
+	}
+
+	function quotationreport()
+	{
+		$data['page']='admin/pages/view/quotationreport';
+		$data['employee']=$this->Admin_model->employee_manager();
+		$data['expensedetails']=$this->Admin_model->expensereport();
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	/*function quotation_type()
+	{
+		$cnt=0;
+		$emp_name = $this->input->post('empname');
+		$type = $this->input->post('type');
+		$fromdate = $this->input->post('fromdate');
+		$todate = $this->input->post('todate');
+		
+		$data=$this->Admin_model->common($type,$emp_name,$fromdate,$todate);
+		foreach ($data as $key) 
+		{
+			echo "<tr>";
+			echo "<td>".$key->id."</td>";
+			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
+			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
+			echo "<td>".emp_name($key->employee_code)."</td>";
+			echo "<td>".$key->type."</td>";
+			echo "<td>".$key->amount."</td>";
+			echo "</tr>";
+		}
+	}*/
+
+	function invoicereport()
+	{
+		$data['page']='admin/pages/view/invoicereport';
+		$data['employee']=$this->Admin_model->employee_manager();
+		$data['expensedetails']=$this->Admin_model->expensereport();
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	/*function invoice_type()
+	{
+		$cnt=0;
+		$emp_name = $this->input->post('empname');
+		$type = $this->input->post('type');
+		$fromdate = $this->input->post('fromdate');
+		$todate = $this->input->post('todate');
+		
+		$data=$this->Admin_model->common($type,$emp_name,$fromdate,$todate);
+		foreach ($data as $key) 
+		{
+			echo "<tr>";
+			echo "<td>".$key->id."</td>";
+			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
+			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
+			echo "<td>".emp_name($key->employee_code)."</td>";
+			echo "<td>".$key->type."</td>";
+			echo "<td>".$key->amount."</td>";
+			echo "</tr>";
+		}
+	}*/
 }
 ?>

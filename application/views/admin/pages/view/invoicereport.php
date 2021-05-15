@@ -1,4 +1,4 @@
-<section class="content">
+	<section class="content">
   <div class="box box-default">
     <!-- /.box-header -->
     <div class="box-body">

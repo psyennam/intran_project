@@ -1689,13 +1689,36 @@ class Admin_model extends CI_model
 			// $this->db->join('employee','exp.employee_code=employee.employee_code');
 			$this->db->where('exp.employee_code',$code);
 		return $this->db->get()->result();
-
-		// return $this->db->select('*')->from('expense')
-		// ->join('employee','expense.employee_code=employee.employee_code')
-		// ->where('expense.employee_code',$code)
-		// ->or_where('type',$expense_type)
-		// // ->or_where(["DATE(expense.created_at)>="=>date('Y-m-d', strtotime($fromdate)),"DATE(expense.created_at)<="=>date('Y-m-d', strtotime($todate))])
-		// ->get()->result();
 	}
+
+	function employee_common($role,$department,$designation,$fromdate,$todate)
+	{
+		$this->db->select('e1.*,r1.role,des1.designation,dep1.department')->from('mapping_employee as mapping');
+		$this->db->join('employee as e1','e1.employee_code=m1.employee_code');
+		$this->db->join('role as r1','r1.role_code=m1.role_code');
+		$this->db->join('designation as des1','des1.designation_code=m1.designation_code');
+		$this->db->join('department as dep1','dep1.department_code=m1.department_code');
+		// $this->db->select('exp.*')->from('expense as exp');
+		// 	$this->db->join('employee','exp.employee_code=employee.employee_code');
+		
+		if(!empty($fromdate))
+			$this->db->where('DATE(e1.created_at) >= ', $fromdate);
+		// else
+		// 	$this->db->where('DATE(exp.date) >= ', date('Y-m-d'));
+		
+		if(!empty($todate))
+			$this->db->where('DATE(e1.created_at) <= ', $todate);
+		// else
+		// 	$this->db->where('DATE(exp.date) <= ', date('Y-m-d'));
+
+		if(!empty($role))
+			$this->db->where('m1.role_code',$role_code);
+		
+		if(!empty($code))
+			// $this->db->join('employee','exp.employee_code=employee.employee_code');
+			$this->db->where('exp.employee_code',$code);
+		return $this->db->get()->result();
+	}
+
 }
 ?>
