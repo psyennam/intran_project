@@ -69,7 +69,7 @@ class Test extends ci_controller{
 	}
 	function expense($id)
 	{
-		$this->load->model('Client_model');
+		$this->load->model(['Client_model','Admin_model']);
 		$data['expensedetails']=$this->Client_model->viewexpensebyid($id);
 		//$data['page']='admin/pages/view/pdf_genrator';
 		return $this->load->view('expense_genrator',$data,true);

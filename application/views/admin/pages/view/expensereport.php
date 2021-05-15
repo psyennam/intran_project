@@ -21,8 +21,8 @@
             <label>Type</label>
             <select id="type" name="type" class="form-control">
               <option value=''>Select</option>
-              <option value="1">In City</option>
-              <option value="2">Out Of City</option>           
+              <option value="In City">In City</option>
+              <option value="Out Of City">Out Of City</option>           
             </select>
           </div>
           <div class="col-md-3 form-group">
@@ -97,14 +97,16 @@
   var empname=$("#empname").val();
   function Search()
   {
-    tableData($("#empname").val());
+    tableData($("#empname").val(),$("#type").val(),$("#txtfromdate").val(),$("#txtodate").val());
   }
-  function tableData(type)
+  function tableData(empname,type,fromdate,todate)
   {
-    alert(type);
+    alert(fromdate);
     $.ajax({
       type:"POST",
-      url:"<?php echo base_url('Admin/expense_type/'+'type');?>",
+      url:"<?php echo base_url('Admin/expense_type');?>",
+      data:{empname:empname,type:type,fromdate:fromdate,todate:todate},
+      
       success:function(data)
       {
         //alert(data);

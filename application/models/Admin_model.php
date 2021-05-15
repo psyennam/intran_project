@@ -1643,7 +1643,7 @@ class Admin_model extends CI_model
 		return $this->db->select('*')->from('employee')
 		->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')
 		->join('role','mapping_employee.role_code=role.role_code')
-		->where('role.role',"manager")
+		->where('role.role',"Employee")
 		->get()->result();
 	}
 	function expensereport()
@@ -1652,17 +1652,27 @@ class Admin_model extends CI_model
 		->join('employee','expense.employee_code=employee.employee_code')
 		->get()->result();
 	}
-	function expense_name($code)
+	// function expense_name($code)
+	// {
+	// 	return $this->db->select('*')->from('expense')
+	// 	->where('expense.employee_code',$code)
+	// 	->join('employee','expense.employee_code=employee.employee_code')
+	// 	->get()->result();
+	// }
+	// function expense_type($type)
+	// {
+	// 	return $this->db->select('*')->from('expense')
+	// 	->where('type',$type)
+	// 	->join('employee','expense.employee_code=employee.employee_code')
+	// 	->get()->result();
+	// }
+
+	function common($type,$code,$fromdate,$todate)
 	{
 		return $this->db->select('*')->from('expense')
 		->where('expense.employee_code',$code)
-		->join('employee','expense.employee_code=employee.employee_code')
-		->get()->result();
-	}
-	function expense_type($type)
-	{
-		return $this->db->select('*')->from('expense')
-		->where('type',$type)
+		->or_where('type',$type)
+		// ->or_where('created_at>=',$fromdate)
 		->join('employee','expense.employee_code=employee.employee_code')
 		->get()->result();
 	}

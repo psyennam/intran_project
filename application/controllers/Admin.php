@@ -1290,22 +1290,53 @@ class Admin extends CI_controller
 		$data['expensedetails']=$this->Admin_model->expensereport();
 		$this->load->view('admin/components/layout',$data);
 	}
+
 	function expense_type()
 	{
-		$postData = $this->input->post();
-		echo $postData;
-		//$data=$this->Admin_model->expense_type($type);
-		//$data=$this->Admin_model->expensereport();
-		/*foreach ($data as $key) 
+		$cnt=0;
+		$emp_name = $this->input->post('empname');
+		$type = $this->input->post('type');
+		$fromdate = $this->input->post('fromdate');
+		$todate = $this->input->post('todate');
+		
+		$data=$this->Admin_model->common($type,$emp_name,$fromdate,$todate);
+
+		// if(!empty($emp_name))
+		// {
+		// 	$data=$this->Admin_model->expense_name($emp_name);
+		// 	if($data!=null)
+		// 	{
+		// 		echo "string";
+		// 		$cnt=1;
+		// 	}	
+		// }
+		// else if(!empty($type)){
+		// 	$data=$this->Admin_model->expense_type($type);
+		// 	if($data!=null)
+		// 	{
+		// 		$cnt=2;
+		// 	}
+		// }
+
+		// if($cnt==1)
+		// {
+		// 	$data=$this->Admin_model->expense_name($emp_name);
+		// }
+		// else{
+		// 	$data=$this->Admin_model->expense_type($type);
+		// }
+		// $data=$this->Admin_model->expensereport();
+		foreach ($data as $key) 
 		{
 			echo "<tr>";
 			echo "<td>".$key->id."</td>";
-			echo "<td>".emp_name($key->employee_code)."</td>";
+			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
 			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
+			echo "<td>".emp_name($key->employee_code)."</td>";
 			echo "<td>".$key->type."</td>";
 			echo "<td>".$key->amount."</td>";
 			echo "</tr>";
-		}*/
+		}
 	}
 }
 ?>
