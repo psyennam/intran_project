@@ -20,7 +20,7 @@
           <div class="col-md-3 form-group">
             <label>Type</label>
             <select id="type" name="type" class="form-control">
-              <option value=''>Select</option>
+              <option value="">Select</option>
               <option value="In City">In City</option>
               <option value="Out Of City">Out Of City</option>           
             </select>
@@ -97,11 +97,12 @@
   var empname=$("#empname").val();
   function Search()
   {
-    tableData($("#empname").val(),$("#type").val(),$("#txtfromdate").val(),$("#txtodate").val());
+    tableData($("#empname").val(),$("#type").val(),$("#txtfromdate").val(),$("#txttodate").val());
   }
   function tableData(empname,type,fromdate,todate)
   {
-    alert(fromdate);
+
+    alert(todate);
     $.ajax({
       type:"POST",
       url:"<?php echo base_url('Admin/expense_type');?>",
