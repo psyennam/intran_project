@@ -64,7 +64,7 @@
   ?>
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <section class="content">
+    <!-- <section class="content">
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
@@ -101,12 +101,10 @@
               <span class="info-box-text">TOTAL EXPENSE</span>
               <span class="info-box-number">2,000</span>
             </div>
-            <!-- /.info-box-content -->
           </div>
         </div>
       </div>
-
-    </section>
+    </section> -->
 
     <?php if(!empty($page)){
           $this->load->view($page);

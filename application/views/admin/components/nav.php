@@ -103,7 +103,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Admin/expensereport');?>"><i class="fa fa-circle-o"></i>Expense Report</a></li>  
+            <li class="active"><a href="<?php echo base_url('Admin/expensereport');?>"><i class="fa fa-circle-o"></i>Expense Report</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/expensereport');?>"><i class="fa fa-circle-o"></i>Employee List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/expensereport');?>"><i class="fa fa-circle-o"></i>Quotation List</a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/expensereport');?>"><i class="fa fa-circle-o"></i>Month wise invoice</a></li>  
           </ul>
         </li>
       </ul>

@@ -1670,6 +1670,7 @@ class Admin_model extends CI_model
 	function common($type,$code,$fromdate,$todate)
 	{
 		$this->db->select('exp.*')->from('expense as exp');
+			$this->db->join('employee','exp.employee_code=employee.employee_code');
 		
 		if(!empty($fromdate))
 			$this->db->where('DATE(exp.date) >= ', $fromdate);
@@ -1685,7 +1686,7 @@ class Admin_model extends CI_model
 			$this->db->where('type',$type);
 		
 		if(!empty($code))
-			$this->db->join('employee','exp.employee_code=employee.employee_code');
+			// $this->db->join('employee','exp.employee_code=employee.employee_code');
 			$this->db->where('exp.employee_code',$code);
 		return $this->db->get()->result();
 
