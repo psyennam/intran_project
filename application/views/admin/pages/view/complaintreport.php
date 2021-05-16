@@ -42,7 +42,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="box-header with-border" style="text-align:center;">
-            <h3 class="box-title" style="font-size:25px !important;">Quotation List</h3>
+            <h3 class="box-title" style="font-size:25px !important;">Compliant List</h3>
           </div>
           <div class="box-header with-border">
             <div class="box-body">
@@ -50,10 +50,10 @@
               <thead>
                 <tr>
                   <th>ID</th>
-                  <th>PDF</th>
-                  <th>Invoice Number</th>
-                  <th>DealerShip Name</th>
-                  <th>Quotation Close Date</th>
+                  <th>Assigned by</th>
+                  <th>Remark</th>
+                  <th>Complaint Completed Date</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <!-- <tbody>
@@ -101,7 +101,7 @@
   function tableData(empname,lead_code,fromdate,todate){
     $.ajax({
       type:"POST",
-      url:"<?php echo base_url('Admin/quotation_type');?>",
+      url:"<?php echo base_url('Admin/compliant_type');?>",
       data:{empname:empname,lead_code:lead_code,fromdate:fromdate,todate:todate},
       
       success:function(data){
