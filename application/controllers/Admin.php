@@ -1293,7 +1293,6 @@ class Admin extends CI_controller
 
 	function expense_type()
 	{
-		$cnt=0;
 		$emp_name = $this->input->post('empname');
 		$type = $this->input->post('type');
 		$fromdate = $this->input->post('fromdate');
@@ -1334,11 +1333,12 @@ class Admin extends CI_controller
 		{
 			echo "<tr>";
 			echo "<td>".$key->id."</td>";
-			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
-			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
-			echo "<td>".emp_name($key->employee_code)."</td>";
-			echo "<td>".$key->type."</td>";
-			echo "<td>".$key->amount."</td>";
+			echo "<td>".$key->employee."</td>";
+			echo "<td>".$key->department."</td>";
+			echo "<td>".$key->role."</td>";
+			echo "<td>".$key->designation."</td>";
+			echo "<td>".$key->contact."</td>";
+			echo "<td>".__date_format($key->created_at,'ddmmyyyy')."</td>";
 			echo "</tr>";
 		}
 	}
@@ -1346,32 +1346,31 @@ class Admin extends CI_controller
 	function quotationreport()
 	{
 		$data['page']='admin/pages/view/quotationreport';
-		$data['employee']=$this->Admin_model->employee_manager();
+		$data['lead']=$this->Admin_model->leaddetails();
 		$data['expensedetails']=$this->Admin_model->expensereport();
 		$this->load->view('admin/components/layout',$data);
 	}
 
-	/*function quotation_type()
+	function quotation_type()
 	{
 		$cnt=0;
 		$emp_name = $this->input->post('empname');
-		$type = $this->input->post('type');
+		$lead_code = $this->input->post('lead_code');
 		$fromdate = $this->input->post('fromdate');
 		$todate = $this->input->post('todate');
 		
-		$data=$this->Admin_model->common($type,$emp_name,$fromdate,$todate);
+		$data=$this->Admin_model->quotation_type($lead_code,$emp_name,$fromdate,$todate);
 		foreach ($data as $key) 
 		{
 			echo "<tr>";
 			echo "<td>".$key->id."</td>";
-			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
-			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
-			echo "<td>".emp_name($key->employee_code)."</td>";
-			echo "<td>".$key->type."</td>";
-			echo "<td>".$key->amount."</td>";
+			echo "<td>"?><a href="<?php echo base_url('Test/close/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
+			echo "<td>".$key->invoice_number."</td>";
+			echo "<td>".client_name($key->lead_code)."</td>";
+			echo "<td>". __date_format($key->quotation_close_date,'ddmmyyyy')."</td>";
 			echo "</tr>";
 		}
-	}*/
+	}
 
 	function invoicereport()
 	{
@@ -1383,7 +1382,6 @@ class Admin extends CI_controller
 
 	/*function invoice_type()
 	{
-		$cnt=0;
 		$emp_name = $this->input->post('empname');
 		$type = $this->input->post('type');
 		$fromdate = $this->input->post('fromdate');
@@ -1402,5 +1400,65 @@ class Admin extends CI_controller
 			echo "</tr>";
 		}
 	}*/
+
+	function leadreport()
+	{
+		$data['page']='admin/pages/view/leadreport';
+		$data['subzone']=$this->Admin_model->subviewzone();
+		// $data['expensedetails']=$this->Admin_model->subviewzone();
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	function lead_type()
+	{
+		$optzone = $this->input->post('optzone');
+		$optcity = $this->input->post('optcity');
+		$fromdate = $this->input->post('fromdate');
+		$todate = $this->input->post('todate');
+		
+		$data=$this->Admin_model->lead_common($optzone,$optcity,$fromdate,$todate);
+		foreach ($data as $key) 
+		{
+			echo "<tr>";
+			echo "<td>".$key->id."</td>";
+			echo "<td>".$key->company_name."</td>";
+			echo "<td>".$key->client."</td>";
+			echo "<td>".$key->emp."</td>";
+			echo "<td>".$key->zone."</td>";
+			echo "<td>".$key->city."</td>";
+			echo "<td>".__date_format($key->created_at,'ddmmyyyy')."</td>";
+			echo "</tr>";
+		}
+	}
+	function complaintreport()
+	{
+		$data['page']='admin/pages/view/complaintreport';
+		$data['employee']=$this->Admin_model->employeedetails();
+		// print_r($data['employee']);
+		//$data['expensedetails']=$this->Admin_model->expensereport();
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	function complaint_type()
+	{
+		$cnt=0;
+		$emp_code = $this->input->post('empname');
+		$lead_code = $this->input->post('lead_code');
+		$fromdate = $this->input->post('fromdate');
+		$todate = $this->input->post('todate');
+		
+		$data=$this->Admin_model->complaint_type($lead_code,$emp_code,$fromdate,$todate);
+		foreach ($data as $key) 
+		{
+			echo "<tr>";
+			echo "<td>".$key->id."</td>";
+			echo "<td>".emp_name($key->assigned_by)."</td>";
+			echo "<td>".$key->remark."</td>";
+			echo "<td>". __date_format($key->created_at,'ddmmyyyy')."</td>";
+			echo "<td>".complaint_status($key->status)."</td>";
+			echo "</tr>";
+		}
+	}
+	
 }
 ?>

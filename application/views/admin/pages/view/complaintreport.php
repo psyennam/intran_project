@@ -15,7 +15,7 @@
           <label>To Date</label>
           <input type="date" id="txttodate" name="txttodate" class="form-control" autocomplete="off">
         </div>
-        <div class="col-md-3 form-group">
+        <!-- <div class="col-md-3 form-group">
           <label>Lead</label>
           <select id="type" name="type" class="form-control">
             <option value="">Select</option>
@@ -23,7 +23,7 @@
             <option value="<?php echo $row->lead_code;?>"><?php echo $row->company_name;?></option>
             <?php }?>         
           </select>
-        </div>
+        </div> -->
         <div class="col-md-3 form-group">
           <label>Employee Name</label>
           <select id="empname" name="empname" class="form-control">
@@ -99,9 +99,10 @@
   }
 
   function tableData(empname,lead_code,fromdate,todate){
+    //alert(empname);
     $.ajax({
       type:"POST",
-      url:"<?php echo base_url('Admin/compliant_type');?>",
+      url:"<?php echo base_url('Admin/complaint_type');?>",
       data:{empname:empname,lead_code:lead_code,fromdate:fromdate,todate:todate},
       
       success:function(data){
