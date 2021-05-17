@@ -11,6 +11,10 @@
                                 'type' => 'VARCHAR',
                                 'constraint' => '10',
                         ),
+                        'employee_code' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '10',
+                        ),
                         'concerned_person' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '10',

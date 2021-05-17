@@ -131,6 +131,7 @@ class Client_model extends CI_model
 			'lead_code'=>$randomid,
 			'org_code'=>$this->session->userdata('org_code'),
 			'zone_code'=>$this->input->post('optzone'),
+			'employee_code'=>$this->input->post('emp_code'),
 			'city_code'=>$this->input->post('optcity'),
 			'zip_code'=>$this->input->post('optpin'),
 			'supplier_code'=>$this->input->post('supplier'),
@@ -178,6 +179,7 @@ class Client_model extends CI_model
 
 		$data=[
 			'lead_code'=>$leadcode,
+			'employee_code'=>$this->session->userdata('emp_code'),
 			'customer_available'=>$this->input->post('customercombo'),
 			'concerned_person'=>$this->input->post('concernperson'),
 			'contact_person'=>$this->input->post('Personname'),
@@ -203,6 +205,7 @@ class Client_model extends CI_model
 			{
 				$data2=[
 					'lead_code'=>$leadcode,
+					'employee_code'=>$this->session->userdata('emp_code'),
 					'customer_available'=>$this->input->post('customercombo'),
 					'concerned_person'=>$this->input->post('concernperson'),
 					'contact_person'=>$this->input->post('Personname'),
@@ -269,6 +272,7 @@ class Client_model extends CI_model
 		$quotation=[
 			'quotation_code'=>$randomid,
 			'lead_code'=>$id,
+			'employee_code'=>$this->session->userdata('emp_code'),
 			// 'product_code'=>$this->input->post('productname'),
 			//'total'=>$this->input->post('total'),
 			'ip_address'=>$ip,

@@ -12,6 +12,10 @@
                                                         'constraint' => '10',
                                                         'unique'=>true,
                                                 ),
+                                                'employee_code' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
+                                                ),
                                                 'org_code' => array(
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',

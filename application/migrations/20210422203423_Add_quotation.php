@@ -15,6 +15,10 @@
                                                         'type' => 'VARCHAR',
                                                         'constraint' => '10',
                                                 ),
+                                                'employee_code' => array(
+                                                        'type' => 'VARCHAR',
+                                                        'constraint' => '10',
+                                                ),
                                                 'total' => array(
                                                         'type' => 'INT',
                                                 ),

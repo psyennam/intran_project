@@ -1347,13 +1347,13 @@ class Admin extends CI_controller
 	{
 		$data['page']='admin/pages/view/quotationreport';
 		$data['lead']=$this->Admin_model->leaddetails();
+		$data['employee']=$this->Admin_model->managerdetails();
 		$data['expensedetails']=$this->Admin_model->expensereport();
 		$this->load->view('admin/components/layout',$data);
 	}
 
 	function quotation_type()
 	{
-		$cnt=0;
 		$emp_name = $this->input->post('empname');
 		$lead_code = $this->input->post('lead_code');
 		$fromdate = $this->input->post('fromdate');
@@ -1423,7 +1423,7 @@ class Admin extends CI_controller
 			echo "<td>".$key->id."</td>";
 			echo "<td>".$key->company_name."</td>";
 			echo "<td>".$key->client."</td>";
-			echo "<td>".$key->emp."</td>";
+			echo "<td>".$key->employee."</td>";
 			echo "<td>".$key->zone."</td>";
 			echo "<td>".$key->city."</td>";
 			echo "<td>".__date_format($key->created_at,'ddmmyyyy')."</td>";
@@ -1441,7 +1441,6 @@ class Admin extends CI_controller
 
 	function complaint_type()
 	{
-		$cnt=0;
 		$emp_code = $this->input->post('empname');
 		$lead_code = $this->input->post('lead_code');
 		$fromdate = $this->input->post('fromdate');

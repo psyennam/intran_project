@@ -5,8 +5,7 @@
     </div>
           <!-- /.box-header -->
       <div class="box-body">
-        <form method="post" enctype="multipart/form-data">    
-          <!-- <?php foreach ($leadinfo as $key) { ?> -->
+        <form method="post" enctype="multipart/form-data">
           <div class="row">
             
             <div class="col-md-12">
@@ -103,7 +102,6 @@
               </div>
             </div>
           </div>
-        <!-- <?php } ?> -->
         </form>
       </div>
     </div>
