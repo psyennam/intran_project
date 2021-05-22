@@ -102,7 +102,7 @@
   function tableData(optzone,optcity,fromdate,todate){
     $.ajax({
       type:"POST",
-      url:"<?php echo base_url('Admin/lead_type');?>",
+      url:"<?php echo base_url('Report/lead_type');?>",
       data:{optzone:optzone,optcity:optcity,fromdate:fromdate,todate:todate},
       
       success:function(data){
@@ -130,6 +130,6 @@
         })
       }
     })
-});
+})
 </script>
  

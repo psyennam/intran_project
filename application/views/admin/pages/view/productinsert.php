@@ -245,7 +245,7 @@ $("#product_table_body").on('click','.remCF',function(){
           var html = '<option value=""> --- </option>';
           if(res.status == 200){
             $.each(res.data, function(index, value){
-                html += '<option value="'+value.id+'">'+value.product_type+'</option>';
+                html += '<option value="'+value.code+'">'+value.product_type+'</option>';
             });
             $('#optcity').html(html);
           }

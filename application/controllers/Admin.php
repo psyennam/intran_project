@@ -653,14 +653,14 @@ class Admin extends CI_controller
 		$this->load->view('admin/components/layout',$data);
 	}
 
-	// function opt_city($state){
-	// 	try{
-	// 		$res = $this->db->select('city_code as code, city')->where('state_code', $state)->get('city')->result();
-	// 		json_response($res, 200);
-	// 	}catch(Exception $e){
-	// 		json_response($e->getMessage(), 500);
-	// 	}
-	// }
+	function opt_city($state){
+		try{
+			$res = $this->db->select('city_code as code, city')->where('state_code', $state)->get('city')->result();
+			json_response($res, 200);
+		}catch(Exception $e){
+			json_response($e->getMessage(), 500);
+		}
+	}
 
 	function subzoneinsert()
 	{
@@ -903,7 +903,7 @@ class Admin extends CI_controller
 	function opt_cityy($subzone_code){
 		
 		try{
-			$res = $this->db->select('zone.state_code')->from('zone')->where('zone.zone_code',$subzone_code)->get()->row();
+			$res = $this->db->select('zone.state_code')->from('zone as zone')->where('zone.zone_code',$subzone_code)->get()->row();
 			$data=$this->db->select('city_code as code,city')->from('city')->where_in('city_code',explode(',',$res->state_code))->get()->result();
 			json_response($data, 200);
 		}catch(Exception $e){
@@ -1149,7 +1149,7 @@ class Admin extends CI_controller
 	function opt_producttype($company_code){
 		
 		try{
-			$res = $this->db->select('id as code, product_type')->where('company_code',$company_code)->get('product_type')->result();
+			$res = $this->db->select('id as code,product_type')->where('company_code',$company_code)->get('product_type')->result();
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
@@ -1283,181 +1283,6 @@ class Admin extends CI_controller
 		$data['followupdetails']=$this->Admin_model->followuplist();
 		$this->load->view('admin/components/layout',$data);
 	}
-	function expensereport()
-	{
-		$data['page']='admin/pages/view/expensereport';
-		$data['employee']=$this->Admin_model->employee_manager();
-		$data['expensedetails']=$this->Admin_model->expensereport();
-		$this->load->view('admin/components/layout',$data);
-	}
-
-	function expense_type()
-	{
-		$emp_name = $this->input->post('empname');
-		$type = $this->input->post('type');
-		$fromdate = $this->input->post('fromdate');
-		$todate = $this->input->post('todate');
 		
-		$data=$this->Admin_model->common($type,$emp_name,$fromdate,$todate);
-		foreach ($data as $key) 
-		{
-			echo "<tr>";
-			echo "<td>".$key->id."</td>";
-			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
-			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
-			echo "<td>".emp_name($key->employee_code)."</td>";
-			echo "<td>".$key->type."</td>";
-			echo "<td>".$key->amount."</td>";
-			echo "</tr>";
-		}
-	}
-	function employeereport()
-	{
-		$data['page']='admin/pages/view/employeereport';
-		$data['department']=$this->Admin_model->viewdepartment();
-		$data['role']=$this->Admin_model->viewdata();
-		$data['designation']=$this->Admin_model->viewdesignation();
-		$this->load->view('admin/components/layout',$data);
-	}
-
-	function employee_type()
-	{
-		$role= $this->input->post('role');
-		$department = $this->input->post('department');
-		$designation= $this->input->post('designation');
-		$fromdate = $this->input->post('fromdate');
-		$todate = $this->input->post('todate');
-		
-		$data=$this->Admin_model->employee_common($role,$department,$designation,$fromdate,$todate);
-		foreach ($data as $key) 
-		{
-			echo "<tr>";
-			echo "<td>".$key->id."</td>";
-			echo "<td>".$key->employee."</td>";
-			echo "<td>".$key->department."</td>";
-			echo "<td>".$key->role."</td>";
-			echo "<td>".$key->designation."</td>";
-			echo "<td>".$key->contact."</td>";
-			echo "<td>".__date_format($key->created_at,'ddmmyyyy')."</td>";
-			echo "</tr>";
-		}
-	}
-
-	function quotationreport()
-	{
-		$data['page']='admin/pages/view/quotationreport';
-		$data['lead']=$this->Admin_model->leaddetails();
-		$data['employee']=$this->Admin_model->managerdetails();
-		$data['expensedetails']=$this->Admin_model->expensereport();
-		$this->load->view('admin/components/layout',$data);
-	}
-
-	function quotation_type()
-	{
-		$emp_name = $this->input->post('empname');
-		$lead_code = $this->input->post('lead_code');
-		$fromdate = $this->input->post('fromdate');
-		$todate = $this->input->post('todate');
-		
-		$data=$this->Admin_model->quotation_type($lead_code,$emp_name,$fromdate,$todate);
-		foreach ($data as $key) 
-		{
-			echo "<tr>";
-			echo "<td>".$key->id."</td>";
-			echo "<td>"?><a href="<?php echo base_url('Test/close/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
-			echo "<td>".$key->invoice_number."</td>";
-			echo "<td>".client_name($key->lead_code)."</td>";
-			echo "<td>". __date_format($key->quotation_close_date,'ddmmyyyy')."</td>";
-			echo "</tr>";
-		}
-	}
-
-	function invoicereport()
-	{
-		$data['page']='admin/pages/view/invoicereport';
-		$data['employee']=$this->Admin_model->employee_manager();
-		$data['expensedetails']=$this->Admin_model->expensereport();
-		$this->load->view('admin/components/layout',$data);
-	}
-
-	/*function invoice_type()
-	{
-		$emp_name = $this->input->post('empname');
-		$type = $this->input->post('type');
-		$fromdate = $this->input->post('fromdate');
-		$todate = $this->input->post('todate');
-		
-		$data=$this->Admin_model->common($type,$emp_name,$fromdate,$todate);
-		foreach ($data as $key) 
-		{
-			echo "<tr>";
-			echo "<td>".$key->id."</td>";
-			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
-			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
-			echo "<td>".emp_name($key->employee_code)."</td>";
-			echo "<td>".$key->type."</td>";
-			echo "<td>".$key->amount."</td>";
-			echo "</tr>";
-		}
-	}*/
-
-	function leadreport()
-	{
-		$data['page']='admin/pages/view/leadreport';
-		$data['subzone']=$this->Admin_model->subviewzone();
-		// $data['expensedetails']=$this->Admin_model->subviewzone();
-		$this->load->view('admin/components/layout',$data);
-	}
-
-	function lead_type()
-	{
-		$optzone = $this->input->post('optzone');
-		$optcity = $this->input->post('optcity');
-		$fromdate = $this->input->post('fromdate');
-		$todate = $this->input->post('todate');
-		
-		$data=$this->Admin_model->lead_common($optzone,$optcity,$fromdate,$todate);
-		foreach ($data as $key) 
-		{
-			echo "<tr>";
-			echo "<td>".$key->id."</td>";
-			echo "<td>".$key->company_name."</td>";
-			echo "<td>".$key->client."</td>";
-			echo "<td>".$key->employee."</td>";
-			echo "<td>".$key->zone."</td>";
-			echo "<td>".$key->city."</td>";
-			echo "<td>".__date_format($key->created_at,'ddmmyyyy')."</td>";
-			echo "</tr>";
-		}
-	}
-	function complaintreport()
-	{
-		$data['page']='admin/pages/view/complaintreport';
-		$data['employee']=$this->Admin_model->employeedetails();
-		// print_r($data['employee']);
-		//$data['expensedetails']=$this->Admin_model->expensereport();
-		$this->load->view('admin/components/layout',$data);
-	}
-
-	function complaint_type()
-	{
-		$emp_code = $this->input->post('empname');
-		$lead_code = $this->input->post('lead_code');
-		$fromdate = $this->input->post('fromdate');
-		$todate = $this->input->post('todate');
-		
-		$data=$this->Admin_model->complaint_type($lead_code,$emp_code,$fromdate,$todate);
-		foreach ($data as $key) 
-		{
-			echo "<tr>";
-			echo "<td>".$key->id."</td>";
-			echo "<td>".emp_name($key->assigned_by)."</td>";
-			echo "<td>".$key->remark."</td>";
-			echo "<td>". __date_format($key->created_at,'ddmmyyyy')."</td>";
-			echo "<td>".complaint_status($key->status)."</td>";
-			echo "</tr>";
-		}
-	}
-	
 }
 ?>
