@@ -1188,7 +1188,7 @@ class Admin extends CI_controller
 	**/
 	function pendinglist()
 	{
-		$data['page']='employee/pages/view/pendinglist';
+		$data['page']='admin/pages/view/pendinglist';
 		$data['pendingdetails']=$this->Admin_model->pendingdetails();
 		//$data['leaddetails']=$this->Admin_model->viewleadlist();
 		$this->load->view('admin/components/layout',$data);
@@ -1198,7 +1198,7 @@ class Admin extends CI_controller
 	**/
 	function quotationcloselist()
 	{
-		$data['page']='employee/pages/view/quotationcloselist';
+		$data['page']='admin/pages/view/quotationcloselist';
 		$data['quotationdetails']=$this->Admin_model->quotationcloselist();
 		//print_r($data['quotationdetails']);
 		$this->load->view('admin/components/layout',$data);
@@ -1208,7 +1208,7 @@ class Admin extends CI_controller
 	**/
 	function expenselist()
 	{
-		$data['page']='employee/pages/view/expensedetails';
+		$data['page']='admin/pages/view/expensedetails';
 		$data['expensedetails']=$this->Admin_model->expenselist();
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -1238,7 +1238,7 @@ class Admin extends CI_controller
 		$data['quotation_code']=$this->input->get('quotation_code');
 		// echo $quotation_code;
 		$data['pendingdetails']=$this->Admin_model->pending_quotation($data['quotation_code']);
-		$data['page']='employee/pages/view/pendingconfirmlist';
+		$data['page']='admin/pages/view/pendingconfirmlist';
 		$this->load->view('admin/components/layout',$data);			
 	}
 	/**
@@ -1279,7 +1279,7 @@ class Admin extends CI_controller
 
 	function followuplist()
 	{
-		$data['page']='employee/pages/view/followuplist';
+		$data['page']='admin/pages/view/followuplist';
 		$data['followupdetails']=$this->Admin_model->followuplist();
 		$this->load->view('admin/components/layout',$data);
 	}

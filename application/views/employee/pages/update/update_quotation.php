@@ -15,7 +15,7 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>Action</th>
+                <!-- <th>Action</th> -->
                 <th>ID</th>
                 <th>Product Name</th>
                 <th>Quantity</th>
@@ -26,7 +26,10 @@
             </thead>
              <?php foreach ($details as $key) { ?>
               <tr>
-                  <td><a href="<?php echo base_url('Client/update_quotation_form/'.$key->id);?>"><i class="fa fa-pencil-square-o"></i>Edit</a><a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a></td>
+                  <!-- <td> -->
+                    <!-- <a href="<?php echo base_url('Client/update_quotation_form/'.$key->id);?>"><i class="fa fa-pencil-square-o"></i>Edit</a> -->
+                    <!-- <a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a> -->
+                  <!-- </td> -->
                   <td><?= $key->id;?></td>
                   <td><?= product_name($key->product_code);?></td>
                   <td><?= $key->quantity;?></td>
