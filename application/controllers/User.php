@@ -22,36 +22,42 @@ class User extends CI_controller
 	*/
 	function login()
 	{
-		$this->load->view('admin/adminlogin',$this->data);
+		
 		if($_POST)
 		{
+			$this->form_validation->set_rules('ClientID','User Name','required');
+			$this->form_validation->set_rules('password','password','required');
 			
-			$res=$this->Admin_model->login();
-			if($res==true)
+			if($this->form_validation->run()==true)
 			{
-			/**
-				Check Function
-				->In this function it will check that the user has changed he password or not 
-				->if the password flag is 0 then it redirect to forgetpassword page
-				->or Dasboard 
-			**/	
-				if($this->Admin_model->check())
+				$res=$this->Admin_model->login();
+				if($res==true)
 				{
-					
-					redirect('User/forgetpassword');
+				/**
+					Check Function
+					->In this function it will check that the user has changed he password or not 
+					->if the password flag is 0 then it redirect to forgetpassword page
+					->or Dasboard 
+				**/	
+					if($this->Admin_model->check())
+					{
+						
+						redirect('User/forgetpassword');
+					}
+					else
+					{
+
+						redirect('User/dashboard');	
+					}
 				}
 				else
 				{
-
-					redirect('User/dashboard');	
+					//return false;
+					echo "user not valid";
 				}
 			}
-			else
-			{
-				//return false;
-				echo "user not valid";
-			}
 		}
+			$this->load->view('admin/adminlogin',$this->data);
 	}	
 	/*
 		Foreget Password

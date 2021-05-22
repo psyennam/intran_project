@@ -110,7 +110,9 @@ class Admin extends CI_controller
 	}
 	function roleinsert()
 	{
-		if(in_array('C',$this->session->userdata('privileges'))){
+
+		if(in_array('C',$this->session->userdata('privileges')))
+		{
 			if($_POST)
 			{
 				$insert=$this->Admin_model->roleinsert();
@@ -122,8 +124,7 @@ class Admin extends CI_controller
 				{
 					echo "Data is not inserted";
 				}
-			}
-			
+			}	
 		}
 		else
 		{

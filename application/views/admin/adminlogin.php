@@ -43,11 +43,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <form method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="<?= __lang('Username'); ?>" name="ClientID">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span style="color: red;"><?= form_error('ClientID');?></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" placeholder="<?=__lang('Password'); ?>" name="password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <span style="color: red;"><?= form_error('password');?></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
