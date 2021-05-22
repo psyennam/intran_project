@@ -11,6 +11,7 @@ class Admin extends CI_controller
 		parent::__construct();
 		$this->load->helper(array('form','url'));
 		$this->load->model(array('Admin_model','Admin_model'));
+		$this->load->library('form_validation');
 		// $this->data["title"] = "Login";
 		if(!$this->session->userdata('is_login'))
 		{
@@ -23,6 +24,7 @@ class Admin extends CI_controller
 		else{
 			redirect('User/login');
 		}
+
 	}
 	/*
 		Logim form
@@ -125,6 +127,26 @@ class Admin extends CI_controller
 					echo "Data is not inserted";
 				}
 			}	
+			//set validation rules
+			$this->form_validation->set_rules('RoleName','Role Name','required|alpha');
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
+			else
+			{
+					//$data['rolename']=$this->input->post('RoleName');
+					$insert=$this->Admin_model->roleinsert($data);
+					if($insert>0)
+					{
+						echo "Yes";
+					}
+					else
+					{
+						echo "No";
+					}
+			}
 		}
 		else
 		{
