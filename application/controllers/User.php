@@ -89,6 +89,7 @@ class User extends CI_controller
 	{
 		if($this->session->userdata('role'))
 		{
+			
 			$data['page']='admin/pages/view/dasboard';
 			$this->load->view('admin/components/layout',$data);
 		}

@@ -120,4 +120,13 @@ function complaint_status($sts)
 {
 	return ($sts == 2)?"Completed":"In-active";
 }
-
+function totalexpense()
+{
+	$ci = &get_instance();
+	return $ci->db->select_sum('total')->from('quotation')->where('status',2)->get()->row()->total;
+}
+function todayvisit()
+{
+	$ci = &get_instance();
+	return $ci->db->select_sum('total')->from('quotation')->where('status',2)->get()->row()->total;
+}

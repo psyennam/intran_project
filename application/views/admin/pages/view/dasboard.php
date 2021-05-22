@@ -34,7 +34,7 @@
             <span class="info-box-icon bg-aqua"><i class="ion ion-ios-cart-outline"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">TOTAL EXPENSE</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-number"><?php echo totalexpense();?></span>
             </div>
           </div>
         </div>
@@ -140,33 +140,6 @@
                         </span>
                   </div>
                 </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">Xbox One <span
-                        class="label label-danger pull-right">$350</span></a>
-                    <span class="product-description">
-                          Xbox One Console Bundle with Halo Master Chief Collection.
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img src="dist/img/default-50x50.gif" alt="Product Image">
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">PlayStation 4
-                      <span class="label label-success pull-right">$399</span></a>
-                    <span class="product-description">
-                          PlayStation 4 500GB Console (PS4)
-                        </span>
-                  </div>
-                </li>
-                <!-- /.item -->
               </ul>
             </div>
             <div class="box-footer text-center">

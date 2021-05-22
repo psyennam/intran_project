@@ -1824,5 +1824,6 @@ class Admin_model extends CI_model
 		->where('d.designation',"Manager")
 		->get()->result();
 	}
+	
 }
 ?>
