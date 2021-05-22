@@ -101,7 +101,7 @@
   function tableData(empname,lead_code,fromdate,todate){
     $.ajax({
       type:"POST",
-      url:"<?php echo base_url('Admin/quotation_type');?>",
+      url:"<?php echo base_url('Report/quotation_type');?>",
       data:{empname:empname,lead_code:lead_code,fromdate:fromdate,todate:todate},
       
       success:function(data){

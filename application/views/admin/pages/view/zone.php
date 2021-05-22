@@ -201,12 +201,12 @@
       var state_code = $(this).val();
       if(state_code != "")
       {
-        $.post(base_url+"/admin/opt_city/"+state_code, function(res){
+        $.post(base_url+"/Admin/opt_city/"+state_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
             $.each(res.data, function(index, value){
-                html += '<option value="'+value.code+'">'+value.city+'</option>';
+                  html += '<option value="'+value.code+'">'+value.city+'</option>';
             });
             $('#optcity').html(html);
           }

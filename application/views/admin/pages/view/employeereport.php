@@ -117,7 +117,7 @@
   function tableData(role,department,designation,fromdate,todate){
     $.ajax({
       type:"POST",
-      url:"<?php echo base_url('Admin/employee_type');?>",
+      url:"<?php echo base_url('Report/employee_type');?>",
       data:{role:role,department:department,designation:designation,fromdate:fromdate,todate:todate},
       
       success:function(data){
