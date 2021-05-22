@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="<?php echo base_url();?>asset/bower_components/bootstrap-daterangepicker/daterangepicker.css">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url();?>asset/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   
@@ -101,6 +102,7 @@
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>asset/dist/js/adminlte.min.js"></script>
 <script src="<?php echo base_url();?>asset/javascript/scripts.js"></script>
+<script href="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <script>
   // $(function(){ 
   //   $('#example1').DataTable();
