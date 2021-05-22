@@ -67,14 +67,17 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-12" >
                     <label><?= __lang('Role Name');?></label>
-                    <input type="text" class="form-control" placeholder="Create Role" name="RoleName">
+                    <input type="text"  value="<?php echo set_value('RoleName'); ?>" class="form-control" placeholder="Create Role" id="RoleName" name="RoleName">
+                    <span><?= form_error("RoleName"); ?></span>
                   </div>
                 </div>
+                <div id="alert-msg"></div> 
               </div>
+
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+                      <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>
@@ -98,4 +101,24 @@
       'autoWidth'   : false
     })
   })
+
+  $('#submit').click(function() {
+    var form_data = {
+        RoleName: $('#RoleName').val(),
+    };
+    $.ajax({
+        url: "<?php echo base_url('Admin/roleinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/role'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
 </script>	

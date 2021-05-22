@@ -100,7 +100,7 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('*')->from('role')->get()->result();
 	}
-	function roleinsert()
+	function roleinsert($data)
 	{
 		$randomid=random_string('alnum',10);
 		$ip=$this->input->ip_address();
