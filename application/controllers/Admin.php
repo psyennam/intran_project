@@ -115,18 +115,6 @@ class Admin extends CI_controller
 
 		if(in_array('C',$this->session->userdata('privileges')))
 		{
-			if($_POST)
-			{
-				$insert=$this->Admin_model->roleinsert();
-				if($insert>0)
-				{
-					redirect('Admin/role');		
-				}
-				else
-				{
-					echo "Data is not inserted";
-				}
-			}	
 			//set validation rules
 			$this->form_validation->set_rules('RoleName','Role Name','required|alpha');
 			//run validation check
@@ -162,19 +150,23 @@ class Admin extends CI_controller
 		$id=$this->input->get('id');
 		$data['row']=$this->Admin_model->databyid($id);
 		$data['page']='admin/pages/update/update_role';
-		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
-			$res=$this->Admin_model->roleedit($id);
-			if($res>0)
+			$this->form_validation->set_rules('RoleName','RoleName','required|alpha');
+			if($this->form_validation->run()==true)
 			{
-				redirect('Admin/role');
-			}
-			else
-			{
-				echo "Data not updated";
+				$res=$this->Admin_model->roleedit($id);
+				if($res>0)
+				{
+					redirect('Admin/role');
+				}
+				else
+				{
+					echo "Data not updated";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 	/**
 		Change the active status to termiante
@@ -205,14 +197,24 @@ class Admin extends CI_controller
 	{
 		if($_POST)
 		{
-			$insert=$this->Admin_model->departmentinsert();
-			if($insert>0)
-			{
-				redirect('Admin/department');		
-			}
+			//set validation rules
+			$this->form_validation->set_rules('DepartmentName','Department Name','required|alpha');
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
 			else
 			{
-				echo "Data is not inserted";
+				$insert=$this->Admin_model->departmentinsert();
+				if($insert>0)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -224,19 +226,24 @@ class Admin extends CI_controller
 		$id=$this->input->get('id');
 		$data['row']=$this->Admin_model->departmentbyid($id);
 		$data['page']='admin/pages/update/update_department';
-		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
-			$res=$this->Admin_model->departmentedit($id);
-			if($res>0)
+			$this->form_validation->set_rules('DepartmentName','Department Name','required|alpha');
+
+			if($this->form_validation->run()==true)
 			{
-				redirect('Admin/department');
-			}
-			else
-			{
-				echo "Data not updated";
+				$res=$this->Admin_model->departmentedit($id);
+				if($res>0)
+				{
+					redirect('Admin/department');
+				}
+				else
+				{
+					echo "Data not updated";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 	/**
 		Change the active status to termiante
@@ -333,14 +340,29 @@ class Admin extends CI_controller
 	{
 		if($_POST)
 		{
-			$insert=$this->Admin_model->designationinsert();
-			if($insert>0)
-			{
-				redirect('Admin/designation');		
-			}
+			//set validation rules
+			$this->form_validation->set_rules('DesignationName','Designation Name','required|alpha');
+
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
 			else
 			{
-				echo "Data is not inserted";
+
+				// $data['DesignationName']=$this->input->post('DesignationName');
+				// $data['DepartmentCode']=$this->input->post('DepartmentCode');
+				// print_r($data['DesignationName']); 			
+				$insert=$this->Admin_model->designationinsert();
+				if($insert>0)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -352,19 +374,24 @@ class Admin extends CI_controller
 		$id=$this->input->get('id');
 		$data['row']=$this->Admin_model->designationbyid($id);
 		$data['page']='admin/pages/update/update_designation';
-		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
-			$res=$this->Admin_model->designationedit($id);
-			if($res>0)
+			$this->form_validation->set_rules('DesignationName','Designation Name','required|alpha');
+
+			if($this->form_validation->run()==true)
 			{
-				redirect('Admin/designation');
-			}
-			else
-			{
-				echo "Data not updated";
+				$res=$this->Admin_model->designationedit($id);
+				if($res>0)
+				{
+					redirect('Admin/designation');
+				}
+				else
+				{
+					echo "Data not updated";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 	/**
 		Change the active status to termiante
@@ -398,14 +425,29 @@ class Admin extends CI_controller
 	{
 		if($_POST)
 		{
-			$insert=$this->Admin_model->countryinsert();
-			if($insert>0)
-			{
-				redirect('Admin/country');		
-			}
+			//set validation rules
+			$this->form_validation->set_rules('CountryName','Country Name','required|alpha');
+
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
 			else
 			{
-				echo "Data is not inserted";
+
+				// $data['DesignationName']=$this->input->post('DesignationName');
+				// $data['DepartmentCode']=$this->input->post('DepartmentCode');
+				// print_r($data['DesignationName']); 			
+				$insert=$this->Admin_model->countryinsert();
+				if($insert>0)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -417,19 +459,24 @@ class Admin extends CI_controller
 		$id=$this->input->get('id');
 		$data['row']=$this->Admin_model->countrybyid($id);
 		$data['page']='admin/pages/update/update_country';
-		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
-			$res=$this->Admin_model->countryedit($id);
-			if($res>0)
+			$this->form_validation->set_rules('CountryName','Country Name','required|alpha');
+
+			if($this->form_validation->run()==true)
 			{
-				redirect('Admin/country');
-			}
-			else
-			{
-				echo "Data not updated";
+				$res=$this->Admin_model->countryedit($id);
+				if($res>0)
+				{
+					redirect('Admin/country');
+				}
+				else
+				{
+					echo "Data not updated";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 	/*
 		Country Delete
@@ -460,42 +507,62 @@ class Admin extends CI_controller
 	/*
 		State Insert
 	*/
-	function stateinsert()
+	function countryinsert()
 	{
 		if($_POST)
 		{
-			$insert=$this->Admin_model->stateinsert();
-			if($insert>0)
-			{
-				redirect('Admin/state');		
-			}
+			//set validation rules
+			$this->form_validation->set_rules('CountryName','Country Name','required|alpha');
+
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
 			else
 			{
-				echo "Data is not inserted";
+
+				// $data['DesignationName']=$this->input->post('DesignationName');
+				// $data['DepartmentCode']=$this->input->post('DepartmentCode');
+				// print_r($data['DesignationName']); 			
+				$insert=$this->Admin_model->countryinsert();
+				if($insert>0)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
 	/**
-		State Update Form
+		Country Update Form
 	**/
-	function updatestate()
+	function updatecountry()
 	{
 		$id=$this->input->get('id');
-		$data['row']=$this->Admin_model->statebyid($id);
-		$data['page']='admin/pages/update/update_state';
-		$this->load->view('admin/components/layout',$data);
+		$data['row']=$this->Admin_model->countrybyid($id);
+		$data['page']='admin/pages/update/update_country';
 		if($_POST)
 		{
-			$res=$this->Admin_model->stateedit($id);
-			if($res>0)
+			$this->form_validation->set_rules('CountryName','Country Name','required|alpha');
+
+			if($this->form_validation->run()==true)
 			{
-				redirect('Admin/state');
-			}
-			else
-			{
-				echo "Data not updated";
+				$res=$this->Admin_model->countryedit($id);
+				if($res>0)
+				{
+					redirect('Admin/country');
+				}
+				else
+				{
+					echo "Data not updated";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 	/*
 		State Delete
@@ -528,18 +595,32 @@ class Admin extends CI_controller
 	/*
 		City Insert
 	*/
+	/*
+		City Insert
+	*/
 	function cityinsert()
 	{
 		if($_POST)
 		{
-			$insert=$this->Admin_model->cityinsert();
-			if($insert>0)
-			{
-				redirect('Admin/city');		
-			}
+			//set validation rules
+			$this->form_validation->set_rules('CityName','City Name','required|alpha');
+
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
 			else
-			{
-				echo "Data is not inserted";
+			{			
+				$insert=$this->Admin_model->cityinsert();
+				if($insert>0)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -551,19 +632,24 @@ class Admin extends CI_controller
 		$id=$this->input->get('id');
 		$data['row']=$this->Admin_model->citybyid($id);
 		$data['page']='admin/pages/update/update_city';
-		$this->load->view('admin/components/layout',$data);
 		if($_POST)
 		{
-			$res=$this->Admin_model->cityedit($id);
-			if($res>0)
+			$this->form_validation->set_rules('CityName','City Name','required|alpha');
+
+			if($this->form_validation->run()==true)
 			{
-				redirect('Admin/city');
-			}
-			else
-			{
-				echo "Data not updated";
+				$res=$this->Admin_model->cityedit($id);
+				if($res>0)
+				{
+					redirect('Admin/city');
+				}
+				else
+				{
+					echo "Data not updated";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 	/*
 		Pincode View
@@ -617,14 +703,25 @@ class Admin extends CI_controller
 	{		
 		if($_POST)
 		{
-			$insert=$this->Admin_model->zoneinsert();
-			if($insert>0)
-			{
-				redirect('Admin/zone');		
-			}
-			else
-			{
-				echo "Data is not inserted";
+			//set validation rules
+			$this->form_validation->set_rules('ZoneName','Zone Name','required|alpha');
+			$this->form_validation->set_rules('Employee','Select Employee','required');
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
+        	else
+        	{
+				$insert=$this->Admin_model->zoneinsert();
+				if($insert>0)
+				{
+					echo "Yes";		
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -641,16 +738,21 @@ class Admin extends CI_controller
 		$data['zonedetails']=$this->Admin_model->zonedetails_by_id($zone_code);
 		if($_POST)
 		{
-			$res=$this->Admin_model->updatezone($zone_code);
-			if($res>0)
+			$this->form_validation->set_rules('ZoneName','Zone Name','required|alpha');
+			$this->form_validation->set_rules('Employee','Select Employee','required');
+			$this->form_validation->set_rules('statuscombo','Select Status','required');
+			if($this->form_validation->run()==TRUE)
 			{
-				redirect('Admin/zone');
-			}
-			else{
-				echo "Something Went Wrong";
+				$res=$this->Admin_model->updatezone($zone_code);
+				if($res>0)
+				{
+					redirect('Admin/zone');
+				}
+				else{
+					echo "Something Went Wrong";
+				}
 			}
 		}
-
 		$this->load->view('admin/components/layout',$data);
 	}
 
@@ -663,13 +765,21 @@ class Admin extends CI_controller
 		$data['zonedetails']=$this->Admin_model->zonedetails_by_id($zone_code);
 		if($_POST)
 		{
-			$res=$this->Admin_model->updatesubzone($zone_code);
-			if($res>0)
+			$this->form_validation->set_rules('SubZoneName','Sub Zone','required|alpha');
+			$this->form_validation->set_rules('state','Select State','required');
+			$this->form_validation->set_rules('city[]','Select City','required');
+			$this->form_validation->set_rules('Employee','Select Employee','required');
+			$this->form_validation->set_rules('statuscombo','Select Status','required');
+			if($this->form_validation->run()==TRUE)
 			{
-				redirect('Admin/zone');
-			}
-			else{
-				echo "Something Went Wrong";
+				$res=$this->Admin_model->updatesubzone($zone_code);
+				if($res>0)
+				{
+					redirect('Admin/zone');
+				}
+				else{
+					echo "Something Went Wrong";
+				}
 			}
 		}
 
@@ -689,14 +799,24 @@ class Admin extends CI_controller
 	{
 		if($_POST)
 		{
-			$insert=$this->Admin_model->subzoneinsert();
-			if($insert>0)
+			$this->form_validation->set_rules('SubZoneName','Sub Zone Name','required|alpha');
+			$this->form_validation->set_rules('state','Select State','required');
+			$this->form_validation->set_rules('Employee','Select Employee','required');
+			if($this->form_validation->run()==FALSE)
 			{
-				redirect('Admin/zone');		
+				echo validation_errors();
 			}
 			else
 			{
-				echo "Data is not inserted";
+				$insert=$this->Admin_model->subzoneinsert();
+				if($insert>0)
+				{
+					echo "Yes";	
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -713,20 +833,35 @@ class Admin extends CI_controller
 		$data['producttypedetails']=$this->Admin_model->viewproducttype();
 		$data['companydetails']=$this->Admin_model->viewcompany();
 
-		$this->load->view('admin/components/layout',$data);
-
 		if($_POST)
 		{
-			$insert=$this->Admin_model->productinsert();
-			if($insert>0)
+			$this->form_validation->set_rules('companycombo','Select Company','required');
+			$this->form_validation->set_rules('producttype','Select ProductType','required');
+			$this->form_validation->set_rules('name','Select Name','required|alpha');
+			$this->form_validation->set_rules('productcode','Product Code','required|alpha');
+			$this->form_validation->set_rules('description','Description','required');
+			$this->form_validation->set_rules('customerprice','Price','required|numeric');
+			$this->form_validation->set_rules('distributorprice','Distributor Price','required|numeric');
+			$this->form_validation->set_rules('hsncode','HSN Code','required|numeric');
+			$this->form_validation->set_rules('weight','Weight','required|numeric');
+			$this->form_validation->set_rules('tax','Tax','required|numeric');
+			$this->form_validation->set_rules('information','Information','required');
+			$this->form_validation->set_rules('c_name[]','Company Name','required|alpha');
+			$this->form_validation->set_rules('c_price[]','Company Price','required|numeric');
+			if($this->form_validation->run()==TRUE) 
 			{
-				redirect('Admin/productmanagement');		
-			}
-			else
-			{
-				echo "Data is not inserted";
+				$insert=$this->Admin_model->productinsert();
+				if($insert>0)
+				{
+					redirect('Admin/productmanagement');		
+				}
+				else
+				{
+					echo "Data is not inserted";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 
 	// function productinsert()
@@ -755,14 +890,23 @@ class Admin extends CI_controller
 	{
 		if ($_POST) 
 		{
-			$insert=$this->Admin_model->companyinsert();
-			if($insert>0)
-			{
-				redirect('Admin/company');
-			}
-			else
-			{
-				echo "Data is not inserted";
+			$this->form_validation->set_rules('CompanyName','Company','required|alpha');
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
+        	else
+        	{	
+				$insert=$this->Admin_model->companyinsert();
+				if($insert>0)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -773,20 +917,26 @@ class Admin extends CI_controller
 	{
 		$data['data']=$this->Admin_model->companybyid($id);
 		$data['page']='admin/pages/update/update_company';
-		$this->load->view('admin/components/layout',$data);
+		
 		if($_POST)
 		{	
-			$res=$this->Admin_model->editcompany($id);
-			
-			if($res==true)
-			{
-				redirect('Admin/company');
-			}
-			else
-			{
-				echo "Data is not updated";
+			$this->form_validation->set_rules('CompanyName','Company','required|alpha');
+			$this->form_validation->set_rules('statuscombo','Select Status','required');
+			//run validation check
+        	if ($this->form_validation->run() == TRUE)
+        	{   
+				$res=$this->Admin_model->editcompany($id);
+				if($res==true)
+				{
+					redirect('Admin/company');
+				}
+				else
+				{
+					echo "Data is not updated";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 	function producttype()
 	{
@@ -799,14 +949,25 @@ class Admin extends CI_controller
 	{
 		if ($_POST) 
 		{
-			$insert=$this->Admin_model->producttypeinsert();
-			if($insert>0)
-			{
-				redirect('Admin/producttype');
-			}
-			else
-			{
-				echo "Data is not inserted";
+			//set validation rules
+			$this->form_validation->set_rules('companycombo','Select Company','required');
+			$this->form_validation->set_rules('ProductName','Product Name','required|alpha');
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
+        	else
+        	{
+				$insert=$this->Admin_model->producttypeinsert();
+				if($insert>0)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -817,20 +978,28 @@ class Admin extends CI_controller
 	{
 		$data['data']=$this->Admin_model->producttypebyid($id);
 		$data['page']='admin/pages/update/update_producttype';
-		$this->load->view('admin/components/layout',$data);
+		
 		if($_POST)
 		{	
-			$res=$this->Admin_model->editproducttype($id);
+			//set validation rules
+			$this->form_validation->set_rules('ProductTypeName','Product Type Name','required|alpha');
+			$this->form_validation->set_rules('statuscombo','Select Status','required');
+			//run validation check
+        	if ($this->form_validation->run() == TRUE)
+        	{  
+				$res=$this->Admin_model->editproducttype($id);
 			
-			if($res==true)
-			{
-				redirect('Admin/producttype');
-			}
-			else
-			{
-				echo "Data is not updated";
+				if($res==true)
+				{
+					redirect('Admin/producttype');
+				}
+				else
+				{
+					echo "Data is not updated";
+				}
 			}
 		}
+		$this->load->view('admin/components/layout',$data);
 	}
 	// function opt_producttype($state){
 		

@@ -13,25 +13,29 @@
 						<div class="col-md-12">
 							<div class="col-sm-12 col-md-4 col-lg-3">
 			                    <label><?= __lang('Select Company');?></label>
-		                    	<select class="form-control state" name="companycombo">
+		                    	<select value="<?php echo set_value('companycombo');?>" class="form-control state" name="companycombo">
 		                      		<option value=""> --- </option>
 		                      		<?php foreach($companydetails as $k){
 		                        		echo '<option value="'.$k->company_code.'">'.$k->company.'</option>';
 		                      		}?>
 		                    	</select>
+		                    	<span style="color: red;"><?= form_error('companycombo');?></span>
                   			</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('Product Type');?></label>
                 				<select class="form-control" id="optcity" name="producttype">
                 				</select>
+                				<span style="color: red;"><?= form_error('producttype');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('Name');?><span style="color:red">*</span></label>
-								<input type="text" class="form-control" name="name" id="name">
+								<input type="text" class="form-control" name="name" id="name" value="<?php echo set_value('name'); ?>">
+								<span style="color: red;"><?= form_error('name');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('Product Code');?><span style="color:red">*</span></label>
 								<input type="text" id="code" name="productcode" class="form-control">
+								<span style="color: red;"><?= form_error('productcode');?></span>
 							</div>
 						</div>
 					</div>
@@ -40,18 +44,22 @@
 							<div class="form-group col-md-3">
 								<label><?= __lang('Description');?><span style="color:red">*</span></label>
 								<textarea id="description" name="description" class="form-control"></textarea>
+								<span style="color: red;"><?= form_error('description');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('Price')?><span style="color:red;">*</span></label>
-								<input type="text" id="customerprice" name="customerprice" class="form-control">
+								<input type="number" id="customerprice" name="customerprice" class="form-control">
+								<span style="color: red;"><?= form_error('customerprice');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('Distributor Price');?><span style="color:red;">*</span></label>
-								<input type="text" id="distributorprice" name="distributorprice" class="form-control">
+								<input type="number" id="distributorprice" name="distributorprice" class="form-control">
+								<span style="color: red;"><?= form_error('distributorprice');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('HSNCode');?></label>
-								<input type="text" id="hsncode" name="hsncode" class="form-control">
+								<input type="number" id="hsncode" name="hsncode" class="form-control">
+								<span style="color: red;"><?= form_error('hsncode');?></span>
 							</div>
 						</div>
 					</div>
@@ -59,15 +67,18 @@
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
 								<label><?= __lang('Weight');?></label>
-								<input type="text" id="weight" name="weight" class="form-control">
+								<input type="number" id="weight" name="weight" class="form-control">
+								<span style="color: red;"><?= form_error('weight');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('GST');?></label>
-								<input type="text" id="tax" name="tax" class="form-control">
+								<input type="number" id="tax" name="tax" class="form-control">
+								<span style="color: red;"><?= form_error('tax');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('Information');?></label>
 								<textarea id="information" name="information" class="form-control"></textarea>
+								<span style="color: red;"><?= form_error('information');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label><?= __lang('Product Image');?></label>
@@ -100,8 +111,10 @@
 									<tbody id="product_table_body">
 										<tr>
 											<td style="text-align:center !important;"><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
-											<td><input type="text" id="c_name0" name="c_name[]"></td>
-											<td><input type="text" id="c_price0" name="c_price[]"></td>
+											<td><input type="text" id="c_name0" name="c_name[]"><span style="color: red;"><?= form_error('c_name[]');?></span></td>
+											
+											<td><input type="number" id="c_price0" name="c_price[]"><span style="color: red;"><?= form_error('c_price[]');?></span></td>
+											
 										</tr>
 									</tbody>
 								</table>
@@ -109,7 +122,8 @@
 						</div>
 						<div class="col-md-12">
 							<div class="form-group col-md-3">
-								<input type="submit" class="btn btn-primary" value="Submit" id="btnSubmit" onclick="formsubmit();">
+								<!-- <input type="submit" class="btn btn-primary" value="Submit" id="btnSubmit" onclick="formsubmit();"> -->
+								<button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
 							</div>
 						</div>
 						<div class="col-md-12">

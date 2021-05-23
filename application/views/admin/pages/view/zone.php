@@ -116,22 +116,24 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <label><?= __lang('Zone Name');?></label>
-                    <input type="text" class="form-control" placeholder="Enter Role Name" name="ZoneName">
+                    <input type="text" class="form-control" placeholder="Enter Role Name" id="ZoneName" name="ZoneName">
                   </div>
                   <div class="col-sm-12 col-md-12 col-lg-12">
                     <label><?= __lang('Employee');?></label>
-                    <select name="Employee" class="form-control">
+                    <select name="Employee" class="form-control" id="Employee">
+                      <option value="">---Select Employee----</option>
                       <?php foreach ($info as $key) { ?>
                         <option value="<?= $key->employee_code; ?>"><?= $key->employee;?></option>
                       <?php } ?>
                     </select>
                   </div>
                 </div>
+                <div id="alert-msg"></div> 
               </div>
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+                      <input class="btn btn-default" id="zoneinsert" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>
@@ -157,11 +159,11 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-4 col-lg-4">
                     <label><?= __lang('Zone Name');?></label>
-                    <input type="text" class="form-control" placeholder="Enter Sub-Zone Name" name="SubZoneName">
+                    <input type="text" class="form-control" placeholder="Enter Sub-Zone Name" name="SubZoneName" id="SubZoneName">
                   </div>
                   <div class="col-sm-12 col-md-4 col-lg-4">
                     <label><?= __lang('Select State');?></label>
-                    <select class="form-control state" name="state">
+                    <select class="form-control state" name="state" id="state">
                       <option value=""> --- </option>
                       <?php foreach($state as $k){
                         echo '<option value="'.$k->code.'">'.$k->state.'</option>';
@@ -172,18 +174,20 @@
                   </div>
                   <div class="col-sm-12 col-md-4 col-lg-4">
                     <label><?= __lang('Employee');?></label>
-                    <select name="Employee" class="form-control">
+                    <select name="Employee" class="form-control" id="Employee">
+                      <option value="">---Select Employee---</option>
                       <?php foreach ($info as $key) { ?>
                         <option value="<?= $key->employee_code; ?>"><?= $key->employee;?></option>
                       <?php } ?>
                     </select>
                   </div>
                 </div>
+                <div id="subalert-msg"></div> 
               </div>
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+                      <input class="btn btn-default" id="subzoneinsert" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>
@@ -219,4 +223,51 @@
       $('#submodel').modal('toggle');
     })
   })
+/**
+  Zone Insert Validation
+***/
+$('#zoneinsert').click(function() {
+    var form_data = {
+        ZoneName: $('#ZoneName').val(),
+        Employee: $('#Employee').val(),
+    };
+    $.ajax({
+        url: "<?php echo base_url('Admin/zoneinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/zone'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
+/**
+  Sub-Zone Insert Validation
+***/
+$('#subzoneinsert').click(function() {
+    var form_data = {
+        SubZoneName: $('#SubZoneName').val(),
+        Employee: $('#Employee').val(),
+        state: $('#state').val(),
+    };
+    $.ajax({
+        url: "<?php echo base_url('Admin/subzoneinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/zone'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#subalert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
 </script>	

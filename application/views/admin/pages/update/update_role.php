@@ -14,6 +14,7 @@
               <div class="col-sm-12 col-md-4 col-lg-4">
                 <label><?= __lang('Role Name');?></label>
                 <input type="text" class="form-control" placeholder="Enter Role Name" name="RoleName" value="<?php echo $key->role;?>">
+                <span style="color: red;"><?= form_error('RoleName');?></span>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label><?= __lang('Role Code');?></label>

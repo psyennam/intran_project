@@ -12,13 +12,16 @@
               <div class="col-sm-12 col-md-4 col-lg-4">
                 <label>ProductType</label>
                 <input type="text" class="form-control" placeholder="Enter ProductType Name" name="ProductTypeName" value="<?php echo $key->product_type;?>">
+                <span style="color: red;"><?= form_error('ProductTypeName');?></span>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4 ">
                   <label><?= __lang('Status');?></label>
                   <select class="form-control" name="statuscombo">
+                    <option value="">---Select Status---</option>
                     <option value="0" <?php if($key->status == 0) {echo "selected";} ?>>Active</option>
                     <option value="1" <?php if($key->status == 1) {echo "selected";} ?>>Hold</option>
                   </select>
+                  <span style="color: red;"><?= form_error('statuscombo');?></span>
               </div> 
             </div>
             <div class="row">

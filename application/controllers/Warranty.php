@@ -22,14 +22,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		if($_POST)
 		{
-			$res=$this->Warranty_model->warrantytype_insert();
-			if($res==true)
-			{
-				redirect('/Warranty/warrantytype');
-			}
-			else
-			{
-				echo "Data is not inserted";
+			//set validation rules
+			$this->form_validation->set_rules('WarrantyType','Warranty Type','required|alpha');
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
+        	else
+        	{
+				$res=$this->Warranty_model->warrantytype_insert();
+				if($res==true)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "NO";
+				}
 			}
 		}
 	}

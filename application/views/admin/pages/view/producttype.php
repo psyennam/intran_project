@@ -68,7 +68,8 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-12 col-lg-4">
                       <label><?= __lang('Company');?></label>
-                        <select class="form-control" name="companycombo">
+                        <select class="form-control" name="companycombo" id="companycombo">
+                          <option value="">---Select Company-----</option>
                           <?php foreach ($companydetails as $row) { ?>
                               <option value="<?php echo $row->company_code ?>"><?php echo $row->company; ?>
                               </option>
@@ -77,14 +78,15 @@
                   </div>
                   <div class="col-sm-12 col-md-4 col-lg-4">
                     <label><?= __lang('Product Type Name');?></label>
-                    <input type="text" class="form-control" placeholder="Enter Product Name" name="ProductName">
+                    <input type="text" class="form-control" placeholder="Enter Product Name" name="ProductName" id="ProductName">
                   </div>
                 </div>
+                <div id="alert-msg"></div>
               </div>
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+                      <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>
@@ -97,15 +99,24 @@
 
 <!-- page script -->
 <script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
+ $('#submit').click(function() {
+    var form_data = {
+        companycombo: $('#companycombo').val(),
+        ProductName: $('#ProductName').val(),
+    };
+    $.ajax({
+        url: "<?php echo base_url('Admin/producttypeinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/producttype'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+}); 
 </script>	
