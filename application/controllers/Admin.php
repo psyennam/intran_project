@@ -507,12 +507,13 @@ class Admin extends CI_controller
 	/*
 		State Insert
 	*/
-	function countryinsert()
+
+	function stateinsert()
 	{
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('CountryName','Country Name','required|alpha');
+			$this->form_validation->set_rules('StateName','State Name','required|alpha');
 
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
@@ -520,12 +521,8 @@ class Admin extends CI_controller
             	echo validation_errors();
         	}
 			else
-			{
-
-				// $data['DesignationName']=$this->input->post('DesignationName');
-				// $data['DepartmentCode']=$this->input->post('DepartmentCode');
-				// print_r($data['DesignationName']); 			
-				$insert=$this->Admin_model->countryinsert();
+			{			
+				$insert=$this->Admin_model->stateinsert();
 				if($insert>0)
 				{
 					echo "Yes";
@@ -538,23 +535,23 @@ class Admin extends CI_controller
 		}
 	}
 	/**
-		Country Update Form
+		State Update Form
 	**/
-	function updatecountry()
+	function updatestate()
 	{
 		$id=$this->input->get('id');
-		$data['row']=$this->Admin_model->countrybyid($id);
-		$data['page']='admin/pages/update/update_country';
+		$data['row']=$this->Admin_model->statebyid($id);
+		$data['page']='admin/pages/update/update_state';
 		if($_POST)
 		{
-			$this->form_validation->set_rules('CountryName','Country Name','required|alpha');
+			$this->form_validation->set_rules('StateName','State Name','required|alpha');
 
 			if($this->form_validation->run()==true)
 			{
-				$res=$this->Admin_model->countryedit($id);
+				$res=$this->Admin_model->stateedit($id);
 				if($res>0)
 				{
-					redirect('Admin/country');
+					redirect('Admin/state');
 				}
 				else
 				{
