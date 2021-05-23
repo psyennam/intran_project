@@ -68,7 +68,7 @@
                     <div class="row">
                       <div class="col-sm-12 col-md-12 col-lg-6">
                           <label><?= __lang('Country');?></label>
-                          <select class="form-control" name="countrycombo">
+                          <select class="form-control" id="countrycombo" name="countrycombo">
                           <?php foreach ($countrydetails as $row) { ?>
                               <option value="<?php echo $row->country_code ?>"><?php echo $row->country; ?>
                               </option>
@@ -77,14 +77,15 @@
                       </div>
                       <div class="col-sm-12 col-md-4 col-lg-6">
                         <label><?= __lang('State Name');?></label>
-                        <input type="text" class="form-control" placeholder="Enter State Name" name="StateName">
+                        <input type="text" class="form-control" placeholder="Enter State Name" id="StateName" name="StateName">
+                    <div id="alert-msg"></div>
                       </div>
                     </div>
               </div>
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col-md-12 text-center" style="margin-top: 10px;">
-                         <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+                         <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                         </div>
                     </div>
                 </div>
@@ -95,16 +96,25 @@
   </div>
 <!-- End Modal  -->
 <!-- page script -->
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>	
+<script type="text/javascript">
+  $('#submit').click(function() {
+    var form_data = {
+        StateName: $('#StateName').val(),
+        countrycombo:$('#countrycombo').val(),
+    };
+    $.ajax({
+        url: "<?php echo base_url('Admin/stateinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/state'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
+</script> 

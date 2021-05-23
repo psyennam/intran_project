@@ -69,14 +69,15 @@
               <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-12">
                     <label><?= __lang('Country');?></label>
-                    <input type="text" class="form-control" name="CountryName" placeholder="Enter Country Name">
+                    <input type="text" class="form-control" id="CountryName" name="CountryName" placeholder="Enter Country Name">
                 </div>
               </div>
+              <div id="alert-msg"></div> 
             </div>
             <div class="modal-footer">
               <div class="row">
                 <div class="col-md-12 text-center" style="margin-top: 10px;">
-                  <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+                  <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                 </div>
               </div>
             </div>
@@ -86,4 +87,24 @@
     </div>
     <!-- End Modal 1  -->
 
-    
+<script type="text/javascript">
+  $('#submit').click(function() {
+    var form_data = {
+        CountryName: $('#CountryName').val(),
+    };
+    $.ajax({
+        url: "<?php echo base_url('Admin/countryinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/country'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
+</script> 

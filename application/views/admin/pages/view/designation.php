@@ -57,11 +57,12 @@
                         <div class="row">
   							          <div class="col-sm-12 col-md-4 col-lg-4">
   							            <label><?= __lang('Designation');?></label>
-  							            <input type="text" class="form-control" placeholder="Enter Designation" name="DesignationName">
+  							            <input type="text" class="form-control" placeholder="Enter Designation" id="DesignationName" name="DesignationName">
+                          <div id="alert-msg"></div>
   							          </div>
   							          <div class="col-sm-12 col-md-4 col-lg-4">
     							          <label><?= __lang('Department Name');?></label>
-    							          <select class="form-control" name="designationtcombo">
+    							          <select class="form-control" id="departmentcombo" name="departmentcombo">
   													  <?php foreach($depts as $row) { ?>
   													    <option value="<?php echo $row->department_code;?>"><?php echo $row->department;?></option>
   													  <?php } ?>
@@ -72,8 +73,8 @@
               				<div class="modal-footer">
               					<div class="row">
 							              <div class="col-md-12 text-center" style="margin-top: 10px;">
-							                <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
-							              </div>
+                              <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                            </div>
 							         </div>
               				</div>
                     </form>
@@ -92,16 +93,28 @@
     <!-- /.content -->
 
 <!-- page script -->
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
+<script  type="text/javascript">
+   $('#submit').click(function() {
+    //alert("hii");
+    var form_data = {
+        DesignationName: $('#DesignationName').val(),
+        departmentcombo: $('#departmentcombo').val(),
+    };
+        // alert(form_data['DepartmentCode']);
+    //alert(form_data);
+    $.ajax({
+        url: "<?php echo base_url('Admin/designationinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/designation'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
 </script>	

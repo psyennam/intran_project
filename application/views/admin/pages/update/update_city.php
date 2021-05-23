@@ -12,6 +12,7 @@
               <div class="col-sm-12 col-md-4 col-lg-4">
                 <label><?= __lang('City Name');?></label>
                 <input type="text" class="form-control" placeholder="Enter City Name" name="CityName" value="<?php echo $key->city;?>">
+                <span style="color:red;"><?= form_error('CityName'); ?></span>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4 ">
                   <label><?= __lang('Status');?></label>

@@ -14,10 +14,7 @@
               <div class="col-sm-12 col-md-4 col-lg-4">
                 <label><?= __lang('Department Name');?></label>
                 <input type="text" class="form-control" placeholder="Enter Department Name" name="DepartmentName" value="<?php echo $key->department;?>">
-              </div>
-              <div class="col-sm-12 col-md-12 col-lg-4">
-                <label><?= __lang('Department Code');?></label>
-                <input type="text" class="form-control" value="<?php echo $key->department_code;?>"> 
+                <span style="color:red;"><?= form_error('DepartmentName'); ?></span>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4 ">
                   <label><?= __lang('Status');?></label>
