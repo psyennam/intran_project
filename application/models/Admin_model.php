@@ -100,7 +100,7 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('*')->from('role')->get()->result();
 	}
-	function roleinsert($data)
+	function roleinsert()
 	{
 		$randomid=random_string('alnum',10);
 		$ip=$this->input->ip_address();
@@ -413,7 +413,7 @@ class Admin_model extends CI_model
 				'designation'=>$this->input->post('DesignationName'),
 				'designation_code'=>$randomid,
 				'org_code'=>$this->session->userdata('org_code'),
-				'department_code'=>$this->input->post('designationtcombo'),
+				'department_code'=>$this->input->post('departmentcombo'),
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip
 			];

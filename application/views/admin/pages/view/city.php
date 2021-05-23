@@ -70,7 +70,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <label><?= __lang('Country');?></label>
-                <select class="form-control" name="countrycombo">
+                <select class="form-control" id="countrycombo" name="countrycombo">
                 <?php 
                 foreach ($countrydetails as $row) {
                 ?>
@@ -82,7 +82,7 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <label><?= __lang('State');?></label>
-                <select class="form-control" name="statecombo">
+                <select class="form-control" id="statecombo" name="statecombo">
                 <?php 
                 foreach ($statedetails as $row) {
                 ?>
@@ -94,14 +94,15 @@
             </div>
             <div class="col-sm-12 col-md-4 col-lg-12">
               <label><?= __lang('City Name');?></label>
-              <input type="text" class="form-control" placeholder="Enter City Name" name="CityName">
+              <input type="text" class="form-control" placeholder="Enter City Name" id="CityName" name="CityName">
+              <div id="alert-msg"></div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <div class="row">
             <div class="col-md-12 text-center" style="margin-top: 10px;">
-              <button type="submit" class="btn btn-primary"><?= __lang('Submit');?></button>
+              <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
             </div>
           </div>
         </div>
@@ -166,4 +167,25 @@ $('.add_row').click(function(){
 function remove_row(row_id){
   $('#row_'+row_id).remove();
 }
+ $('#submit').click(function() {
+    var form_data = {
+        CityName: $('#CityName').val(),
+        countrycombo: $('#countrycombo').val(),
+        statecombo: $('#statecombo').val(),
+    };
+    $.ajax({
+        url: "<?php echo base_url('Admin/cityinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/city'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
 </script>

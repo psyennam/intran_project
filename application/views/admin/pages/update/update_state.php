@@ -12,6 +12,7 @@
               <div class="col-sm-12 col-md-4 col-lg-4">
                 <label><?= __lang('State Name');?></label>
                 <input type="text" class="form-control" placeholder="Enter Country Name" name="StateName" value="<?php echo $key->state;?>">
+                <span style="color:red;"><?= form_error('StateName'); ?></span>
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4 ">
                   <label><?= __lang('Status');?></label>
