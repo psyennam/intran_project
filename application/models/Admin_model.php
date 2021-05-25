@@ -1192,29 +1192,51 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
+	/*
+		Lead Update
+	*/
+	function updatelead($leadcode){
+		$data=[
+			'zone_code'=>$this->input->post('optzone'),
+			'city_code'=>$this->input->post('optcity'),
+			'zip_code'=>$this->input->post('optpin'),
+			'supplier_code'=>$this->input->post('supplier'),
+			'brand'=>$this->input->post('brand'),
+			'company_name'=>$this->input->post('company_name'),
+			'gst'=>$this->input->post('gst'),
+			'address'=>$this->input->post('address'),
+		];
 
-	// function updatelead($leadcode){
-	// 	$data=[
-	// 		'lead_code'=>$leadcode,
-	// 		'zone_code'=>$this->input->post('optzone'),
-	// 		'city_code'=>$this->input->post('optcity'),
-	// 		'zip_code'=>$this->input->post('optpin'),
-	// 		'supplier_code'=>$this->input->post('supplier'),
-	// 		'brand'=>$this->input->post('brand'),
-	// 		'company_name'=>$this->input->post('company_name'),
-	// 		'gst'=>$this->input->post('gst'),
-	// 		'address'=>$this->input->post('address'),
-	// 	];
-
-	// 	$res=$this->db->where('lead_code',$leadcode)->update('lead',$data);
-	// 	if($res>0)
-	// 	{
-	// 		return true;
-	// 	}
-	// 	else{
-	// 		return false;
-	// 	}
-	// }
+		$res=$this->db->where('lead_code',$leadcode)->update('lead',$data);
+		if($res>0)
+		{
+			$contact_person= [];
+			for($i=0;$i<sizeof($_POST['cp_name']);$i++)
+			{
+				$contact_person[] =[
+					'lead_code'=>$leadcode,
+					'person_name'=>$_POST['cp_name'][$i],
+					'designation'=>$_POST['cp_designation'][$i],
+					'mobile_no'=>$_POST['cp_mobile'][$i],
+					'email'=>$_POST['cp_email'][$i]
+				];
+			}
+			//$update=;
+			if($this->db->update_batch('mapping_lead',$contact_person,'lead_code'))
+			{
+				$this->db->trans_complete();
+				return true;
+			}
+			else{
+				$this->db->trans_rollback();
+				return false;
+			}
+		}
+		else{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
 
 	/*
 		Client View
@@ -1406,6 +1428,10 @@ class Admin_model extends CI_model
 	function leaddetails_by_id($lead_code)
 	{
 		return $this->db->select('*')->where('lead_code',$lead_code)->get('lead')->result();
+	}
+	function maapingleaddetails_by_id($lead_code)
+	{
+		return $this->db->select('*')->where('lead_code',$lead_code)->get('mapping_lead')->result();
 	}
 
 	function companydetails()

@@ -16,21 +16,25 @@
                       			<?php foreach($zone as $k){
                         		echo '<option value="'.$k->code.'">'.$k->zone.'</option>';
                       			}?>
-                   				 </select>
+                   				</select>
+                   				<span style="color: red;"><?= form_error('zone');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Select Sub-Zone</label>
                     			<select class="form-control subzone" id="optzone" name="optzone"></select>
+                    			<span style="color: red;"><?= form_error('optzone');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label>City</label>
 								<select class="form-control subcity" id="optcity" name="optcity">
 								</select>
+								<span style="color: red;"><?= form_error('optcity');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Pincode</label>
 								<select class="form-control subpin" id="optpin" name="optpin">
 								</select>
+								<span style="color: red;"><?= form_error('optpin');?></span>
 							</div>
 						</div>
 					</div>
@@ -40,6 +44,7 @@
 								<label>Supplier Name<span style="color:red">*</span></label>
 								<select class="form-control" id="optsupplier" name="supplier"></select>
 								</select>
+								<span style="color: red;"><?= form_error('supplier');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Brand<span style="color:red">*</span></label>
@@ -49,18 +54,22 @@
 									<option value='2'>AMADA WELD TECH</option>
 									<option value='3'>CEBORA</option>		
 								</select>
+								<span style="color: red;"><?= form_error('brand');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Company Name</label>
 								<input type="text" id="company_name" name="company_name" class="form-control">
+								<span style="color: red;"><?= form_error('company_name');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label>GST</label>
-								<input type="text" id="gst" name="gst" class="form-control">
+								<input type="number" id="gst" name="gst" class="form-control">
+								<span style="color: red;"><?= form_error('gst');?></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label>Address<span style="color:red">*</span></label>
 								<textarea id="address" name="address" class="form-control"></textarea>
+								<span style="color: red;"><?= form_error('address');?></span>
 							</div>
 							
 						</div>
@@ -84,10 +93,10 @@
 										<tbody id="product_table_body">
 											<tr>
 												<td style="text-align:center !important;"><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
-												<td><input type="text" id="cp_name0" name="cp_name[]"></td>
-												<td><input type="text" id="cp_designation0" name="cp_designation[]"></td>
-												<td><input type="text" id="cp_mobile0" name="cp_mobile[]"></td>
-												<td><input type="text" id="cp_email0" name="cp_email[]"></td>
+												<td><input type="text" id="cp_name0" name="cp_name[]"><span style="color: red;"><?= form_error('cp_name[]');?></span></td>
+												<td><input type="text" id="cp_designation0" name="cp_designation[]"><span style="color: red;"><?= form_error('cp_designation[]');?></span></td>
+												<td><input type="number" id="cp_mobile0" name="cp_mobile[]"><span style="color: red;"><?= form_error('cp_mobile[]');?></span></td>
+												<td><input type="text" id="cp_email0" name="cp_email[]"><span style="color: red;"><?= form_error('cp_email[]');?></span></td>
 											</tr>
 										</tbody>
 								</table>

@@ -82,6 +82,7 @@
           <div class="row" style="text-align:center;">
             <div class="col-md-12">
               <select class="form-control" name="customercombo" id="customercombo" onchange="check()">
+                <option value="">---Select----</option>
                 <option value="Customer Availabel" id="CA">Customer Availabel</option>
                 <option value="Customer Not Availabel" id="CNA">Customer Not Availabel</option>
               </select>
@@ -126,6 +127,9 @@
                     <div class="form-group col-md-6" id="getremarkdivs">
                       <label>Additional Remarks</label>
                       <textarea id="remark" name="remark" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group col-md-6" id="getremarkdivs">
+                        <div id="alert-msg"></div>                      
                     </div> 
                   </div>
                 </div>
@@ -163,7 +167,8 @@
             </div>
               <div class="row" >
                   <div class="col-md-3">
-                    <a href="#"><input type="submit" class="btn btn-primary" name="btnsubmit1" value="Submit"></a>
+                    <a href="#">
+                      <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/></a>
                   </div>
                 </div>
             </div>
@@ -401,4 +406,32 @@ function available(){
   $(location).attr('href',"<?= base_url('Admin/discuss'); ?>?id="+id);   
 }
 
+/***
+lead Checkout Validation
+***/
+  $('#submit').click(function() {
+    var form_data = {
+        customercombo: $('#customercombo').val(),
+        visitetype: $('#visitetype').val(),
+        concernperson: $('#concernperson').val(),
+        Personname: $('#Personname').val(),
+        quotationreq: $('#quotationreq').val(),
+        remark: $('#remark').val(),
+    };
+    
+    $.ajax({
+        url: "<?php echo base_url('Admin/leadlist_insert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/role'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
 </script>

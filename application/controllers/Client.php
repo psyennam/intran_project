@@ -53,14 +53,33 @@ class Client extends CI_controller
 	{
 		if($_POST)
 		{
-			$insert=$this->Client_model->clientinsert();
-			if($insert>0)
-			{
-				redirect('Client/client');		
-			}
+			//set validation rules
+			$this->form_validation->set_rules('ClientName','Client Name','required|alpha');
+			$this->form_validation->set_rules('email','email','required');
+			$this->form_validation->set_rules('dob','dob','required');
+			$this->form_validation->set_rules('zone','zone','required');
+			$this->form_validation->set_rules('subzone','SubZone','required');
+			$this->form_validation->set_rules('city','city','required');
+			$this->form_validation->set_rules('address','address','required');
+			$this->form_validation->set_rules('contact','contact','required');
+			$this->form_validation->set_rules('Pincode','Pincode','required');
+
+			//run validation check
+        	if ($this->form_validation->run() == FALSE)
+        	{   //validation fails
+            	echo validation_errors();
+        	}
 			else
-			{
-				echo "Data is not inserted";
+			{ 			
+				$insert=$this->Admin_model->clientinsert();
+				if($insert>0)
+				{
+					echo "Yes";
+				}
+				else
+				{
+					echo "No";
+				}
 			}
 		}
 	}
@@ -137,7 +156,37 @@ class Client extends CI_controller
 		$data['page']='employee/pages/update/update_lead';
 		$data['zone']=$this->Client_model->viewzone();
 		$data['client']=$this->Client_model->view_client();
+		$data['leadinfo']=$this->Client_model->leaddetails_by_id($code);
+		$data['mappingleadinfo']=$this->Client_model->maapingleaddetails_by_id($code);
 		// $data['leaddetails']=$this->Client_model->updateleadlist($code);
+		if($_POST)
+		{
+			$this->form_validation->set_rules('zone','Select Zone','required');
+			$this->form_validation->set_rules('optzone','Select Sub-Zone','required');
+			$this->form_validation->set_rules('optcity','Select City','required');
+			$this->form_validation->set_rules('optpin','Select Pin-Code','required');
+			$this->form_validation->set_rules('supplier','Select Sub-Zone','required');
+			$this->form_validation->set_rules('brand','Select Sub-Zone','required');
+			$this->form_validation->set_rules('company_name','Company Name','required|alpha');
+			$this->form_validation->set_rules('gst','GST','required|numeric');
+			$this->form_validation->set_rules('address','Address','required|alpha');
+			$this->form_validation->set_rules('cp_name[]','Name','required|alpha');
+			$this->form_validation->set_rules('cp_designation[]','Designation','required|alpha');
+			$this->form_validation->set_rules('cp_mobile[]','Mobile','required|regex_match[/^[0-9]{10}$/]');
+			$this->form_validation->set_rules('cp_email[]','Email','required');
+			if($this->form_validation->run()==TRUE)
+			{	
+				$res=$this->Client_model->updatelead($code);
+				if($res>0)
+				{
+					redirect('Client/leadlist');
+				}
+				else
+				{
+					echo "Data not updated";
+				}
+			}	
+		}
 		$this->load->view('admin/components/layout',$data);
 	}
 	/**
@@ -169,14 +218,37 @@ class Client extends CI_controller
 	{
 		if ($_POST) 
 		{
-			$insert=$this->Client_model->leadinsert();
-			if($insert>0)
+			$this->form_validation->set_rules('zone','Select Zone','required');
+			$this->form_validation->set_rules('optzone','Select Sub-Zone','required');
+			$this->form_validation->set_rules('optcity','Select City','required');
+			$this->form_validation->set_rules('optpin','Select Pin-Code','required');
+			$this->form_validation->set_rules('supplier','Select Sub-Zone','required');
+			$this->form_validation->set_rules('brand','Select Sub-Zone','required');
+			$this->form_validation->set_rules('company_name','Company Name','required|alpha');
+			$this->form_validation->set_rules('gst','GST','required|numeric');
+			$this->form_validation->set_rules('address','Address','required|alpha');
+			$this->form_validation->set_rules('cp_name[]','Name','required|alpha');
+			$this->form_validation->set_rules('cp_designation[]','Designation','required|alpha');
+			$this->form_validation->set_rules('cp_mobile[]','Mobile','required|regex_match[/^[0-9]{10}$/]');
+			$this->form_validation->set_rules('cp_email[]','Email','trim|required|valid_email|xss_clean');
+			if($this->form_validation->run()==TRUE)
 			{
-				redirect('Client/leadlist');
+				$insert=$this->Client_model->leadinsert();
+				if($insert>0)
+				{
+					redirect('Client/leadlist');
+				}
+				else
+				{
+					echo "Data is not inserted";
+				}
 			}
 			else
 			{
-				echo "Data is not inserted";
+				$data['zone']=$this->Client_model->viewzone();
+				$data['client']=$this->Client_model->view_client();
+				$data['page']='employee/pages/view/leadform';
+				$this->load->view('admin/components/layout',$data);	
 			}
 		}	
 	}
