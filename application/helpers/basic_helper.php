@@ -125,8 +125,20 @@ function totalexpense()
 	$ci = &get_instance();
 	return $ci->db->select_sum('total')->from('quotation')->where('status',2)->get()->row()->total;
 }
+function totalvisit()
+{
+	$ci = &get_instance();
+	return $ci->db->select('*')->from('tbl_discussion_with_customer')->get()->num_rows();
+}
 function todayvisit()
 {
 	$ci = &get_instance();
-	return $ci->db->select_sum('total')->from('quotation')->where('status',2)->get()->row()->total;
+	$date = new DateTime("now");
+ 	$curr_date = $date->format('Y-m-d');
+	return $ci->db->select('*')->from('tbl_discussion_with_customer')->where('DATE(created_at)',$curr_date)->get()->num_rows();
+}
+function totalsales()
+{
+	$ci = &get_instance();
+	return $ci->db->select('*')->from('tbl_quotation')->where('status',2)->get()->num_rows();
 }

@@ -66,7 +66,7 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <table id="example2" class="table table-bordered table-hover">
+            <table id="example3" class="table table-bordered table-hover">
               <thead>
               <tr>
                 <th><?= __lang('ID');?></th>
@@ -199,7 +199,31 @@
     <!-- End Modal  -->
 
 <!-- page script -->
+<script type="text/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
 <script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+  $(function () {
+    $('#example1').DataTable()
+    $('#example3').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
   $(document).ready(function(){
     $('.state').change(function(){
       var state_code = $(this).val();

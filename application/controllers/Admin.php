@@ -1286,7 +1286,7 @@ class Admin extends CI_controller
 			$this->form_validation->set_rules('cp_name[]','Name','required|alpha');
 			$this->form_validation->set_rules('cp_designation[]','Designation','required|alpha');
 			$this->form_validation->set_rules('cp_mobile[]','Mobile','required|regex_match[/^[0-9]{10}$/]');
-			$this->form_validation->set_rules('cp_email[]','Email','trim|required|valid_email|xss_clean');
+			$this->form_validation->set_rules('cp_email[]','Email','trim|required|valid_email');
 			if($this->form_validation->run()==TRUE)
 			{
 				$insert=$this->Admin_model->leadinsert();
@@ -1313,6 +1313,14 @@ class Admin extends CI_controller
 	{
 		if($_POST)
 		{
+				$res=$this->Admin_model->leadlist_insert();
+				if($res['quotation_require']==="Yes")
+				{
+					redirect('Admin/add_quotation/'.$res['lead_code']);				
+				}
+				else{
+					redirect('Admin/followuplist');	
+				}
 /*			$this->form_validation->set_rules('customercombo','Customer Availabel','required');
 			$this->form_validation->set_rules('visitetype','Visit Type','required');
 			$this->form_validation->set_rules('concernperson','Concern Person','required');
@@ -1326,14 +1334,7 @@ class Admin extends CI_controller
 			}
 			else
 			{
-*/				$res=$this->Admin_model->leadlist_insert();
-				if($res['quotation_require']==="Yes")
-				{
-					redirect('Admin/add_quotation/'.$res['lead_code']);				
-				}
-				else{
-					redirect('Admin/followuplist');	
-				}	
+*/					
 			/*}*/
 			
 		}

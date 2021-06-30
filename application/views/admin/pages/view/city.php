@@ -152,8 +152,20 @@
   </div>
 </div>
 <!-- End Modal 2  -->
+<script type="text/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 
 <script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 $('.open_pincode_modal').click(function(){ 
   $('#h_city_code').val($(this).data('citycode'));
   $('#pincode_modal').modal('toggle');

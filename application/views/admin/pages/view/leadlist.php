@@ -168,7 +168,9 @@
               <div class="row" >
                   <div class="col-md-3">
                     <a href="#">
-                      <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/></a>
+                      <!-- <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/> -->
+                        <button class="btn btn-primary"><?= __lang('Submit');?></button>
+                      </a>
                   </div>
                 </div>
             </div>
@@ -243,9 +245,19 @@
       </div>
     </div>
   </div>
-
+<script type="text/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
  <script>
-
+$(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
 $(document).ready(function(){  
    $('.lead-modal').click(function(){
       $('#hdnId').val($(this).data('lead_code'));
