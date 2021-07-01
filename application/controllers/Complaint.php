@@ -21,7 +21,8 @@ class Complaint extends CI_controller{
 		$res=$this->complaint_model->complaint_form_insert();
 		if($res==true)
 		{
-			redirect('Complaint/viewcomplaint');
+			// redirect('Complaint/viewcomplaint');
+			echo"<script>alert('complaint is registerd with us..')</script>";
 		}
 		}
 	}

@@ -86,7 +86,7 @@ class Complaint_model extends CI_model
 	}
 	function view_tracking()
 	{
-		return $this->db->select('*')->where(['employee_code'=>$this->session->userdata('emp_code'),'complaint_tracking.status'=>0])->join('complaint','complaint.complaint_code=complaint_tracking.complaint_code')->join('lead','complaint.customer_code=lead.lead_code')->get('complaint_tracking')->result();
+		return $this->db->select('*')->where(['complaint_tracking.employee_code'=>$this->session->userdata('emp_code'),'complaint_tracking.status'=>0])->join('complaint','complaint.complaint_code=complaint_tracking.complaint_code')->join('lead','complaint.customer_code=lead.lead_code')->get('complaint_tracking')->result();
 		// return $this->db->select('*')->from('complaint_tracking')->get()->result();
 	}
 
