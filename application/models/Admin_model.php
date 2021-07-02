@@ -57,7 +57,15 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
-	
+	/**
+		->Forget Password Function
+	 **/
+	function forgetpassword()
+	{
+		$username=$this->input->post('username');
+		return $this->db->select('email')->from('employee')->where('employee_code',$username)->get()->result();
+		
+	}
 	/**
 		Check Function
 		->In this function it will check admin password flag is 0 or not
