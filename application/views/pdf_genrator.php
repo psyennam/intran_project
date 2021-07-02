@@ -9,7 +9,7 @@
     <thead>
       
       <tr>
-        <th><h1>AdminLTE, Inc.</h1></th>
+        <th><h1>Tailor Made, Inc.</h1></th>
             <th style="text-align: right;"><h4>Date:<?php echo date('d-m-y');?></h4>
         </th>
       </tr>

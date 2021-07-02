@@ -88,6 +88,35 @@ class User extends CI_controller
 			}
 		}
 	}
+	function forget_form()
+	{
+		$this->load->view('admin/verifyusername');
+		if($_POST)
+		{
+			$this->form_validation->set_rules('username','Username','required'); 
+			if ($this->form_validation->run() == FALSE)
+            {
+                echo validation_errors();            
+            }
+            else
+            {
+				$res=$this->Admin_model->forgetpassword();
+				//echo $email;
+				 if($res>0)
+				 {
+				 	$this->session->set_flashdata('email',$res); 
+				 	//$this->session->set_userdata('email',$res);
+				 	redirect('Email_send/verifyotp');	
+				 	//print_r($res['data']);
+				 	//echo "yes";
+				 }
+				 else
+				 {
+				 	echo "incorrect username";
+				 }
+			}
+		}
+	}
 	/**
 		Master Admin Dasboard
 	**/
