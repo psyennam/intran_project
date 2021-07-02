@@ -5,20 +5,20 @@
       <div class="box">
         <div class="col-md-12">
             <div class="box-header with-border" style="text-align:center;">
-              <h3 class="box-title" style="font-size:25px !important;">Close tracking</h3>
+              <h3 class="box-title" style="font-size:25px !important;"><?= __lang('Close tracking'); ?></h3>
             </div>
-            <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>
+            <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;"><?= __lang('Back'); ?></a>
         </div>
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Assigned by</th>
-                <th>Remark</th>
-                <th>Complaint Completed Date</th>
-                <th>Status</th>
+                <th><?= __lang('ID'); ?></th>
+                <th><?= __lang('Assigned by'); ?></th>
+                <th><?= __lang('Remark');?></th>
+                <th><?= __lang('Complaint Completed Date'); ?></th>
+                <th><?= __lang('Status'); ?></th>
               </tr>
             </thead>
              <?php foreach ($closedata as $key) { ?>

@@ -13,10 +13,10 @@
         <div class="box-header">
           <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-              <b style="font-size: 20px;">Lead Data</b>
+              <b style="font-size: 20px;"><?= __lang('Lead Data'); ?></b>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <a href="<?= base_url('Admin/leadform');?>"><button type="button" class="btn btn-success pull-right">Add</button></a>
+              <a href="<?= base_url('Admin/leadform');?>"><button type="button" class="btn btn-success pull-right"><?= __lang('Add'); ?></button></a>
             </div>
           </div>
         <!-- /.box-header -->
@@ -24,16 +24,16 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Check In</th>
-                <th>Company</th>
-                <th>Supplier Name</th>
-                <th>Brand</th>
-                <th>Address</th>
-                <th>Pincode</th>
-                <th>Status</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <th><?= __lang('ID'); ?></th>
+                <th><?= __lang('Check In'); ?></th>
+                <th><?= __lang('Company'); ?></th>
+                <th><?= __lang('Supplier Name'); ?></th>
+                <th><?= __lang('Brand'); ?></th>
+                <th><?= __lang('Address'); ?></th>
+                <th><?= __lang('Pincode'); ?></th>
+                <th><?= __lang('Status'); ?></th>
+                <th><?= __lang('Update'); ?></th>
+                <th><?= __lang('Delete'); ?></th>
               </tr>
             </thead>
              <tbody>

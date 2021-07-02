@@ -6,7 +6,7 @@
       <div class="box">
         <div class="col-md-12">
             <div class="box-header with-border" style="text-align:center;">
-              <h3 class="box-title" style="font-size:25px !important;">Pending-QuotationList</h3>
+              <h3 class="box-title" style="font-size:25px !important;"><?= __lang('Pending-QuotationList'); ?></h3>
             </div>
             <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>
         </div>
@@ -15,10 +15,10 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>Action</th>
-                <th>Id</th>
-                <th>DealerShip Name</th>
-                <th>Issue Date</th>
+                <th><?= __lang('Action'); ?></th>
+                <th><?= __lang('Id'); ?></th>
+                <th><?= __lang('DealerShip Name'); ?></th>
+                <th><?= __lang('Issue Date'); ?></th>
               </tr>
             </thead>
           <tbody>

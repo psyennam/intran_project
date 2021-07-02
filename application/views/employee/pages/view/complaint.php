@@ -6,31 +6,31 @@
       <div class="box">
         <div class="col-md-12">
             <div class="box-header with-border" style="text-align:center;">
-              <h3 class="box-title" style="font-size:25px !important;">Complaint List</h3>
+              <h3 class="box-title" style="font-size:25px !important;"><?= __lang('Complaint List'); ?></h3>
             </div>
-            <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>
+            <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;"><?= __lang('Back'); ?></a>
         </div>
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Add</th>
-                <th>Customer Name</th>
-                <th>Product Name</th>
-                <th>Description Name</th>
-                <th>Email</th>
-                <th>MobileNo</th>
-                <th>complaint Issue Date</th>
-                <th>Status</th>
+                <th><?= __lang('ID'); ?></th>
+                <th><?= __lang('Add'); ?></th>
+                <th><?= __lang('Customer'); ?></th>
+                <th><?= __lang('Product'); ?></th>
+                <th><?= __lang('Description'); ?></th>
+                <th><?= __lang('Email'); ?></th>
+                <th><?= __lang('Contact'); ?></th>
+                <th><?= __lang('Complaint Issue Date'); ?></th>
+                <th><?= __lang('Status'); ?></th>
               </tr>
             </thead>
              <?php foreach ($complaint as $key) { ?>
               <tr>
                   </td>
                   <td><?php echo $key->id;?></td>
-                 <td><button type="button" class="btn btn-success lead-modal" data-complaint_code="<?= $key->complaint_code;?>">Add</button>
+                 <td><button type="button" class="btn btn-success lead-modal" data-complaint_code="<?= $key->complaint_code;?>"><?= __lang('Add'); ?></button>
                   <td><?= client_name($key->customer_code)?></td>
                   <td><?= product_name($key->product_code)?></td>
                   <td><?= $key->description;?></td>

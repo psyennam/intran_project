@@ -23,17 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span><?= __lang('Dashboard');?></span>
-            <span class="pull-right-container">
+            <!-- <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            </span> -->
           </a>
-<!--          <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Userpanel/role');?>"><i class="fa fa-circle-o"></i>Role</a></li>
-           <li class="active"><a href="<?php echo base_url('Userpanel/department');?>"><i class="fa fa-circle-o"></i>Department</a>
-            <li class="active"><a href="<?php echo base_url('Userpanel/employee');?>"><i class="fa fa-circle-o"></i>Employee</a>
-            <li class="active"><a href="<?php echo base_url('Userpanel/designation');?>"><i class="fa fa-circle-o"></i>Designation</a>
-           </li>
-          </ul> -->
         </li>
         <li class="treeview">
           <a href="#">
@@ -56,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="active"><a href="<?php echo base_url('Admin/company');?>"><i class="fa fa-circle-o"></i><?= __lang('Company');?></a></li>
             <li class="active"><a href="<?php echo base_url('Admin/producttype');?>"><i class="fa fa-circle-o"></i><?= __lang('ProductType');?></a></li>
             <li class="active"><a href="<?php echo base_url('Admin/productmanagement');?>"><i class="fa fa-circle-o"></i><?= __lang('Product management');?></a></li>
-             <li class="active"><a href="<?php echo base_url('Warranty/warrantytype');?>"><i class="fa fa-circle-o"></i>Warranty</a></li>
+             <li class="active"><a href="<?php echo base_url('Warranty/warrantytype');?>"><i class="fa fa-circle-o"></i><?= __lang('Warranty');?></a></li>
            </li>  
           </ul>
         </li>
@@ -87,28 +80,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Admin/client');?>"><i class="fa fa-circle-o"></i>Supplier</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/leadlist');?>"><i class="fa fa-circle-o"></i>Lead List</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i>Quotation List</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i>Quotation Close List</a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/pendinglist');?>"><i class="fa fa-circle-o"></i>Pending Quotation List</a></li>  
+            <li class="active"><a href="<?php echo base_url('Admin/client');?>"><i class="fa fa-circle-o"></i><?= __lang('Supplier'); ?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/leadlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Lead List'); ?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation List'); ?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation Close List'); ?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/pendinglist');?>"><i class="fa fa-circle-o"></i><?= __lang('Pending Quotation List'); ?></a></li>  
           </ul>
         </li>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span>Reports</span>
+            <span><?= __lang('Reports'); ?></span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="<?php echo base_url('Report/expensereport');?>"><i class="fa fa-circle-o"></i>Expense Report</a></li>
-            <li class="active"><a href="<?php echo base_url('Report/employeereport');?>"><i class="fa fa-circle-o"></i>Employee List</a></li>
-            <li class="active"><a href="<?php echo base_url('Report/quotationreport');?>"><i class="fa fa-circle-o"></i>Quotation List</a></li>
-            <li class="active"><a href="<?php echo base_url('Report/invoicereport');?>"><i class="fa fa-circle-o"></i>Month wise invoice</a></li>
-            <li class="active"><a href="<?php echo base_url('Report//leadreport');?>"><i class="fa fa-circle-o"></i>Lead report</a></li>
-            <li class="active"><a href="<?php echo base_url('Report/complaintreport');?>"><i class="fa fa-circle-o"></i>Compliant Report</a></li>
+            <li class="active"><a href="<?php echo base_url('Report/expensereport');?>"><i class="fa fa-circle-o"></i><?= __lang('Expense Report');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Report/employeereport');?>"><i class="fa fa-circle-o"></i><?= __lang('Employee List');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Report/quotationreport');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation List');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Report/invoicereport');?>"><i class="fa fa-circle-o"></i><?= __lang('Month wise invoice');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Report//leadreport');?>"><i class="fa fa-circle-o"></i><?= __lang('Lead report');?></a></li>
+            <li class="active"><a href="<?php echo base_url('Report/complaintreport');?>"><i class="fa fa-circle-o"></i><?= __lang('Compliant Report');?></a></li>
           </ul>
         </li>
       </ul>

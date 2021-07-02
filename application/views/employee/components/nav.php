@@ -15,10 +15,10 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+        <li class="header"><?= __lang('MAIN NAVIGATION'); ?></li>
           <li class="active treeview">
             <a href="#">
-              <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+              <i class="fa fa-dashboard"></i> <span><?= __lang('Dashboard'); ?></span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -27,15 +27,15 @@
           <li class="treeview">
             <a href="#">
               <i class="fa fa-pie-chart"></i>
-              <span>Complient</span>
+              <span><?= __lang('Complaint'); ?></span>
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
               <?php if($this->session->userdata('designation')=="Service Technician") { ?>
-              <li class="active"><a href="<?php echo base_url('Complaint/complaint_tracking');?>"><i class="fa fa-circle-o"></i>Complient</a></li>
-              <li class="active"><a href="<?php echo base_url('Complaint/close_tracking');?>"><i class="fa fa-circle-o"></i>Close</a></li>
+              <li class="active"><a href="<?php echo base_url('Complaint/complaint_tracking');?>"><i class="fa fa-circle-o"></i><?= __lang('Complaint'); ?></a></li>
+              <li class="active"><a href="<?php echo base_url('Complaint/close_tracking');?>"><i class="fa fa-circle-o"></i><?= __lang('Close'); ?></a></li>
               <?php }else{ ?>
-              <li class="active"><a href="<?php echo base_url('Complaint/viewcomplaint');?>"><i class="fa fa-circle-o"></i>Complient</a></li>
+              <li class="active"><a href="<?php echo base_url('Complaint/viewcomplaint');?>"><i class="fa fa-circle-o"></i><?= __lang('Complaint'); ?></a></li>
             <?php } ?>
             </ul>
           </li>
@@ -43,16 +43,16 @@
         <li class="treeview">
             <a href="#">
               <i class="fa fa-pie-chart"></i>
-              <span>Client</span>
+              <span><?= __lang('Client'); ?></span>
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <li class="active"><a href="<?php echo base_url('Client/client');?>"><i class="fa fa-circle-o"></i>Supplier</a></li>
-              <li class="active"><a href="<?php echo base_url('Client/leadlist');?>"><i class="fa fa-circle-o"></i>Lead List</a></li>
-              <li class="active"><a href="<?php echo base_url('Client/quotationlist');?>"><i class="fa fa-circle-o"></i>Quotation List</a></li>
-             <li class="active"><a href="<?php echo base_url('Client/quotationcloselist');?>"><i class="fa fa-circle-o"></i>Quotation Close List</a></li>
-              <li class="active"><a href="<?php echo base_url('Client/pendinglist');?>"><i class="fa fa-circle-o"></i>Pending Quotation List</a></li>  
-              <li class="active"><a href="<?php echo base_url('Client/expenselist');?>"><i class="fa fa-circle-o"></i>Expense List</a></li>   
+              <li class="active"><a href="<?php echo base_url('Client/client');?>"><i class="fa fa-circle-o"></i><?= __lang('Supplier'); ?></a></li>
+              <li class="active"><a href="<?php echo base_url('Client/leadlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Lead List'); ?></a></li>
+              <li class="active"><a href="<?php echo base_url('Client/quotationlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation List'); ?></a></li>
+             <li class="active"><a href="<?php echo base_url('Client/quotationcloselist');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation Close List'); ?></a></li>
+              <li class="active"><a href="<?php echo base_url('Client/pendinglist');?>"><i class="fa fa-circle-o"></i><?= __lang('Pending Quotation List'); ?></a></li>  
+              <li class="active"><a href="<?php echo base_url('Client/expenselist');?>"><i class="fa fa-circle-o"></i><?= __lang('Expense List'); ?></a></li>   
             </ul>
         </li>
         <?php }?>

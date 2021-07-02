@@ -9,11 +9,11 @@
         <div class="box-header">
           <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-              <b style="font-size: 20px;">Supllier Data</b>
+              <b style="font-size: 20px;"><?= __lang('Supllier Data'); ?></b>
             </div>
             <?php if(in_array('C',$this->session->userdata('privileges'))){?>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel">Add</button>
+              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add'); ?></button>
             </div>
             <?php } ?>
           </div>
@@ -23,16 +23,15 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>client Name</th>
-                <th>client Code</th>
-                <th>Email</th>
-                <th>dob</th>
-                <th>Address</th>
-                <th>contact</th>
-                <th>zone</th>
-                <th>sub-Zone</th>
-                <th>Status</th>
+                <th><?= __lang('ID'); ?></th>
+                <th><?= __lang('client Name'); ?></th>
+                <th><?= __lang('Email'); ?></th>
+                <th><?= __lang('dob'); ?></th>
+                <th><?= __lang('Address'); ?></th>
+                <th><?= __lang('contact'); ?></th>
+                <th><?= __lang('zone'); ?></th>
+                <th><?= __lang('sub-Zone'); ?></th>
+                <th><?= __lang('Status'); ?></th>
                 <?php if(in_array('U',$this->session->userdata('privileges'))){?>
                 <th>Update</th>
               <?php } 
@@ -47,7 +46,6 @@
                 <tr>
                   <td><?php echo $key->id;?></td>
                   <td><?php echo $key->client; ?></td>  
-                  <td><?php echo $key->client_code; ?></td> 
                   <td><?php echo $key->email;?></td>
                   <td><?php echo $key->dob;?></td>
                   <td><?php echo $key->Address;?></td>

@@ -11,10 +11,10 @@
         <div class="box-header">
           <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-              <b style="font-size: 20px;">Expense Data</b>
+              <b style="font-size: 20px;"><?= __lang('Expense List'); ?></b>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel">Add</button>
+              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
             </div>
           </div>
         </div>
@@ -23,11 +23,11 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Action</th>
-                <th>Date</th>
-                <th>Expense Type</th>
-                <th>Amount</th>
+                <th><?= __lang('ID');?></th>
+                <th><?= __lang('Action');?></th>
+                <th><?= __lang('Date');?></th>
+                <th><?= __lang('Expense Type');?></th>
+                <th><?= __lang('Amount'); ?></th>
               </tr>
             </thead>
             <tbody>

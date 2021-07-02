@@ -8,11 +8,11 @@
     <div class="row">
       <div class="col-md-12">
         <div class="col-md-3 form-group">
-          <label>From Date</label>
+          <label><?= __lang('From Date'); ?></label>
           <input type="date" id="txtfromdate" name="txtfromdate" class="form-control" autocomplete="off">
         </div>
         <div class="col-md-3 form-group">
-          <label>To Date</label>
+          <label><?= __lang('To Date'); ?></label>
           <input type="date" id="txttodate" name="txttodate" class="form-control" autocomplete="off">
         </div>
         <!-- <div class="col-md-3 form-group">
@@ -25,7 +25,7 @@
           </select>
         </div> -->
         <div class="col-md-3 form-group">
-          <label>Employee Name</label>
+          <label><?= __lang('Employee Name'); ?></label>
           <select id="empname" name="empname" class="form-control">
             <option value=''>Select</option>
             <?php foreach($employee as $row){?>
@@ -34,7 +34,7 @@
           </select>   
         </div>
         <div class="col-md-3">
-          <button type="Submit" id="BtnSearch" class="btn btn-primary" value="Search" onclick="Search();">Search</button>
+          <button type="Submit" id="BtnSearch" class="btn btn-primary" value="Search" onclick="Search();"><?= __lang('Search'); ?></button>
         </div>
       </div>
     </div>
@@ -42,18 +42,18 @@
       <div class="row">
         <div class="col-md-12">
           <div class="box-header with-border" style="text-align:center;">
-            <h3 class="box-title" style="font-size:25px !important;">Compliant List</h3>
+            <h3 class="box-title" style="font-size:25px !important;"><?= __lang('Complaint List'); ?></h3>
           </div>
           <div class="box-header with-border">
             <div class="box-body">
               <table width=100% border=1 id="tableData"  class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Assigned by</th>
-                  <th>Remark</th>
-                  <th>Complaint Completed Date</th>
-                  <th>Status</th>
+                  <th><?= __lang('ID'); ?></th>
+                  <th><?= __lang('Assigned by'); ?></th>
+                  <th><?= __lang('Remark'); ?></th>
+                  <th><?= __lang('Complaint Completed Date'); ?></th>
+                  <th><?= __lang('Status'); ?></th>
                 </tr>
               </thead>
               <!-- <tbody>

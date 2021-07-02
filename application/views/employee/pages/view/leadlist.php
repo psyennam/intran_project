@@ -13,10 +13,10 @@
         <div class="box-header">
           <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-              <b style="font-size: 20px;">Lead Data</b>
+              <b style="font-size: 20px;"><?= __lang('Lead Data'); ?></b>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <a href="<?= base_url('Client/leadform');?>"><button type="button" class="btn btn-success pull-right">Add</button></a>
+              <a href="<?= base_url('Client/leadform');?>"><button type="button" class="btn btn-success pull-right"><?= __lang('Add'); ?></button></a>
             </div>
           </div>
         <!-- /.box-header -->
@@ -24,19 +24,19 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
+                <th><?= __lang('ID'); ?></th>
                 <?php if(in_array('C',$this->session->userdata('privileges'))){ ?>
-                <th>Check In</th>
+                <th><?= __lang('Check In'); ?></th>
               <?php } ?>
-                <th>Company</th>
-                <th>Supplier Name</th>
-                <th>Brand</th>
-                <th>Address</th>
-                <th>Pincode</th>
-                <th>Status</th>
-                <th>Update</th>
+                <th><?= __lang('Company'); ?></th>
+                <th><?= __lang('Supplier Name'); ?></th>
+                <th><?= __lang('Brand'); ?></th>
+                <th><?= __lang('Address'); ?></th>
+                <th><?= __lang('Pincode'); ?></th>
+                <th><?= __lang('Status'); ?></th>
+                <th><?= __lang('Update'); ?></th>
               <?php if(in_array('D',$this->session->userdata('privileges'))){ ?>
-                <th>Delete</th>
+                <th><?= __lang('Delete'); ?></th>
               <?php } ?>
               </tr>
             </thead>
@@ -45,7 +45,7 @@
                 <tr>
                   <td><?php echo $key->id;?></td>
                   <?php if(in_array('C',$this->session->userdata('privileges'))){ ?>
-                <td><button type="button" class="btn btn-success lead-modal" data-lead_code=<?= $key->lead_code;?> data-company_name=<?= $key->company_name; ?>>Check In</button></td>
+                <td><button type="button" class="btn btn-success lead-modal" data-lead_code=<?= $key->lead_code;?> data-company_name=<?= $key->company_name; ?>><?= __lang('Check In'); ?></button></td>
               <?php } ?>
                   
                   <td><?php echo $key->company_name;?></td>
@@ -54,9 +54,9 @@
                   <td><?php echo $key->address;?></td>
                   <td><?php echo $key->zip_code;?></td>  
                   <td><?php echo is_status($key->status); ?></td>
-                  <td><a href="updatelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
+                  <td><a href="updatelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('UPDATE'); ?></button></a></td>
                   <?php if(in_array('D',$this->session->userdata('privileges'))) { ?>
-                  <td><a href="deletelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>
+                  <td><a href="deletelead?lead_code=<?php echo $key->lead_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE'); ?></button></a></td>
                   <?php } ?>      
                 </tr> 
               <?php } ?>            

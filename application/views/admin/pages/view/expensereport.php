@@ -8,15 +8,15 @@
     <div class="row">
       <div class="col-md-12">
         <div class="col-md-3 form-group">
-          <label>From Date</label>
+          <label><?= __lang('From Date'); ?></label>
           <input type="date" id="txtfromdate" name="txtfromdate" class="form-control" autocomplete="off">
         </div>
         <div class="col-md-3 form-group">
-          <label>To Date</label>
+          <label><?= __lang('To Date'); ?></label>
           <input type="date" id="txttodate" name="txttodate" class="form-control" autocomplete="off">
         </div>
         <div class="col-md-3 form-group">
-          <label>Type</label>
+          <label><?= __lang('Type'); ?></label>
           <select id="type" name="type" class="form-control">
             <option value="">Select</option>
             <option value="In City">In City</option>
@@ -24,7 +24,7 @@
           </select>
         </div>
         <div class="col-md-3 form-group">
-          <label>Employee Name</label>
+          <label><?= __lang('Employee Name'); ?></label>
           <select id="empname" name="empname" class="form-control">
             <option value=''>Select</option>
             <?php foreach($employee as $row){?>
@@ -41,19 +41,19 @@
       <div class="row">
         <div class="col-md-12">
           <div class="box-header with-border" style="text-align:center;">
-            <h3 class="box-title" style="font-size:25px !important;">Expense List</h3>
+            <h3 class="box-title" style="font-size:25px !important;"><?= __lang('Expense List'); ?></h3>
           </div>
           <div class="box-header with-border">
             <div class="box-body">
               <table width=100% border=1 id="tableData"  class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Action</th>
-                  <th>Date</th>
-                  <th>Employee Name</th>
-                  <th>Expense Type</th>
-                  <th>Amount</th>
+                  <th><?= __lang('ID'); ?></th>
+                  <th><?= __lang('Action'); ?></th>
+                  <th><?= __lang('createdate'); ?></th>
+                  <th><?= __lang('Employee Name'); ?></th>
+                  <th><?= __lang('Expense Type'); ?></th>
+                  <th><?= __lang('Amount'); ?></th>
                 </tr>
               </thead>
               <!-- <tbody>

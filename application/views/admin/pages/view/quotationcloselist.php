@@ -10,18 +10,18 @@
     <div class="col-xs-12">
       <div class="box">
         <div class="box-header with-border" style="text-align:center;">
-            <h3 class="box-title" style="font-size:25px !important;">Quotation-CloseList</h3>
+            <h3 class="box-title" style="font-size:25px !important;"><?= __lang('Quotation Close List'); ?></h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>PDF</th>
-                <th>Invoice Number</th>
-                <th>DealerShip Name</th>
-                <th>Quotation Close Date</th>
+                <th><?= __lang('ID'); ?></th>
+                <th><?= __lang('PDF'); ?></th>
+                <th><?= __lang('Invoice Number'); ?></th>
+                <th><?= __lang('DealerShip Name'); ?></th>
+                <th><?= __lang('Quotation Close Date'); ?></th>
               </tr>
             </thead>
             <tbody>

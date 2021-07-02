@@ -5,10 +5,10 @@
         <div class="box-header">
           <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-              <b style="font-size: 20px;">WarrantyType Data</b>
+              <b style="font-size: 20px;"><?= __lang('WarrantyType Data'); ?></b>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
-              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel">Add</button>
+              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add'); ?></button>
             </div>
           </div>
         <!-- /.box-header -->
@@ -16,13 +16,12 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>WarrantType</th>
-                <th>CreatedDate</th>
-                <th>Status</th>
-                <th>IpAddress</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <th><?= __lang('ID'); ?></th>
+                <th><?= __lang('WarrantyType'); ?></th>
+                <th><?= __lang('createdate'); ?></th>
+                <th><?= __lang('Status'); ?></th>
+                <th><?= __lang('Update'); ?></th>
+                <th><?= __lang('Delete'); ?></th>
               </tr>
             </thead>
              <tbody>
@@ -32,7 +31,6 @@
                   <td><?php echo $key->title;?></td>
                   <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>
                   <td><?php echo is_status($key->status); ?></td>
-                  <td><?php echo $key->ip_address; ?></td>  
                   <td><a href="<?php echo base_url('Warranty/updatewarranty_type/'.$key->warranty_type_code);?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
                   <td><a href="<?php echo base_url('Warranty/deletewarranty_type/'.$key->warranty_type_code);?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>   
                 </tr> 

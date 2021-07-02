@@ -8,15 +8,15 @@
     <div class="row">
       <div class="col-md-12">
         <div class="col-md-3 form-group">
-          <label>From Date</label>
+          <label><?= __lang('From Date'); ?></label>
           <input type="date" id="txtfromdate" name="txtfromdate" class="form-control" autocomplete="off">
         </div>
         <div class="col-md-3 form-group">
-          <label>To Date</label>
+          <label><?= __lang('To Date'); ?></label>
           <input type="date" id="txttodate" name="txttodate" class="form-control" autocomplete="off">
         </div>
         <div class="col-md-3 form-group">
-          <label>Department</label>
+          <label><?= __lang('Department'); ?></label>
           <select id="department" name="department" class="form-control">
             <option value="">Select</option>
             <?php foreach ($department as $key) { ?>
@@ -25,7 +25,7 @@
           </select>
         </div>
         <div class="col-md-3 form-group">
-          <label>Role</label>
+          <label><?= __lang('Role'); ?></label>
           <select id="role" name="role" class="form-control">
             <option value="">Select</option>
             <?php foreach ($role as $key) { ?>
@@ -34,7 +34,7 @@
           </select>
         </div>
         <div class="col-md-3 form-group">
-          <label>Designation</label>
+          <label><?= __lang('Designation'); ?></label>
           <select id="designation" name="designation" class="form-control">
             <option value="">Select</option>
             <?php foreach($designation as $row){?>
@@ -43,7 +43,7 @@
           </select>   
         </div>
         <div class="col-md-1 form-group">
-          <button type="Submit" id="BtnSearch" class="btn btn-primary form-control" value="Search" onclick="Search();">Search</button>
+          <button type="Submit" id="BtnSearch" class="btn btn-primary form-control" value="Search" onclick="Search();"><?= __lang('Search'); ?></button>
         </div>
       </div>
     </div>
@@ -51,20 +51,20 @@
       <div class="row">
         <div class="col-md-12">
           <div class="box-header with-border" style="text-align:center;">
-            <h3 class="box-title" style="font-size:25px !important;">Expense List</h3>
+            <h3 class="box-title" style="font-size:25px !important;"><?= __lang('Employee List'); ?></h3>
           </div>
           <div class="box-header with-border">
             <div class="box-body">
               <table width=100% border=1 id="tableData"  class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Employee Name</th>
-                  <th>Department</th>
-                  <th>Role</th>
-                  <th>designation</th>
-                  <th>Contact NO</th>
-                  <th>Date</th>
+                  <th><?= __lang('ID'); ?></th>
+                  <th><?= __lang('Employee Name'); ?></th>
+                  <th><?= __lang('Department'); ?></th>
+                  <th><?= __lang('Role'); ?></th>
+                  <th><?= __lang('designation'); ?></th>
+                  <th><?= __lang('Contact'); ?></th>
+                  <th><?= __lang('Date'); ?></th>
                   <!-- <th>Action</th> -->
                   <!-- <th>Expense Type</th> -->
                   <!-- <th>Amount</th> -->

@@ -6,28 +6,28 @@
       <div class="box">
         <div class="col-md-12">
             <div class="box-header with-border" style="text-align:center;">
-              <h3 class="box-title" style="font-size:25px !important;">Complaint tracking</h3>
+              <h3 class="box-title" style="font-size:25px !important;"><?= __lang('Complaint tracking'); ?></h3>
             </div>
-            <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;">Back</a>
+            <a href="#!" onclick="formBack();" class="btn btn-default btn-flat" style="margin-top: 8px;margin-right: 15px;"><?= __lang('Back'); ?></a>
         </div>
         <!-- /.box-header -->
         <div class="box-body" style="overflow-x:auto;">
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
+                <th><?= __lang('ID'); ?></th>
                 <!-- <th>Add</th> -->
-                <th>Customer Name</th>
-                <th>Product Name</th>
-                <th>Description Name</th>
-                <th>Address</th>
-                <th>Pin Code</th>
-                <th>Email</th>
-                <th>MobileNo</th>
-                <th>complaint Issue Date</th>
-                <th>Assigned by</th>
-                <th>Status</th>
-                <th>Task</th>
+                <th><?= __lang('Customer'); ?></th>
+                <th><?= __lang('Product Name'); ?></th>
+                <th><?= __lang('Description'); ?></th>
+                <th><?= __lang('Address'); ?></th>
+                <th><?= __lang('PinCode'); ?></th>
+                <th><?= __lang('Email'); ?></th>
+                <th><?= __lang('Contact'); ?></th>
+                <th><?= __lang('complaint Issue Date'); ?></th>
+                <th><?= __lang('Assigned by'); ?></th>
+                <th><?= __lang('Status'); ?></th>
+                <th><?= __lang('Task'); ?></th>
               </tr>
             </thead>
              <?php foreach ($complaint as $key) { ?>
