@@ -53,7 +53,7 @@ class Email_send extends CI_Controller {
     {
         $this->load->view('admin/verifyotp');
         //$randomid=$this->session->flashdata('data_name');
-        echo $this->session->userdata('randomid');
+        //echo $this->session->userdata('randomid');
         if($_POST)
         {
             $this->form_validation->set_rules('otp','OTP','required');
