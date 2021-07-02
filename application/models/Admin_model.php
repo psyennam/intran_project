@@ -63,7 +63,12 @@ class Admin_model extends CI_model
 	function forgetpassword()
 	{
 		$username=$this->input->post('username');
-		return $this->db->select('email')->from('employee')->where('employee_code',$username)->get()->result();
+		$this->session->set_userdata('username',$username);
+		$data=$this->db->select('email')->from('employee')->where('employee_code',$username)->get();
+		$email=$data->row();
+		$this->session->set_userdata('email',$email->email);
+		echo $email->email;
+		return true;
 		
 	}
 	/**
@@ -99,6 +104,18 @@ class Admin_model extends CI_model
 		$this->db->where(['org_code'=>$this->session->userdata('org_code'),'username'=>$this->session->userdata('emp_code')]);
 		$res=$this->db->update('user',$data);
 		return $res;
+	}
+	/**
+	 * Employee Forget Password
+	 **/
+	function employeeforget()
+	{
+		$data=[
+			'password'=>$this->input->post('password')
+		];
+		$this->db->where('username',$this->session->userdata('username'));
+		$res=$this->db->update('user',$data);
+		return $res;	
 	}
 	/**
 		In this Viewdata function it will give all the data from the oraganisation table 

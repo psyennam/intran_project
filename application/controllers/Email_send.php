@@ -10,10 +10,10 @@ class Email_send extends CI_Controller {
     public function verifyotp()
     {
         $this->load->view('admin/verifyotp');
-        $email = $this->session->flashdata('email');
-
+        $email= $this->session->userdata('email');
+        //echo $email;
         $randomid=random_string('numeric',6);
-        $to ='vishalyennam111@gmail.com';  // User email pass here
+        $to =$email;  // User email pass here
         $subject = 'OTP';
         $from = 'yennam20@gmail.com';
         $emailContent=$randomid;            
@@ -66,11 +66,11 @@ class Email_send extends CI_Controller {
                 $otp=$this->input->post('otp');
                 if($this->session->userdata('randomid')===$otp)
                 {
-                    redirect('User/login');   
+                    redirect('User/forgetemployee');   
                 }
                 else
                 {
-                    redirect('User/forget_form');
+                    echo "Otp is not valid";
                 }
                 
             }

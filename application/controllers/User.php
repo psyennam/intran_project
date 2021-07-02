@@ -101,14 +101,9 @@ class User extends CI_controller
             else
             {
 				$res=$this->Admin_model->forgetpassword();
-				//echo $email;
-				 if($res>0)
-				 {
-				 	$this->session->set_flashdata('email',$res); 
-				 	//$this->session->set_userdata('email',$res);
+				if($res>0)
+				 { 
 				 	redirect('Email_send/verifyotp');	
-				 	//print_r($res['data']);
-				 	//echo "yes";
 				 }
 				 else
 				 {
@@ -117,6 +112,35 @@ class User extends CI_controller
 			}
 		}
 	}
+	/**
+	 	Employee Forget Password 
+	 **/
+	 function forgetemployee()
+	 {
+	 	
+		if($_POST)
+		{
+			$this->form_validation->set_rules('password', 'Password', 'required');
+			$this->form_validation->set_rules('cnfpassword', 'Password Confirmation', 'required|matches[password]');
+			if ($this->form_validation->run() == FALSE)
+            {
+                $this->load->view('admin/forgetpassword');
+            }
+            else
+            {
+				$res=$this->Admin_model->employeeforget();
+				if($res>0)
+				{
+						redirect('User/login');	
+				}
+				else
+				{
+					echo "data is not updated";
+				}
+			}
+		}
+		$this->load->view('admin/forgetpassword');
+	 }
 	/**
 		Master Admin Dasboard
 	**/
