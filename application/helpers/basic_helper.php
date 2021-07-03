@@ -142,3 +142,23 @@ function totalsales()
 	$ci = &get_instance();
 	return $ci->db->select('*')->from('tbl_quotation')->where('status',2)->get()->num_rows();
 }
+function totalcomplaint($emp_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('*')->from('tbl_complaint_tracking')->where('assigned_by',$emp_code)->get()->num_rows();
+}
+function pendingcomplaints($emp_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('*')->from('tbl_complaint_tracking')->where('assigned_by',$emp_code)->where('status',0)->get()->num_rows();
+}
+function totalquotations($emp_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('*')->from('tbl_quotation')->where('employee_code',$emp_code)->get()->num_rows();
+}
+function pendingquotations($emp_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('*')->from('tbl_quotation')->where('employee_code',$emp_code)->where('status',1)->get()->num_rows();
+}

@@ -38,7 +38,7 @@ echo validation_errors(); ?>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Enter your username</p>
 
     <form method="post">
       <div class="form-group has-feedback">
@@ -48,11 +48,6 @@ echo validation_errors(); ?>
       
       <div class="row">
         <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox" name="check"> Remember Me
-            </label>
-          </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
@@ -75,14 +70,5 @@ echo validation_errors(); ?>
 <script src="<?php echo base_url('asset/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
 <!-- iCheck -->
 <script src="<?php echo base_url('asset/plugins/iCheck/icheck.min.js');?>"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
-</script>
 </body>
 </html>

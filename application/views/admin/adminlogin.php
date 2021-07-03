@@ -50,13 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <span style="color: red;"><?= form_error('password');?></span>
       </div>
       <div class="row">
-        <div class="col-xs-8">
-          <div class="checkbox icheck">
-            <label>
-              <input type="checkbox" name="check"><?= __lang('Remember Me'); ?>
-            </label>
-          </div>
-        </div>
+        <div class="col-xs-8"></div>
         <!-- /.col -->
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><?= __lang('Sign In'); ?></button>
@@ -81,14 +75,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('asset/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
 <!-- iCheck -->
 <script src="<?php echo base_url('asset/plugins/iCheck/icheck.min.js');?>"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
-</script>
 </body>
 </html>

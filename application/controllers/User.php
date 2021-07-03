@@ -12,10 +12,6 @@ class User extends CI_controller
 		$this->load->helper(array('form','url'));
 		$this->load->model(array('Admin_model','Admin_model'));
 		$this->data["title"] = "Login";
-		// if(!$this->session->userdata('is_login'))
-		// {
-		// 	redirect('Admin/login');
-		// }
 	}
 	/*
 		Logim form
@@ -53,7 +49,7 @@ class User extends CI_controller
 				else
 				{
 					//return false;
-					echo "user not valid";
+					echo "<script>alert('user not valid')</script>";
 				}
 			}
 		}

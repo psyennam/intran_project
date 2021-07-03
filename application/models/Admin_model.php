@@ -53,7 +53,6 @@ class Admin_model extends CI_model
 			return true;
 		}
 		else{
-			echo "admin login is failed";
 			return false;
 		}
 	}
