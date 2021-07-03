@@ -14,7 +14,7 @@
 											</div>
 										</div>
 										<form method="post">
-                      <input type="text" name="qcode" value="<?= (isset($qcode))?$qcode:''; ?>">
+                      <input type="hidden" name="qcode" value="<?= (isset($qcode))?$qcode:''; ?>">
 											<div class="col-sm-12" id="productdiv">
 												<div class="col-md-3 form-group">	
 													<label>Company Name</label>

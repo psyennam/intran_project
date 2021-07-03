@@ -1,5 +1,5 @@
 <section class="content">
-  <?php if($this->session->userdata('designation')==('Manager'||'Chief Technician')) {?>
+  <?php if($this->session->userdata('designation')=='Manager') {?>
   <div class="row">
     <div class="col-md-3 col-sm-6 col-xs-12">
       <div class="info-box">
@@ -7,6 +7,15 @@
         <div class="info-box-content">
           <span class="info-box-text">TOTAL Complaints</span>
           <span class="info-box-number"><?php echo totalcomplaint($this->session->userdata('emp_code'));?></span>  
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="ion ion-person-add"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">NEW Complaints</span>
+          <span class="info-box-number"><?php echo newcomplaint();?></span>  
         </div>
       </div>
     </div>
@@ -116,6 +125,37 @@
           <div class="info-box-content">
             <span class="info-box-text">PENDING QUOTATION</span>
             <span class="info-box-number"><?php echo pendingquotations($this->session->userdata('emp_code'));?></span> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <?php } else if($this->session->userdata('designation')=='Chief Technician ') {?>
+  <div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="ion ion-person-add"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">TOTAL Complaints</span>
+          <span class="info-box-number"><?php echo totalcomplaint($this->session->userdata('emp_code'));?></span>  
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green"><i class="ion ion-bag"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">TODAY COMPLAINTS</span>
+          <span class="info-box-number"><?php echo todaycomplaints($this->session->userdata('emp_code'));?></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+       <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">PENDING COMPLAINTS</span>
+          <span class="info-box-number"><?php echo pendingTechComplaints($this->session->userdata('emp_code'));?></span>
         </div>
       </div>
     </div>

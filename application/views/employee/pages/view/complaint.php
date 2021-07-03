@@ -64,7 +64,7 @@
           <div class="modal-body">
             <div class="row" style="text-align:center;">
               <div class="col-md-12">
-                <input type="text" id="hdnId" name="complaint_code">
+                <input type="hidden" id="hdnId" name="complaint_code">
                 <div class="form-group col-md-12">
                   <label>Technician</label>
                   <select name="warrantytype_combo">

@@ -1175,7 +1175,7 @@ class Admin_model extends CI_model
 			'lead_code'=>$randomid,
 			'org_code'=>$this->session->userdata('org_code'),
 			'zone_code'=>$this->input->post('optzone'),
-			'employee_code'=>$this->session->userdata('org_code'),
+			'employee_code'=>$this->session->userdata('emp_code'),
 			'city_code'=>$this->input->post('optcity'),
 			'zip_code'=>$this->input->post('optpin'),
 			'supplier_code'=>$this->input->post('supplier'),

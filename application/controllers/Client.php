@@ -226,11 +226,11 @@ class Client extends CI_controller
 			$this->form_validation->set_rules('brand','Select Sub-Zone','required');
 			$this->form_validation->set_rules('company_name','Company Name','required|alpha');
 			$this->form_validation->set_rules('gst','GST','required|numeric');
-			$this->form_validation->set_rules('address','Address','required|alpha');
+			$this->form_validation->set_rules('address','Address','required');
 			$this->form_validation->set_rules('cp_name[]','Name','required|alpha');
 			$this->form_validation->set_rules('cp_designation[]','Designation','required|alpha');
-			$this->form_validation->set_rules('cp_mobile[]','Mobile','required|regex_match[/^[0-9]{10}$/]');
-			$this->form_validation->set_rules('cp_email[]','Email','trim|required|valid_email|xss_clean');
+			$this->form_validation->set_rules('cp_mobile[]','Mobile','required');
+			$this->form_validation->set_rules('cp_email[]','Email','required|valid_email');
 			if($this->form_validation->run()==TRUE)
 			{
 				$insert=$this->Client_model->leadinsert();

@@ -72,7 +72,7 @@
           <div class="modal-body">
             <div class="row" style="text-align:center;">
               <div class="col-md-12">
-                <input type="text" id="hdnId" name="complaint_code">
+                <input type="hidden" id="hdnId" name="complaint_code">
                 <div class="form-group col-md-12">
                   <label>Customer query</label>
                   <input type="text" name="remark1" id="remark1">

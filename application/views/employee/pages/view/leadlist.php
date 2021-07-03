@@ -80,7 +80,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <input type="text" id="hiddenabc">
+          <input type="hidden" id="hiddenabc">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="abc"></h4>
@@ -97,7 +97,7 @@
             </div>
           </div>
 
-          <input type="text" id="hdnId" name="lead_code">
+          <input type="hidden" id="hdnId" name="lead_code">
             <div id="maindiv">
               <div id="hiddendiv">
                 <div class="row">

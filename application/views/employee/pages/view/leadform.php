@@ -160,7 +160,7 @@ function formBack()
       
       if(zone_code != "")
       {
-        $.post(base_url+"/Admin/opt_zone/"+zone_code, function(res){
+        $.post(base_url+"/Client/opt_zone/"+zone_code, function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -187,7 +187,7 @@ function formBack()
       
       if(sub_code!="")
       {
-        $.post(base_url+"/Admin/sub_city/"+sub_code,function(res){
+        $.post(base_url+"/Client/sub_city/"+sub_code,function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -213,7 +213,7 @@ function formBack()
       
       if(city_code!="")
       {
-        $.post(base_url+"/Admin/opt_pincode/"+city_code,function(res){
+        $.post(base_url+"/Client/opt_pincode/"+city_code,function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){
@@ -239,7 +239,7 @@ function formBack()
       
       if(pin_code!="")
       {
-        $.post(base_url+"/Admin/opt_supplier/"+pin_code,function(res){
+        $.post(base_url+"/Client/opt_supplier/"+pin_code,function(res){
           res = $.parseJSON(res);
           var html = '<option value="" multiple> --- </option>';
           if(res.status == 200){

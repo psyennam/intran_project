@@ -67,7 +67,7 @@
           <div class="modal-body">
             <div class="row" style="text-align:center;">
               <div class="col-md-12">
-                <input type="text" id="hdnId" name="invoice_number">
+                <input type="hidden" id="hdnId" name="invoice_number">
                 <div class="form-group col-md-12">
                   <label>Warranty Type</label>
                   <select name="warrantytype_combo">
