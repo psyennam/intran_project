@@ -867,7 +867,7 @@ class Admin extends CI_controller
 			$this->form_validation->set_rules('companycombo','Select Company','required');
 			$this->form_validation->set_rules('producttype','Select ProductType','required');
 			$this->form_validation->set_rules('name','Select Name','required|alpha');
-			$this->form_validation->set_rules('productcode','Product Code','required|alpha');
+			$this->form_validation->set_rules('productcode','Product Code','required');
 			$this->form_validation->set_rules('description','Description','required');
 			$this->form_validation->set_rules('customerprice','Price','required|numeric');
 			$this->form_validation->set_rules('distributorprice','Distributor Price','required|numeric');
@@ -875,7 +875,7 @@ class Admin extends CI_controller
 			$this->form_validation->set_rules('weight','Weight','required|numeric');
 			$this->form_validation->set_rules('tax','Tax','required|numeric');
 			$this->form_validation->set_rules('information','Information','required');
-			$this->form_validation->set_rules('c_name[]','Company Name','required|alpha');
+			$this->form_validation->set_rules('c_name[]','Company Name','required');
 			$this->form_validation->set_rules('c_price[]','Company Price','required|numeric');
 			if($this->form_validation->run()==TRUE) 
 			{
@@ -1001,6 +1001,62 @@ class Admin extends CI_controller
 		}
 	}
 	/***
+		Product Update
+	***/
+	function updateproduct()
+	{
+		$product_code=$this->input->get('id');
+		$data['page']='admin/pages/update/update_product';
+		$data['producttypedetails']=$this->Admin_model->viewproducttype();
+		$data['companydetails']=$this->Admin_model->viewcompany();
+		$data['value']=$this->Admin_model->productinformation_by_code($product_code);
+		$data['approvedprice']=$this->Admin_model->approvedprice_by_productcode($product_code);
+		if($_POST)
+		{
+			$this->form_validation->set_rules('companycombo','Select Company','required');
+			$this->form_validation->set_rules('producttype','Select ProductType','required');
+			$this->form_validation->set_rules('name','Select Name','required|alpha');
+			$this->form_validation->set_rules('productcode','Product Code','required');
+			$this->form_validation->set_rules('description','Description','required');
+			$this->form_validation->set_rules('customerprice','Price','required|numeric');
+			$this->form_validation->set_rules('distributorprice','Distributor Price','required|numeric');
+			$this->form_validation->set_rules('hsncode','HSN Code','required|numeric');
+			$this->form_validation->set_rules('weight','Weight','required|numeric');
+			$this->form_validation->set_rules('tax','Tax','required|numeric');
+			$this->form_validation->set_rules('information','Information','required');
+			$this->form_validation->set_rules('c_name[]','Company Name','required');
+			$this->form_validation->set_rules('c_price[]','Company Price','required|numeric');
+			if($this->form_validation->run()==TRUE) 
+			{
+				$update=$this->Admin_model->updateproduct($product_code);
+				if($update>0)
+				{
+					redirect('Admin/productmanagement');		
+				}
+				else
+				{
+					echo "Data is not updated";
+				}
+			}
+		}
+		$this->load->view('admin/components/layout',$data);
+	}
+
+	function deleteproduct()
+	{
+		$product_code=$this->input->get('id');
+		$res=$this->Admin_model->deleteproduct($product_code);
+		if($res>0)
+		{
+			redirect('Admin/productmanagement');	
+		}
+		else
+		{
+			echo "Data deleted";
+		}
+	}
+
+	/***
 		ProductType Update
 	***/
 	function updateproducttype($id)
@@ -1115,7 +1171,7 @@ class Admin extends CI_controller
 		
 		try{
 			$res = $this->db->select('zone_code as code,zone')->where('parent',$zone_code)->get('zone')->result();
-
+			print_r($res);
 			json_response($res, 200);
 		}catch(Exception $e){
 			json_response($e->getMessage(), 500);
@@ -1206,7 +1262,7 @@ class Admin extends CI_controller
 		}
 		else
 		{
-			echo "Data is not updated";
+			echo "Data deleted";
 		}
 	}
 

@@ -20,13 +20,14 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Code</th>
-                <th>HSN Code</th>
-                <th>Tax</th>
-                <th>Status</th>
-                <th>Action</th>
+                <th><?= __lang('ID'); ?></th>
+                <th><?= __lang('Name'); ?></th>
+                <th><?= __lang('Product Code'); ?></th>
+                <th><?= __lang('HSN Code'); ?></th>
+                <th><?= __lang('Tax'); ?></th>
+                <th><?= __lang('Status'); ?></th>
+                <th><?= __lang('Update'); ?></th>
+                <th><?= __lang('Delete'); ?></th>
               </tr>
             </thead>
             <tbody>
@@ -38,7 +39,8 @@
                   <td><?php echo $key->HSN_code; ?></td>  
                   <td><?php echo $key->GST; ?></td>  
                   <td><?php echo is_status($key->status); ?></td>
-                  <td><a href="updateproduct?id=<?php echo $key->product_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>   
+                  <td><a href="updateproduct?id=<?php echo $key->product_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('UPDATE');?></button></a></td>   
+                  <td><a href="deleteproduct?id=<?php echo $key->product_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
                 </tr> 
                 <?php } } ?>
             </tbody>

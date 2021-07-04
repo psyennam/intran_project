@@ -1043,6 +1043,58 @@ class Admin_model extends CI_model
 		}
 	}
 
+	function updateproduct($product_code)
+	{
+		$data=[
+			'product_type'=>$this->input->post('producttype'),
+			'product'=>$this->input->post('name'),
+			'company'=>$this->input->post('companycombo'),
+			'description'=>$this->input->post('description'),
+			'price'=>$this->input->post('customerprice'),
+			'distributor_price'=>$this->input->post('distributorprice'),
+			'HSN_code'=>$this->input->post('hsncode'),
+			'weight'=>$this->input->post('weight'),
+			'GST'=>$this->input->post('tax'),
+			'information'=>$this->input->post('information'),
+			'status'=>$this->input->post('status')
+		];
+		$this->db->trans_start();
+
+		if($this->db->where('product_code',$product_code)->update('product',$data))
+		{
+			if($this->db->where('product_id',$product_code)->delete('approved_price'))
+			{
+				$approved_price = [];
+				for($i=0;$i<sizeof($_POST['c_name']);$i++)
+				{
+					$approved_price[] =[
+						'product_id'=>$product_code,
+						'company_code'=>$_POST['c_name'][$i],
+						'price'=>$_POST['c_price'][$i]
+					];
+				}
+				if($insert=$this->db->insert_batch('approved_price',$approved_price))
+				{
+					$this->db->trans_complete();
+					return true;
+				}
+				else{
+					$this->db->trans_rollback();
+					return false;
+				}
+			}
+			else{
+				$this->db->trans_rollback();
+				return false;
+			}
+		}
+		else
+		{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
+
 	/**
 		In this function it gives all the data from the city table 
 	**/
@@ -1171,6 +1223,15 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('*')->where('id',$id)->get('product_type')->result();
 	}
+	function productinformation_by_code($product_code)
+	{
+		return $this->db->select('*')->where('product_code',$product_code)->get('product')->result();
+	}
+	function approvedprice_by_productcode($product_code)
+	{
+		return $this->db->select('*')->where('product_id',$product_code)->get('approved_price')->result();
+	}
+	
 	function leadinsert()
 	{
 		$ip=$this->input->ip_address();
@@ -1361,6 +1422,23 @@ class Admin_model extends CI_model
 				return false;
 			}
 		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function deleteproduct($product_code)
+	{
+		$tbl_product=[
+			'status'=>1
+		];
+		$this->db->where('product_code',$product_code);	
+		$res=$this->db->update('product',$tbl_product);
+		if($res>0)
+		{
+			return true;
+		} 
 		else
 		{
 			return false;
