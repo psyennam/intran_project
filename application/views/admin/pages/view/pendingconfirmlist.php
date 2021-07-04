@@ -22,6 +22,7 @@
                 <th>Price</th>
                 <th>Discount</th>
                 <th>Total</th>  
+                <th>Edit</th>
                 </tr>
             </thead>
           <tbody>
@@ -33,12 +34,14 @@
                   <td><?php echo $key->price;?></td>
                   <td><?php echo $key->discount;?></td>
                   <td><?php echo $key->total;?></td>
+                  <td><a href="<?= base_url('Admin/update_quotation_form/'.$key->id); ?>"><input type="submit" class="btn btn-primary" value="Edit" id="btnEdit"></a></td>
                 </tr> 
               <?php } } ?>
           </tbody>
           </table>
           <div class="col-md-12" style="text-align:right !important;">
           <a href="<?= base_url('Client/pendingconfirm/'.$quotation_code); ?>"><input type="submit" class="btn btn-primary" value="Confirm" id="btnConfirm"></a>
+          
           </div>
         </div>
         <!-- /.box-body -->

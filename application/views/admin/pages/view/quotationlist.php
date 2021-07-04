@@ -28,7 +28,7 @@
                   <?php if($key->status==1) { ?>
                   <a href="<?php echo base_url('Admin/update_quotation/'.$key->quotation_code);?>">Edit</a>
                   <?php }?>
-                  <a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a>
+                  <a href="<?php echo base_url('Admin/delete_quotation/'.$key->quotation_code);?>" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a>
                   </td>
                   <td><?php echo $key->id;?></td>
                   <td><a href="<?php echo base_url('Test/index/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>

@@ -1293,17 +1293,16 @@ class Admin_model extends CI_model
 			'brand'=>$this->input->post('brand'),
 			'company_name'=>$this->input->post('company_name'),
 			'gst'=>$this->input->post('gst'),
-			'address'=>$this->input->post('address'),
+			'status'=>$this->input->post('statuscombo'),
+			'address'=>$this->input->post('address')
 		];
-
-		$res=$this->db->where('lead_code',$leadcode)->update('lead',$data);
-		if($res>0)
+		$this->db->trans_start();
+		if($this->db->where('lead_code',$leadcode)->update('lead',$data))
 		{
 			$contact_person= [];
 			for($i=0;$i<sizeof($_POST['cp_name']);$i++)
 			{
 				$contact_person[] =[
-					'lead_code'=>$leadcode,
 					'person_name'=>$_POST['cp_name'][$i],
 					'designation'=>$_POST['cp_designation'][$i],
 					'mobile_no'=>$_POST['cp_mobile'][$i],
@@ -1311,7 +1310,7 @@ class Admin_model extends CI_model
 				];
 			}
 			//$update=;
-			if($this->db->update_batch('mapping_lead',$contact_person,'lead_code'))
+			if($this->db->update_batch('mapping_lead',$contact_person,$leadcode))
 			{
 				$this->db->trans_complete();
 				return true;
@@ -1320,13 +1319,31 @@ class Admin_model extends CI_model
 				$this->db->trans_rollback();
 				return false;
 			}
-		}
-		else{
+		}else{
 			$this->db->trans_rollback();
 			return false;
 		}
 	}
+	/**
+		In this deletedata function if Oragnsation admin want to termiante any lead then this function will change the active=terminate  
+	**/
+	function deletelead($id)
+	{
+			$lead=[
+					'status'=>1
+					];		
+			$this->db->where('lead_code',$id);	
+			$res=$this->db->update('lead',$lead);
+			if($res>0)
+			{
 
+				return true;
+			} 
+			else
+			{
+				return false;
+			}
+	}
 	/*
 		Client View
 	*/
@@ -1677,6 +1694,65 @@ class Admin_model extends CI_model
 			return $res;	
 		}
 	}
+	/**
+	 In this function Update Quotation 
+	 **/
+	 function update_quotation($id)
+	 {
+	 	$mapping_quotation=[
+			'product_code'=>$this->input->post('productname'),
+			'quantity'=>$this->input->post('qty'),
+			'price'=>$this->input->post('Productprice'),
+			'approved_price'=>$this->input->post('approvedprice'),
+			'rate'=>$this->input->post('rate'),
+			'discount_type'=>$this->input->post('discounttype'),
+			'discount'=>$this->input->post('discount'),
+			'total'=>$this->input->post('total')
+		];
+		if($this->db->where('id',$id)->update('mapping_quotation',$mapping_quotation))
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	 }
+	/**
+	 	In this function we change the status of quoattion
+	 **/
+	 function delete_quotation($quotation_code)
+	 {
+				$status=[
+						'status'=>1
+						];
+				$this->db->trans_start();
+				$this->db->where('quotation_code',$quotation_code);	
+				$res=$this->db->update('quotation',$status);
+				if($res>0)
+				{
+					$status1=[
+						'quotation_status'=>0
+						];
+					$this->db->where('quotation_code',$quotation_code);	
+					$res1=$this->db->update('mapping_quotation',$status1);
+					if($res1>0)
+					{
+						$this->db->trans_complete();
+						return true;
+					}	
+					else
+					{
+						$this->db->trans_rollback();
+						return false;		
+					}
+				} 
+				else
+				{
+					$this->db->trans_rollback();
+					return false;
+				}
+
+	 }
 	/**
 		In this function we get quotation close list
 	**/

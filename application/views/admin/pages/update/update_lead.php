@@ -67,6 +67,13 @@
                 <span style="color: red;"><?= form_error('gst');?></span>
               </div>
               <div class="form-group col-md-3">
+                  <label><?= __lang('Status');?></label>
+                  <select class="form-control" name="statuscombo">
+                    <option value="0" <?php if($key->status == 0) {echo "selected";} ?>>Active</option>
+                    <option value="1" <?php if($key->status == 1) {echo "selected";} ?>>Hold</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-3">
                 <label>Address<span style="color:red">*</span></label>
                 <textarea id="address" name="address" class="form-control"></textarea>
                 <span style="color: red;"><?= form_error('address');?></span>
