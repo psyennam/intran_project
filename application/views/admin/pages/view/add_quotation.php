@@ -78,7 +78,6 @@
 										</div>
 										<div class="col-sm-12" id="productdivs">
 											<input type="submit" id="btnNext" name="btnNext" class="btn btn-primary" value="ADD More">
-											<input type="submit" id="btnView" class="btn btn-primary" value="View" onclick="formView();">
 										</div>
 									</form>
 								</div>
@@ -131,9 +130,9 @@
                 <td><?= $key->discount; ?></td>
                 <td><?= $key->total; ?></td>               
               </tr>
-          <a href="<?php if(isset($qcode)){ echo base_url('Client/quotationconfirm/'.$qcode);}else {echo base_url('Client/quotationconfirm');} ?>"><button class="btn btn-primary" type="button" name="btnConfirm" id="btnConfirm">Confirm</button></a>
               <?php } ?>
               </tbody>
+              <a href="<?php if(isset($qcode)){ echo base_url('Client/quotationconfirm/'.$qcode);}else {echo base_url('Client/quotationconfirm');} ?>"><button class="btn btn-primary" type="button" name="btnConfirm" id="btnConfirm">Confirm</button></a>
           </table>
         </div>
         <!-- /.box-body -->

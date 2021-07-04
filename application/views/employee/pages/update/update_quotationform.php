@@ -14,7 +14,22 @@
                       </div>
                       <form method="post">
                         <?php foreach($details as $key) {?>
+
                       <div class="col-sm-12" id="productdiv">
+                        <div class="col-md-3 form-group"> 
+                          <label>Company Name</label>
+                          <select class="form-control companyname" id="companyname" name="companyname">
+                            <option value="">---</option>
+                          <?php foreach ($companydetails as $keyy) {?>
+                            <option value="<?= $keyy->company_code; ?>"><?= $keyy->company;?></option>  
+                          <?php } ?>
+                          </select>
+                        </div>
+                        <div class="col-md-3 form-group"> 
+                          <label>Product Type</label>
+                          <select class="form-control producttype" id="opt_producttype" name="producttype"> 
+                          </select>
+                        </div>
                         <div class="col-md-3 form-group"> 
                           <label>Product Name</label>
                           <select class="form-control productname" id="opt_productname" name="productname"> 
@@ -54,13 +69,13 @@
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Total</label>
-                          <input type="text" id="total" class="form-control" value="<?= $key->total;?>" readonly>
+                          <input type="text" id="total" name="total" class="form-control" value="<?= $key->total;?>" readonly>
                         </div>
                       </div>
                     <?php };?>
                     </div>
                     <div class="col-sm-12" id="productdivs">
-                    <input type="submit" id="btnSubmit" class="btn btn-primary" value="Edit" >
+                    <input type="submit" id="btnSubmit" class="btn btn-primary" value="Submit" >
                     </div>
                     </form>
                   <!-- Div For Product Description Table End -->
@@ -71,24 +86,60 @@
       </div>
     </div>
   </section>
-  <script>
-    function discount_type(){
-  var discounttype=$('#discounttype').val();
-  // alert(discounttype);
-  if (discounttype!="") 
-  {
-    $("#discount").attr("readonly",false);
-  }
-  else
-  {
-    $("#discount").attr("readonly", true);
-  }
-}
- /* Price box */
+<script type="text/javascript">
+  $('#hiddenvalueamt').html(0);
+
+/* ProductType dependent combo */
+  $(document).ready(function(){
+    $('.companyname').change(function(){
+      var company_code = $(this).val();
+      // alert(company_code);
+      if(company_code != "")
+      {
+
+        $.post(base_url+"/Client/opt_producttype/"+company_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.product_type+'</option>';
+            });
+            $('#opt_producttype').html(html);
+          }
+        })
+
+      }
+    });
+  })
+  /* ProductName dependent combo */
+  $(document).ready(function(){
+    $('.producttype').change(function(){
+      var producttype_code = $(this).val();
+      // alert(producttype_code);
+      if(producttype_code != "")
+      {
+
+        $.post(base_url+"/Client/opt_productname/"+producttype_code, function(res){
+          res = $.parseJSON(res);
+          var html = '<option value="" multiple> --- </option>';
+          if(res.status == 200){
+            $.each(res.data, function(index, value){
+                html += '<option value="'+value.code+'">'+value.product+'</option>';
+                
+            });
+            $('#opt_productname').html(html);
+          }
+        })
+
+      }
+    });
+  })
+
+    /* Price box */
   $(document).ready(function(){
     $('.productname').change(function(){
       var product_code = $(this).val();
-      alert(product_code);
+      // alert(product_code);
       if(product_code != "")
       {
         $.post(base_url+"/Client/opt_price/"+product_code, function(res){
@@ -127,7 +178,7 @@
       }
     });
   })
-  /* Rate box */
+   /* Rate box */
   $(document).ready(function(){
     $('.approvedprice').change(function(){
       var approvedprice= $(this).val();
@@ -140,7 +191,29 @@
       }
     });
   })
-  function get_calculation()
+
+function discount_type(){
+  var discounttype=$('#discounttype').val();
+  // alert(discounttype);
+  if (discounttype!="") 
+  {
+    $("#discount").attr("readonly",false);
+  }
+  else
+  {
+    $("#discount").attr("readonly", true);
+  }
+}
+
+function get_amount()
+{ 
+  var qty=$("#qty").val();
+  var approved_price=$(".approvedprice").val();
+  $('#total').val(qty*approved_price);  
+}
+
+
+function get_calculation()
 {
   // var total=$("#total").val();
   var qty=$("#qty").val();
@@ -172,4 +245,5 @@
     $('#hiddenvalueamt').html(per);
   }
 }
+
   </script>

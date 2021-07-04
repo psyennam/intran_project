@@ -1263,8 +1263,8 @@ class Admin extends CI_controller
 			$this->form_validation->set_rules('cp_email[]','Email','required');
 			if($this->form_validation->run()==TRUE)
 			{	
-				$res=$this->Admin_model->updatelead($code);
-				if($res>0)
+				$update=$this->Admin_model->updatelead($code);
+				if($update>0)
 				{
 					redirect('Admin/leadlist');
 				}
@@ -1275,6 +1275,23 @@ class Admin extends CI_controller
 			}	
 		}
 		$this->load->view('admin/components/layout',$data);
+	}
+
+	/*
+		Delete Lead(Lead)
+	*/
+	function deletelead()
+	{
+		$id=$this->input->get('lead_code');
+		$res=$this->Admin_model->deletelead($id);
+		if($res>0)
+		{
+			redirect('Admin/leadlist');	
+		}
+		else
+		{
+			echo "Data is not updated";
+		}
 	}
 	/**
 		Lead-Form
@@ -1580,11 +1597,38 @@ class Admin extends CI_controller
 	{
 		$data['details']=$this->Admin_model->updatedetailsbyid($id);
 		$data['productdetails']=$this->Admin_model->fetch_productdetails();
-		
+		$data['companydetails']=$this->Admin_model->companydetails();
 		$data['page']='employee/pages/update/update_quotationform';	
+		if($_POST)
+		{
+			$res=$this->Admin_model->update_quotation($id);
+			if($res>0)
+			{
+				redirect('Admin/pendinglist');
+			}
+			else
+			{
+				echo "data is not updated";
+			}
+		}
 		$this->load->view('admin/components/layout',$data);		
 	}
-
+	/**
+		Update Quotation
+	**/
+	function delete_quotation($quotation_code)
+	{
+		//echo $quotation_code;
+		$res=$this->Admin_model->delete_quotation($quotation_code);
+		if($res>0)
+		{
+			redirect('Admin/quotationlist');	
+		}
+		else
+		{
+			echo "Data is not updated";
+		}			
+	}
 	function followuplist()
 	{
 		$data['page']='admin/pages/view/followuplist';
