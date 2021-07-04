@@ -30,9 +30,9 @@
           			 </tr>
                 </thead>
                 <tbody>
-                  <?php if(!empty($companydetails)){foreach ($companydetails as $key) { ?>
+                  <?php $i=0; if(!empty($companydetails)){foreach ($companydetails as $key) { $i++; ?>
                     	<tr>
-                    		<td><?php echo $key->id;?></td>
+                    		<td><?php echo $i;?></td>
                     		<td><?php echo $key->company; ?></td>	
                         <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>			
                     		<td><?php echo is_status($key->status); ?></td>  
@@ -74,7 +74,7 @@
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                      <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>

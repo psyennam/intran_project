@@ -29,14 +29,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($pincodedetails as $key) { ?>
+                  <?php $i=0; foreach ($pincodedetails as $key) { $i++; ?>
                   <tr>
-                  <td><?php echo $key->id;?></td>
+                  <td><?php echo $i;?></td>
                   <td><?php echo $key->area; ?></td>
                   <td><?php echo $key->zip_code; ?></td>
                   <td><?php echo $key->city; ?></td> 
-                  <td><?php echo is_status($key->status); ?></td>  
                   <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>  
+                  <td><?php echo is_status($key->status); ?></td>  
                  </tr>  
                  <?php } ?>          
                 </tbody>

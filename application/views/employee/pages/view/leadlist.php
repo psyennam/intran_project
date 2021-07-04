@@ -49,7 +49,7 @@
               <?php } ?>
                   
                   <td><?php echo $key->company_name;?></td>
-                  <td><?php echo $key->supplier_code; ?></td>
+                  <td><?php echo supplier_name($key->supplier_code); ?></td>
                   <td><?php echo $key->brand; ?></td>  
                   <td><?php echo $key->address;?></td>
                   <td><?php echo $key->zip_code;?></td>  

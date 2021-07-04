@@ -12,7 +12,7 @@ class Complaint_model extends CI_model
 	}
 	function viewcomplaint()
 	{
-		return $this->db->select('*')->get('complaint')->result();
+		return $this->db->select('*')->order_by('status')->get('complaint')->result();
 	}
 	function viewtechnician()
 	{

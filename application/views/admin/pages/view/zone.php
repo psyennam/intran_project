@@ -31,9 +31,9 @@
         			 </tr>
               </thead>
               <tbody>
-                <?php if(!empty($zonedetails)){ foreach ($zonedetails as $key) { ?>
+                <?php $i=0; if(!empty($zonedetails)){ foreach ($zonedetails as $key) { $i++; ?>
                 	<tr>
-                		<td><?php echo $key->id;?></td>
+                		<td><?php echo $i;?></td>
                 		<td><?php echo $key->zone; ?></td>	
                 		<!-- <td><?php echo $key->zone_code; ?></td> -->
                     <td><?php echo $key->employee; ?></td>					
@@ -78,9 +78,9 @@
               </tr>
               </thead>
               <tbody>
-                <?php if(!empty($subzonedetails)){ foreach ($subzonedetails as $key) { ?>
+                <?php $i=0; if(!empty($subzonedetails)){ foreach ($subzonedetails as $key) { $i++;?>
                   <tr>
-                    <td><?php echo $key->id;?></td>
+                    <td><?php echo $i;?></td>
                     <td><?php echo $key->zone; ?></td>
                      <td><?php echo (get_title($key->state_code)); ?></td>
                      <td><?php echo $key->employee; ?></td>      
@@ -133,7 +133,7 @@
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <input class="btn btn-default" id="zoneinsert" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                      <input class="btn btn-primary" id="zoneinsert" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>
@@ -187,7 +187,7 @@
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <input class="btn btn-default" id="subzoneinsert" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                      <input class="btn btn-primary" id="subzoneinsert" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>

@@ -26,11 +26,11 @@
                 <th><?= __lang('Status'); ?></th>
               </tr>
             </thead>
-             <?php foreach ($complaint as $key) { ?>
+             <?php $i=1; foreach ($complaint as $key) { ?>
               <tr>
                   </td>
-                  <td><?php echo $key->id;?></td>
-                 <td><button type="button" class="btn btn-success lead-modal" data-complaint_code="<?= $key->complaint_code;?>"><?= __lang('Add'); ?></button>
+                  <td><?php echo $i++;?></td>
+                  <td><?php if($key->status==0) {?><button type="button" class="btn btn-success lead-modal" data-complaint_code="<?= $key->complaint_code;?>"><?= __lang('Add'); ?><?php } ?></button></td>
                   <td><?= client_name($key->customer_code)?></td>
                   <td><?= product_name($key->product_code)?></td>
                   <td><?= $key->description;?></td>

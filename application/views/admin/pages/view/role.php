@@ -22,7 +22,7 @@
                 <tr>
                   <th><?= __lang('ID');?></th>
         					<th><?= __lang('Role Name');?></th>
-        					<th><?= __lang('Role Code');?></th>
+        					<!-- <th><?= __lang('Role Code');?></th> -->
         					<th><?= __lang('CreateDate');?></th>
         					<th><?= __lang('Status');?></th>
         					<th><?= __lang('Update');?></th>
@@ -30,13 +30,13 @@
         			 </tr>
               </thead>
               <tbody>
-                <?php foreach ($roledetails as $key) { ?>
+                <?php $i=0; foreach ($roledetails as $key) { $i++;?>
                   	<tr>
-                  		<td><?php echo $key->id;?></td>
+                  		<td><?php echo $i;?></td>
                   		<td><?php echo $key->role; ?></td>	
-                  		<td><?php echo $key->role_code; ?></td>		
-                  		<td><?php echo is_status($key->status); ?></td>  
+                  		<!-- <td><?php echo $key->role_code; ?></td>		 -->
                       <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>			
+                  		<td><?php echo is_status($key->status); ?></td>  
                   		<td><a href="updaterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
                   		<td><a href="deleterole?id=<?php echo $key->role_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>					
                   	</tr>	
@@ -77,7 +77,7 @@
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                      <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>

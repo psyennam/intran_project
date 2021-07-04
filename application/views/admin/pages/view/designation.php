@@ -19,8 +19,8 @@
                   <tr>
                     <th><?= __lang('ID');?></th>
                     <th><?= __lang('Designation');?></th>
-                    <th><?= __lang('Designation Code');?></th>
-                    <th><?= __lang('Department Code');?></th>
+                    <!-- <th><?= __lang('Designation Code');?></th> -->
+                    <th><?= __lang('Department');?></th>
                     <th><?= __lang('CreateDate');?></th>
                     <th><?= __lang('Status');?></th>
                     <th><?= __lang('Update');?></th>
@@ -28,14 +28,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($designationdetails as $key) { ?>
+                  <?php $i=0; foreach ($designationdetails as $key) { $i++; ?>
                   <tr>
-                    <td><?php echo $key->id;?></td>
+                    <td><?php echo $i;?></td>
                     <td><?php echo $key->designation; ?></td> 
-                    <td><?php echo $key->designation_code; ?></td>
-                    <td><?php echo $key->department_code; ?></td> 
-                    <td><?php echo is_status($key->status); ?></td>  
+                    <!-- <td><?php echo $key->designation_code; ?></td> -->
+                    <td><?php echo get_department($key->department_code); ?></td> 
                     <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td> 
+                    <td><?php echo is_status($key->status); ?></td>  
                     <td><a href="updatedesignation?id=<?php echo $key->designation_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('UPDATE');?></button></a></td>
                     <td><a href="deletedesignation?id=<?php echo $key->designation_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>          
                   </tr> 
@@ -73,7 +73,7 @@
               				<div class="modal-footer">
               					<div class="row">
 							              <div class="col-md-12 text-center" style="margin-top: 10px;">
-                              <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                              <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                             </div>
 							         </div>
               				</div>

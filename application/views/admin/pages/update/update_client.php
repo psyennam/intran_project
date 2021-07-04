@@ -15,11 +15,11 @@
                 <input type="text" class="form-control" placeholder="Enter Client Name" name="ClientName" value="<?php echo $key->client;?>">
               </div>
               <div class="col-sm-12 col-md-4 col-lg-4">
-                <label><?= __lang('Client Email');?></label>
+                <label><?= __lang('Email');?></label>
                 <input type="text" class="form-control" placeholder="Enter Client Email" name="Email" value="<?php echo $key->email;?>">
               </div> 
               <div class="col-sm-12 col-md-4 col-lg-4">
-                <label><?= __lang('Client Contact');?></label>
+                <label><?= __lang('Contact');?></label>
                 <input type="text" class="form-control" placeholder="Enter Client Conatact" name="Conatact"
                 value="<?php echo $key->contact;?>">
               </div> 

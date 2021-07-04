@@ -72,6 +72,13 @@ function client_name($lead_code)
 	$ci = &get_instance();
 	return $ci->db->select('client')->from('client as c1')->join('lead as l1','l1.supplier_code=c1.client_code')->where('l1.lead_code',$lead_code)->get()->row()->client;
 }
+
+function supplier_name($supplier_code)
+{
+	$ci = &get_instance();
+	return $ci->db->select('client')->where('client_code',$supplier_code)->get('client')->row()->client;	
+}
+
 function emp_name($emp_code)
 {
 	$ci = &get_instance();
@@ -91,6 +98,24 @@ function emp_contact($emp_code)
 {
 	$ci = &get_instance();
 	return $ci->db->select('contact')->where('employee_code',$emp_code)->get('employee')->row()->contact;
+}
+
+function get_department($dept_code)
+{
+	$ci =&get_instance();
+	return $ci->db->select('department')->where('department_code',$dept_code)->get('department')->row()->department;
+}
+
+function get_country($country_code)
+{
+	$ci =&get_instance();
+	return $ci->db->select('country')->where('country_code',$country_code)->get('country')->row()->country;
+}
+
+function get_state($state_code)
+{
+	$ci =&get_instance();
+	return $ci->db->select('state')->where('state_code',$state_code)->get('state')->row()->state;
 }
 
 function company_name_quotation($lead_code)
@@ -120,63 +145,69 @@ function complaint_status($sts)
 {
 	return ($sts == 2)?"Completed":"In-active";
 }
-function totalexpense()
+function totalincome()
 {
 	$ci = &get_instance();
 	return $ci->db->select_sum('total')->from('quotation')->where('status',2)->get()->row()->total;
 }
+function totalexpence()
+{
+	$ci = &get_instance();
+	return $ci->db->select_sum('amount')->from('expense')->where('status',1)->get()->row()->amount;
+}
+
 function totalvisit()
 {
 	$ci = &get_instance();
-	return $ci->db->select('*')->from('tbl_discussion_with_customer')->get()->num_rows();
+	return $ci->db->select('*')->from('discussion_with_customer')->get()->num_rows();
 }
 function todayvisit()
 {
 	$ci = &get_instance();
 	$date = new DateTime("now");
  	$curr_date = $date->format('Y-m-d');
-	return $ci->db->select('*')->from('tbl_discussion_with_customer')->where('DATE(created_at)',$curr_date)->get()->num_rows();
+	return $ci->db->select('*')->from('discussion_with_customer')->where('DATE(created_at)',$curr_date)->get()->num_rows();
 }
 function totalsales()
 {
 	$ci = &get_instance();
-	return $ci->db->select('*')->from('tbl_quotation')->where('status',2)->get()->num_rows();
+	return $ci->db->select('*')->from('quotation')->where('status',2)->get()->num_rows();
 }
 function totalcomplaint($emp_code)
 {
 	$ci = &get_instance();
-	return $ci->db->select('*')->from('tbl_complaint_tracking')->where('assigned_by',$emp_code)->where('status',1)->get()->num_rows();
+	return $ci->db->select('*')->from('complaint_tracking')->where('assigned_by',$emp_code)->where('status',1)->get()->num_rows();
 }
 function newcomplaint()
 {
 	$ci = &get_instance();
-	return $ci->db->select('*')->from('tbl_complaint')->where('status',0)->get()->num_rows();
+	return $ci->db->select('*')->from('complaint')->where('status',0)->get()->num_rows();
 }
 
 function pendingcomplaints($emp_code)
 {
 	$ci = &get_instance();
-	return $ci->db->select('*')->from('tbl_complaint_tracking')->where('assigned_by',$emp_code)->where('status',0)->get()->num_rows();
+	return $ci->db->select('*')->from('complaint_tracking')->where('assigned_by',$emp_code)->where('status',0)->get()->num_rows();
 }
 function totalquotations($emp_code)
 {
 	$ci = &get_instance();
-	return $ci->db->select('*')->from('tbl_quotation')->where('employee_code',$emp_code)->get()->num_rows();
+	return $ci->db->select('*')->from('quotation')->where('employee_code',$emp_code)->get()->num_rows();
 }
 function pendingquotations($emp_code)
 {
 	$ci = &get_instance();
-	return $ci->db->select('*')->from('tbl_quotation')->where('employee_code',$emp_code)->where('status',1)->get()->num_rows();
+	return $ci->db->select('*')->from('quotation')->where('employee_code',$emp_code)->where('status',1)->get()->num_rows();
 }
 function todaycomplaints($emp_code)
 {
 	$ci = &get_instance();
 	$date = new DateTime("now");
  	$curr_date = $date->format('Y-m-d');
-	return $ci->db->select('*')->from('tbl_complaint_tracking')->where('employee_code',$emp_code)->where('DATE(created_at)',$curr_date)->where('status',0)->get()->num_rows();
+	return $ci->db->select('*')->from('complaint_tracking')->where('employee_code',$emp_code)->where('DATE(created_at)',$curr_date)->where('status',0)->get()->num_rows();
 }
 function pendingTechComplaints($emp_code)
 {
 	$ci = &get_instance();
-	return $ci->db->select('*')->from('tbl_complaint_tracking')->where('employee_code',$emp_code)->where('status',0)->get()->num_rows();
+	return $ci->db->select('*')->from('complaint_tracking')->where('employee_code',$emp_code)->where('status',0)->get()->num_rows();
 }

@@ -42,7 +42,7 @@
                   <td><?php echo $key->id;?></td>
                   <td><button type="button" class="btn btn-success lead-modal" data-lead_code=<?= $key->lead_code;?> data-company_name=<?= $key->company_name; ?>>Check In</button></td>
                   <td><?php echo $key->company_name;?></td>
-                  <td><?php echo $key->supplier_code; ?></td>
+                  <td><?php echo supplier_name($key->supplier_code); ?></td>
                   <td><?php echo $key->brand; ?></td>  
                   <td><?php echo $key->address;?></td>
                   <td><?php echo $key->zip_code;?></td>  
@@ -71,7 +71,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <input type="text" id="hiddenabc">
+          <input type="hidden" id="hiddenabc">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="abc"></h4>
@@ -81,7 +81,7 @@
         <div class="modal-body">
           <div class="row" style="text-align:center;">
             <div class="col-md-12">
-              <select class="form-control" name="customercombo" id="customercombo" onchange="check()">
+              <select class="form-control" name="customercombo" id="customercombo" onchange="check()" required>
                 <option value="">---Select----</option>
                 <option value="Customer Availabel" id="CA">Customer Availabel</option>
                 <option value="Customer Not Availabel" id="CNA">Customer Not Availabel</option>
@@ -89,14 +89,14 @@
             </div>
           </div>
 
-          <input type="text" id="hdnId" name="lead_code">
+          <input type="hidden" id="hdnId" name="lead_code">
             <div id="maindiv">
               <div id="hiddendiv">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group col-md-6">
                       <label>Visite Type<span style="color:red">*</span></label>
-                      <select id="visitetype" name="visitetype" class="form-control">
+                      <select id="visitetype" name="visitetype" class="form-control" required>
                         <option value="1">Customer called</option>
                         <option value="2">Made a cold call visit</option>
                         <option value="3">phone call</option>
@@ -104,7 +104,7 @@
                     </div>
                     <div class="form-group col-md-6">
                       <label>Concerned person is Same?<span style="color:red">*</span></label>
-                      <select id="concernperson" name="concernperson" class="form-control Concernperson" onchange="getcontactdiv();">
+                      <select id="concernperson" name="concernperson" class="form-control Concernperson" onchange="getcontactdiv();" required>
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -112,13 +112,13 @@
                     </div>
                     <div class="form-group col-md-6">
                       <label>Person Name<span style="color:red">*</span></label>
-                      <select id="Personname" name="Personname" class="form-control Personname">
+                      <select id="Personname" name="Personname" class="form-control Personname" required>
                       </select>
                     </div>
                     
                     <div class="form-group col-md-6">
                       <label>Quotation Required<span style="color:red">*</span></label>
-                      <select id="quotationreq" name="quotationreq" class="form-control">
+                      <select id="quotationreq" name="quotationreq" class="form-control" required>
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -288,7 +288,7 @@ function getcontactdiv(){
     else if($("#concernperson").val()=="Yes")
     {
       var lead_code=$("#hdnId").val();
-      alert(lead_code);
+      // alert(lead_code);
       /*var lead_code=$("#hdnId").val();
       alert(lead_code);*/
        if(lead_code != "")

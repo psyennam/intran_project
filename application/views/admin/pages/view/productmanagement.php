@@ -5,7 +5,7 @@
         <div class="box-header">
           <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-              <b style="font-size: 20px;">Product Data</b>
+              <b style="font-size: 20px;"><?= __lang('Product Data'); ?></b>
             </div>
             <?php if(in_array('C',$this->session->userdata('privileges'))){?>
             <div class="col-sm-6 col-md-6 col-lg-6 ">

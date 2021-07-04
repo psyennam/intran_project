@@ -1,4 +1,4 @@
-<section class="content">
+  <section class="content">
   <div class="row">
     <div class="col-xs-12">
       <div class="box">
@@ -25,9 +25,9 @@
               </tr>
             </thead>
              <tbody>
-             <?php foreach ($warrantydetails as $key) { ?>
+             <?php $i=0; foreach ($warrantydetails as $key) { $i++; ?>
                 <tr>
-                  <td><?php echo $key->id;?></td>
+                  <td><?php echo $i; ?></td>
                   <td><?php echo $key->title;?></td>
                   <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>
                   <td><?php echo is_status($key->status); ?></td>
@@ -68,7 +68,7 @@
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                      <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>

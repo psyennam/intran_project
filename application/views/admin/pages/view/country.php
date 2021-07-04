@@ -9,7 +9,7 @@
         <div class="box-header">
           <div class="row">
             <div class="col-sm-6 col-md-6 col-lg-6 pull-left">
-              <b style="font-size: 20px;">Country Data</b>
+              <b style="font-size: 20px;"><?= __lang('Country Data'); ?></b>
             </div>
             <div class="col-sm-6 col-md-6 col-lg-6 ">
               <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#mymodel"><?= __lang('Add');?></button>
@@ -23,7 +23,7 @@
               <tr>
                 <th><?= __lang('ID');?></th>
                 <th><?= __lang('Country Name');?></th>
-                <th><?= __lang('Country Code');?></th>
+                <!-- <th><?= __lang('Country Code');?></th> -->
                 <th><?= __lang('Createdate');?></th>
                 <th><?= __lang('Status');?></th>
                 <th><?= __lang('Update');?></th>
@@ -35,7 +35,7 @@
                 <tr>
                   <td><?php echo $i++;?></td>
                   <td><?php echo $key->country; ?></td>  
-                  <td><?php echo $key->country_code; ?></td>  
+                  <!-- <td><?php echo $key->country_code; ?></td>   -->
                   <td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td> 
                   <td><?php echo is_status($key->status); ?></td>
                   <td><a href="updatecountry?id=<?php echo $key->country_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('UPDATE')?></button></a></td>  
@@ -77,7 +77,7 @@
             <div class="modal-footer">
               <div class="row">
                 <div class="col-md-12 text-center" style="margin-top: 10px;">
-                  <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                  <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                 </div>
               </div>
             </div>

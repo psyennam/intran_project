@@ -50,9 +50,9 @@
 								<label>Brand<span style="color:red">*</span></label>
 								<select id="brand" name="brand" class="form-control">
 									<option value=''>Select</option>
-									<option value='1'>Lincoln Electric</option>
-									<option value='2'>AMADA WELD TECH</option>
-									<option value='3'>CEBORA</option>		
+									<option value='Lincoln Electric'>Lincoln Electric</option>
+									<option value='AMADA WELD TECH'>AMADA WELD TECH</option>
+									<option value='CEBORA'>CEBORA</option>		
 								</select>
 								<span style="color: red;"><?= form_error('brand');?></span>
 							</div>

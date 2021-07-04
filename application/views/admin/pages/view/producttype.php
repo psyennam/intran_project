@@ -56,17 +56,17 @@
     <!-- /.content -->
     <!-- Modal Start  -->
     <div class="modal fade" id="mymodel">
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-dialog  modal-md modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h3 class="text-center text-primary"><?= __lang('Product Type');?></h3>  
             <button type="button" class="close" data-dismiss="modal">&times;</button> 
+            <h3 class="modal-title text-primary"><?= __lang('Product Type');?></h3>  
           </div>
           <!-- Form Start  -->
             <form action="<?= base_url('Admin/producttypeinsert');?>" id="formone" class="form-group" method="post">
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-sm-12 col-md-12 col-lg-4">
+                  <div class="col-sm-6 col-md-4 col-lg-6">
                       <label><?= __lang('Company');?></label>
                         <select class="form-control" name="companycombo" id="companycombo">
                           <option value="">---Select Company-----</option>
@@ -86,7 +86,7 @@
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                      <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>

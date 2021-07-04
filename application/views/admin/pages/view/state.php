@@ -19,9 +19,9 @@
                 <thead>
                 <tr>
                 <th><?= __lang('ID');?></th>
-      					<th><?= __lang('Country Code');?></th>
-                <th><?= __lang('State Code');?></th>
+                <!-- <th><?= __lang('State Code');?></th> -->
       					<th><?= __lang('State Name');?></th>
+      					<!-- <th><?= __lang('Country');?></th>  -->
       					<th><?= __lang('Createdate');?></th>
       					<th><?= __lang('Status');?></th>
                 <th><?= __lang('Update');?></th>
@@ -29,12 +29,12 @@
       			    </tr>
                 </thead>
                   <tbody>
-                    <?php foreach ($statedetails as $key) { ?>
+                    <?php $i=0; foreach ($statedetails as $key) { $i++; ?>
                       	<tr>
-                      		<td><?php echo $key->id;?></td>
-                      		<td><?php echo $key->country_code; ?></td>	
-                          <td><?php echo $key->state_code; ?></td>  
+                      		<td><?php echo $i;?></td>
+                          <!-- <td><?php echo $key->state_code; ?></td>   -->
                       		<td><?php echo $key->state; ?></td>	
+                      		<!-- <td><?php echo get_country($key->country_code); ?></td>	 -->
                       		<td><?php echo __date_format($key->created_at, 'ddmmyyyy'); ?></td>	
                       		<td><?php echo is_status($key->status); ?></td>
                           <td><a href="updatestate?id=<?php echo $key->state_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('UPDATE');?></button></a></td>  
@@ -85,7 +85,7 @@
                 <div class="modal-footer">
                     <div class="row">
                         <div class="col-md-12 text-center" style="margin-top: 10px;">
-                         <input class="btn btn-default" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                         <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/>
                         </div>
                     </div>
                 </div>
