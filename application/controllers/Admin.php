@@ -284,6 +284,37 @@ class Admin extends CI_controller
 			$insert=$this->Admin_model->employeeinsert();
 			if($insert>0)
 			{
+				//print_r($insert);
+				//print_r($insert['email']);
+				$to =$insert['email'];  // User email pass here
+		        $subject = 'username and password';
+		        $from = 'yennam20@gmail.com';
+		        $emailContent=$insert['username'].' '."your username and password";            
+
+
+			    $config['protocol']    = 'smtp';
+			    $config['smtp_host']    = 'ssl://smtp.gmail.com';
+			    $config['smtp_port']    = '465';
+			    $config['smtp_timeout'] = '60';
+
+			    $config['smtp_user']    = 'yennam20@gmail.com';    //Important
+			    $config['smtp_pass']    = '@vishalyennam11';  //Important
+
+			    $config['charset']    = 'utf-8';
+			    $config['newline']    = "\r\n";
+			    $config['mailtype'] = 'html'; // or html
+			    $config['validation'] = TRUE; // bool whether to validate email or not 
+
+     
+
+			    $this->email->initialize($config);
+			    $this->email->set_mailtype("html");
+			    $this->email->from($from);
+			    $this->email->to($to);
+			    $this->email->subject($subject);
+			    $this->email->message($emailContent);
+			    $this->email->send();  
+      
 				redirect('Admin/employee');		
 			}
 			else
