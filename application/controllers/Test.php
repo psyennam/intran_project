@@ -77,7 +77,7 @@ class Test extends ci_controller{
 
 	function quotation_close($id)
 	{
-		header("Content-type:application/pdf");
+		//header("Content-type:application/pdf");
 		// header("Content-Dispo/sition:attachment;filename='downloaded.pdf'");
 
 		$this->load->model('Client_model');
@@ -85,7 +85,7 @@ class Test extends ci_controller{
 		$data['orgdetails']=$this->Client_model->fetch_organizationdetails();
 		$data['supplierdetails']=$this->Client_model->fetch_supplierdetails($id);
 		//$data['page']='admin/pages/view/pdf_genrator';
-		$this->load->view('quotation_close',$data);
+		return $this->load->view('quotation_final',$data,true);
 	}
 
 }

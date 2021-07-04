@@ -246,10 +246,14 @@ class Admin_model extends CI_model
 					'created_at'=>date('y-m-d H:i:s'),
 					'ip_address'=>$ip,
 				];
+				$email=[
+					'username'=>$final['username'],
+					'email'=>$data['email']
+				];
 				if($this->db->insert('user',$final))
 				{
 					$this->db->trans_complete();
-					return true;
+					return $email;
 				}
 				else{
 					$this->db->trans_rollback();
