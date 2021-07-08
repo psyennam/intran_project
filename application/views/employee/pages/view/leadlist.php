@@ -41,9 +41,9 @@
               </tr>
             </thead>
              <tbody>
-              <?php foreach ($leaddetails as $key) { ?>
+              <?php $i=1; foreach ($leaddetails as $key) { ?>
                 <tr>
-                  <td><?php echo $key->id;?></td>
+                  <td><?php echo $i++;?></td>
                   <?php if(in_array('C',$this->session->userdata('privileges'))){ ?>
                 <td><button type="button" class="btn btn-success lead-modal" data-lead_code=<?= $key->lead_code;?> data-company_name=<?= $key->company_name; ?>><?= __lang('Check In'); ?></button></td>
               <?php } ?>

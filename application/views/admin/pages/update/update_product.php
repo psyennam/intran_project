@@ -105,9 +105,12 @@
                   </tr>
                 </thead>
                 <tbody id="product_table_body">
-                  <?php foreach($approvedprice as $ap){ ?>
+                  <?php $cnt=0; foreach($approvedprice as $ap){ ?>
                   <tr>
-                    <td style="text-align:center !important;"><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
+                    <td style="text-align:center !important;">
+                    <?php if($cnt==0){ ?><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    <?php }else{ ?> <a href="javascript:void(0);" class="remCF"><i class="fa fa-minus" aria-hidden="true" style="color:red;"></i></a> <?php } $cnt++; ?>
+                    </td>
                     <td><input type="text" id="c_name0" name="c_name[]" value="<?= $ap->company_code;?>"><span style="color: red;"><?= form_error('c_name[]');?></span></td>
                     
                     <td><input type="number" id="c_price0" name="c_price[]" value="<?= $ap->price;?>"><span style="color: red;"><?= form_error('c_price[]');?></span></td>   
@@ -123,7 +126,7 @@
               <button type="submit" class="btn btn-primary"><?= __lang('Update');?></button>
             </div>
           </div>
-        <?php } ?>
+        <?php }  ?>
       </form>
     </div>
   </div>

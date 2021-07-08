@@ -16,13 +16,13 @@
             <thead>
               <tr>
                 <th><?= __lang('Action'); ?></th>
-                <th><?= __lang('ID'); ?>/th>
+                <th><?= __lang('ID'); ?></th>
                 <th><?= __lang('PDF'); ?></th>
                 <th><?= __lang('DealerShip Name'); ?></th>
                 <th><?= __lang('Issue Date'); ?></th>
               </tr>
             </thead>
-             <?php foreach ($quotationdetails as $key) { ?>
+             <?php $i=1; foreach ($quotationdetails as $key) { ?>
               <tr>
                   <td><?php if($key->status==1) {
                    if(in_array('U',$this->session->userdata('privileges'))){ ?>
@@ -31,7 +31,7 @@
                   <a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a>
                 <?php } ?>
                   </td>
-                  <td><?php echo $key->id;?></td>
+                  <td><?php echo $i++;?></td>
                   <td><a href="<?php echo base_url('Test/index/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>
                   <td><?= client_name($key->lead_code)?></td>
                   <td><?= __date_format($key->created_at,'ddmmyyyy');?></td>

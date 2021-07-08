@@ -1309,7 +1309,7 @@ class Admin extends CI_controller
 			$this->form_validation->set_rules('optcity','Select City','required');
 			$this->form_validation->set_rules('optpin','Select Pin-Code','required');
 			$this->form_validation->set_rules('supplier','Select Sub-Zone','required');
-			$this->form_validation->set_rules('brand','Select Sub-Zone','required');
+			$this->form_validation->set_rules('brand','Select Brand','required');
 			$this->form_validation->set_rules('company_name','Company Name','required');
 			$this->form_validation->set_rules('gst','GST','required|numeric');
 			$this->form_validation->set_rules('address','Address','required');
@@ -1319,13 +1319,15 @@ class Admin extends CI_controller
 			$this->form_validation->set_rules('cp_email[]','Email','required');
 			if($this->form_validation->run()==TRUE)
 			{	
-				$update=$this->Admin_model->updatelead($code);
-				if($update>0)
+				$update['data']=$this->Admin_model->updatelead($code);
+				if($update['data']>0)
 				{
-					redirect('Admin/leadlist');
+					// redirect('Admin/leadlist');
+				print_r($update['data']);
 				}
 				else
 				{
+					print_r($update['data']);
 					echo "Data not updated";
 				}
 			}	

@@ -19,7 +19,7 @@ class Client extends CI_controller
 	}
 	function client()
 	{
-		$data['page']='admin/pages/view/client';
+		$data['page']='employee/pages/view/client';
 		$data['zonedetails']=$this->Client_model->viewzone();	
 		$data['clientdetails']=$this->Client_model->view_client();
 		$this->load->view('admin/components/layout',$data);
@@ -61,8 +61,8 @@ class Client extends CI_controller
 			$this->form_validation->set_rules('subzone','SubZone','required');
 			$this->form_validation->set_rules('city','city','required');
 			$this->form_validation->set_rules('address','address','required');
-			$this->form_validation->set_rules('contact','contact','required');
-			$this->form_validation->set_rules('Pincode','Pincode','required');
+			$this->form_validation->set_rules('contact','contact','required|numeric');
+			$this->form_validation->set_rules('Pincode','Pincode','required|numeric');
 
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
@@ -71,7 +71,7 @@ class Client extends CI_controller
         	}
 			else
 			{ 			
-				$insert=$this->Admin_model->clientinsert();
+				$insert=$this->Client_model->clientinsert();
 				if($insert>0)
 				{
 					echo "Yes";
@@ -123,6 +123,23 @@ class Client extends CI_controller
 		}
 	}
 
+/*
+		Delete Lead(Lead)
+	*/
+	function deletelead()
+	{
+		$id=$this->input->get('lead_code');
+		$res=$this->Client_model->deletelead($id);
+		if($res>0)
+		{
+			redirect('Client/leadlist');	
+		}
+		else
+		{
+			echo "Data is not updated";
+		}
+	}
+
 	function opt_zone($zone)
 	{
 		try{
@@ -167,12 +184,12 @@ class Client extends CI_controller
 			$this->form_validation->set_rules('optpin','Select Pin-Code','required');
 			$this->form_validation->set_rules('supplier','Select Sub-Zone','required');
 			$this->form_validation->set_rules('brand','Select Sub-Zone','required');
-			$this->form_validation->set_rules('company_name','Company Name','required|alpha');
+			$this->form_validation->set_rules('company_name','Company Name','required');
 			$this->form_validation->set_rules('gst','GST','required|numeric');
-			$this->form_validation->set_rules('address','Address','required|alpha');
-			$this->form_validation->set_rules('cp_name[]','Name','required|alpha');
-			$this->form_validation->set_rules('cp_designation[]','Designation','required|alpha');
-			$this->form_validation->set_rules('cp_mobile[]','Mobile','required|regex_match[/^[0-9]{10}$/]');
+			$this->form_validation->set_rules('address','Address','required');
+			$this->form_validation->set_rules('cp_name[]','Name','required');
+			$this->form_validation->set_rules('cp_designation[]','Designation','required');
+			$this->form_validation->set_rules('cp_mobile[]','Mobile','required');
 			$this->form_validation->set_rules('cp_email[]','Email','required');
 			if($this->form_validation->run()==TRUE)
 			{	

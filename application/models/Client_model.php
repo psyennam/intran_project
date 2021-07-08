@@ -260,35 +260,66 @@ class Client_model extends CI_model
 			'address'=>$this->input->post('address'),
 		];
 
-		$res=$this->db->where('lead_code',$leadcode)->update('lead',$data);
-		if($res>0)
+		if($this->db->where('lead_code',$leadcode)->update('lead',$data))
 		{
-			$contact_person= [];
-			for($i=0;$i<sizeof($_POST['cp_name']);$i++)
+			if($this->db->where('lead_code',$leadcode)->delete('mapping_lead'))
 			{
-				$contact_person[] =[
-					'lead_code'=>$leadcode,
-					'person_name'=>$_POST['cp_name'][$i],
-					'designation'=>$_POST['cp_designation'][$i],
-					'mobile_no'=>$_POST['cp_mobile'][$i],
-					'email'=>$_POST['cp_email'][$i]
-				];
-			}
-			if($this->db->update_batch('mapping_lead',$contact_person,'lead_code'))
-			{
-				$this->db->trans_complete();
-				return true;
-			}
-			else{
+				$contact_person= [];
+				for($i=0;$i<sizeof($_POST['cp_name']);$i++)
+				{
+					$contact_person[] =[
+						'lead_code'=>$leadcode,
+						'person_name'=>$_POST['cp_name'][$i],
+						'designation'=>$_POST['cp_designation'][$i],
+						'mobile_no'=>$_POST['cp_mobile'][$i],
+						'email'=>$_POST['cp_email'][$i]
+					];
+					// print_r($contact_person);
+				}
+				// print_r($contact_person);
+				if($this->db->insert_batch('mapping_lead',$contact_person))
+				{
+					$this->db->trans_complete();
+					// print_r($contact_person);
+					return $contact_person;
+				}else{
+					echo "not 1";
+					$this->db->trans_rollback();
+					// return false;
+				}
+			}else{
+				print_r("not 2");
 				$this->db->trans_rollback();
 				return false;
 			}
-		}
-		else{
-			//$this->db->trans_rollback();
+		}else{
+			print_r("not 3");
+			$this->db->trans_rollback();
 			return false;
 		}
 	}
+
+	/**
+		In this deletedata function if Oragnsation admin want to termiante any lead then this function will change the active=terminate  
+	**/
+	function deletelead($id)
+	{
+			$lead=[
+					'status'=>1
+					];		
+			$this->db->where('lead_code',$id);	
+			$res=$this->db->update('lead',$lead);
+			if($res>0)
+			{
+
+				return true;
+			} 
+			else
+			{
+				return false;
+			}
+	}
+	
 	function leaddetails_by_id($lead_code)
 	{
 		return $this->db->select('*')->where('lead_code',$lead_code)->get('lead')->result();

@@ -22,7 +22,7 @@
               </tr>
             </thead>
           <tbody>
-              <?php if(!empty($pendingdetails)) { foreach($pendingdetails as $key) {?>
+              <?php $i=1; if(!empty($pendingdetails)) { foreach($pendingdetails as $key) {?>
                 <tr>
                   <td>
                     <?php if(in_array('U',$this->session->userdata('privileges'))){ ?>
@@ -32,7 +32,7 @@
                     <a href="pendingdelete?quotation_code=<?php echo $key->quotation_code;?>"><i class="fa fa fa-trash" style="margin:3px;"></i>Delete</a>
                   <?php } ?>
                   </td>
-                  <td><?php echo $key->id;?></td>
+                  <td><?php echo $i++;?></td>
                   <td><?php echo client_name($key->lead_code);?></td>
                   <td><?php echo __date_format($key->created_at,'ddmmyyyy');?></td>
                 </tr> 

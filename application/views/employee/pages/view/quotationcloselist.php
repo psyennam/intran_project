@@ -27,9 +27,9 @@
               </tr>
             </thead>
             <tbody>
-               <?php foreach($quotationdetails as $key) { ?>
+               <?php $i=1; foreach($quotationdetails as $key) { ?>
                 <tr>
-                  <td><?php echo $key->id;?></td>
+                  <td><?php echo $i++;?></td>
                   <td><a href="<?php echo base_url('Test/close/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a></td>
                   <td><?= $key->invoice_number; ?></td>
                   <td><?php echo client_name($key->lead_code);?></td>

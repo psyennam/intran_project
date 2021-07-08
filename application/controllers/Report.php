@@ -41,10 +41,11 @@ class Report extends CI_controller
 		$todate = $this->input->post('todate');
 		
 		$data=$this->Report_model->common($type,$emp_name,$fromdate,$todate);
+		$i=1;
 		foreach ($data as $key) 
 		{
 			echo "<tr>";
-			echo "<td>".$key->id."</td>";
+			echo "<td>".$i++."</td>";
 			echo "<td>"?><a href="<?php echo base_url('Test/exp/'.$key->id);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
 			echo "<td>".__date_format($key->date,'ddmmyyyy')."</td>";
 			echo "<td>".emp_name($key->employee_code)."</td>";
@@ -102,12 +103,13 @@ class Report extends CI_controller
 		$todate = $this->input->post('todate');
 		
 		$data=$this->Report_model->quotation_type($lead_code,$emp_name,$fromdate,$todate);
+		$i=1;
 		foreach ($data as $key) 
 		{
 			echo "<tr>";
-			echo "<td>".$key->id."</td>";
+			echo "<td>".$i++."</td>";
 			echo "<td>"?><a href="<?php echo base_url('Test/close/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
-			echo "<td>".$key->invoice_number."</td>";
+			echo "<td>".$key->	_number."</td>";
 			echo "<td>".client_name($key->lead_code)."</td>";
 			echo "<td>". __date_format($key->quotation_close_date,'ddmmyyyy')."</td>";
 			echo "</tr>";
@@ -159,10 +161,11 @@ class Report extends CI_controller
 		$todate = $this->input->post('todate');
 		
 		$data=$this->Report_model->lead_common($optzone,$optcity,$fromdate,$todate);
+		$i=1;
 		foreach ($data as $key) 
 		{
 			echo "<tr>";
-			echo "<td>".$key->id."</td>";
+			echo "<td>".$i++."</td>";
 			echo "<td>".$key->company_name."</td>";
 			echo "<td>".$key->client."</td>";
 			echo "<td>".$key->employee."</td>";
@@ -189,10 +192,11 @@ class Report extends CI_controller
 		$todate = $this->input->post('todate');
 		
 		$data=$this->Report_model->complaint_type($lead_code,$emp_code,$fromdate,$todate);
+		$i=1;
 		foreach ($data as $key) 
 		{
 			echo "<tr>";
-			echo "<td>".$key->id."</td>";
+			echo "<td>".$i++."</td>";
 			echo "<td>".emp_name($key->assigned_by)."</td>";
 			echo "<td>".$key->remark."</td>";
 			echo "<td>". __date_format($key->created_at,'ddmmyyyy')."</td>";

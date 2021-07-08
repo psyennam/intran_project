@@ -5,8 +5,8 @@
     </div>
           <!-- /.box-header -->
       <div class="box-body">
-        <?php foreach($leadinfo as $key) { ?>
         <form method="post" enctype="multipart/form-data">
+        <?php foreach($leadinfo as $key) { ?>
           <div class="row">
             <div class="col-md-12">
               <div class="form-group col-md-3">
@@ -50,9 +50,9 @@
                 <label>Brand<span style="color:red">*</span></label>
                 <select id="brand" name="brand" class="form-control">
                   <option value=''>Select</option>
-                  <option value='1'>Lincoln Electric</option>
-                  <option value='2'>AMADA WELD TECH</option>
-                  <option value='3'>CEBORA</option>   
+                  <option value='Lincoln Electric'>Lincoln Electric</option>
+                  <option value='AMADA WELD TECH'>AMADA WELD TECH</option>
+                  <option value='CEBORA'>CEBORA</option>
                 </select>
                 <span style="color: red;"><?= form_error('brand');?></span>
               </div>
@@ -97,17 +97,20 @@
                       <th>Email id</th>
                     </tr>
                   </thead>
-                    <tbody id="product_table_body">
-                      <?php foreach($mappingleadinfo as $row) { ?>
-                      <tr>
-                        <td style="text-align:center !important;"><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
-                        <td><input type="text" id="cp_name0" name="cp_name[]" value="<?php echo $row->person_name;?>"><span style="color: red;"><?= form_error('cp_name[]');?></span></td>
+                  <tbody id="product_table_body">
+                  <?php $cnt=0; foreach($mappingleadinfo as $row){ ?>
+                  <tr>
+                    <td style="text-align:center !important;">
+                    <?php if($cnt==0){ ?><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                    <?php }else{ ?> <a href="javascript:void(0);" class="remCF"><i class="fa fa-minus" aria-hidden="true" style="color:red;"></i></a> <?php } $cnt++; ?>
+                    </td>
+                   <td><input type="text" id="cp_name0" name="cp_name[]" value="<?php echo $row->person_name;?>"><span style="color: red;"><?= form_error('cp_name[]');?></span></td>
                         <td><input type="text" id="cp_designation0" name="cp_designation[]" value="<?php echo $row->designation;?>"><span style="color: red;"><?= form_error('cp_designation[]');?></span></td>
                         <td><input type="number" id="cp_mobile0" name="cp_mobile[]" value="<?php echo $row->mobile_no;?>"><span style="color: red;"><?= form_error('cp_mobile[]');?></span></td>
-                        <td><input type="text" id="cp_email0" name="cp_email[]" value="<?php echo $row->email;?>"><span style="color: red;"><?= form_error('cp_email[]');?></span></td>
-                      </tr>
-                      <?php }?> 
-                    </tbody>
+                        <td><input type="text" id="cp_email0" name="cp_email[]" value="<?php echo $row->email;?>"><span style="color: red;"><?= form_error('cp_email[]');?></span></td>  
+                  </tr>
+                <?php } ?>
+                </tbody>
                 </table>
               </div>
             </div>
@@ -120,8 +123,8 @@
               </div>
             </div>
           </div>
-        </form>
         <?php  } ?>
+        </form>
       </div>
     </div>
 </section>

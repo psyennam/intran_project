@@ -26,9 +26,9 @@
                 </tr>
             </thead>
           <tbody>
-              <?php  if(!empty($pendingdetails)) { foreach($pendingdetails as $key) {?>
+              <?php $i=1; if(!empty($pendingdetails)) { foreach($pendingdetails as $key) {?>
                 <tr>
-                  <td><?php echo $key->id;?></td>
+                  <td><?php echo $i++;?></td>
                   <td><?php echo $key->product_code;?></td>
                   <td><?php echo $key->quantity;?></td>
                   <td><?php echo $key->price;?></td>

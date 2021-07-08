@@ -1299,27 +1299,38 @@ class Admin_model extends CI_model
 		$this->db->trans_start();
 		if($this->db->where('lead_code',$leadcode)->update('lead',$data))
 		{
-			$contact_person= [];
-			for($i=0;$i<sizeof($_POST['cp_name']);$i++)
+			if($this->db->where('lead_code',$leadcode)->delete('mapping_lead'))
 			{
-				$contact_person[] =[
-					'person_name'=>$_POST['cp_name'][$i],
-					'designation'=>$_POST['cp_designation'][$i],
-					'mobile_no'=>$_POST['cp_mobile'][$i],
-					'email'=>$_POST['cp_email'][$i]
-				];
-			}
-			//$update=;
-			if($this->db->update_batch('mapping_lead',$contact_person,$leadcode))
-			{
-				$this->db->trans_complete();
-				return true;
-			}
-			else{
+				$contact_person= [];
+				for($i=0;$i<sizeof($_POST['cp_name']);$i++)
+				{
+					$contact_person[] =[
+						'lead_code'=>$leadcode,
+						'person_name'=>$_POST['cp_name'][$i],
+						'designation'=>$_POST['cp_designation'][$i],
+						'mobile_no'=>$_POST['cp_mobile'][$i],
+						'email'=>$_POST['cp_email'][$i]
+					];
+					// print_r($contact_person);
+				}
+				// print_r($contact_person);
+				if($this->db->insert_batch('mapping_lead',$contact_person))
+				{
+					$this->db->trans_complete();
+					// print_r($contact_person);
+					return $contact_person;
+				}else{
+					echo "not 1";
+					$this->db->trans_rollback();
+					// return false;
+				}
+			}else{
+				print_r("not 2");
 				$this->db->trans_rollback();
 				return false;
 			}
 		}else{
+			print_r("not 3");
 			$this->db->trans_rollback();
 			return false;
 		}
@@ -1469,6 +1480,11 @@ class Admin_model extends CI_model
 	{
 		return $this->db->select('zone_code as code,zone')->join('employee','employee.employee_code=zone.employee')->where('parent',null)->get('zone')->result();
 	}
+
+	// function view_zone()
+	// {
+	// 	return $this->db->select('*')->where('parent',null)->get('zone')->result();
+	// }
 
 	function viewleadlist()
 	{
