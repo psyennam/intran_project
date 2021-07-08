@@ -1672,7 +1672,7 @@ class Admin extends CI_controller
 		$this->load->view('admin/components/layout',$data);		
 	}
 	/**
-		Update Quotation
+		Delete Quotation
 	**/
 	function delete_quotation($quotation_code)
 	{

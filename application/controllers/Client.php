@@ -206,6 +206,22 @@ class Client extends CI_controller
 		}
 		$this->load->view('admin/components/layout',$data);
 	}
+	/*
+		Delete Lead(Lead)
+	*/
+	function deletelead()
+	{
+		$id=$this->input->get('lead_code');
+		$res=$this->Client_model->deletelead($id);
+		if($res>0)
+		{
+			redirect('Client/leadlist');	
+		}
+		else
+		{
+			echo "Data is not updated";
+		}
+	}
 	/**
 		Lead-Form
 	**/
@@ -496,11 +512,38 @@ class Client extends CI_controller
 	{
 		$data['details']=$this->Client_model->updatedetailsbyid($id);
 		$data['productdetails']=$this->Client_model->fetch_productdetails();
-		
+		$data['companydetails']=$this->Client_model->companydetails();
 		$data['page']='employee/pages/update/update_quotationform';	
+		if($_POST)
+		{
+			$res=$this->Client_model->update_quotation($id);
+			if($res>0)
+			{
+				redirect('Client/pendinglist');
+			}
+			else
+			{
+				echo "data is not updated";
+			}
+		}
 		$this->load->view('admin/components/layout',$data);		
 	}
-
+	/**
+		Delete Quotation
+	**/
+	function delete_quotation($quotation_code)
+	{
+		//echo $quotation_code;
+		$res=$this->Client_model->delete_quotation($quotation_code);
+		if($res>0)
+		{
+			redirect('Client/quotationlist');	
+		}
+		else
+		{
+			echo "Data is not updated";
+		}			
+	}
 	function followuplist()
 	{
 		$data['page']='employee/pages/view/followuplist';

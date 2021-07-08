@@ -97,6 +97,17 @@
                                   <option value="<?php echo $row->role_code ?>"><?php echo $row->role; ?></option>
                               <?php } ?>
                             </select>
+                          </div>
+                          <div class="col-sm-12 col-md-12 col-lg-4">
+                            <!-- <label><?= __lang('Privileges'); ?></label> -->
+                            <input type="checkbox" name="privilege[]" value="C,">
+                              <label>C</label>
+                              <input type="checkbox" name="privilege[]" value="U,">
+                              <label>R</label>
+                              <input type="checkbox" name="privilege[]" value="R,">
+                              <label>U</label>
+                              <input type="checkbox" name="privilege[]" value="D">
+                              <label>D</label>
                           </div>  							            
                         </div>
             				  </div>
@@ -135,4 +146,5 @@
       'autoWidth'   : false
     })
   })
+  
 </script>

@@ -298,7 +298,6 @@ class Client_model extends CI_model
 			return false;
 		}
 	}
-
 	/**
 		In this deletedata function if Oragnsation admin want to termiante any lead then this function will change the active=terminate  
 	**/
@@ -319,7 +318,7 @@ class Client_model extends CI_model
 				return false;
 			}
 	}
-	
+
 	function leaddetails_by_id($lead_code)
 	{
 		return $this->db->select('*')->where('lead_code',$lead_code)->get('lead')->result();
@@ -421,6 +420,65 @@ class Client_model extends CI_model
 		return $res;
 		// return $this->db->update('quotation')->set('status',1)->where('status',0)->get()->result();
 	}
+	/**
+	 In this function Update Quotation 
+	 **/
+	 function update_quotation($id)
+	 {
+	 	$mapping_quotation=[
+			'product_code'=>$this->input->post('productname'),
+			'quantity'=>$this->input->post('qty'),
+			'price'=>$this->input->post('Productprice'),
+			'approved_price'=>$this->input->post('approvedprice'),
+			'rate'=>$this->input->post('rate'),
+			'discount_type'=>$this->input->post('discounttype'),
+			'discount'=>$this->input->post('discount'),
+			'total'=>$this->input->post('total')
+		];
+		if($this->db->where('id',$id)->update('mapping_quotation',$mapping_quotation))
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
+	 }
+	 /**
+	 	In this function we change the status of quoattion
+	 **/
+	 function delete_quotation($quotation_code)
+	 {
+				$status=[
+						'status'=>1
+						];
+				$this->db->trans_start();
+				$this->db->where('quotation_code',$quotation_code);	
+				$res=$this->db->update('quotation',$status);
+				if($res>0)
+				{
+					$status1=[
+						'quotation_status'=>0
+						];
+					$this->db->where('quotation_code',$quotation_code);	
+					$res1=$this->db->update('mapping_quotation',$status1);
+					if($res1>0)
+					{
+						$this->db->trans_complete();
+						return true;
+					}	
+					else
+					{
+						$this->db->trans_rollback();
+						return false;		
+					}
+				} 
+				else
+				{
+					$this->db->trans_rollback();
+					return false;
+				}
+
+	 }
 	/**
 		In this function we get pending quotation list
 	**/
