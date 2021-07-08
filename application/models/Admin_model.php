@@ -225,7 +225,9 @@ class Admin_model extends CI_model
 			
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip,
+				'privileges'=>$this->input->post('privilege[]')
 			];
+			
 		$this->db->trans_start();
 		if($this->db->insert('employee',$data)) 
 		{

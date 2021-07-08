@@ -28,7 +28,7 @@
                    if(in_array('U',$this->session->userdata('privileges'))){ ?>
                     <a href="<?php echo base_url('Client/update_quotation/'.$key->quotation_code);?>">Edit</a>
                   <?php } } if(in_array('D',$this->session->userdata('privileges'))){ ?>
-                  <a href="#" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a>
+                  <a href="<?php echo base_url('Client/delete_quotation/'.$key->quotation_code);?>" class="pull-right"><i class="fa fa fa-trash pull-right" style="margin: 2px;"></i>Delete</a>
                 <?php } ?>
                   </td>
                   <td><?php echo $key->id;?></td>
