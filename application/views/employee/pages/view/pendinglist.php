@@ -29,7 +29,7 @@
                     <a href="pendingupdate?quotation_code=<?php echo $key->quotation_code;?>"><i class="fa fa-pencil-square-o"></i>Edit</a>
                   <?php } ?>
                   <?php if(in_array('D',$this->session->userdata('privileges'))){ ?>
-                    <a href="pendingdelete?quotation_code=<?php echo $key->quotation_code;?>"><i class="fa fa fa-trash" style="margin:3px;"></i>Delete</a>
+                    <a href="quotation_delete?quotation_code=<?php echo $key->quotation_code;?>"><i class="fa fa fa-trash" style="margin:3px;"></i>Delete</a>
                   <?php } ?>
                   </td>
                   <td><?php echo $i++;?></td>

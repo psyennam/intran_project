@@ -74,7 +74,7 @@ class User extends CI_controller
 				$res=$this->Admin_model->update();
 				if($res>0)
 				{
-						redirect('User/dashboard');	
+					redirect('User/dashboard');	
 				}
 				else
 				{

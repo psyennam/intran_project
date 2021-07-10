@@ -32,6 +32,7 @@ class Admin_model extends CI_model
 		}else{
 			$privileges=['C','R','U','D'];
 			$this->session->set_userdata('role', 'Admin');
+			$this->session->set_userdata('emp_code', $this->org_code);
 			$this->session->set_userdata('privileges',$privileges);
 		}
 	}
@@ -225,8 +226,9 @@ class Admin_model extends CI_model
 			
 				'created_at'=>date('y-m-d H:i:s'),
 				'ip_address'=>$ip,
-				'privileges'=>$this->input->post('privilege[]')
+				'privileges'=>implode(',',$this->input->post('privilege[]'))
 			];
+			// print_r($data);
 			
 		$this->db->trans_start();
 		if($this->db->insert('employee',$data)) 
@@ -643,6 +645,36 @@ class Admin_model extends CI_model
 			}
 	}
 
+/**
+		In this deletedata function if Oragnsation admin want to termiante any zone  then this function will change the active=terminate  
+	**/
+	function deletezone($id)
+	{	
+		$data=$this->db->select('zone_code')->where('zone_code',$id)->get('zone');
+		if($data->num_rows()>0)
+		{
+			$user=[
+					'status'=>1
+					];
+			$id=$data->row();
+			$this->db->where('zone_code',$id->zone_code);	
+			$res=$this->db->update('zone',$user);
+			if($res>0)
+			{
+				
+				return true;
+			} 
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	/**
 		In this function it gives all the data from the state table 
 	**/
@@ -840,7 +872,7 @@ class Admin_model extends CI_model
 	**/
 	function viewpincode()
 	{
-		return $this->db->select('*')->from('pincode')->join('city','city.id=pincode.city_code')->get()->result();
+		return $this->db->select('*')->from('pincode')->join('city','city.city_code=pincode.city_code')->get()->result();
 	}
 	/**
 		In this function Pincode data will be inserted
@@ -876,7 +908,7 @@ class Admin_model extends CI_model
 	**/
 	function viewzone()
 	{
-		return $this->db->select('*')->join('employee','employee.employee_code=zone.employee')->where('parent',null)->get('zone')->result();
+		return $this->db->select('zone.*')->join('employee','employee.employee_code=zone.employee')->where('parent',null)->get('zone')->result();
 	}
 	/**
 		In this function it gives all the data from the zone table 
@@ -939,7 +971,8 @@ class Admin_model extends CI_model
 
 		$data=[
 			'zone'=>$this->input->post('ZoneName'),
-			'employee'=>$this->input->post('Employee')
+			'employee'=>$this->input->post('Employee'),
+			'status'=>$this->input->post('statuscombo')
 		];
 		$this->db->where('zone_code',$zonecode);
 		$res=$this->db->update('zone',$data);
@@ -957,22 +990,25 @@ class Admin_model extends CI_model
 		$data=[
 			'zone_code'=>$randomid,
 			'zone'=>$this->input->post('SubZoneName'),
+			'employee'=>$this->input->post('emp'),
 			'state_code'=>implode(',',$this->input->post('city[]')),
-			'employee'=>$this->input->post('Employee'),
 			'org_code'=>$this->session->userdata('org_code'),
 			'created_at'=>date('y-m-d H:i:s'),
 			'parent'=>$this->input->post('zonecode'),
 			'ip_address'=>$ip
 		];
+
+		// print_r($data['state_code']);
+		print_r($this->input->post('Employee'));
 		
-		$insert=$this->db->insert('zone',$data);
-		if($insert>0)
-		{
-			return true;
-		}
-		else{
-			return false;
-		}
+		// $insert=$this->db->insert('zone',$data);
+		// if($insert>0)
+		// {
+		// 	return true;
+		// }
+		// else{
+		// 	return false;
+		// }
 	}
 
 	function updatesubzone($zone_code)
@@ -990,7 +1026,7 @@ class Admin_model extends CI_model
 
 	function get_manager()
 	{
-		return $this->db->select('employee.employee_code,employee')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('designation','designation.designation_code=mapping_employee.designation_code')->where(['designation.designation'=>'Sales Manager'])->get()->result();
+		return $this->db->select('employee.employee_code,employee')->from('employee')->join('mapping_employee','employee.employee_code=mapping_employee.employee_code')->join('designation','designation.designation_code=mapping_employee.designation_code')->join('department','department.department_code=mapping_employee.department_code')->where(['department.department'=>'Sales','designation.designation'=>'Manager'])->get()->result();
 	}
 
 	function productinsert()
@@ -1844,7 +1880,7 @@ class Admin_model extends CI_model
 	function getdetailsbyid($quotation_code)
 	{
 
-	return $this->db->select('*')->where(['quotation_status'=>0,'quotation_code'=>$quotation_code])->get('mapping_quotation')->result();
+	return $this->db->select('*')->where('quotation_code',$quotation_code)->get('mapping_quotation')->result();
 	}
 	function updatedetailsbyid($id)
 	{
@@ -2007,6 +2043,29 @@ class Admin_model extends CI_model
 			$this->db->where('q.employee_code',$code);
 		return $this->db->get()->result();
 	}
+
+	function quotation_delete($q_code)
+	{
+		$this->db->trans_start();
+
+		if($this->db->where("quotation_code",$q_code)->delete('mapping_quotation'))
+		{
+			if($this->db->where("quotation_code",$q_code)->delete('quotation'))
+			{
+				$this->db->trans_complete();
+				return true;
+			}
+			else{
+				$this->db->trans_rollback();
+				return false;
+			}
+		}
+		else{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
+
 	function leaddetails()
 	{
 		return $this->db->select('*')->get('lead')->result();

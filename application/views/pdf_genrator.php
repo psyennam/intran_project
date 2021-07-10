@@ -9,7 +9,7 @@
     <thead>
       
       <tr>
-        <th><h1>Tailor Made, Inc.</h1></th>
+        <th><h1><?= $orgdetails[0]->org_name; ?>, Inc.</h1></th>
             <th style="text-align: right;"><h4>Date:<?php echo date('d-m-y');?></h4>
         </th>
       </tr>
@@ -23,25 +23,20 @@
       <tr>
         <td style="text-align: left;"> 
           From
-            <strong>Tailor Made Erp.</strong><br>
-            Surat<br>
-            Pincode:-395010<br>
-            Phone: (804) 123-5432<br>
-            Email: info@TailorMadeErp.com
+            <strong><?= $orgdetails[0]->org_name; ?>.</strong><br>
+            <?= $orgdetails[0]->address; ?><br>
+            Email: <?=$orgdetails[0]->client_email;?>
         </td>
         <td> 
           To
-            <strong>Som Comapany</strong><br>
-            United State Of Pandesara<br>
-            Phone: (555) 539-1037<br>
-            Email: Som.Comapany@example.com
+            <strong><?= company_name_quotation($quotationdetails[0]->lead_code);?></strong><br>
+            <?= $supplierdetails[0]->Address; ?><br>
+            Email:<?=$supplierdetails[0]->email;?>
         </td>
         <td style="text-align: right;">
-           <b>Invoice #007612</b><br>
-            <br>
-            <b>Order ID:</b> 4F3S8J<br>
-            <b>Payment Due:</b> 2/22/2014<br>
-            <b>Account:</b> 968-34567
+           <b>Invoice Number:-<?= $quotationdetails[0]->invoice_number;?></b><br>
+           <b>Quotation Close Date:</b><?= __date_format($quotationdetails[0]->quotation_close_date,'dd/mm/yyyy'); ?><br>
+          <b>Customer Number:-<?= $quotationdetails[0]->lead_code;?></b>
         </td>
       </tr>
     </tbody>
@@ -78,7 +73,6 @@
         $total=0;
   ?>
     <div class="col-xs-6">
-      <p class="lead">Amount Due 2/22/2014</p>
       <div class="table-responsive">
         <table class="table">
           <?php 
@@ -89,15 +83,22 @@
               $total+=$key->total;
             }
           ?>
-          <tr>
-          <th>Rate:-<?= $rate; ?></th>
-          </tr>
-          <tr>
-          <th>Discount:-<?= $discount; ?></th>
-          </tr>
-          <tr>
-          <th>Total:-<?= $total; ?></th>
-          </tr>
+          <tbody>
+              <tr>
+                <th style="width:50%">Subtotal:-<?= $rate; ?></th>
+                
+              </tr>
+              <tr>
+                <th>Discount:-<?= $discount; ?></th>
+                
+              </tr>
+              <tr>
+                <th>Total:-<?= $total; ?></th>
+              </tr>
+              <tr>
+                <td><strong>Note:-Customer Number Will be used For Complaint Registration.</strong>.</td>
+              </tr>
+            </tbody>
         </table>
       </div>
     </div>

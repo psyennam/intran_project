@@ -62,6 +62,9 @@ class Test extends ci_controller{
 	{
 		$this->load->model('Client_model');
 		// $data['page']='admin/pages/view/client';
+		//$data['closedetails']=$this->Client_model->view_close_quotation_by_id($id);
+		$data['orgdetails']=$this->Client_model->fetch_organizationdetails();
+		$data['supplierdetails']=$this->Client_model->fetch_supplierdetails($id);
 		$data['quotationdetails']=$this->Client_model->viewquotationbyid($id);
 		// $data['clientdetails']=$this->Client_model->view_client();
 				//$data['page']='admin/pages/view/pdf_genrator';

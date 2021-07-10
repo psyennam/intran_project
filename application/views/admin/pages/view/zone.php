@@ -39,7 +39,7 @@
                     <td><?php echo $key->employee; ?></td>					
                 		<td><?php echo is_status($key->status); ?></td>  
                 		<td><a href="updatezone?zone_code=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
-                		<td><a href="deleterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
+                		<td><a href="deletezone?zone_code=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
                     <td><button type="button" class="btn btn-block btn-success open_zone_modal" data-zonecode = "<?= $key->zone_code?>"><?= __lang('Add');?></button></td>					
                 	</tr>	
                 <?php } } ?>
@@ -162,6 +162,15 @@
                     <input type="text" class="form-control" placeholder="Enter Sub-Zone Name" name="SubZoneName" id="SubZoneName">
                   </div>
                   <div class="col-sm-12 col-md-4 col-lg-4">
+                    <label><?= __lang('Employee');?></label>
+                    <select name="emp" class="form-control" id="emp">
+                      <option value="">---Select Employee---</option>
+                      <?php foreach ($info as $key) { ?>
+                        <option value="<?= $key->employee_code; ?>"><?= $key->employee;?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 col-md-4 col-lg-4">
                     <label><?= __lang('Select State');?></label>
                     <select class="form-control state" name="state" id="state">
                       <option value=""> --- </option>
@@ -172,22 +181,14 @@
                     <select class="form-control" id="optcity" name="city[]" multiple>
                     </select>
                   </div>
-                  <div class="col-sm-12 col-md-4 col-lg-4">
-                    <label><?= __lang('Employee');?></label>
-                    <select name="Employee" class="form-control" id="Employee">
-                      <option value="">---Select Employee---</option>
-                      <?php foreach ($info as $key) { ?>
-                        <option value="<?= $key->employee_code; ?>"><?= $key->employee;?></option>
-                      <?php } ?>
-                    </select>
-                  </div>
+                  
                 </div>
                 <div id="subalert-msg"></div> 
               </div>
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12 text-center" style="margin-top: 10px;">
-                      <input class="btn btn-primary" id="subzoneinsert" name="submit" type="button" value="<?= __lang('Submit');?>"/>
+                      <input class="btn btn-primary" id="subzoneinsert" name="submit" type="submit" value="<?= __lang('Submit');?>"/>
                     </div>
                   </div>
                 </div>

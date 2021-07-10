@@ -152,6 +152,19 @@ class Client extends CI_controller
 		$this->load->view('admin/components/layout',$data);	
 	}
 
+	function quotation_delete()
+	{
+		$q_code=$this->input->get("quotation_code");
+		$del=$this->Client_model->quotation_delete($q_code);
+		if($del>0)
+		{
+			redirect('Client/pendinglist');
+		}
+		else{
+			echo "<script>alert('data is not deleted');</script>";
+		}
+	}
+
 	function updatelead()
 	{
 		$code=$this->input->get('lead_code');

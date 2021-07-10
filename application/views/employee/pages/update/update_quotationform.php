@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Quantity</label>
-                          <input type="text" id="qty" class="form-control" value="<?= $key->quantity;?>">
+                          <input type="text" id="qty" name="qty" class="form-control" value="<?= $key->quantity;?>">
                         </div>
                         <div class="col-md-3 form-group"> 
                           <label>Price</label>

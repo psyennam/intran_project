@@ -100,14 +100,14 @@
                           </div>
                           <div class="col-sm-12 col-md-12 col-lg-4">
                             <!-- <label><?= __lang('Privileges'); ?></label> -->
-                            <input type="checkbox" name="privilege[]" value="C,">
                               <label>C</label>
-                              <input type="checkbox" name="privilege[]" value="U,">
+                              <input type="checkbox" name="privilege[]" value="C">
                               <label>R</label>
-                              <input type="checkbox" name="privilege[]" value="R,">
+                              <input type="checkbox" name="privilege[]" value="R">
                               <label>U</label>
-                              <input type="checkbox" name="privilege[]" value="D">
+                              <input type="checkbox" name="privilege[]" value="U">
                               <label>D</label>
+                              <input type="checkbox" name="privilege[]" value="D">
                           </div>  							            
                         </div>
             				  </div>

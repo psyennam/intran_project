@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('WarrantyType','Warranty Type','required|alpha');
+			$this->form_validation->set_rules('WarrantyType','Warranty Type','required');
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
         	{   //validation fails

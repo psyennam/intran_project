@@ -20,8 +20,6 @@
                 <th><?= __lang('WarrantyType'); ?></th>
                 <th><?= __lang('createdate'); ?></th>
                 <th><?= __lang('Status'); ?></th>
-                <th><?= __lang('Update'); ?></th>
-                <th><?= __lang('Delete'); ?></th>
               </tr>
             </thead>
              <tbody>
@@ -30,9 +28,7 @@
                   <td><?php echo $i; ?></td>
                   <td><?php echo $key->title;?></td>
                   <td><?php echo __date_format($key->created_at,'ddmmyyyy'); ?></td>
-                  <td><?php echo is_status($key->status); ?></td>
-                  <td><a href="<?php echo base_url('Warranty/updatewarranty_type/'.$key->warranty_type_code);?>"><button type="button" class="btn btn-block btn-primary">UPDATE</button></a></td>
-                  <td><a href="<?php echo base_url('Warranty/deletewarranty_type/'.$key->warranty_type_code);?>"><button type="button" class="btn btn-block btn-primary">DELETE</button></a></td>   
+                  <td><?php echo is_status($key->status); ?></td>   
                 </tr> 
               <?php } ?>            
             </tbody>

@@ -328,7 +328,27 @@ class Client_model extends CI_model
 		return $this->db->select('*')->where('lead_code',$lead_code)->get('mapping_lead')->result();
 	}
 
+	function quotation_delete($q_code)
+	{
+		$this->db->trans_start();
 
+		if($this->db->where("quotation_code",$q_code)->delete('mapping_quotation'))
+		{
+			if($this->db->where("quotation_code",$q_code)->delete('quotation'))
+			{
+				$this->db->trans_complete();
+				return true;
+			}
+			else{
+				$this->db->trans_rollback();
+				return false;
+			}
+		}
+		else{
+			$this->db->trans_rollback();
+			return false;
+		}
+	}
 
 	function companydetails()
 	{
@@ -599,7 +619,7 @@ class Client_model extends CI_model
 	function getdetailsbyid($quotation_code)
 	{
 
-	return $this->db->select('*')->where(['quotation_status'=>0,'quotation_code'=>$quotation_code])->get('mapping_quotation')->result();
+	return $this->db->select('*')->where('quotation_code',$quotation_code)->get('mapping_quotation')->result();
 	}
 	function updatedetailsbyid($id)
 	{

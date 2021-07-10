@@ -67,7 +67,8 @@
                 <!-- Row for Button -->
                 <div class="row">
                   <div class="col-md-12 text-center" style="margin-top: 10px;">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <input type="submit" class="btn btn-primary" name="Submit" value="Submit">
+                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                 </div>
                 <!-- Row for Button End -->
             </div>

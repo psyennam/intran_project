@@ -18,7 +18,7 @@
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                 <label><?= __lang('Role Code');?></label>
-                <input type="text" class="form-control" name="RoleCode" value="<?php echo $key->role_code;?>"> 
+                <input type="text" class="form-control" name="RoleCode" value="<?php echo $key->role_code;?>" readonly> 
               </div>
               <div class="col-sm-12 col-md-12 col-lg-4">
                   <label><?= __lang('Status');?></label>

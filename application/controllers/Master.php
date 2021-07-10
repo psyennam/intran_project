@@ -56,9 +56,11 @@ class Master extends CI_controller
 		$data['content']='master/pages/Organisationform';
 		if($_POST)
 		{
-			$res=$this->Master_model->registrationform();
+			$res['data']=$this->Master_model->registrationform();
+			// print_r($res['data']);
 			if($res>0)
 			{
+				// echo "hii";
 				redirect('Master/dashboard');
 			}
 			else

@@ -117,7 +117,7 @@ class Admin extends CI_controller
 		if(in_array('C',$this->session->userdata('privileges')))
 		{
 			//set validation rules
-			$this->form_validation->set_rules('RoleName','Role Name','required|alpha');
+			$this->form_validation->set_rules('RoleName','Role Name','required');
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
         	{   //validation fails
@@ -126,7 +126,7 @@ class Admin extends CI_controller
 			else
 			{
 					//$data['rolename']=$this->input->post('RoleName');
-					$insert=$this->Admin_model->roleinsert($data);
+					$insert=$this->Admin_model->roleinsert();
 					if($insert>0)
 					{
 						echo "Yes";
@@ -153,7 +153,7 @@ class Admin extends CI_controller
 		$data['page']='admin/pages/update/update_role';
 		if($_POST)
 		{
-			$this->form_validation->set_rules('RoleName','RoleName','required|alpha');
+			$this->form_validation->set_rules('RoleName','RoleName','required');
 			if($this->form_validation->run()==true)
 			{
 				$res=$this->Admin_model->roleedit($id);
@@ -199,7 +199,7 @@ class Admin extends CI_controller
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('DepartmentName','Department Name','required|alpha');
+			$this->form_validation->set_rules('DepartmentName','Department Name','required');
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
         	{   //validation fails
@@ -229,7 +229,7 @@ class Admin extends CI_controller
 		$data['page']='admin/pages/update/update_department';
 		if($_POST)
 		{
-			$this->form_validation->set_rules('DepartmentName','Department Name','required|alpha');
+			$this->form_validation->set_rules('DepartmentName','Department Name','required');
 
 			if($this->form_validation->run()==true)
 			{
@@ -276,44 +276,36 @@ class Admin extends CI_controller
 	}
 	function employeeinsert()
 	{
-		
-		
 		if($_POST)
 		{
-
 			$insert=$this->Admin_model->employeeinsert();
 			if($insert>0)
 			{
-				//print_r($insert);
-				//print_r($insert['email']);
-				$to =$insert['email'];  // User email pass here
-		        $subject = 'username and password';
-		        $from = 'yennam20@gmail.com';
-		        $emailContent=$insert['username'].' '."your username and password";            
+				// $to =$insert['email'];  // User email pass here
+		  //       $subject = 'username and password';
+		  //       $from = 'yennam20@gmail.com';
+		  //       $emailContent=$insert['username'].' '."your username and password";            
 
+			 //    $config['protocol']    = 'smtp';
+			 //    $config['smtp_host']    = 'ssl://smtp.gmail.com';
+			 //    $config['smtp_port']    = '465';
+			 //    $config['smtp_timeout'] = '60';
 
-			    $config['protocol']    = 'smtp';
-			    $config['smtp_host']    = 'ssl://smtp.gmail.com';
-			    $config['smtp_port']    = '465';
-			    $config['smtp_timeout'] = '60';
+			 //    $config['smtp_user']    = 'yennam20@gmail.com';    //Important
+			 //    $config['smtp_pass']    = '@vishalyennam11';  //Important
 
-			    $config['smtp_user']    = 'yennam20@gmail.com';    //Important
-			    $config['smtp_pass']    = '@vishalyennam11';  //Important
+			 //    $config['charset']    = 'utf-8';
+			 //    $config['newline']    = "\r\n";
+			 //    $config['mailtype'] = 'html'; // or html
+			 //    $config['validation'] = TRUE; // bool whether to validate email or not 
 
-			    $config['charset']    = 'utf-8';
-			    $config['newline']    = "\r\n";
-			    $config['mailtype'] = 'html'; // or html
-			    $config['validation'] = TRUE; // bool whether to validate email or not 
-
-     
-
-			    $this->email->initialize($config);
-			    $this->email->set_mailtype("html");
-			    $this->email->from($from);
-			    $this->email->to($to);
-			    $this->email->subject($subject);
-			    $this->email->message($emailContent);
-			    $this->email->send();  
+			 //    $this->email->initialize($config);
+			 //    $this->email->set_mailtype("html");
+			 //    $this->email->from($from);
+			 //    $this->email->to($to);
+			 //    $this->email->subject($subject);
+			 //    $this->email->message($emailContent);
+			 //    $this->email->send();  
       
 				redirect('Admin/employee');		
 			}
@@ -373,7 +365,7 @@ class Admin extends CI_controller
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('DesignationName','Designation Name','required|alpha');
+			$this->form_validation->set_rules('DesignationName','Designation Name','required');
 
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
@@ -408,7 +400,7 @@ class Admin extends CI_controller
 		$data['page']='admin/pages/update/update_designation';
 		if($_POST)
 		{
-			$this->form_validation->set_rules('DesignationName','Designation Name','required|alpha');
+			$this->form_validation->set_rules('DesignationName','Designation Name','required');
 
 			if($this->form_validation->run()==true)
 			{
@@ -458,7 +450,7 @@ class Admin extends CI_controller
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('CountryName','Country Name','required|alpha');
+			$this->form_validation->set_rules('CountryName','Country Name','required');
 
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
@@ -493,7 +485,7 @@ class Admin extends CI_controller
 		$data['page']='admin/pages/update/update_country';
 		if($_POST)
 		{
-			$this->form_validation->set_rules('CountryName','Country Name','required|alpha');
+			$this->form_validation->set_rules('CountryName','Country Name','required');
 
 			if($this->form_validation->run()==true)
 			{
@@ -545,7 +537,7 @@ class Admin extends CI_controller
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('StateName','State Name','required|alpha');
+			$this->form_validation->set_rules('StateName','State Name','required');
 
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
@@ -576,7 +568,7 @@ class Admin extends CI_controller
 		$data['page']='admin/pages/update/update_state';
 		if($_POST)
 		{
-			$this->form_validation->set_rules('StateName','State Name','required|alpha');
+			$this->form_validation->set_rules('StateName','State Name','required');
 
 			if($this->form_validation->run()==true)
 			{
@@ -632,7 +624,7 @@ class Admin extends CI_controller
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('CityName','City Name','required|alpha');
+			$this->form_validation->set_rules('CityName','City Name','required');
 
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
@@ -663,7 +655,7 @@ class Admin extends CI_controller
 		$data['page']='admin/pages/update/update_city';
 		if($_POST)
 		{
-			$this->form_validation->set_rules('CityName','City Name','required|alpha');
+			$this->form_validation->set_rules('CityName','City Name','required');
 
 			if($this->form_validation->run()==true)
 			{
@@ -690,6 +682,8 @@ class Admin extends CI_controller
 		// $data['statedetails']=$this->Admin_model->viewstate();
 		$data['citydetails']=$this->Admin_model->viewcity();
 		$data['pincodedetails']=$this->Admin_model->viewpincode();
+
+		// print_r($data['page']);
 		$this->load->view('admin/components/layout',$data);
 	}
 	/*
@@ -720,7 +714,9 @@ class Admin extends CI_controller
 
 		$data['zonedetails']=$this->Admin_model->viewzone();
 		$data['subzonedetails']=$this->Admin_model->subviewzone();
+		// $data['info']=$this->Admin_model->get_manager();
 		$data['info']=$this->Admin_model->get_manager();
+		// print_r($data['info']);
 		$data['state']=$this->Admin_model->viewstate();
 		$this->load->view('admin/components/layout',$data);
 	}
@@ -729,11 +725,11 @@ class Admin extends CI_controller
 		Zone Insert
 	*/
 	function zoneinsert()
-	{		
+	{
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('ZoneName','Zone Name','required|alpha');
+			$this->form_validation->set_rules('ZoneName','Zone Name','required');
 			$this->form_validation->set_rules('Employee','Select Employee','required');
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
@@ -755,6 +751,23 @@ class Admin extends CI_controller
 		}
 	}
 
+/**
+		Change the active status to termiante
+	**/
+	function deletezone()
+	{
+		$id=$this->input->get('zone_code');
+		$res=$this->Admin_model->deletezone($id);
+		if($res>0)
+		{
+			redirect('Admin/zone');	
+		}
+		else
+		{
+			echo "Data is not deleted";
+		}
+	}
+
 	/*
 		Zone Update
 	*/
@@ -763,11 +776,11 @@ class Admin extends CI_controller
 	{
 		$zone_code=$this->input->get('zone_code');
 		$data['page']="admin/pages/update/update_zone";
-		$data['empdetails']=$this->Admin_model->employeedetails_by_id();
+		$data['empdetails']=$this->Admin_model->get_manager();
 		$data['zonedetails']=$this->Admin_model->zonedetails_by_id($zone_code);
 		if($_POST)
 		{
-			$this->form_validation->set_rules('ZoneName','Zone Name','required|alpha');
+			$this->form_validation->set_rules('ZoneName','Zone Name','required');
 			$this->form_validation->set_rules('Employee','Select Employee','required');
 			$this->form_validation->set_rules('statuscombo','Select Status','required');
 			if($this->form_validation->run()==TRUE)
@@ -794,7 +807,7 @@ class Admin extends CI_controller
 		$data['zonedetails']=$this->Admin_model->zonedetails_by_id($zone_code);
 		if($_POST)
 		{
-			$this->form_validation->set_rules('SubZoneName','Sub Zone','required|alpha');
+			$this->form_validation->set_rules('SubZoneName','Sub Zone','required');
 			$this->form_validation->set_rules('state','Select State','required');
 			$this->form_validation->set_rules('city[]','Select City','required');
 			$this->form_validation->set_rules('Employee','Select Employee','required');
@@ -828,9 +841,11 @@ class Admin extends CI_controller
 	{
 		if($_POST)
 		{
-			$this->form_validation->set_rules('SubZoneName','Sub Zone Name','required|alpha');
+			// echo $this->input->post('Employee');
+			// echo "hii";
+			$this->form_validation->set_rules('emp','Select Employee','required');
+			$this->form_validation->set_rules('SubZoneName','Sub Zone Name','required');
 			$this->form_validation->set_rules('state','Select State','required');
-			$this->form_validation->set_rules('Employee','Select Employee','required');
 			if($this->form_validation->run()==FALSE)
 			{
 				echo validation_errors();
@@ -866,7 +881,7 @@ class Admin extends CI_controller
 		{
 			$this->form_validation->set_rules('companycombo','Select Company','required');
 			$this->form_validation->set_rules('producttype','Select ProductType','required');
-			$this->form_validation->set_rules('name','Select Name','required|alpha');
+			$this->form_validation->set_rules('name','Select Name','required');
 			$this->form_validation->set_rules('productcode','Product Code','required');
 			$this->form_validation->set_rules('description','Description','required');
 			$this->form_validation->set_rules('customerprice','Price','required|numeric');
@@ -919,7 +934,7 @@ class Admin extends CI_controller
 	{
 		if ($_POST) 
 		{
-			$this->form_validation->set_rules('CompanyName','Company','required|alpha');
+			$this->form_validation->set_rules('CompanyName','Company','required');
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
         	{   //validation fails
@@ -949,7 +964,7 @@ class Admin extends CI_controller
 		
 		if($_POST)
 		{	
-			$this->form_validation->set_rules('CompanyName','Company','required|alpha');
+			$this->form_validation->set_rules('CompanyName','Company','required');
 			$this->form_validation->set_rules('statuscombo','Select Status','required');
 			//run validation check
         	if ($this->form_validation->run() == TRUE)
@@ -980,7 +995,7 @@ class Admin extends CI_controller
 		{
 			//set validation rules
 			$this->form_validation->set_rules('companycombo','Select Company','required');
-			$this->form_validation->set_rules('ProductName','Product Name','required|alpha');
+			$this->form_validation->set_rules('ProductName','Product Name','required');
 			//run validation check
         	if ($this->form_validation->run() == FALSE)
         	{   //validation fails
@@ -1015,7 +1030,7 @@ class Admin extends CI_controller
 		{
 			$this->form_validation->set_rules('companycombo','Select Company','required');
 			$this->form_validation->set_rules('producttype','Select ProductType','required');
-			$this->form_validation->set_rules('name','Select Name','required|alpha');
+			$this->form_validation->set_rules('name','Select Name','required');
 			$this->form_validation->set_rules('productcode','Product Code','required');
 			$this->form_validation->set_rules('description','Description','required');
 			$this->form_validation->set_rules('customerprice','Price','required|numeric');
@@ -1067,7 +1082,7 @@ class Admin extends CI_controller
 		if($_POST)
 		{	
 			//set validation rules
-			$this->form_validation->set_rules('ProductTypeName','Product Type Name','required|alpha');
+			$this->form_validation->set_rules('ProductTypeName','Product Type Name','required');
 			$this->form_validation->set_rules('statuscombo','Select Status','required');
 			//run validation check
         	if ($this->form_validation->run() == TRUE)
@@ -1197,7 +1212,7 @@ class Admin extends CI_controller
 		if($_POST)
 		{
 			//set validation rules
-			$this->form_validation->set_rules('ClientName','Client Name','required|alpha');
+			$this->form_validation->set_rules('ClientName','Client Name','required');
 			$this->form_validation->set_rules('email','email','required');
 			$this->form_validation->set_rules('dob','dob','required');
 			$this->form_validation->set_rules('zone','zone','required');
@@ -1322,12 +1337,12 @@ class Admin extends CI_controller
 				$update['data']=$this->Admin_model->updatelead($code);
 				if($update['data']>0)
 				{
-					// redirect('Admin/leadlist');
-				print_r($update['data']);
+					redirect('Admin/leadlist');
+				// print_r($update['data']);
 				}
 				else
 				{
-					print_r($update['data']);
+					// print_r($update['data']);
 					echo "Data not updated";
 				}
 			}	
@@ -1389,8 +1404,8 @@ class Admin extends CI_controller
 			$this->form_validation->set_rules('company_name','Company Name','required');
 			$this->form_validation->set_rules('gst','GST','required|numeric');
 			$this->form_validation->set_rules('address','Address','required');
-			$this->form_validation->set_rules('cp_name[]','Name','required|alpha');
-			$this->form_validation->set_rules('cp_designation[]','Designation','required|alpha');
+			$this->form_validation->set_rules('cp_name[]','Name','required');
+			$this->form_validation->set_rules('cp_designation[]','Designation','required');
 			$this->form_validation->set_rules('cp_mobile[]','Mobile','required');
 			$this->form_validation->set_rules('cp_email[]','Email','required|valid_email');
 			if($this->form_validation->run()==TRUE)
@@ -1576,6 +1591,20 @@ class Admin extends CI_controller
 		//$data['leaddetails']=$this->Admin_model->viewleadlist();
 		$this->load->view('admin/components/layout',$data);
 	}
+
+	function quotation_delete()
+	{
+		$q_code=$this->input->get("quotation_code");
+		$del=$this->Admin_model->quotation_delete($q_code);
+		if($del>0)
+		{
+			redirect('Admin/pendinglist');
+		}
+		else{
+			echo "<script>alert('data is not deleted');</script>";
+		}
+	}
+
 	/**
 		Quotation-CloseList 
 	**/
@@ -1653,6 +1682,9 @@ class Admin extends CI_controller
 	**/
 	function update_quotation_form($id)
 	{
+		//echo $this->input->get("id");
+		print_r($id);
+
 		$data['details']=$this->Admin_model->updatedetailsbyid($id);
 		$data['productdetails']=$this->Admin_model->fetch_productdetails();
 		$data['companydetails']=$this->Admin_model->companydetails();
