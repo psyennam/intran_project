@@ -93,28 +93,29 @@ class Report_model extends CI_model
 	{
 		$this->db->select('*')->from('lead as l1');
 		$this->db->join('client s1','l1.supplier_code=s1.client_code');
-		$this->db->join('zone as z1','z1.zone_code=l1.zone_code');
+		$this->db->	join('zone as z1','z1.zone_code=l1.zone_code');
 		$this->db->join('city as c1','c1.city_code=l1.city_code');
 		$this->db->join('employee as e1','e1.employee_code=l1.employee_code');
+		$this->db->where('DATE(l1.created_at) >= ', $fromdate);
 		// $this->db->join('employee as e1','e1.employee_code=l1.employee');
-		
-		if(!empty($fromdate))
-			$this->db->where('DATE(l1.created_at) >= ', $fromdate);
+		echo $fromdate;
+		//if(!empty($fromdate))
+			//$this->db->where('DATE(l1.created_at) >= ', $fromdate);
 		// else
 		// 	$this->db->where('DATE(exp.date) >= ', date('Y-m-d'));
 		
-		if(!empty($todate))
-			$this->db->where('DATE(l1.created_at) <= ', $todate);
+		//if(!empty($todate))
+			//$this->db->where('DATE(l1.created_at) <= ', $todate);
 		// else
 		// 	$this->db->where('DATE(exp.date) <= ', date('Y-m-d'));
 
-		if(!empty($optzone))
+		/*if(!empty($optzone))
 			// $this->db->join('employee','exp.employee_code=employee.employee_code');
 			$this->db->where('l1.zone_code',$optzone);
 
 		if(!empty($optcity))
 			// $this->db->join('employee','exp.employee_code=employee.employee_code');
-			$this->db->where('l1.city_code',$optcity);
+			$this->db->where('l1.city_code',$optcity);*/
 
 		return $this->db->get()->result();
 	}

@@ -159,7 +159,6 @@ class Report extends CI_controller
 		$optcity = $this->input->post('optcity');
 		$fromdate = $this->input->post('fromdate');
 		$todate = $this->input->post('todate');
-		
 		$data=$this->Report_model->lead_common($optzone,$optcity,$fromdate,$todate);
 		$i=1;
 		foreach ($data as $key) 

@@ -123,22 +123,7 @@ class Client extends CI_controller
 		}
 	}
 
-/*
-		Delete Lead(Lead)
-	*/
-	function deletelead()
-	{
-		$id=$this->input->get('lead_code');
-		$res=$this->Client_model->deletelead($id);
-		if($res>0)
-		{
-			redirect('Client/leadlist');	
-		}
-		else
-		{
-			echo "Data is not updated";
-		}
-	}
+
 
 	function opt_zone($zone)
 	{
