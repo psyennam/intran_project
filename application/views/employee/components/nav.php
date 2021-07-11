@@ -26,7 +26,7 @@
           </li>
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-pie-chart"></i>
+              <i class="fa fa-bug"></i>
               <span><?= __lang('Complaint'); ?></span>
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
@@ -42,7 +42,7 @@
         <?php if($this->session->userdata('role')=="Employee" && $this->session->userdata('designation')=="Manager"){?>
         <li class="treeview">
             <a href="#">
-              <i class="fa fa-pie-chart"></i>
+              <i class="fa fa-users"></i>
               <span><?= __lang('Client'); ?></span>
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>

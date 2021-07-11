@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-graduation-cap"></i>
             <span><?= __lang('Master');?></span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  -->
           <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-users"></i>
             <span><?= __lang('Client');?></span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-pie-chart"></i>
+            <i class="fa fa-book"></i>
             <span><?= __lang('Reports'); ?></span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
