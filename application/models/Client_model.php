@@ -209,7 +209,7 @@ class Client_model extends CI_model
 					'customer_available'=>$this->input->post('customercombo'),
 					'concerned_person'=>$this->input->post('concernperson'),
 					'contact_person'=>$this->input->post('Personname'),
-					// 'location'=>
+					'location'=>$this->input->post('location'),
 					// 'contact_no'=>
 					'quotation_require'=>$this->input->post('quotationreq'),
 					'visit_type'=>$this->input->post('visitetype'),

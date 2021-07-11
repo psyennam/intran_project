@@ -88,6 +88,7 @@
         </div>
           <form method="post" enctype="multipart/form-data" action="<?= base_url('Client/leadlist_insert'); ?>">
         <div class="modal-body">
+          <input type="hidden" name="location" id="location">
           <div class="row" style="text-align:center;">
             <div class="col-md-12">
               <select class="form-control" name="customercombo" id="customercombo" onchange="check()">
@@ -261,6 +262,22 @@
       'autoWidth'   : false
     })
   })
+
+function geoFindMe() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  $('#location').val("{\"lat\":"+position.coords.latitude + ", \"long\":" + position.coords.longitude+'}');
+}
+
+geoFindMe();
+
+
 
 $(document).ready(function(){  
    $('.lead-modal').click(function(){

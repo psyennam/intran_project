@@ -18,6 +18,7 @@
                     <th>Customer Available/Not</th>
           					<th>Dealership name</th>
           					<th>Quotation Require</th>
+                    <th>Location</th>
           			 </tr>
                 </thead>
                 <tbody>
@@ -27,7 +28,8 @@
                         <td><?= visit_type($key->visit_type);?></td>
                         <td><?= $key->customer_available ?></td>
                     		<td><?php echo client_name($key->lead_code); ?></td>
-                        <td><?php echo $key->quotation_require;?></td>					
+                        <td><?php echo $key->quotation_require;?></td>
+                        <td><?= $key->location;?></td>					
                     	</tr>	
                     	<?php } } ?>
                   </tbody>
