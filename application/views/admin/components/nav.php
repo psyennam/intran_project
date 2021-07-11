@@ -84,7 +84,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="active"><a href="<?php echo base_url('Admin/leadlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Lead List'); ?></a></li>
             <li class="active"><a href="<?php echo base_url('Admin/quotationlist');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation List'); ?></a></li>
             <li class="active"><a href="<?php echo base_url('Admin/quotationcloselist');?>"><i class="fa fa-circle-o"></i><?= __lang('Quotation Close List'); ?></a></li>
-            <li class="active"><a href="<?php echo base_url('Admin/pendinglist');?>"><i class="fa fa-circle-o"></i><?= __lang('Pending Quotation List'); ?></a></li>  
+            <li class="active"><a href="<?php echo base_url('Admin/pendinglist');?>"><i class="fa fa-circle-o"></i><?= __lang('Pending Quotation List'); ?></a></li>
+            <li class="active"><a href="<?php echo base_url('Admin/followuplist');?>"><i class="fa fa-circle-o"></i><?= __lang('Followup List'); ?></a></li>  
           </ul>
         </li>
         <li class="treeview">
