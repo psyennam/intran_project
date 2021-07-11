@@ -819,7 +819,7 @@ class Admin extends CI_controller
 	{
 		$zone_code=$this->input->get('zone_code');
 		$data['page']="admin/pages/update/update_subzone";
-		$data['empdetails']=$this->Admin_model->employeedetails_by_id();
+		$data['empdetails']=$this->Admin_model->get_manager();
 		$data['state']=$this->Admin_model->viewstate();
 		$data['zonedetails']=$this->Admin_model->zonedetails_by_id($zone_code);
 		if($_POST)

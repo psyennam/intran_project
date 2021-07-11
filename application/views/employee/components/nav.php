@@ -31,7 +31,7 @@
               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
             </a>
             <ul class="treeview-menu">
-              <?php if($this->session->userdata('designation')=="Service Technician") { ?>
+              <?php if($this->session->userdata('designation')=="Chief Technician") { ?>
               <li class="active"><a href="<?php echo base_url('Complaint/complaint_tracking');?>"><i class="fa fa-circle-o"></i><?= __lang('Complaint'); ?></a></li>
               <li class="active"><a href="<?php echo base_url('Complaint/close_tracking');?>"><i class="fa fa-circle-o"></i><?= __lang('Close'); ?></a></li>
               <?php }else{ ?>
