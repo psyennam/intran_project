@@ -162,7 +162,7 @@ class User extends CI_controller
 	function opt_invoice($lead_code)
 	{
 		try{
-			$res = $this->db->select('invoice_number as code')->where('lead_code',$lead_code)->get('quotation')->result();
+			$res = $this->db->select('invoice_number as code')->where('lead_code',$lead_code)->where('status',2)->get('quotation')->result();
 
 			json_response($res, 200);
 		}catch(Exception $e){

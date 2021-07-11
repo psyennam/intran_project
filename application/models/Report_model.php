@@ -91,31 +91,33 @@ class Report_model extends CI_model
 
 	function lead_common($optzone,$optcity,$fromdate,$todate)
 	{
-		$this->db->select('*')->from('lead as l1');
-		$this->db->join('client s1','l1.supplier_code=s1.client_code');
-		$this->db->	join('zone as z1','z1.zone_code=l1.zone_code');
+		$this->db->select('l1.*,s1.client_code,s1.client,z1.zone_code,z1.zone,c1.city_code,c1.city,u1.username')->from('lead as l1');
+		$this->db->join('client as s1','l1.supplier_code=s1.client_code');
+		$this->db->join('zone as z1','z1.zone_code=l1.zone_code');
 		$this->db->join('city as c1','c1.city_code=l1.city_code');
-		$this->db->join('employee as e1','e1.employee_code=l1.employee_code');
-		$this->db->where('DATE(l1.created_at) >= ', $fromdate);
+		$this->db->join('user as u1','u1.username=l1.employee_code');
+		// $CI->db->join('user_email', 'user_email.user_id = emails.id', 'left');
+		// $this->db->join('employee as e1','e1.employee_code=l1.employee_code');
+		// $this->db->where('DATE(l1.created_at) >= ', $fromdate);
 		// $this->db->join('employee as e1','e1.employee_code=l1.employee');
-		echo $fromdate;
-		//if(!empty($fromdate))
-			//$this->db->where('DATE(l1.created_at) >= ', $fromdate);
+		// echo $fromdate;
+		if(!empty($fromdate))
+			$this->db->where('DATE(l1.created_at) >= ', $fromdate);
 		// else
 		// 	$this->db->where('DATE(exp.date) >= ', date('Y-m-d'));
 		
-		//if(!empty($todate))
-			//$this->db->where('DATE(l1.created_at) <= ', $todate);
+		if(!empty($todate))
+			$this->db->where('DATE(l1.created_at) <= ', $todate);
 		// else
 		// 	$this->db->where('DATE(exp.date) <= ', date('Y-m-d'));
 
-		/*if(!empty($optzone))
-			// $this->db->join('employee','exp.employee_code=employee.employee_code');
+		if(!empty($optzone))
+			 // $this->db->join('employee','exp.employee_code=employee.employee_code');
 			$this->db->where('l1.zone_code',$optzone);
 
 		if(!empty($optcity))
 			// $this->db->join('employee','exp.employee_code=employee.employee_code');
-			$this->db->where('l1.city_code',$optcity);*/
+			$this->db->where('l1.city_code',$optcity);
 
 		return $this->db->get()->result();
 	}
@@ -176,6 +178,7 @@ class Report_model extends CI_model
 		->join('mapping_employee as me','e.employee_code=me.employee_code')
 		->join('designation as d','d.designation_code=me.designation_code')
 		->where('d.designation',"Service Technician")
+		->or_where('d.designation',"Chief Technician")
 		->get()->result();
 	}
 

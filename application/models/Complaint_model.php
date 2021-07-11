@@ -21,7 +21,7 @@ class Complaint_model extends CI_model
 		->from('employee')
 		->join('mapping_employee','mapping_employee.employee_code=employee.employee_code')
 		->join('designation','mapping_employee.designation_code=designation.designation_code')
-		->where('designation.designation',"Chief Technician")->get()->result();
+		->where('designation.designation',"Chief Technician")->or_where('designation.designation',"Service Technician")->get()->result();
 	}
 
 

@@ -79,6 +79,12 @@ function supplier_name($supplier_code)
 	return $ci->db->select('client')->where('client_code',$supplier_code)->get('client')->row()->client;	
 }
 
+function get_employee_name($username)
+{
+	$ci = &get_instance();
+	return $ci->db->select('employee')->where('employee_code',$username)->get('employee')->row()->employee;
+}
+
 function emp_name($emp_code)
 {
 	$ci = &get_instance();

@@ -255,11 +255,11 @@ class Client extends CI_controller
 			$this->form_validation->set_rules('optpin','Select Pin-Code','required');
 			$this->form_validation->set_rules('supplier','Select Sub-Zone','required');
 			$this->form_validation->set_rules('brand','Select Sub-Zone','required');
-			$this->form_validation->set_rules('company_name','Company Name','required|alpha');
+			$this->form_validation->set_rules('company_name','Company Name','required');
 			$this->form_validation->set_rules('gst','GST','required|numeric');
 			$this->form_validation->set_rules('address','Address','required');
-			$this->form_validation->set_rules('cp_name[]','Name','required|alpha');
-			$this->form_validation->set_rules('cp_designation[]','Designation','required|alpha');
+			$this->form_validation->set_rules('cp_name[]','Name','required');
+			$this->form_validation->set_rules('cp_designation[]','Designation','required');
 			$this->form_validation->set_rules('cp_mobile[]','Mobile','required');
 			$this->form_validation->set_rules('cp_email[]','Email','required|valid_email');
 			if($this->form_validation->run()==TRUE)

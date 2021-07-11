@@ -167,7 +167,13 @@ class Report extends CI_controller
 			echo "<td>".$i++."</td>";
 			echo "<td>".$key->company_name."</td>";
 			echo "<td>".$key->client."</td>";
-			echo "<td>".$key->employee."</td>";
+			if($key->username===$this->session->userdata("org_code"))
+			{
+				echo "<td>".'Admin'."</td>";
+			}
+			else{
+			echo "<td>".get_employee_name($key->username)."</td>";
+			}
 			echo "<td>".$key->zone."</td>";
 			echo "<td>".$key->city."</td>";
 			echo "<td>".__date_format($key->created_at,'ddmmyyyy')."</td>";
