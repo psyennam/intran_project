@@ -73,6 +73,7 @@
                 <th><?= __lang('SUb Zone');?></th>
                 <th><?= __lang('city');?></th>
                 <th><?= __lang('Employee');?></th>
+                <th><?= __lang('Status');?></th>
                 <th><?= __lang('Update');?></th>
                 <th><?= __lang('Delete');?></th>
               </tr>
@@ -83,9 +84,10 @@
                     <td><?php echo $i;?></td>
                     <td><?php echo $key->zone; ?></td>
                      <td><?php echo (get_title($key->state_code)); ?></td>
-                     <td><?php echo $key->employee; ?></td>      
+                     <td><?php echo $key->employee; ?></td>  
+                     <td><?php echo is_status($key->status); ?></td>     
                     <td><a href="updatesubzone?zone_code=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#updatemodel"><?= __lang('UPDATE');?></button></a></td>
-                    <td><a href="deleterole?id=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
+                    <td><a href="deletesubzone?zone_code=<?php echo $key->zone_code;?>"><button type="button" class="btn btn-block btn-primary"><?= __lang('DELETE');?></button></a></td>
                     <!-- <td><button type="button" class="btn btn-success open_zone_modal" data-zonecode = "<?= $key->zone_code ;?>">Add</button></td> -->          
                   </tr> 
                 <?php } } ?>

@@ -726,6 +726,7 @@ class Admin extends CI_controller
 	*/
 	function zoneinsert()
 	{
+		
 		if($_POST)
 		{
 			//set validation rules
@@ -768,6 +769,22 @@ class Admin extends CI_controller
 		}
 	}
 
+/**
+		Change the active status to termiante
+	**/
+	function deletesubzone()
+	{
+		$id=$this->input->get('zone_code');
+		$res=$this->Admin_model->deletesubzone($id);
+		if($res>0)
+		{
+			redirect('Admin/zone');	
+		}
+		else
+		{
+			echo "Data is not deleted";
+		}
+	}
 	/*
 		Zone Update
 	*/

@@ -674,7 +674,25 @@ class Admin_model extends CI_model
 			return false;
 		}
 	}
-
+	/**
+		In this deletedata function if Oragnsation admin want to termiante any zone  then this function will change the active=terminate  
+	**/
+	function deletesubzone($id)
+	{	
+			$user=[
+					'status'=>1
+					];
+			$this->db->where('zone_code',$id);	
+			$res=$this->db->update('zone',$user);
+			if($res>0)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+	}
 	/**
 		In this function it gives all the data from the state table 
 	**/
@@ -1011,14 +1029,21 @@ class Admin_model extends CI_model
 	function updatesubzone($zone_code)
 	{
 		$data=[
-			'zone_code'=>$zone_code,
 			'zone'=>$this->input->post('SubZoneName'),
 			'state_code'=>implode(',',$this->input->post('city[]')),
 			'employee'=>$this->input->post('Employee'),
+			'status'=>$this->input->post('statuscombo')
 		];
-		$this->db->where('zone_code',$zonecode);
+		$this->db->where('zone_code',$zone_code);
 		$res=$this->db->update('zone',$data);
-		return $res;
+		if($res>0)
+		{
+			return $res;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	function get_manager()
