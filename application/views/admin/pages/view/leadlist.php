@@ -78,128 +78,129 @@
           <h4 class="modal-title">Available / Not Available</h4>
         </div>
           <form method="post" enctype="multipart/form-data" action="<?= base_url('Admin/leadlist_insert'); ?>">
-        <div class="modal-body">
-          <div class="row" style="text-align:center;">
-            <div class="col-md-12">
-              <select class="form-control" name="customercombo" id="customercombo" onchange="check()" required>
-                <option value="">---Select----</option>
-                <option value="Customer Availabel" id="CA">Customer Availabel</option>
-                <option value="Customer Not Availabel" id="CNA">Customer Not Availabel</option>
-              </select>
-            </div>
-          </div>
+            <div class="modal-body">
+              <input type="hidden" name="location" id="location">
+              <div class="row" style="text-align:center;">
+                <div class="col-md-12">
+                  <select class="form-control" name="customercombo" id="customercombo" onchange="check()" required>
+                    <option value="">---Select----</option>
+                    <option value="Customer Availabel" id="CA">Customer Availabel</option>
+                    <option value="Customer Not Availabel" id="CNA">Customer Not Availabel</option>
+                  </select>
+                </div>
+              </div>
 
-          <input type="hidden" id="hdnId" name="lead_code">
-            <div id="maindiv">
-              <div id="hiddendiv">
+            <input type="hidden" id="hdnId" name="lead_code">
+              <div id="maindiv">
+                <div id="hiddendiv">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group col-md-6">
+                        <label>Visite Type<span style="color:red">*</span></label>
+                        <select id="visitetype" name="visitetype" class="form-control" required>
+                          <option value="1">Customer called</option>
+                          <option value="2">Made a cold call visit</option>
+                          <option value="3">phone call</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Concerned person is Same?<span style="color:red">*</span></label>
+                        <select id="concernperson" name="concernperson" class="form-control Concernperson" onchange="getcontactdiv();" required>
+                          <option value="">Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6">
+                        <label>Person Name<span style="color:red">*</span></label>
+                        <select id="Personname" name="Personname" class="form-control Personname" required>
+                        </select>
+                      </div>
+                      
+                      <div class="form-group col-md-6">
+                        <label>Quotation Required<span style="color:red">*</span></label>
+                        <select id="quotationreq" name="quotationreq" class="form-control" required>
+                          <option value="">Select</option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-md-6" id="getremarkdivs">
+                        <label>Additional Remarks</label>
+                        <textarea id="remark" name="remark" class="form-control"></textarea>
+                      </div>
+                      <div class="form-group col-md-6" id="getremarkdivs">
+                          <div id="alert-msg"></div>                      
+                      </div> 
+                    </div>
+                  </div>
+              </div>
+              <div id="ContactPerson" style="display: none;">
+                <div class="box-header with-border" id="addcontactdivs">
+                  <h3 class="box-title">Contact Person</h3>
+                </div>
+                <div class="row" id="addcontactdiv">
+                  <div class="col-md-12">
+                    <div class="table-responsive">
+                      <table id="sample_data" class="table table-bordered table-striped" width="100%">
+                        <thead>
+                          <tr>
+                            <th class="span2" width="10%">Option</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Mobile</th>
+                            <th>Email id</th>
+                          </tr>
+                        </thead>
+                        <tbody id="product_table_body">
+                          <tr>
+                            <td style="text-align:center !important;"><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
+                            <td><input type="text" id="cp_name" name="cp_name[]"></td>
+                            <td><input type="text" id="cp_designation" name="cp_designation[]"></td>
+                            <td><input type="text" id="cp_mobile" name="cp_mobile[]"></td>
+                            <td><input type="text" id="cp_email" name="cp_email[]"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="row" >
+                    <div class="col-md-3">
+                      <a href="#">
+                        <!-- <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/> -->
+                          <button class="btn btn-primary"><?= __lang('Submit');?></button>
+                        </a>
+                    </div>
+                  </div>
+              </div>
+            </form>
+            
+            <form method="post">
+              <div class="hiddendiv2" id="hiddendiv2" style="display: none;">
                 <div class="row">
                   <div class="col-md-12">
-                    <div class="form-group col-md-6">
-                      <label>Visite Type<span style="color:red">*</span></label>
-                      <select id="visitetype" name="visitetype" class="form-control" required>
-                        <option value="1">Customer called</option>
-                        <option value="2">Made a cold call visit</option>
-                        <option value="3">phone call</option>
-                      </select>
+                    <div class="col-md-12 form-group">
+                      <label>Contact Person</label>
+                      <input type="text" name="cperson" id="cperson" class="form-control">
                     </div>
-                    <div class="form-group col-md-6">
-                      <label>Concerned person is Same?<span style="color:red">*</span></label>
-                      <select id="concernperson" name="concernperson" class="form-control Concernperson" onchange="getcontactdiv();" required>
-                        <option value="">Select</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                      </select>
+                    <div class="col-md-12 form-group">
+                      <label>Remark</label>
+                      <textarea id="remark" class="form-control"></textarea>
                     </div>
-                    <div class="form-group col-md-6">
-                      <label>Person Name<span style="color:red">*</span></label>
-                      <select id="Personname" name="Personname" class="form-control Personname" required>
-                      </select>
-                    </div>
-                    
-                    <div class="form-group col-md-6">
-                      <label>Quotation Required<span style="color:red">*</span></label>
-                      <select id="quotationreq" name="quotationreq" class="form-control" required>
-                        <option value="">Select</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                      </select>
-                    </div>
-                    <div class="form-group col-md-6" id="getremarkdivs">
-                      <label>Additional Remarks</label>
-                      <textarea id="remark" name="remark" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group col-md-6" id="getremarkdivs">
-                        <div id="alert-msg"></div>                      
-                    </div> 
-                  </div>
-                </div>
-            </div>
-            <div id="ContactPerson" style="display: none;">
-              <div class="box-header with-border" id="addcontactdivs">
-                <h3 class="box-title">Contact Person</h3>
-              </div>
-              <div class="row" id="addcontactdiv">
-                <div class="col-md-12">
-                  <div class="table-responsive">
-                    <table id="sample_data" class="table table-bordered table-striped" width="100%">
-                      <thead>
-                        <tr>
-                          <th class="span2" width="10%">Option</th>
-                          <th>Name</th>
-                          <th>Designation</th>
-                          <th>Mobile</th>
-                          <th>Email id</th>
-                        </tr>
-                      </thead>
-                      <tbody id="product_table_body">
-                        <tr>
-                          <td style="text-align:center !important;"><a href="javascript:void(0);" class="addCF"><i class="fa fa-plus" aria-hidden="true"></i></a></td>
-                          <td><input type="text" id="cp_name" name="cp_name[]"></td>
-                          <td><input type="text" id="cp_designation" name="cp_designation[]"></td>
-                          <td><input type="text" id="cp_mobile" name="cp_mobile[]"></td>
-                          <td><input type="text" id="cp_email" name="cp_email[]"></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-              <div class="row" >
-                  <div class="col-md-3">
-                    <a href="#">
-                      <!-- <input class="btn btn-primary" id="submit" name="submit" type="button" value="<?= __lang('Submit');?>"/> -->
-                        <button class="btn btn-primary"><?= __lang('Submit');?></button>
-                      </a>
-                  </div>
-                </div>
-            </div>
-          </form>
-          
-          <form method="post">
-            <div class="hiddendiv2" id="hiddendiv2" style="display: none;">
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="col-md-12 form-group">
-                    <label>Contact Person</label>
-                    <input type="text" name="cperson" id="cperson" class="form-control">
-                  </div>
-                  <div class="col-md-12 form-group">
-                    <label>Remark</label>
-                    <textarea id="remark" class="form-control"></textarea>
-                  </div>
-                  <div class="col-md-12 form-group">
-                    <div class="alert alert-success alert-dismissible" id="alertsuccess" style="display:none !important;">
-                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                      <h4>CheckOut Successfully</h4>
+                    <div class="col-md-12 form-group">
+                      <div class="alert alert-success alert-dismissible" id="alertsuccess" style="display:none !important;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4>CheckOut Successfully</h4>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </form>
+            </form>
 
-        </div>
+          </div>
 
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
@@ -208,45 +209,60 @@
   </div>
 </div>
 
-  <div class="modal fade" id="modal-default1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="checkabc"></h4>
-          <h4 class="modal-title">CheckOut</h4>
-        </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-12 form-group">
-                <label>Contact Person</label>
-                <select id="cperson" class="form-control">
-                </select>
-              </div>
-              <div class="col-md-12 form-group">
-                <label>Remark</label>
-                <textarea id="remark" class="form-control"></textarea>
-              </div>
-              <div class="col-md-12 form-group">
-                <div class="alert alert-success alert-dismissible" id="alertsuccess" style="display:none !important;">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                  <h4>CheckOut Successfully</h4>
-                </div>
+<div class="modal fade" id="modal-default1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="checkabc"></h4>
+        <h4 class="modal-title">CheckOut</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-12 form-group">
+              <label>Contact Person</label>
+              <select id="cperson" class="form-control">
+              </select>
+            </div>
+            <div class="col-md-12 form-group">
+              <label>Remark</label>
+              <textarea id="remark" class="form-control"></textarea>
+            </div>
+            <div class="col-md-12 form-group">
+              <div class="alert alert-success alert-dismissible" id="alertsuccess" style="display:none !important;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4>CheckOut Successfully</h4>
               </div>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-          <input type="submit" id="btnCheckout" class="btn btn-primary" value="CheckOut" onclick="checkout();" style="margin-top: 22px;">
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+        <input type="submit" id="btnCheckout" class="btn btn-primary" value="CheckOut" onclick="checkout();" style="margin-top: 22px;">
       </div>
     </div>
   </div>
+</div>
 <script type="text/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
  <script>
+function geoFindMe() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  $('#location').val("{\"lat\":"+position.coords.latitude + ", \"long\":" + position.coords.longitude+'}');
+}
+
+geoFindMe();
+
+
 $(function () {
     $('#example1').DataTable()
     $('#example2').DataTable({

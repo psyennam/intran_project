@@ -991,24 +991,21 @@ class Admin_model extends CI_model
 			'zone_code'=>$randomid,
 			'zone'=>$this->input->post('SubZoneName'),
 			'employee'=>$this->input->post('emp'),
-			'state_code'=>implode(',',$this->input->post('city[]')),
+			'state_code'=> implode(',', $this->input->post('state')),
 			'org_code'=>$this->session->userdata('org_code'),
 			'created_at'=>date('y-m-d H:i:s'),
 			'parent'=>$this->input->post('zonecode'),
 			'ip_address'=>$ip
 		];
 
-		// print_r($data['state_code']);
-		print_r($this->input->post('Employee'));
-		
-		// $insert=$this->db->insert('zone',$data);
-		// if($insert>0)
-		// {
-		// 	return true;
-		// }
-		// else{
-		// 	return false;
-		// }
+		$insert=$this->db->insert('zone',$data);
+		if($insert>0)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	function updatesubzone($zone_code)
@@ -1565,8 +1562,7 @@ class Admin_model extends CI_model
 					'customer_available'=>$this->input->post('customercombo'),
 					'concerned_person'=>$this->input->post('concernperson'),
 					'contact_person'=>$this->input->post('Personname'),
-					// 'location'=>
-					// 'contact_no'=>
+					'location'=>$this->input->post('location'),
 					'quotation_require'=>$this->input->post('quotationreq'),
 					'visit_type'=>$this->input->post('visitetype'),
 					'additional_remark'=>$this->input->post('remark'),

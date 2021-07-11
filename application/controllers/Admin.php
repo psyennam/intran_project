@@ -714,8 +714,8 @@ class Admin extends CI_controller
 
 		$data['zonedetails']=$this->Admin_model->viewzone();
 		$data['subzonedetails']=$this->Admin_model->subviewzone();
-		// $data['info']=$this->Admin_model->get_manager();
 		$data['info']=$this->Admin_model->get_manager();
+		//$data['info']=$this->Admin_model->get_manager();
 		// print_r($data['info']);
 		$data['state']=$this->Admin_model->viewstate();
 		$this->load->view('admin/components/layout',$data);
@@ -841,11 +841,9 @@ class Admin extends CI_controller
 	{
 		if($_POST)
 		{
-			// echo $this->input->post('Employee');
-			// echo "hii";
 			$this->form_validation->set_rules('emp','Select Employee','required');
 			$this->form_validation->set_rules('SubZoneName','Sub Zone Name','required');
-			$this->form_validation->set_rules('state','Select State','required');
+			$this->form_validation->set_rules('state[]','Select State','required');
 			if($this->form_validation->run()==FALSE)
 			{
 				echo validation_errors();

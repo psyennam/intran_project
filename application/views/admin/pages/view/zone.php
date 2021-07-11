@@ -277,8 +277,9 @@ $('#zoneinsert').click(function() {
 $('#subzoneinsert').click(function() {
     var form_data = {
         SubZoneName: $('#SubZoneName').val(),
-        Employee: $('#Employee').val(),
-        state: $('#state').val(),
+        emp: $('#emp').val(),
+        state: $('#optcity').val(),
+        zonecode: $('#zonecode').val(),
     };
     $.ajax({
         url: "<?php echo base_url('Admin/subzoneinsert'); ?>",
