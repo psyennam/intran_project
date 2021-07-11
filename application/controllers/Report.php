@@ -109,7 +109,7 @@ class Report extends CI_controller
 			echo "<tr>";
 			echo "<td>".$i++."</td>";
 			echo "<td>"?><a href="<?php echo base_url('Test/close/'.$key->quotation_code);?>"><button type="button" class="btn btn-primary">PDF</button></a><?php echo "</td>";
-			echo "<td>".$key->	_number."</td>";
+			echo "<td>".$key->invoice_number."</td>";
 			echo "<td>".client_name($key->lead_code)."</td>";
 			echo "<td>". __date_format($key->quotation_close_date,'ddmmyyyy')."</td>";
 			echo "</tr>";
