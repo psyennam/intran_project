@@ -50,7 +50,7 @@
                 <tr>
                   <th><?= __lang('ID'); ?></th>
                   <th><?= __lang('Action'); ?></th>
-                  <th><?= __lang('createdate'); ?></th>
+                  <th><?= __lang('Travel Date'); ?></th>
                   <th><?= __lang('Employee Name'); ?></th>
                   <th><?= __lang('Expense Type'); ?></th>
                   <th><?= __lang('Amount'); ?></th>

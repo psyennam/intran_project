@@ -190,52 +190,75 @@ class Client_model extends CI_model
 		$this->db->trans_start();
 		if($insert=$this->db->insert('discussion_with_customer',$data))
 		{
-			$contact_person = [];
-			for($i=0;$i<sizeof($_POST['cp_name']);$i++)
+			if('concerned_person'=="No")
 			{
-				$contact_person[] =[
-					'lead_code'=>$leadcode,
-					'person_name'=>$_POST['cp_name'][$i],
-					'designation'=>$_POST['cp_designation'][$i],
-					'mobile_no'=>$_POST['cp_mobile'][$i],
-					'email'=>$_POST['cp_email'][$i]
-				];
-			}
-			if($insert=$this->db->insert_batch('mapping_lead',$contact_person))
-			{
-				$data2=[
-					'lead_code'=>$leadcode,
-					'employee_code'=>$this->session->userdata('emp_code'),
-					'customer_available'=>$this->input->post('customercombo'),
-					'concerned_person'=>$this->input->post('concernperson'),
-					'contact_person'=>$this->input->post('Personname'),
-					'location'=>$this->input->post('location'),
-					// 'contact_no'=>
-					'quotation_require'=>$this->input->post('quotationreq'),
-					'visit_type'=>$this->input->post('visitetype'),
-					'additional_remark'=>$this->input->post('remark'),
-					'ip_address'=>$this->input->ip_address()
-				];
-				if($this->db->insert('followup',$data2))
+				$contact_person = [];
+				for($i=0;$i<sizeof($_POST['cp_name']);$i++)
 				{
-					$this->db->trans_complete();
-					return $data2;
+					$contact_person[] =[
+						'lead_code'=>$leadcode,
+						'person_name'=>$_POST['cp_name'][$i],
+						'designation'=>$_POST['cp_designation'][$i],
+						'mobile_no'=>$_POST['cp_mobile'][$i],
+						'email'=>$_POST['cp_email'][$i]
+					];
 				}
-				else{
-					$this->db->trans_rollback();
-					return false;
+				if($insert=$this->db->insert_batch('mapping_lead',$contact_person))
+				{
+					$data2=[
+						'lead_code'=>$leadcode,
+						'employee_code'=>$this->session->userdata('emp_code'),
+						'customer_available'=>$this->input->post('customercombo'),
+						'concerned_person'=>$this->input->post('concernperson'),
+						'contact_person'=>$this->input->post('Personname'),
+						'location'=>$this->input->post('location'),
+						// 'contact_no'=>
+						'quotation_require'=>$this->input->post('quotationreq'),
+						'visit_type'=>$this->input->post('visitetype'),
+						'additional_remark'=>$this->input->post('remark'),
+						'ip_address'=>$this->input->ip_address()
+					];
+					if($this->db->insert('followup',$data2))
+					{
+						$this->db->trans_complete();
+						return $data2;
+					}
+					else{
+						$this->db->trans_rollback();
+						return false;
+					}
 				}
 			}
 			else{
-				$this->db->trans_rollback();
-				return false;		
+				$data2=[
+						'lead_code'=>$leadcode,
+						'employee_code'=>$this->session->userdata('emp_code'),
+						'customer_available'=>$this->input->post('customercombo'),
+						'concerned_person'=>$this->input->post('concernperson'),
+						'contact_person'=>$this->input->post('Personname'),
+						'location'=>$this->input->post('location'),
+						// 'contact_no'=>
+						'quotation_require'=>$this->input->post('quotationreq'),
+						'visit_type'=>$this->input->post('visitetype'),
+						'additional_remark'=>$this->input->post('remark'),
+						'ip_address'=>$this->input->ip_address()
+					];
+					if($this->db->insert('followup',$data2))
+					{
+						$this->db->trans_complete();
+						return $data2;
+					}
+					else{
+						$this->db->trans_rollback();
+						return false;
+					}		
+				}
 			}
-		}
-		else{
+			else{
 			$this->db->trans_rollback();
 			return false;
+			}
 		}
-	}
 
 	
 
