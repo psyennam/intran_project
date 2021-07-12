@@ -1,3 +1,4 @@
+
 <!-- Main content -->
   <section class="content">
     <div class="row">
@@ -99,7 +100,8 @@
                             </select>
                           </div>
                           <div class="col-sm-12 col-md-12 col-lg-4">
-                            <!-- <label><?= __lang('Privileges'); ?></label> -->
+                            <label><?= __lang('Privileges'); ?></label>
+                            <label class="form-control">
                               <label>C</label>
                               <input type="checkbox" name="privilege[]" value="C">
                               <label>R</label>
@@ -108,13 +110,15 @@
                               <input type="checkbox" name="privilege[]" value="U">
                               <label>D</label>
                               <input type="checkbox" name="privilege[]" value="D">
-                          </div>  							            
-                        </div>
+                              </label>
+                          </div>
+                        </div>  							            
+                          <div id="alert-msg"></div>
             				  </div>
             				  <div class="modal-footer">
             					  <div class="row">
 						              <div class="col-md-12 text-center" style="margin-top: 10px;">
-						                <button type="submit" class="btn btn-primary"><?= __lang('Submit'); ?></button>
+						                <button type="button" class="btn btn-primary" name="submit" id="submit"><?= __lang('Submit'); ?></button>
 						              </div>
 						            </div>
             				  </div>
@@ -146,4 +150,34 @@
     })
   })
   
+  $('#submit').click(function() {
+    var form_data = {
+        
+        employeeName: $('#employeeName').val(),
+        employeeDob: $('#employeeDob').val(),
+        employeeEmail: $('#employeeEmail').val(),
+        employeeContact: $('#employeeContact').val(),
+        employeeAddress: $('#employeeAddress').val(),
+        departmentcombo: $('#departmentcombo').val(),
+        designationcombo: $('#designationcombo').val(),
+        employeeName: $('#employeeName').val(),
+        employeeName: $('#employeeName').val(),
+    };
+    $.ajax({
+        url: "<?php echo base_url('Admin/employeeinsert'); ?>",
+        type: 'POST',
+        data: form_data,
+        success: function(msg) {
+            if (msg == "Yes")
+             window.location.href="<?php echo base_url('Admin/employee'); ?>";
+            else if (msg == 'NO')
+                alert("Data is not inserted into database");
+            else
+               $('#alert-msg').html('<div style="color:red;">' + msg + '</div>');
+        }
+    });
+    return false;
+});
+
+
 </script>

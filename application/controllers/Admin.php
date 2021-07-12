@@ -276,43 +276,63 @@ class Admin extends CI_controller
 	}
 	function employeeinsert()
 	{
-		if($_POST)
+		if(in_array('C',$this->session->userdata('privileges')))
 		{
-			$insert=$this->Admin_model->employeeinsert();
-			if($insert>0)
+			//set validation rules
+			$this->form_validation->set_rules('RoleName','Role Name','required');
+			$this->form_validation->set_rules('employeeName','employeeName Name','required');
+			$this->form_validation->set_rules('employeeDob','Date of Birth','required');
+			$this->form_validation->set_rules('employeeEmail','Email','required');
+			$this->form_validation->set_rules('employeeContact','Contact','required');
+			$this->form_validation->set_rules('employeeAddress','Address','required');
+			$this->form_validation->set_rules('departmentcombo','Department','required');
+			$this->form_validation->set_rules('designationcombo','Designation','required');
+
+			if($this->form_validation->run()==true)
 			{
-				$to =$insert['email'];  // User email pass here
-		        $subject = 'username and password';
-		        $from = 'yennam20@gmail.com';
-		        $emailContent=$insert['username'].' '."your username and password";            
+				$insert=$this->Admin_model->employeeinsert();
 
-			    $config['protocol']    = 'smtp';
-			    $config['smtp_host']    = 'ssl://smtp.gmail.com';
-			    $config['smtp_port']    = '465';
-			    $config['smtp_timeout'] = '60';
+				if($insert>0)
+				{
+					$to =$insert['email'];  // User email pass here
+			        $subject = 'username and password';
+			        $from = 'yennam20@gmail.com';
+			        $emailContent=$insert['username'].' '."your username and password";            
 
-			    $config['smtp_user']    = 'yennam20@gmail.com';    //Important
-			    $config['smtp_pass']    = '@vishalyennam11';  //Important
+				    $config['protocol']    = 'smtp';
+				    $config['smtp_host']    = 'ssl://smtp.gmail.com';
+				    $config['smtp_port']    = '465';
+				    $config['smtp_timeout'] = '60';
 
-			    $config['charset']    = 'utf-8';
-			    $config['newline']    = "\r\n";
-			    $config['mailtype'] = 'html'; // or html
-			    $config['validation'] = TRUE; // bool whether to validate email or not 
+				    $config['smtp_user']    = 'yennam20@gmail.com';    //Important
+				    $config['smtp_pass']    = '@vishalyennam11';  //Important
 
-			    $this->email->initialize($config);
-			    $this->email->set_mailtype("html");
-			    $this->email->from($from);
-			    $this->email->to($to);
-			    $this->email->subject($subject);
-			    $this->email->message($emailContent);
-			    $this->email->send();  
-      
-				redirect('Admin/employee');		
+				    $config['charset']    = 'utf-8';
+				    $config['newline']    = "\r\n";
+				    $config['mailtype'] = 'html'; // or html
+				    $config['validation'] = TRUE; // bool whether to validate email or not 
+
+				    $this->email->initialize($config);
+				    $this->email->set_mailtype("html");
+				    $this->email->from($from);
+				    $this->email->to($to);
+				    $this->email->subject($subject);
+				    $this->email->message($emailContent);
+				    $this->email->send();  
+	      
+					redirect('Admin/employee');
+				}
+				else
+				{
+					echo "Data is not inserted";
+				}
+			}else{
+				echo validation_errors();
 			}
-			else
-			{
-				echo "Data is not inserted";
-			}
+			// $this->form_validation->set_rules('employeeName','employeeName Name','required');
+		}else
+		{
+			redirect('/User/logout');
 		}
 	}
 
